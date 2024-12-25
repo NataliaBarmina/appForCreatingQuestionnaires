@@ -2,7 +2,7 @@
   "name": "app",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://gitname.github.io/appForCreatingQuestionnaires",
+  "homepage": " https://nataliabarmina.github.io/appForCreatingQuestionnaires/",
   "scripts": {
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
