@@ -5,9 +5,7 @@
   "homepage": " https://nataliabarmina.github.io/appForCreatingQuestionnaires/",
   "scripts": {
     "build": "webpack --env mode=production",
-    "start": "webpack serve --env mode=development",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "webpack serve --env mode=development"
   },
   "keywords": [],
   "author": "",
@@ -36,7 +34,6 @@
     "eslint": "^9.16.0",
     "eslint-plugin-react": "^7.37.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "gh-pages": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "postcss": "^8.4.49",
     "postcss-loader": "^8.1.1",
