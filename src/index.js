@@ -3,18 +3,36 @@ import { createRoot } from "react-dom/client";
 import App from "./components/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Creating from "./components/creating/creating";
-import Questionnaire from "./components/questionnaire/questionnaire";
-import DefaultPage from "./components/defaultPage";
-import TailwindSample from "./components/sample/tailwindSample";
-import FormForCreatingQuestionsByAI from "./components/creating/formForCreatingQuestionsByAI";
-import QuestionsCreatedByAI from "./components/creating/questionsCreatedByAI";
-import FormForCreatingQuestionsYourself from "./components/creating/formForCreatingQuestionsYourself";
-import CourseSelection from "./components/editing/courseSelection";
-import ThemeSelection from "./components/editing/themeSelection";
-import QuestionList from "./components/editing/questionList";
-import ResultsOfTheQuestionnaire from "./components/questionnaire/resultsOfTheQuestionnaire";
+import { lazy, Suspense } from "react";
+// import spinner from "./common/spinner.gif";
 
+const Creating = lazy(() => import("./components/creating/creating"));
+const Questionnaire = lazy(
+  () => import("./components/questionnaire/questionnaire"),
+);
+const DefaultPage = lazy(() => import("./components/defaultPage"));
+const FormForCreatingQuestionsByAI = lazy(
+  () => import("./components/creating/formForCreatingQuestionsByAI"),
+);
+const QuestionsCreatedByAI = lazy(
+  () => import("./components/creating/questionsCreatedByAI"),
+);
+const FormForCreatingQuestionsYourself = lazy(
+  () => import("./components/creating/formForCreatingQuestionsYourself"),
+);
+const CourseSelection = lazy(
+  () => import("./components/editing/courseSelection"),
+);
+const ThemeSelection = lazy(
+  () => import("./components/editing/themeSelection"),
+);
+const QuestionList = lazy(() => import("./components/editing/questionList"));
+const ResultsOfTheQuestionnaire = lazy(
+  () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
+);
+{
+  /* <img src={spinner} alt="#" />; */
+}
 const root = createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -24,49 +42,87 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/creating",
-        element: <Creating />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <Creating />
+          </Suspense>
+        ),
       },
       {
         path: "/courseSelection",
-        element: <CourseSelection />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <CourseSelection />
+          </Suspense>
+        ),
       },
       {
         path: "/questionList",
-        element: <QuestionList />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <QuestionList />
+          </Suspense>
+        ),
       },
       {
         path: "/themeSelection",
-        element: <ThemeSelection />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <ThemeSelection />
+          </Suspense>
+        ),
       },
       {
         path: "/questionnaire",
-        element: <Questionnaire />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <Questionnaire />
+          </Suspense>
+        ),
       },
       {
         path: "/resultsOfTheQuestionnaire",
-        element: <ResultsOfTheQuestionnaire />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <ResultsOfTheQuestionnaire />
+          </Suspense>
+        ),
       },
 
       {
         path: "/formForCreatingQuestionsByAI",
-        element: <FormForCreatingQuestionsByAI />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <FormForCreatingQuestionsByAI />
+          </Suspense>
+        ),
       },
       {
         path: "/questionsCreatedByAI",
-        element: <QuestionsCreatedByAI />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <QuestionsCreatedByAI />
+          </Suspense>
+        ),
       },
       {
         path: "/formForCreatingQuestionsYourself",
-        element: <FormForCreatingQuestionsYourself />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <FormForCreatingQuestionsYourself />
+          </Suspense>
+        ),
       },
       {
         path: "/",
-        element: <DefaultPage />,
+        element: (
+          <Suspense fallback={<div>PRELOADER</div>}>
+            <DefaultPage />
+          </Suspense>
+        ),
       },
     ],
   },
 ]);
 
 root.render(<RouterProvider router={router} />);
-
-// root.render(<App />)
