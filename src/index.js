@@ -1,24 +1,26 @@
+// "homepage": " https://nataliabarmina.github.io/appForCreatingQuestionnaires/",
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./components/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import { lazy, Suspense } from "react";
-// import spinner from "./common/spinner.gif";
 
+import DefaultPage from "./components/defaultPage";
+
+import { lazy, Suspense } from "react";
 const Creating = lazy(() => import("./components/creating/creating"));
 const Questionnaire = lazy(
   () => import("./components/questionnaire/questionnaire"),
-);
-const DefaultPage = lazy(() => import("./components/defaultPage"));
-const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
 const QuestionsCreatedByAI = lazy(
   () => import("./components/creating/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
   () => import("./components/creating/formForCreatingQuestionsYourself"),
+);
+const FormForCreatingQuestionsByAI = lazy(
+  () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
 const CourseSelection = lazy(
   () => import("./components/editing/courseSelection"),
@@ -115,11 +117,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
-            <DefaultPage />
-          </Suspense>
-        ),
+        element: <DefaultPage />,
       },
     ],
   },
