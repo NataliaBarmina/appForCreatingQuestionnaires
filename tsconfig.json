@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "noImplicitAny": true,
-        "module": "esnext",
-        "target": "es5",
-        "jsx": "react-jsx", // jsx- чтобы не импортировать реакт в компоненты
-        "allowJs": true,
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-    }
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "esnext", //? es6
+    "target": "es5",
+    "jsx": "react-jsx", // jsx- чтобы не импортировать реакт в компоненты
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
 }
