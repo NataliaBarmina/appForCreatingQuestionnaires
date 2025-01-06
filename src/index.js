@@ -1,3 +1,7 @@
+// "homepage": " https://nataliabarmina.github.io/appForCreatingQuestionnaires",
+//  "predeploy": "npm run build ",
+//     "deploy": "gh-pages -d build "
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./components/App";
