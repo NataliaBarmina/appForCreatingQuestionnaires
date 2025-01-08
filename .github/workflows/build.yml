@@ -23,7 +23,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: build_outputs_folder/
-          # name: github-pages
+          name: github-pages
           # path: build
       # - name: Deploy to Github Pages
       #   uses: actions/deploy-pages@v4
