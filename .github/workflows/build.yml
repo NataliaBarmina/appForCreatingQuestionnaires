@@ -23,13 +23,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
-          # path: build_outputs_folder/
-          # name: "github-pages"
-      # - name: Deploy to Github Pages
-      #   uses: actions/deploy-pages@v4
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN}}
-      #     artifact_name: "github-pages"
+
   deploy:
     needs: build
 
@@ -42,3 +36,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN}}
