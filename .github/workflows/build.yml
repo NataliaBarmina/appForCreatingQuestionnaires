@@ -1,9 +1,14 @@
 name: Build React App
 
 on: push
-   
+
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+
 jobs:
-   build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,6 +18,13 @@ jobs:
         run: npm ci
       - name: Build application
         run: npm run build
-      - name: Deploy
-        run: echo Deploying...
-
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: "github-pages"
+          path: build
+      - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN}}
+          artifact_name: "github-pages"
