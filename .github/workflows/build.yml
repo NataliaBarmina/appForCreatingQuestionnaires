@@ -18,19 +18,14 @@ jobs:
         run: npm ci
       - name: Build application
         run: npm run build
-
-  uploadArtifacts:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get Artifact
+      - name: Upload Artifacts
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
 
   deploy:
-    needs: uploadArtifacts
+    needs: build
 
     environment:
       name: github-pages
