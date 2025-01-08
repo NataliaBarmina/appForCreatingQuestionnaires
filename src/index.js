@@ -1,5 +1,3 @@
-// "homepage": "https://nataliabarmina.github.io/appForCreatingQuestionnaires",
-
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./components/App";
