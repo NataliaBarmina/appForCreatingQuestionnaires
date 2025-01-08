@@ -4,6 +4,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./components/App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import "./index.css";
 
 import DefaultPage from "./components/defaultPage";
@@ -37,7 +38,7 @@ const ResultsOfTheQuestionnaire = lazy(
 }
 const root = createRoot(document.getElementById("root"));
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
