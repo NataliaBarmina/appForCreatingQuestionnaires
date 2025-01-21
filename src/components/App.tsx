@@ -16,7 +16,7 @@ const App = () => {
       <div className="md:h-[12vh] md:w-[100%]">
         <div
           className={classNames(
-            "mb-2 h-[12vh] w-[100%]",
+            "z-50 mb-2 h-[12vh] w-[100%]",
             "bg-green-800 shadow-lg shadow-pink-600",
             "md:fixed md:left-0 md:top-0",
             "lg:left-[7.5vw] lg:w-[85%]",
