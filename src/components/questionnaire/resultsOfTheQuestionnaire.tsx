@@ -3,6 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Textarea, Input } from "../../common/createFields";
 import { TFields } from "../../common/createFields";
+import classNames from "classnames";
 
 const schema = yup.object({
   questionForAnalysis: yup.string(),
@@ -51,16 +52,28 @@ const ResultsOfTheQuestionnaire = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="h1">
+      <div className="p-4 text-[150%] font-bold">
         Поздравляем! <br /> Вы ответили на вопросы анкеты.
       </div>
-      <div className="h2">Процент правильных ответов</div>
-      <div className="container w-full bg-gray-200">
-        <div className="h3 text-black">Анализ неправильных ответов:</div>
+      <div className="mb-4 text-xl">Процент правильных ответов</div>
+      <div
+        className={classNames(
+          "mx-auto mb-4 w-full bg-gray-200 px-8",
+          "rounded-2xl border-2 border-solid border-gray-600",
+        )}
+      >
+        <div className="mb-2 p-4 text-lg font-bold text-black">
+          Анализ неправильных ответов:
+        </div>
 
         {questionSet.map((item, index) => (
-          <div className="container w-full bg-green-800">
-            <div className="h3">{`вопрос №${index + 1}`}</div>
+          <div
+            className={classNames(
+              "mx-auto mb-4 w-full bg-green-800 px-8",
+              "rounded-2xl border-2 border-solid border-gray-600",
+            )}
+          >
+            <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
             <div className="mb-3">
               <Textarea
                 placeholder={`${Object.keys(item)}`}

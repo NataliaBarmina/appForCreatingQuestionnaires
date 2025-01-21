@@ -1,5 +1,5 @@
+import classNames from "classnames";
 import { UseFormRegister } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
 
 export type TFields = {
   topicName?: string; //FormForCreatingQuestionsByAI
@@ -50,7 +50,14 @@ export const Textarea = ({
   return (
     <div>
       <textarea
-        className={twMerge("field p-2 text-[120%]", styles)}
+        className={classNames(
+          "w-[100%] bg-blue-100",
+          "border-4 border-solid border-blue-200",
+          "placeholder:font-bold placeholder:text-purple-900",
+          "mb-2 p-1",
+          "p-2 text-[120%]",
+          styles,
+        )}
         placeholder={placeholder}
         defaultValue={defaultValue}
         disabled={disabled}
@@ -72,7 +79,13 @@ export const Input = ({
   return (
     <div>
       <input
-        className={twMerge("field mb-2 p-1", styles)}
+        className={classNames(
+          "w-[100%] bg-blue-100",
+          "border-4 border-solid border-blue-200",
+          "placeholder:font-bold placeholder:text-purple-900",
+          "mb-2 p-1",
+          styles,
+        )}
         defaultValue={defaultValue}
         type={type}
         disabled={disabled}

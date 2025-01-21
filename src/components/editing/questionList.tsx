@@ -3,6 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Textarea, Input } from "../../common/createFields";
 import { TFields } from "../../common/createFields";
+import classNames from "classnames";
 
 const schema = yup.object({
   questionForEditing: yup.string(),
@@ -56,13 +57,20 @@ const QuestionList = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="h1">Измените необходимый вопрос</div>
+      <div className="p-4 text-[150%] font-bold">
+        Измените необходимый вопрос
+      </div>
 
-      <div className="h2">{`Тема: ${theme}`}</div>
+      <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
 
       {questionSet.map((item, index) => (
-        <div className="container w-full bg-green-800">
-          <div className="h3">{`вопрос №${index + 1}`}</div>
+        <div
+          className={classNames(
+            "mx-auto mb-4 w-full bg-green-800 px-8",
+            "rounded-2xl border-2 border-solid border-gray-600",
+          )}
+        >
+          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mb-3">
             <Textarea
               placeholder={`${Object.keys(item)}`}
@@ -74,7 +82,7 @@ const QuestionList = () => {
             />
           </div>
           <div className="mx-auto mb-6 ml-9 flex justify-center">
-            <div className="mr-[-3px] w-[40%]">
+            <div className="mr-[-3px] w-[42%]">
               <Textarea
                 placeholder=""
                 register={register}
@@ -100,7 +108,7 @@ const QuestionList = () => {
                 styles=""
               />
             </div>
-            <div className="w-[60%]">
+            <div className="w-[58%]">
               <Textarea
                 placeholder={`${Object.values(item)[0][1]}`}
                 register={register}
@@ -132,14 +140,30 @@ const QuestionList = () => {
           <div className="mx-auto mb-12 flex w-[80%] justify-between px-[4vw]">
             <button
               onClick={() => alert("сохраняем данные в стэйт")}
-              className="btn w-[40%] p-2"
+              className={classNames(
+                //общие стили для всех кнопок:
+                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+                "rounded-lg border-2 border-solid border-gray-600",
+                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+                "hover:border hover:border-solid hover:border-pink-900",
+                // меняющиеся стили:
+                "w-[40%] p-2",
+              )}
             >
               сохранить
             </button>
 
             <button
               onClick={() => alert("удаляем данные из стэйта")}
-              className="btn w-[40%] p-2"
+              className={classNames(
+                //общие стили для всех кнопок:
+                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+                "rounded-lg border-2 border-solid border-gray-600",
+                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+                "hover:border hover:border-solid hover:border-pink-900",
+                // меняющиеся стили:
+                "w-[40%] p-2",
+              )}
             >
               удалить
             </button>

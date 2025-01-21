@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Input, Textarea } from "../../common/createFields";
 import { TFields } from "../../common/createFields";
 import { RoundLabel } from "../../common/roundLabel";
+import classNames from "classnames";
 
 const schema = yup.object({
   selfWrittenTopicName: yup.string(),
@@ -32,9 +33,16 @@ const FormForCreatingQuestionsYourself = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="h1">Форма для самостоятельного создания вопросов</div>
+      <div className="p-8 text-[150%] font-bold">
+        Форма для самостоятельного создания вопросов
+      </div>
 
-      <div className="container bg-green-800">
+      <div
+        className={classNames(
+          "mx-auto mb-4 w-[90%] bg-green-800 px-8",
+          "rounded-2xl border-2 border-solid border-gray-600",
+        )}
+      >
         <div className="mb-10 mt-12">
           <Textarea
             placeholder="Введите название темы"
@@ -72,9 +80,7 @@ const FormForCreatingQuestionsYourself = () => {
                 defaultValue=""
                 disabled={false}
                 type="text"
-                styles={
-                  errors.selfWrittenAnswer1 ? "placeholder:text-pink-900" : ""
-                }
+                styles={errors.selfWrittenAnswer1 ? "bg-pink-600" : ""}
               />
               <Input
                 placeholder="Введите неправильный ответ"
@@ -83,9 +89,7 @@ const FormForCreatingQuestionsYourself = () => {
                 defaultValue=""
                 disabled={false}
                 type="text"
-                styles={
-                  errors.selfWrittenAnswer2 ? "placeholder:text-pink-900" : ""
-                }
+                styles={errors.selfWrittenAnswer2 ? "bg-pink-600" : ""}
               />
 
               <Input
@@ -95,9 +99,7 @@ const FormForCreatingQuestionsYourself = () => {
                 defaultValue=""
                 disabled={false}
                 type="text"
-                styles={
-                  errors.selfWrittenAnswer3 ? "placeholder:text-pink-900" : ""
-                }
+                styles={errors.selfWrittenAnswer3 ? "bg-pink-600" : ""}
               />
             </div>
           </div>
@@ -113,7 +115,18 @@ const FormForCreatingQuestionsYourself = () => {
           )}
         </div>
         <div className="mb-8 mt-8">
-          <button className="btn w-[25vw] p-2 text-[3vw] md:w-[22vh] md:text-[2.5vh]">
+          <button
+            className={classNames(
+              //общие стили для всех кнопок:
+              "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+              "rounded-lg border-2 border-solid border-gray-600",
+              "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+              "hover:border hover:border-solid hover:border-pink-900",
+              // меняющиеся стили:
+              "w-[25vw] p-2 text-[3vw]",
+              "md:w-[22vh] md:text-[2.5vh]",
+            )}
+          >
             Сохранить
           </button>
           {/* ввести обработку онклик через конфирм? - убедитесь, что вы правильно

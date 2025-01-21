@@ -4,6 +4,7 @@ import { TFields } from "../../common/createFields";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RoundLabel } from "../../common/roundLabel";
+import classNames from "classnames";
 
 const schema = yup.object({
   questionExample: yup.string(),
@@ -57,13 +58,20 @@ const QuestionsCreatedByAI = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="h1">Вопросы созданные нейросетью</div>
+      <div className="p-4 text-[150%] font-bold">
+        Вопросы созданные нейросетью
+      </div>
 
-      <div className="h2">{`Тема: ${theme}`}</div>
+      <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
 
       {questionSet.map((item, index) => (
-        <div className="container bg-green-800">
-          <div className="h3">{`вопрос №${index + 1}`}</div>
+        <div
+          className={classNames(
+            "mx-auto mb-4 w-[90%] bg-green-800 px-8",
+            "rounded-2xl border-2 border-solid border-gray-600",
+          )}
+        >
+          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
 
           <div className="mb-8">
             <Textarea
@@ -114,19 +122,55 @@ const QuestionsCreatedByAI = () => {
           <div className="mb-12 flex w-full justify-between">
             <button
               onClick={() => alert("сохраняем данные в стэйт")}
-              className="btn w-[20vw] p-2 md:w-[17vh] md:text-[2vh] lg:w-[20vh] lg:text-[2.5vh] 2xl:w-[23vh] 2xl:text-[2.6vh]"
+              className={classNames(
+                //общие стили для всех кнопок:
+                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+                "rounded-lg border-2 border-solid border-gray-600",
+                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+                "hover:border hover:border-solid hover:border-pink-900",
+                // меняющиеся стили:
+                "w-[20vw] p-2",
+                "xs:text-[2vw]",
+                "md:w-[17vh] md:text-[2vh]",
+                "lg:w-[20vh] lg:text-[2.5vh]",
+                "2xl:w-[23vh] 2xl:text-[2.6vh]",
+              )}
             >
               сохранить
             </button>
             <button
               onClick={() => alert("disabled=false")}
-              className="btn w-[20vw] p-2 md:w-[18vh] md:text-[2vh] lg:w-[21vh] lg:text-[2.5vh] 2xl:w-[23vh] 2xl:text-[2.6vh]"
+              className={classNames(
+                //общие стили для всех кнопок:
+                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+                "rounded-lg border-2 border-solid border-gray-600",
+                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+                "hover:border hover:border-solid hover:border-pink-900",
+                // меняющиеся стили:
+                "w-[20vw] p-2",
+                "xs:text-[2vw]",
+                "md:w-[17vh] md:text-[2vh]",
+                "lg:w-[20vh] lg:text-[2.5vh]",
+                "2xl:w-[23vh] 2xl:text-[2.6vh]",
+              )}
             >
               редактировать
             </button>
             <button
               onClick={() => alert("удаляем данные из стэйта")}
-              className="btn w-[20vw] p-2 md:w-[17vh] md:text-[2vh] lg:w-[20vh] lg:text-[2.5vh] 2xl:w-[23vh] 2xl:text-[2.6vh]"
+              className={classNames(
+                //общие стили для всех кнопок:
+                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+                "rounded-lg border-2 border-solid border-gray-600",
+                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+                "hover:border hover:border-solid hover:border-pink-900",
+                // меняющиеся стили:
+                "w-[20vw] p-2",
+                "xs:text-[2vw]",
+                "md:w-[17vh] md:text-[2vh]",
+                "lg:w-[20vh] lg:text-[2.5vh]",
+                "2xl:w-[23vh] 2xl:text-[2.6vh]",
+              )}
             >
               удалить
             </button>

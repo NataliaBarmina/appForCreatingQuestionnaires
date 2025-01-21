@@ -1,11 +1,20 @@
+import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 
 const CourseSelection = () => {
   return (
     <div>
-      <div className="h1 2xl:py-[4vh]">Выберите дисциплину</div>
+      <div className="p-4 text-[150%] font-bold 2xl:py-[4vh]">
+        Выберите дисциплину
+      </div>
 
-      <div className="container bg-green-800 pt-8 2xl:min-h-[65vh] 2xl:pt-[7vh]">
+      <div
+        className={classNames(
+          "mx-auto mb-4 w-[90%] bg-green-800 px-8",
+          "rounded-2xl border-2 border-solid border-gray-600",
+          "2xl:min-h-[65vh] 2xl:pt-[7vh]",
+        )}
+      >
         <div className="flex justify-around">
           <div className="w-full">
             <Courses course="JavaScript" />
@@ -35,7 +44,16 @@ const Courses = ({ course }: ComponentProps) => {
   const navigate = useNavigate();
   return (
     <div
-      className="btn mb-8 w-[75%] py-4 text-xl 2xl:mb-[7vh]"
+      className={classNames(
+        //общие стили для всех кнопок:
+        "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+        "rounded-lg border-2 border-solid border-gray-600",
+        "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+        "hover:border hover:border-solid hover:border-pink-900",
+        // меняющиеся стили:
+        "mb-8 w-[75%] py-4 text-xl",
+        "2xl:mb-[7vh]",
+      )}
       onClick={() => navigate("/themeSelection")}
     >
       {course}

@@ -3,6 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TFields, Textarea } from "../../common/createFields";
 import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),
@@ -52,11 +53,16 @@ const Questionnaire = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="h1">Ответьте на вопросы:</div>
+      <div className="p-4 text-[150%] font-bold">Ответьте на вопросы:</div>
 
       {questionSet.map((item, index) => (
-        <div className="container w-full bg-green-800">
-          <div className="h3">{`вопрос №${index + 1}`}</div>
+        <div
+          className={classNames(
+            "mx-auto mb-4 w-full bg-green-800 px-8",
+            "rounded-2xl border-2 border-solid border-gray-600",
+          )}
+        >
+          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mb-3">
             <Textarea
               placeholder=""
@@ -85,7 +91,16 @@ const Questionnaire = () => {
       ))}
       <button
         onClick={() => navigate("/resultsOfTheQuestionnaire")}
-        className="btn w-[20vw] p-2 md:w-[20vh]"
+        className={classNames(
+          //общие стили для всех кнопок:
+          "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+          "rounded-lg border-2 border-solid border-gray-600",
+          "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+          "hover:border hover:border-solid hover:border-pink-900",
+          // меняющиеся стили:
+          "w-[20vw] p-2",
+          "md:w-[20vh]",
+        )}
       >
         сохранить
       </button>
@@ -104,7 +119,16 @@ const RadioInput = ({ value, name }: MyProps) => {
     <div>
       <label className="mb-4 flex">
         <input type="radio" name={name} className="mt-2 h-8 w-8" />
-        <div className="field ml-2 rounded-lg p-2 text-left">{value}</div>
+        <div
+          className={classNames(
+            "w-[100%] bg-blue-100",
+            "border-4 border-solid border-blue-200",
+            "placeholder:font-bold placeholder:text-purple-900",
+            "ml-2 rounded-lg p-2 text-left",
+          )}
+        >
+          {value}
+        </div>
       </label>
     </div>
   );
