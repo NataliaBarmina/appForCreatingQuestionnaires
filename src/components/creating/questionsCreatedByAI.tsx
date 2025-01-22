@@ -77,7 +77,7 @@ const QuestionsCreatedByAI = () => {
           )}
         >
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-          <div className={classNames("mx-auto mb-8 w-[95%]", "sm:w-[90%]")}>
+          <div className={classNames("mx-auto mb-8 w-[90%]")}>
             <Textarea
               placeholder=""
               register={register}
