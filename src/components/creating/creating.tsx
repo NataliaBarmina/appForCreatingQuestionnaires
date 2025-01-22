@@ -29,9 +29,8 @@ const Creating = () => {
               "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
               "hover:border hover:border-solid hover:border-pink-900",
               // меняющиеся стили:
-              "block w-[45vw] py-2 text-[4.5vw]",
+              "block w-[45vw] py-2 text-[4.4vw]",
               "s:w-[35vw] s:py-4 s:text-[3.5vw]",
-              // "md:portrait:w-[30vh] md:portrait:text-[3vh]",
               "md:landscape:w-[30vw] md:landscape:text-[3vw]",
               "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
               "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",
@@ -49,9 +48,8 @@ const Creating = () => {
               "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
               "hover:border hover:border-solid hover:border-pink-900",
               // меняющиеся стили:
-              "block w-[45vw] py-2 text-[4.5vw]",
+              "block w-[45vw] py-2 text-[4.4vw]",
               "s:w-[35vw] s:py-4 s:text-[3.5vw]",
-              // "md:portrait:w-[30vh] md:portrait:text-[3vh]",
               "md:landscape:w-[30vw] md:landscape:text-[3vw]",
               "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
               "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",

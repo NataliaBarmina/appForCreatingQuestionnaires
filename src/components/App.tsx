@@ -47,8 +47,8 @@ const App = () => {
       </div>
       <div
         className={classNames(
-          "mx-auto w-screen bg-blue-200 p-6 text-center",
-          "md:inline-block md:min-h-[86vh] md:w-[70%] md:pt-10",
+          "mx-auto w-screen bg-blue-200 text-center",
+          "md:inline-block md:min-h-[86vh] md:w-[70%]",
         )}
       >
         <Outlet />
