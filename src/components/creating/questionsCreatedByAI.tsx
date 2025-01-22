@@ -67,13 +67,17 @@ const QuestionsCreatedByAI = () => {
       {questionSet.map((item, index) => (
         <div
           className={classNames(
-            "mx-auto mb-4 w-[90%] bg-green-800 px-8",
-            "rounded-2xl border-2 border-solid border-gray-600",
+            "mx-auto mb-8 w-[100vw] bg-green-800",
+            "border-2 border-solid border-gray-600",
+            "sm:w-[95vw] sm:rounded-2xl",
+            "md:w-[65vw]",
+            "lg:w-[55vw]",
+            "xl:w-[50vw]",
+            "2xl:w-[45vw]",
           )}
         >
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-
-          <div className="mb-8">
+          <div className={classNames("mx-auto mb-8 w-[95%]", "sm:w-[90%]")}>
             <Textarea
               placeholder=""
               register={register}
@@ -82,8 +86,8 @@ const QuestionsCreatedByAI = () => {
               disabled={true}
               styles=""
             />
-            <div className="ml-9 flex">
-              <div className="w-[11%]">
+            <div className="ml-4 flex">
+              <div className="mr-4 w-[10%]">
                 <RoundLabel value="а" />
                 <RoundLabel value="б" />
                 <RoundLabel value="в" />
@@ -119,7 +123,7 @@ const QuestionsCreatedByAI = () => {
               </div>
             </div>
           </div>
-          <div className="mb-12 flex w-full justify-between">
+          <div className="mb-8 flex w-full justify-evenly">
             <button
               onClick={() => alert("сохраняем данные в стэйт")}
               className={classNames(
@@ -129,11 +133,12 @@ const QuestionsCreatedByAI = () => {
                 "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
                 "hover:border hover:border-solid hover:border-pink-900",
                 // меняющиеся стили:
-                "w-[20vw] p-2",
-                "xs:text-[2vw]",
-                "md:w-[17vh] md:text-[2vh]",
-                "lg:w-[20vh] lg:text-[2.5vh]",
-                "2xl:w-[23vh] 2xl:text-[2.6vh]",
+                "xs:w-[29vw] xs:py-1 xs:text-[3.5vw]",
+                "s:w-[20vw] s:py-2 s:text-[2.5vw]",
+                "md:w-[15vw] md:text-[1.8vw]",
+                "lg:w-[13vw] lg:text-[1.5vw]",
+                "xl:w-[10vw] xl:text-[1.2vw]",
+                "2xl:w-[8vw] 2xl:text-[1vw]",
               )}
             >
               сохранить
@@ -147,11 +152,12 @@ const QuestionsCreatedByAI = () => {
                 "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
                 "hover:border hover:border-solid hover:border-pink-900",
                 // меняющиеся стили:
-                "w-[20vw] p-2",
-                "xs:text-[2vw]",
-                "md:w-[17vh] md:text-[2vh]",
-                "lg:w-[20vh] lg:text-[2.5vh]",
-                "2xl:w-[23vh] 2xl:text-[2.6vh]",
+                "xs:w-[30vw] xs:py-1 xs:text-[3.5vw]",
+                "s:w-[22vw] s:text-[2.5vw]",
+                "md:w-[15vw] md:text-[1.8vw]",
+                "lg:w-[13vw] lg:text-[1.5vw]",
+                "xl:w-[10vw] xl:text-[1.2vw]",
+                "2xl:w-[9vw] 2xl:text-[1vw]",
               )}
             >
               редактировать
@@ -165,11 +171,12 @@ const QuestionsCreatedByAI = () => {
                 "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
                 "hover:border hover:border-solid hover:border-pink-900",
                 // меняющиеся стили:
-                "w-[20vw] p-2",
-                "xs:text-[2vw]",
-                "md:w-[17vh] md:text-[2vh]",
-                "lg:w-[20vh] lg:text-[2.5vh]",
-                "2xl:w-[23vh] 2xl:text-[2.6vh]",
+                "xs:w-[29vw] xs:py-1 xs:text-[3.5vw]",
+                "s:w-[20vw] s:text-[2.5vw]",
+                "md:w-[15vw] md:text-[1.8vw]",
+                "lg:w-[13vw] lg:text-[1.5vw]",
+                "xl:w-[10vw] xl:text-[1.2vw]",
+                "2xl:w-[8vw] 2xl:text-[1vw]",
               )}
             >
               удалить
