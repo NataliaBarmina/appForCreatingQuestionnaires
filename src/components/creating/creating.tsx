@@ -7,49 +7,60 @@ const Creating = () => {
 
   return (
     <div>
-      <div className="p-4 text-[150%] font-bold">Создание вопросов</div>
+      <div className="p-8 text-[150%] font-bold">Создание вопросов</div>
       <div
         className={classNames(
           "mx-auto mb-4 rounded-full bg-green-800",
-          "h-[80vw] w-[80vw] py-[18vw]",
-          "s:h-[65vw] s:w-[65vw] s:py-[16vw]",
-          "md:h-[65vh] md:w-[65vh] md:py-[15vh]",
+          "h-[80vw] w-[80vw]",
+          "s:h-[65vw] s:w-[65vw]",
+          "md:landscape:h-[60vw] md:landscape:w-[60vw]",
+          "lg:landscape:h-[48vw] lg:landscape:w-[48vw]",
+          "xl:landscape:h-[40vw] xl:landscape:w-[40vw]",
+          "xl:landscape:h-[35vw] xl:landscape:w-[35vw]",
         )}
       >
-        <button
-          onClick={() => navigate("/formForCreatingQuestionsByAI")}
-          className={classNames(
-            //общие стили для всех кнопок:
-            "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-            "rounded-lg border-2 border-solid border-gray-600",
-            "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-            "hover:border hover:border-solid hover:border-pink-900",
-            // меняющиеся стили:
-            "mb-[15vw] py-4",
-            "block w-[45vw] py-2 text-[5vw]",
-            "s:w-[35vw] s:text-[3.5vw]",
-            "md:mb-[13vh] md:w-[30vh] md:text-[3vh]",
-          )}
-        >
-          нейросетью
-        </button>
-        <button
-          onClick={() => navigate("/formForCreatingQuestionsYourself")}
-          className={classNames(
-            //общие стили для всех кнопок:
-            "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-            "rounded-lg border-2 border-solid border-gray-600",
-            "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-            "hover:border hover:border-solid hover:border-pink-900",
-            // меняющиеся стили:
-            "py-4",
-            "block w-[45vw] py-2 text-[5vw]",
-            "s:w-[35vw] s:text-[3.5vw]",
-            "md:mb-[13vh] md:w-[30vh] md:text-[3vh]",
-          )}
-        >
-          самостоятельно
-        </button>
+        <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
+          <button
+            onClick={() => navigate("/formForCreatingQuestionsByAI")}
+            className={classNames(
+              //общие стили для всех кнопок:
+              "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+              "rounded-lg border-2 border-solid border-gray-600",
+              "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+              "hover:border hover:border-solid hover:border-pink-900",
+              // меняющиеся стили:
+              "block w-[45vw] py-2 text-[4.5vw]",
+              "s:w-[35vw] s:py-4 s:text-[3.5vw]",
+              // "md:portrait:w-[30vh] md:portrait:text-[3vh]",
+              "md:landscape:w-[30vw] md:landscape:text-[3vw]",
+              "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
+              "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",
+              "2xl:landscape:w-[16vw] 2xl:landscape:text-[1.7vw]",
+            )}
+          >
+            нейросетью
+          </button>
+          <button
+            onClick={() => navigate("/formForCreatingQuestionsYourself")}
+            className={classNames(
+              //общие стили для всех кнопок:
+              "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+              "rounded-lg border-2 border-solid border-gray-600",
+              "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+              "hover:border hover:border-solid hover:border-pink-900",
+              // меняющиеся стили:
+              "block w-[45vw] py-2 text-[4.5vw]",
+              "s:w-[35vw] s:py-4 s:text-[3.5vw]",
+              // "md:portrait:w-[30vh] md:portrait:text-[3vh]",
+              "md:landscape:w-[30vw] md:landscape:text-[3vw]",
+              "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
+              "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",
+              "2xl:landscape:w-[16vw] 2xl:landscape:text-[1.7vw]",
+            )}
+          >
+            самостоятельно
+          </button>
+        </div>
       </div>
       {/* <TailwindSample /> */}
     </div>
