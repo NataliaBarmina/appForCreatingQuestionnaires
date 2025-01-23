@@ -4,18 +4,23 @@ import { useNavigate } from "react-router-dom";
 const CourseSelection = () => {
   return (
     <div>
-      <div className="p-4 text-[150%] font-bold 2xl:py-[4vh]">
+      <div
+        className={classNames("py-6 text-[150%] font-bold", "pb-10 md:pt-12")}
+      >
         Выберите дисциплину
       </div>
 
       <div
         className={classNames(
-          "mx-auto mb-4 w-[90%] bg-green-800 px-8",
-          "rounded-2xl border-2 border-solid border-gray-600",
-          "2xl:min-h-[65vh] 2xl:pt-[7vh]",
+          "mx-auto mb-4 bg-green-800",
+          "border-2 border-solid border-gray-600",
+          "w-[100%] pt-10",
+          "s:w-[90%] s:rounded-2xl",
+          "xl:w-[80%]",
+          "2xl:w-[70%]",
         )}
       >
-        <div className="flex justify-around">
+        <div className="flex">
           <div className="w-full">
             <Courses course="JavaScript" />
             <Courses course="TypeScript" />
@@ -51,8 +56,9 @@ const Courses = ({ course }: ComponentProps) => {
         "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
         "hover:border hover:border-solid hover:border-pink-900",
         // меняющиеся стили:
-        "mb-8 w-[75%] py-4 text-xl",
-        "2xl:mb-[7vh]",
+        "mb-10 w-[75%] py-4 text-xl",
+        "xl:w-[65%]",
+        "2xl:mb-16 2xl:w-[60%] 2xl:py-5",
       )}
       onClick={() => navigate("/themeSelection")}
     >
