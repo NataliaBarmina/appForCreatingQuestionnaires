@@ -53,39 +53,48 @@ const Questionnaire = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="p-4 text-[150%] font-bold">Ответьте на вопросы:</div>
+      <div className="px-4 py-7 text-[150%] font-bold">
+        Ответьте на вопросы:
+      </div>
 
       {questionSet.map((item, index) => (
         <div
           className={classNames(
-            "mx-auto mb-4 w-full bg-green-800 px-8",
-            "rounded-2xl border-2 border-solid border-gray-600",
+            "mx-auto mb-8 w-[100vw] bg-green-800",
+            "border-2 border-solid border-gray-600",
+            "s:w-[95vw] s:rounded-2xl",
+            "md:w-[65vw]",
+            "lg:w-[55vw]",
+            "xl:w-[50vw]",
+            "2xl:w-[45vw]",
           )}
         >
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-          <div className="mb-3">
-            <Textarea
-              placeholder=""
-              register={register}
-              fieldName="questionFromSurvey"
-              defaultValue={`${Object.keys(item)}`}
-              disabled={true}
-              styles=""
-            />
-          </div>
-          <div className="mb-12 ml-[4%] w-[96%]">
-            <RadioInput
-              value={`${Object.values(item)[0][1]}`}
-              name={`radioInputFromSurvey${index}`}
-            />
-            <RadioInput
-              value={`${Object.values(item)[0][2]}`}
-              name={`radioInputFromSurvey${index}`}
-            />
-            <RadioInput
-              value={`${Object.values(item)[0][3]}`}
-              name={`radioInputFromSurvey${index}`}
-            />
+          <div className="mx-auto mb-8 w-[90%]">
+            <div className="mb-3">
+              <Textarea
+                placeholder=""
+                register={register}
+                fieldName="questionFromSurvey"
+                defaultValue={`${Object.keys(item)}`}
+                disabled={true}
+                styles=""
+              />
+            </div>
+            <div className="mb-12 ml-[4%] w-[96%]">
+              <RadioInput
+                value={`${Object.values(item)[0][1]}`}
+                name={`radioInputFromSurvey${index}`}
+              />
+              <RadioInput
+                value={`${Object.values(item)[0][2]}`}
+                name={`radioInputFromSurvey${index}`}
+              />
+              <RadioInput
+                value={`${Object.values(item)[0][3]}`}
+                name={`radioInputFromSurvey${index}`}
+              />
+            </div>
           </div>
         </div>
       ))}
@@ -98,8 +107,14 @@ const Questionnaire = () => {
           "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
           "hover:border hover:border-solid hover:border-pink-900",
           // меняющиеся стили:
-          "w-[20vw] p-2",
-          "md:w-[20vh]",
+          "w-[30vw] p-2",
+          "xs:text-[4vw]",
+          "s:w-[25vw] s:text-[3vw]",
+          "sm:w-[20vw] sm:text-[2.6vw]",
+          "md:w-[15vw] md:text-[2.1vw]",
+          "lg:w-[12vw] lg:text-[1.8vw]",
+          "xl:w-[10vw] xl:text-[1.5vw]",
+          "2xl:w-[10vw] 2xl:text-[1.2vw]",
         )}
       >
         сохранить
@@ -123,7 +138,7 @@ const RadioInput = ({ value, name }: MyProps) => {
           className={classNames(
             "w-[100%] bg-blue-100",
             "border-4 border-solid border-blue-200",
-            "placeholder:font-bold placeholder:text-purple-900",
+            "placeholder:text-purple-900",
             "ml-2 rounded-lg p-2 text-left",
           )}
         >

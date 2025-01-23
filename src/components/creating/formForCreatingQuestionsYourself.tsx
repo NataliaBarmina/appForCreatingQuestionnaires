@@ -29,7 +29,7 @@ const FormForCreatingQuestionsYourself = () => {
     console.log(data);
   };
 
-  const style = errors ? "placeholder:font-bold placeholder:text-pink-900" : "";
+  const style = errors ? "placeholder:text-pink-900" : "";
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mb-6">
