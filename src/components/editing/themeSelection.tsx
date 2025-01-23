@@ -4,13 +4,18 @@ import { useNavigate } from "react-router-dom";
 const ThemeSelection = () => {
   return (
     <div>
-      <div className="p-4 text-[150%] font-bold">Выберите тему</div>
+      <div className="pb-6 pt-8 text-[150%] font-bold">Выберите тему</div>
 
       <div
         className={classNames(
-          "mx-auto mb-4 w-[90%] bg-green-800 px-8",
-          "rounded-2xl border-2 border-solid border-gray-600",
-          "md:min-h-[70vh] 2xl:pt-[7vh]",
+          "mx-auto mb-4 bg-green-800",
+          "border-2 border-solid border-gray-600",
+          "w-[100%] pt-10",
+          "s:w-[90%] s:rounded-2xl",
+          "sm:w-[85%]",
+          "md:w-[80%]",
+          "xl:w-[70%]",
+          "2xl:w-[60%]",
         )}
       >
         <Theme value="ТИПЫ ДАННЫХ" />
@@ -37,9 +42,12 @@ const Theme = ({ value }: ComponentProps) => {
         "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
         "hover:border hover:border-solid hover:border-pink-900",
         // меняющиеся стили:
-        "mb-6 w-[90%] py-3",
-        "md:pb-[3vh]",
-        "2xl:mb-[5vh]",
+        "mb-6 min-h-20 w-[80%] p-3",
+        "sm:w-[75%]",
+        "sm:w-[70%] sm:text-[2vw]",
+        "lg:text-[1.6vw]",
+        "xl:w-[60%] xl:text-[1.3vw]",
+        "2xl:mb-10 2xl:text-[1vw]",
       )}
       onClick={() => navigate("/questionList")}
     >
