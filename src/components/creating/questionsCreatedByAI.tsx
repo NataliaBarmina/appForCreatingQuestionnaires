@@ -67,8 +67,9 @@ const QuestionsCreatedByAI = () => {
       {questionSet.map((item, index) => (
         <div
           className={classNames(
-            "mx-auto mb-8 w-[100vw] bg-green-800",
+            "mx-auto mb-8 bg-green-800",
             "border-2 border-solid border-gray-600",
+            "xs:w-[100vw]",
             "sm:w-[95vw] sm:rounded-2xl",
             "md:w-[65vw]",
             "lg:w-[55vw]",
@@ -77,7 +78,7 @@ const QuestionsCreatedByAI = () => {
           )}
         >
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-          <div className={classNames("mx-auto mb-8 w-[90%]")}>
+          <div className="mx-auto mb-8 w-[90%]">
             <Textarea
               placeholder=""
               register={register}

@@ -45,8 +45,10 @@ const FormForCreatingQuestionsByAI = () => {
       </div>
       <div
         className={classNames(
-          "rounded-2xl border-2 border-solid border-gray-400",
-          "mx-auto w-[95vw] bg-green-800",
+          "border-2 border-solid border-gray-400",
+          "mx-auto bg-green-800",
+          "xs:w-[100vw]",
+          "s:w-[90vw] s:rounded-2xl",
           "md:w-[65vw]",
           "lg:w-[55vw]",
           "xl:w-[50vw]",
@@ -88,7 +90,7 @@ const FormForCreatingQuestionsByAI = () => {
               "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
               "hover:border hover:border-solid hover:border-pink-900",
               // меняющиеся стили:
-              "w-[30vw] p-2 text-[4.5vw]",
+              "p-2 xs:w-[31vw] xs:text-[5vw]",
               "s:w-[25vw] s:text-[3.8vw]",
               "sm:w-[20vw] sm:text-[3vw]",
               "md:w-[15vw] md:text-[2vw]",
