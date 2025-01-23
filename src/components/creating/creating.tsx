@@ -6,11 +6,11 @@ const Creating = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="pb-6">
       <div className="p-8 text-[150%] font-bold">Создание вопросов</div>
       <div
         className={classNames(
-          "mx-auto mb-4 rounded-full bg-green-800",
+          "mx-auto rounded-full bg-green-800",
           "h-[80vw] w-[80vw]",
           "s:h-[65vw] s:w-[65vw]",
           "md:landscape:h-[60vw] md:landscape:w-[60vw]",

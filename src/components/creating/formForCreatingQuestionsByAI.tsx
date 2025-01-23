@@ -32,7 +32,7 @@ const FormForCreatingQuestionsByAI = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto pb-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto pb-6">
       <div
         className={classNames(
           "p-4 text-[150%] font-bold",

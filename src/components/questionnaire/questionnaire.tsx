@@ -52,7 +52,7 @@ const Questionnaire = () => {
     console.log(data);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
       <div className="px-4 py-7 text-[150%] font-bold">
         Ответьте на вопросы:
       </div>

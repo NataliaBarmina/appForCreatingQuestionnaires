@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 const ThemeSelection = () => {
   return (
-    <div>
+    <div className="pb-6">
       <div className="pb-6 pt-8 text-[150%] font-bold">Выберите тему</div>
 
       <div
         className={classNames(
-          "mx-auto mb-4 bg-green-800",
+          "mx-auto bg-green-800",
           "border-2 border-solid border-gray-600",
           "w-[100%] pt-10",
           "s:w-[90%] s:rounded-2xl",

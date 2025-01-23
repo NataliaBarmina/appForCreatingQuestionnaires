@@ -57,7 +57,7 @@ const QuestionsCreatedByAI = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="pb-1">
       <div className="p-4 text-[150%] font-bold">
         Вопросы созданные нейросетью
       </div>

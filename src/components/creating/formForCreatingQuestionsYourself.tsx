@@ -29,10 +29,8 @@ const FormForCreatingQuestionsYourself = () => {
     console.log(data);
   };
 
-  const style = errors ? "placeholder:text-pink-900" : "";
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mb-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="pb-6">
       <div className="p-8 text-[150%] font-bold">
         Форма для самостоятельного создания вопросов
       </div>
@@ -61,13 +59,13 @@ const FormForCreatingQuestionsYourself = () => {
           </div>
           <div className="mb-6">
             <Textarea
-              placeholder="Ввведите вопрос"
+              placeholder="Введите вопрос"
               register={register}
               fieldName="selfWrittenQuestion"
               defaultValue=""
               disabled={false}
               styles={
-                errors.selfWrittenQuestion ? "placeholder:text-pink-900" : ""
+                errors.selfWrittenQuestion ? "border-pink-900 border-[6px]" : ""
               }
             />
           </div>
@@ -86,7 +84,7 @@ const FormForCreatingQuestionsYourself = () => {
                   defaultValue=""
                   disabled={false}
                   type="text"
-                  styles={errors.selfWrittenAnswer1 ? "bg-pink-600" : ""}
+                  styles={errors.selfWrittenAnswer1 ? "border-pink-900" : ""}
                 />
                 <Input
                   placeholder="Введите неправильный ответ"
@@ -95,7 +93,7 @@ const FormForCreatingQuestionsYourself = () => {
                   defaultValue=""
                   disabled={false}
                   type="text"
-                  styles={errors.selfWrittenAnswer2 ? "bg-pink-600" : ""}
+                  styles={errors.selfWrittenAnswer2 ? "border-pink-900" : ""}
                 />
 
                 <Input
@@ -105,7 +103,7 @@ const FormForCreatingQuestionsYourself = () => {
                   defaultValue=""
                   disabled={false}
                   type="text"
-                  styles={errors.selfWrittenAnswer3 ? "bg-pink-600" : ""}
+                  styles={errors.selfWrittenAnswer3 ? "border-pink-900" : ""}
                 />
               </div>
             </div>

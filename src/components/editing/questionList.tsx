@@ -56,7 +56,7 @@ const QuestionList = () => {
     console.log(data);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="pb-1">
       <div className="p-6 text-[150%] font-bold">
         Измените необходимый вопрос
       </div>

@@ -53,9 +53,8 @@ export const Textarea = ({
         className={classNames(
           "w-[100%] bg-blue-100",
           "border-4 border-solid border-blue-200",
-          "placeholder:text-purple-900",
-          "mb-2 p-1",
-          "p-2 text-[120%]",
+          "placeholder:text-sm placeholder:text-purple-900",
+          "mb-2 p-1 text-[120%]",
           styles,
         )}
         placeholder={placeholder}
