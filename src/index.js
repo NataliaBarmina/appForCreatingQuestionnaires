@@ -6,8 +6,10 @@ import { createHashRouter } from "react-router-dom";
 import "./index.css";
 
 import DefaultPage from "./components/defaultPage";
+import Preloader from "./common/preloader";
 
 import { lazy, Suspense } from "react";
+
 const Creating = lazy(() => import("./components/creating/creating"));
 const Questionnaire = lazy(
   () => import("./components/questionnaire/questionnaire"),
@@ -31,9 +33,7 @@ const QuestionList = lazy(() => import("./components/editing/questionList"));
 const ResultsOfTheQuestionnaire = lazy(
   () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
 );
-{
-  /* <img src={spinner} alt="#" />; */
-}
+
 const root = createRoot(document.getElementById("root"));
 
 const router = createHashRouter([
@@ -44,7 +44,7 @@ const router = createHashRouter([
       {
         path: "/creating",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <Creating />
           </Suspense>
         ),
@@ -52,7 +52,7 @@ const router = createHashRouter([
       {
         path: "/courseSelection",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <CourseSelection />
           </Suspense>
         ),
@@ -60,7 +60,7 @@ const router = createHashRouter([
       {
         path: "/questionList",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <QuestionList />
           </Suspense>
         ),
@@ -68,7 +68,7 @@ const router = createHashRouter([
       {
         path: "/themeSelection",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <ThemeSelection />
           </Suspense>
         ),
@@ -76,7 +76,7 @@ const router = createHashRouter([
       {
         path: "/questionnaire",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <Questionnaire />
           </Suspense>
         ),
@@ -84,7 +84,7 @@ const router = createHashRouter([
       {
         path: "/resultsOfTheQuestionnaire",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <ResultsOfTheQuestionnaire />
           </Suspense>
         ),
@@ -93,7 +93,7 @@ const router = createHashRouter([
       {
         path: "/formForCreatingQuestionsByAI",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <FormForCreatingQuestionsByAI />
           </Suspense>
         ),
@@ -101,7 +101,7 @@ const router = createHashRouter([
       {
         path: "/questionsCreatedByAI",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <QuestionsCreatedByAI />
           </Suspense>
         ),
@@ -109,7 +109,7 @@ const router = createHashRouter([
       {
         path: "/formForCreatingQuestionsYourself",
         element: (
-          <Suspense fallback={<div>PRELOADER</div>}>
+          <Suspense fallback={<Preloader />}>
             <FormForCreatingQuestionsYourself />
           </Suspense>
         ),
