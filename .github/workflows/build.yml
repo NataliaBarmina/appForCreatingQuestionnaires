@@ -4,9 +4,7 @@ on:
   push:
     # pull_request:
     #   types: [opened, reopened]
-    branches:
-      - "materialUI"
-  #
+    branches: ["main", "materialUI"]
 
 permissions:
   pages: write
