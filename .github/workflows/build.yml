@@ -1,6 +1,9 @@
 name: Build and Deploy
 
-on: push
+on:
+  pull_request:
+    types: [opened, reopened]
+  # push
 
 permissions:
   pages: write
