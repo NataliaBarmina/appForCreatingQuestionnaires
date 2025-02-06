@@ -39,8 +39,9 @@ const Creating = () => {
           >
             нейросетью
           </button>
+          {/* /formForCreatingQuestionsYourself */}
           <button
-            onClick={() => navigate("/formForCreatingQuestionsYourself")}
+            onClick={() => navigate("/coursesSelection")}
             className={classNames(
               //общие стили для всех кнопок:
               "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",

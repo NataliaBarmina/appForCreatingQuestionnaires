@@ -26,6 +26,9 @@ const FormForCreatingQuestionsByAI = lazy(
 const CourseSelection = lazy(
   () => import("./components/editing/courseSelection"),
 );
+const CoursesSelection = lazy(
+  () => import("./components/creating/coursesSelection"),
+);
 const ThemeSelection = lazy(
   () => import("./components/editing/themeSelection"),
 );
@@ -54,6 +57,14 @@ const router = createHashRouter([
         element: (
           <Suspense fallback={<Preloader />}>
             <CourseSelection />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/coursesSelection",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <CoursesSelection />
           </Suspense>
         ),
       },
