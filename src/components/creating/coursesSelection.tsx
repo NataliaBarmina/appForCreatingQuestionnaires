@@ -1,9 +1,36 @@
 import { Tabs, Tab, Box, ThemeProvider } from "@mui/material";
-import TabPanel from "@mui/lab/TabPanel";
-import { TabContext } from "@mui/lab";
 import { useState } from "react";
 import FormForCreatingQuestionsYourself from "./formForCreatingQuestionsYourself";
 import { theme } from "../../common/themeForMaterialUI";
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+
+function CustomTabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    </div>
+  );
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
 
 const CoursesSelection = () => {
   const arr = [
@@ -103,50 +130,56 @@ const CoursesSelection = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="mt-10 w-full">
-        <TabContext value={value}>
-          <div className="mx-auto inline-block">
-            <Box
-              sx={{
-                maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },
-              }}
-            >
-              <Tabs
-                sx={{
-                  "& .MuiTabs-indicator": {
-                    backgroundColor: "#000",
-                    height: "3px",
-                  },
-                }}
-                // value={value}
-                onChange={handleChange}
-                textColor="inherit"
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-              >
-                {arr.map((item: any, index: number) => (
-                  <Tab
-                    sx={tabStyle}
-                    label={Object.keys(item)[0]}
-                    value={String(index + 1)}
-                  />
-                ))}
-              </Tabs>
-            </Box>
-          </div>
-          <TabPanel value="1">JavaScript</TabPanel>
-          <TabPanel value="2">TypeScript</TabPanel>
-          <TabPanel value="3">CSS</TabPanel>
-          <TabPanel value="4">HTML</TabPanel>
-          <TabPanel value="5">Git</TabPanel>
-          <TabPanel value="6">Cmd</TabPanel>
-          <TabPanel value="7">React</TabPanel>
-          <TabPanel value="8">
-            <FormForCreatingQuestionsYourself />
-          </TabPanel>
-        </TabContext>
-      </div>
+      <Box sx={{ width: "100%", marginTop: "20px" }}>
+        <Box
+          sx={{
+            maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },
+          }}
+        >
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            textColor="inherit"
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="scrollable auto tabs example"
+          >
+            {arr.map((item: any, index: number) => (
+              <Tab
+                sx={tabStyle}
+                label={Object.keys(item)[0]}
+                key={index}
+                {...a11yProps(index)}
+              />
+            ))}
+          </Tabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+          Выберите тему из курса JavaScript
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          TypeScript
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+          HTML
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={3}>
+          CSS
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={4}>
+          Git
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={5}>
+          Cmd
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={6}>
+          React
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={7}>
+          <FormForCreatingQuestionsYourself />
+        </CustomTabPanel>
+      </Box>
+      {/* </div> */}
     </ThemeProvider>
   );
 };
