@@ -1,6 +1,7 @@
 import { Tabs, Tab, Box, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { theme } from "../../common/themeForMaterialUI";
+import ThemesSelection from "./themesSelection";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -132,7 +133,7 @@ const CoursesSelection = () => {
       <Box
         sx={{
           width: "100%",
-          marginTop: "20px",
+          marginTop: "30px",
         }}
       >
         <Box
@@ -163,7 +164,7 @@ const CoursesSelection = () => {
 
         {arr.map((item: any, index: number) => (
           <CustomTabPanel value={value} index={index} key={index}>
-            <ContentOfCustomTabPanel value={item} />
+            <ThemesSelection value={item} />
           </CustomTabPanel>
         ))}
       </Box>
@@ -171,21 +172,3 @@ const CoursesSelection = () => {
   );
 };
 export default CoursesSelection;
-
-interface MyProps {
-  value: any;
-}
-
-const ContentOfCustomTabPanel = ({ value }: MyProps) => {
-  const themeOfCourse = Object.keys(value);
-  const listOfThemes: any = Object.values(value)[0];
-  return (
-    <div>
-      <div>Выберите тему из курса {themeOfCourse}</div>
-
-      {listOfThemes.map((item: any, index: number) => (
-        <div key={index}>{Object.keys(item)}</div>
-      ))}
-    </div>
-  );
-};
