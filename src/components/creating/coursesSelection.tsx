@@ -1,6 +1,5 @@
 import { Tabs, Tab, Box, ThemeProvider } from "@mui/material";
 import { useState } from "react";
-import FormForCreatingQuestionsYourself from "./formForCreatingQuestionsYourself";
 import { theme } from "../../common/themeForMaterialUI";
 
 interface TabPanelProps {
@@ -37,7 +36,7 @@ const CoursesSelection = () => {
     {
       JavaScript: [
         {
-          "тема 1": [
+          "тема 1 JS": [
             {
               "вопрос 1": {
                 вопрос:
@@ -50,57 +49,57 @@ const CoursesSelection = () => {
             {},
           ],
         },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 2 JS": [{}, {}] },
+        { "тема 3 JS": [{}, {}] },
       ],
     },
     {
       TypeScript: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 TS": [{}, {}] },
+        { "тема 2 TS": [{}, {}] },
+        { "тема 3 TS": [{}, {}] },
       ],
     },
     {
       CSS: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 CSS": [{}, {}] },
+        { "тема 2 CSS": [{}, {}] },
+        { "тема 3 CSS": [{}, {}] },
       ],
     },
     {
       HTML: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 HTML": [{}, {}] },
+        { "тема 2 HTML": [{}, {}] },
+        { "тема 3 HTML": [{}, {}] },
       ],
     },
     {
       Git: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 Git": [{}, {}] },
+        { "тема 2 Git": [{}, {}] },
+        { "тема 3 Git": [{}, {}] },
       ],
     },
     {
       React: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 React": [{}, {}] },
+        { "тема 2 React": [{}, {}] },
+        { "тема 3 React": [{}, {}] },
       ],
     },
     {
       Cmd: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 Cmd": [{}, {}] },
+        { "тема 2 Cmd": [{}, {}] },
+        { "тема 3 Cmd": [{}, {}] },
       ],
     },
     {
       Прочее: [
-        { "тема 1": [{}, {}] },
-        { "тема 2": [{}, {}] },
-        { "тема 3": [{}, {}] },
+        { "тема 1 Прочее": [{}, {}] },
+        { "тема 2 Прочее": [{}, {}] },
+        { "тема 3 Прочее": [{}, {}] },
       ],
     },
   ];
@@ -130,10 +129,17 @@ const CoursesSelection = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ width: "100%", marginTop: "20px" }}>
+      <Box
+        sx={{
+          width: "100%",
+          marginTop: "20px",
+        }}
+      >
         <Box
           sx={{
             maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },
+            display: "inline-block",
+            margin: "o auto",
           }}
         >
           <Tabs
@@ -154,33 +160,32 @@ const CoursesSelection = () => {
             ))}
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0}>
-          Выберите тему из курса JavaScript
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          TypeScript
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
-          HTML
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={3}>
-          CSS
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={4}>
-          Git
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={5}>
-          Cmd
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={6}>
-          React
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={7}>
-          <FormForCreatingQuestionsYourself />
-        </CustomTabPanel>
+
+        {arr.map((item: any, index: number) => (
+          <CustomTabPanel value={value} index={index} key={index}>
+            <ContentOfCustomTabPanel value={item} />
+          </CustomTabPanel>
+        ))}
       </Box>
-      {/* </div> */}
     </ThemeProvider>
   );
 };
 export default CoursesSelection;
+
+interface MyProps {
+  value: any;
+}
+
+const ContentOfCustomTabPanel = ({ value }: MyProps) => {
+  const themeOfCourse = Object.keys(value);
+  const listOfThemes: any = Object.values(value)[0];
+  return (
+    <div>
+      <div>Выберите тему из курса {themeOfCourse}</div>
+
+      {listOfThemes.map((item: any, index: number) => (
+        <div key={index}>{Object.keys(item)}</div>
+      ))}
+    </div>
+  );
+};
