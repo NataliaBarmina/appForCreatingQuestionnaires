@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Textarea } from "../../common/createFields";
-import { TFields } from "../../common/createFields";
+import { Textarea } from "../../../common/createFields";
+import { TFields } from "../../../common/createFields";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";

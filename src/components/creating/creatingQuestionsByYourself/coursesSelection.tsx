@@ -1,6 +1,6 @@
 import { Tabs, Tab, Box, ThemeProvider } from "@mui/material";
 import { useState } from "react";
-import { theme } from "../../common/themeForMaterialUI";
+import { theme } from "../../../common/themeForMaterialUI";
 import ThemesSelection from "./themesSelection";
 
 //! нужно проверить адаптивность верстки

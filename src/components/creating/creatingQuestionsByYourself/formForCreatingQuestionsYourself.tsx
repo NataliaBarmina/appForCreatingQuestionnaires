@@ -1,9 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Input, Textarea } from "../../common/createFields";
-import { TFields } from "../../common/createFields";
-import { RoundLabel } from "../../common/roundLabel";
+import { Input, Textarea } from "../../../common/createFields";
+import { TFields } from "../../../common/createFields";
+import { RoundLabel } from "../../../common/roundLabel";
 import classNames from "classnames";
 
 const schema = yup.object({

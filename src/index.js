@@ -15,19 +15,29 @@ const Questionnaire = lazy(
   () => import("./components/questionnaire/questionnaire"),
 );
 const QuestionsCreatedByAI = lazy(
-  () => import("./components/creating/questionsCreatedByAI"),
+  () =>
+    import("./components/creating/creatingQuestionsByAI/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself"),
+  () =>
+    import(
+      "./components/creating/creatingQuestionsByYourself/formForCreatingQuestionsYourself"
+    ),
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI"),
+  () =>
+    import(
+      "./components/creating/creatingQuestionsByAI/formForCreatingQuestionsByAI"
+    ),
 );
 const CourseSelection = lazy(
   () => import("./components/editing/courseSelection"),
 );
 const CoursesSelection = lazy(
-  () => import("./components/creating/coursesSelection"),
+  () =>
+    import(
+      "./components/creating/creatingQuestionsByYourself/coursesSelection"
+    ),
 );
 const ThemeSelection = lazy(
   () => import("./components/editing/themeSelection"),
