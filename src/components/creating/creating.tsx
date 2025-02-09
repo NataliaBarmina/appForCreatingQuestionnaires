@@ -1,4 +1,3 @@
-// import TailwindSample from "../sample/tailwindSample";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
@@ -39,7 +38,6 @@ const Creating = () => {
           >
             нейросетью
           </button>
-          {/* /formForCreatingQuestionsYourself */}
           <button
             onClick={() => navigate("/coursesSelection")}
             className={classNames(
@@ -61,7 +59,6 @@ const Creating = () => {
           </button>
         </div>
       </div>
-      {/* <TailwindSample /> */}
     </div>
   );
 };

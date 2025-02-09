@@ -14,6 +14,8 @@ const schema = yup.object({
 });
 
 const QuestionsCreatedByAI = () => {
+  // должно приходить в пропсах название курса
+  const nameOfCourse = "какой-то курс";
   const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
 
   const questionSet = [
@@ -61,6 +63,8 @@ const QuestionsCreatedByAI = () => {
       <div className="p-4 text-[150%] font-bold">
         Вопросы созданные нейросетью
       </div>
+
+      <div className="p-4 text-xl font-bold">Курс {nameOfCourse}</div>
 
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
 

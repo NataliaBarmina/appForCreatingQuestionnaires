@@ -7,7 +7,7 @@ import { RoundLabel } from "../../common/roundLabel";
 import classNames from "classnames";
 
 const schema = yup.object({
-  selfWrittenTopicName: yup.string(),
+  selfWrittenTopicName: yup.string().required(),
   selfWrittenQuestion: yup.string().required(),
   selfWrittenAnswer1: yup.string().required(),
   selfWrittenAnswer2: yup.string().required(),
@@ -15,6 +15,11 @@ const schema = yup.object({
 });
 
 const FormForCreatingQuestionsYourself = () => {
+  // здесь я должна получать из стэйта название курса и название темы
+
+  const nameOfCourse = "JavaScript";
+  const nameOfTheme = "";
+
   const {
     register,
     handleSubmit,
@@ -47,14 +52,21 @@ const FormForCreatingQuestionsYourself = () => {
         )}
       >
         <div className={classNames("mx-auto w-[95%]", "s:w-[90%]")}>
-          <div className="mb-10 mt-12">
+          <div className="p-8 text-lg font-bold text-blue-100">
+            Курс {nameOfCourse}
+          </div>
+          <div className="mb-10">
             <Textarea
               placeholder="Введите название темы"
               register={register}
               fieldName="selfWrittenTopicName"
-              defaultValue=""
+              defaultValue={nameOfTheme}
               disabled={false}
-              styles=""
+              styles={
+                errors.selfWrittenTopicName
+                  ? "border-pink-900 border-[6px]"
+                  : ""
+              }
             />
           </div>
           <div className="mb-6">

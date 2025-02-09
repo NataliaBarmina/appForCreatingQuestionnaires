@@ -3,6 +3,8 @@ import { useState } from "react";
 import { theme } from "../../common/themeForMaterialUI";
 import ThemesSelection from "./themesSelection";
 
+//! нужно проверить адаптивность верстки
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
