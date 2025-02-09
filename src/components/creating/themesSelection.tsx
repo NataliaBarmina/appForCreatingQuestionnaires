@@ -3,6 +3,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
+
+//! нужно проверить адаптивность верстки
 
 interface MyProps {
   value: any;
@@ -11,21 +15,20 @@ interface MyProps {
 const ThemesSelection = ({ value }: MyProps) => {
   const themeOfCourse = Object.keys(value);
   const listOfThemes: any = Object.values(value)[0];
+  const navigate = useNavigate();
   return (
     <div>
       <div className="py-8 text-xl font-bold">
         Выберите тему из курса {themeOfCourse}
       </div>
 
-      {/* {listOfThemes.map((item: any, index: number) => (
-        <div key={index}>{Object.keys(item)}</div>
-      ))} */}
       <Box
         sx={{
           width: "90%",
           margin: "0 auto",
           bgcolor: "rgb(47,79,79)",
           paddingTop: "20px",
+          paddingBottom: "25px",
           borderRadius: "15px",
         }}
       >
@@ -48,10 +51,10 @@ const ThemesSelection = ({ value }: MyProps) => {
                 }}
               >
                 <ListItemButton
-                  //   component="a"
-                  //   href="#creating"
                   onClick={() => {
-                    alert("I'm a button.");
+                    navigate("/formForCreatingQuestionsYourself");
+                    // добавить обработчик отправляющий название курса{themeOfCourse} и темы{Object.keys(item)} в стэйт
+                    // нужно найти тему{Object.keys(item)} на которой произошло событие
                   }}
                 >
                   <ListItemText primary={Object.keys(item)} />
@@ -60,8 +63,31 @@ const ThemesSelection = ({ value }: MyProps) => {
             ))}
           </List>
         </nav>
+        <button
+          onClick={() => navigate("/formForCreatingQuestionsYourself")}
+          className={classNames(
+            //общие стили для всех кнопок:
+            "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+            "rounded-lg border-2 border-solid border-gray-600",
+            "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+            "hover:border hover:border-solid hover:border-pink-900",
+            // меняющиеся стили:
+            "block w-[30%] py-2",
+            // "xs:text-[5vw]",
+            // "s:w-[35vw] s:py-4 s:text-[3.5vw]",
+            // "md:landscape:w-[30vw] md:landscape:text-[3vw]",
+            // "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
+            // "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",
+            // "2xl:landscape:w-[16vw] 2xl:landscape:text-[1.7vw]",
+          )}
+        >
+          Добавить тему
+        </button>
       </Box>
     </div>
   );
 };
 export default ThemesSelection;
+//   component="a"
+//   href="#creating"
+// я должна передать item в стэйт?
