@@ -51,98 +51,116 @@ const ResultsOfTheQuestionnaire = lazy(
 
 const root = createRoot(document.getElementById("root"));
 
-const router = createHashRouter([
+const router = createHashRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          path: "/creating",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <Creating />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/courseSelection",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <CourseSelection />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/coursesSelection",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <CoursesSelection />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/questionList",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <QuestionList />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/themeSelection",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <ThemeSelection />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/questionnaire",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <Questionnaire />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/resultsOfTheQuestionnaire",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <ResultsOfTheQuestionnaire />
+            </Suspense>
+          ),
+        },
+
+        {
+          path: "/formForCreatingQuestionsByAI",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <FormForCreatingQuestionsByAI />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/questionsCreatedByAI",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <QuestionsCreatedByAI />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/formForCreatingQuestionsYourself",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <FormForCreatingQuestionsYourself />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/",
+          element: <DefaultPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/creating",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <Creating />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/courseSelection",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <CourseSelection />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/coursesSelection",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <CoursesSelection />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/questionList",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <QuestionList />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/themeSelection",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <ThemeSelection />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/questionnaire",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <Questionnaire />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/resultsOfTheQuestionnaire",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <ResultsOfTheQuestionnaire />
-          </Suspense>
-        ),
-      },
-
-      {
-        path: "/formForCreatingQuestionsByAI",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <FormForCreatingQuestionsByAI />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/questionsCreatedByAI",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <QuestionsCreatedByAI />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/formForCreatingQuestionsYourself",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <FormForCreatingQuestionsYourself />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/",
-        element: <DefaultPage />,
-      },
-    ],
+    future: {
+      v7_relativeSplatPath: true, // Enables relative paths in nested routes
+      v7_fetcherPersist: true, // Retains fetcher state during navigation
+      v7_normalizeFormMethod: true, // Normalizes form methods (e.g., POST or GET)
+      v7_partialHydration: true, // Supports partial hydration for server-side rendering
+      v7_skipActionErrorRevalidation: true, // Prevents revalidation when action errors occur
+    },
   },
-]);
+);
 
-root.render(<RouterProvider router={router} />);
+root.render(
+  <RouterProvider
+    router={router}
+    future={{
+      v7_startTransition: true,
+    }}
+  />,
+);
