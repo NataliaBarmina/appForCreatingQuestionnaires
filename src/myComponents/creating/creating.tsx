@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { Button } from "../../components/ui/button";
+import { Button } from "../../../components/ui/button";
 
 export function ButtonDestructive() {
   return <Button variant="destructive">Destructive</Button>;
