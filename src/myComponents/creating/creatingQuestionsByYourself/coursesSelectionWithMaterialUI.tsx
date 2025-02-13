@@ -34,7 +34,7 @@ function a11yProps(index: number) {
   };
 }
 
-const CoursesSelection = () => {
+const CoursesSelectionWithMaterialUI = () => {
   const arr = [
     {
       JavaScript: [
@@ -173,4 +173,4 @@ const CoursesSelection = () => {
     </ThemeProvider>
   );
 };
-export default CoursesSelection;
+export default CoursesSelectionWithMaterialUI;
