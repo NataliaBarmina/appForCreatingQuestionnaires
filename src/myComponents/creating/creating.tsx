@@ -26,7 +26,8 @@ const Creating = () => {
       >
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
           <button
-            onClick={() => navigate("/formForCreatingQuestionsByAI")}
+            onClick={() => navigate("/coursesSelectionWithShadcnUI")}
+            // formForCreatingQuestionsByAI
             className={classNames(
               //общие стили для всех кнопок:
               "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
@@ -45,7 +46,7 @@ const Creating = () => {
             нейросетью
           </button>
           <button
-            onClick={() => navigate("/coursesSelection")}
+            onClick={() => navigate("/coursesSelectionWithMaterialUI")}
             className={classNames(
               //общие стили для всех кнопок:
               "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",

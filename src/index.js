@@ -35,12 +35,20 @@ const FormForCreatingQuestionsByAI = lazy(
 const CourseSelection = lazy(
   () => import("./myComponents/editing/courseSelection"),
 );
-const CoursesSelection = lazy(
+const CoursesSelectionWithMaterialUI = lazy(
   () =>
     import(
-      "./myComponents/creating/creatingQuestionsByYourself/coursesSelection"
+      "./myComponents/creating/creatingQuestionsByYourself/coursesSelectionWithMaterialUI"
     ),
 );
+
+const CoursesSelectionWithShadcnUI = lazy(
+  () =>
+    import(
+      "./myComponents/creating/creatingQuestionsByAI/CoursesSelectionWithShadcnUI"
+    ),
+);
+
 const ThemeSelection = lazy(
   () => import("./myComponents/editing/themeSelection"),
 );
@@ -74,10 +82,18 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/coursesSelection",
+          path: "/coursesSelectionWithShadcnUI",
           element: (
             <Suspense fallback={<Preloader />}>
-              <CoursesSelection />
+              <CoursesSelectionWithShadcnUI />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/coursesSelectionWithMaterialUI",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <CoursesSelectionWithMaterialUI />
             </Suspense>
           ),
         },
