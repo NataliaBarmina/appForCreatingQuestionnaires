@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
+import { Button } from "../../components/ui/button";
+
+export function ButtonDestructive() {
+  return <Button variant="destructive">Destructive</Button>;
+}
 
 const Creating = () => {
   const navigate = useNavigate();
@@ -7,6 +12,7 @@ const Creating = () => {
   return (
     <div className="pb-6">
       <div className="p-8 text-[150%] font-bold">Создание вопросов</div>
+      <ButtonDestructive />
       <div
         className={classNames(
           "mx-auto rounded-full bg-green-800",

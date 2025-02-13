@@ -11,8 +11,14 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      // "@/*": ["./*"],
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
+      // "@/*": ["src/*"]
+      // "@/*": ["./src/*"],
+      // "@/components": ["./src/components/*"],
+      // "@/lib/utils": ["./src/lib/utils.ts"],
+      // "@/components/ui": ["./src/components/ui/"],
+      // "@/lib": ["./src/lib/"],
+      // "@/hooks": ["./src/hooks"]
     }
   }
 }
