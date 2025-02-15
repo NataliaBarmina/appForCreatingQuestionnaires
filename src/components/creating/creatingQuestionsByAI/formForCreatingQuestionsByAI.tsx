@@ -11,8 +11,8 @@ const schema = yup.object({
   linkToSource: yup.string(),
 });
 
-//! Должен быть выбор курса
-//! нужно получить название этого курса и отправить в стэйт
+//TODO:! Должен быть выбор курса
+//TODO:! нужно получить название этого курса и отправить в стэйт
 
 const FormForCreatingQuestionsByAI = () => {
   const nameOfCourse = "какой-то курс";

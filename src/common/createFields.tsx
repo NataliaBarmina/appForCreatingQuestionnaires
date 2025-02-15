@@ -27,7 +27,7 @@ export type TFields = {
 };
 
 interface MyProps {
-  defaultValue: string; //?надо убрать
+  defaultValue: string; //TODO:?надо убрать
   placeholder: string;
   disabled: boolean;
   styles: string;
@@ -40,7 +40,7 @@ interface MyPropsInput {
 }
 
 export const Textarea = ({
-  defaultValue = "", //надо убрать
+  defaultValue = "", //TODO:надо убрать
   placeholder = "",
   disabled = false,
   fieldName,
@@ -67,7 +67,7 @@ export const Textarea = ({
 };
 
 export const Input = ({
-  defaultValue = "", //надо убрать
+  defaultValue = "", //TODO:надо убрать
   type = "text",
   placeholder = "",
   disabled = false,
