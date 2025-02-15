@@ -3,7 +3,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "../../../components/ui/tabs";
+} from "../../../chadcnComponents/ui/tabs";
 
 import { arr } from "../creatingQuestionsByYourself/coursesSelectionWithMaterialUI";
 
