@@ -1,60 +1,58 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./myComponents/App";
+import App from "./components/App";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
 
-import DefaultPage from "./myComponents/defaultPage";
+import DefaultPage from "./components/defaultPage";
 import Preloader from "./common/preloader";
 
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./myComponents/creating/creating"));
+const Creating = lazy(() => import("./components/creating/creating"));
 const Questionnaire = lazy(
-  () => import("./myComponents/questionnaire/questionnaire"),
+  () => import("./components/questionnaire/questionnaire"),
 );
 const QuestionsCreatedByAI = lazy(
   () =>
-    import(
-      "./myComponents/creating/creatingQuestionsByAI/questionsCreatedByAI"
-    ),
+    import("./components/creating/creatingQuestionsByAI/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
   () =>
     import(
-      "./myComponents/creating/creatingQuestionsByYourself/formForCreatingQuestionsYourself"
+      "./components/creating/creatingQuestionsByYourself/formForCreatingQuestionsYourself"
     ),
 );
 const FormForCreatingQuestionsByAI = lazy(
   () =>
     import(
-      "./myComponents/creating/creatingQuestionsByAI/formForCreatingQuestionsByAI"
+      "./components/creating/creatingQuestionsByAI/formForCreatingQuestionsByAI"
     ),
 );
 const CourseSelection = lazy(
-  () => import("./myComponents/editing/courseSelection"),
+  () => import("./components/editing/courseSelection"),
 );
 const CoursesSelectionWithMaterialUI = lazy(
   () =>
     import(
-      "./myComponents/creating/creatingQuestionsByYourself/coursesSelectionWithMaterialUI"
+      "./components/creating/creatingQuestionsByYourself/coursesSelectionWithMaterialUI"
     ),
 );
 
 const CoursesSelectionWithShadcnUI = lazy(
   () =>
     import(
-      "./myComponents/creating/creatingQuestionsByAI/CoursesSelectionWithShadcnUI"
+      "./components/creating/creatingQuestionsByAI/CoursesSelectionWithShadcnUI"
     ),
 );
 
 const ThemeSelection = lazy(
-  () => import("./myComponents/editing/themeSelection"),
+  () => import("./components/editing/themeSelection"),
 );
-const QuestionList = lazy(() => import("./myComponents/editing/questionList"));
+const QuestionList = lazy(() => import("./components/editing/questionList"));
 const ResultsOfTheQuestionnaire = lazy(
-  () => import("./myComponents/questionnaire/resultsOfTheQuestionnaire"),
+  () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
 );
 
 const root = createRoot(document.getElementById("root"));
