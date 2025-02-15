@@ -12,6 +12,23 @@ interface TabPanelProps {
   value: number;
 }
 
+const tabStyle = {
+  bgcolor: "background.paper",
+  border: "2px solid grey",
+  borderTopRightRadius: "15px",
+  borderTopLeftRadius: "15px",
+  fontWeight: 600,
+  fontSize: "0.8rem",
+  minWidth: "5rem",
+  ":hover": {
+    backgroundColor: "#e09a80",
+    boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)",
+  },
+  ":focus": {
+    backgroundColor: "#e9967a",
+  },
+};
+
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -33,23 +50,6 @@ const CoursesSelectionWithMaterialUI = () => {
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
-  };
-
-  const tabStyle = {
-    bgcolor: "background.paper",
-    border: "2px solid grey",
-    borderTopRightRadius: "15px",
-    borderTopLeftRadius: "15px",
-    fontWeight: 600,
-    fontSize: "0.8rem",
-    minWidth: "5rem",
-    ":hover": {
-      backgroundColor: "#e09a80",
-      boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)",
-    },
-    ":focus": {
-      backgroundColor: "#e9967a",
-    },
   };
 
   return (
