@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RoundLabel } from "../../../common/roundLabel";
 import classNames from "classnames";
+import { questionSet } from "../../../common/dataExample";
 
 const schema = yup.object({
   questionExample: yup.string(),
@@ -17,32 +18,6 @@ const QuestionsCreatedByAI = () => {
   //TODO: должно приходить в пропсах название курса
   const nameOfCourse = "какой-то курс";
   const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
-
-  const questionSet = [
-    {
-      "К какому типу данных преобразует значение функция alert?": {
-        1: "к строке",
-        2: "к символу",
-        3: "к числу",
-      },
-    },
-
-    {
-      "К какому типу данных преобразует значение математические операторы?": {
-        1: "к числам",
-        2: "undefined",
-        3: "к нулю",
-      },
-    },
-
-    {
-      " Что нужно использовать, чтобы преобразовать значение к строке?": {
-        1: "функцию String(value)",
-        2: "оператор +",
-        3: "заключить в кавычки",
-      },
-    },
-  ];
 
   const {
     register,

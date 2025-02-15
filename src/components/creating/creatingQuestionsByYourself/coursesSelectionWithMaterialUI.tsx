@@ -2,6 +2,7 @@ import { Tabs, Tab, Box, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { theme } from "../../../common/themeForMaterialUI";
 import ThemesSelection from "./themesSelection";
+import { arr } from "../../../common/dataExample";
 
 //TODO:! нужно проверить адаптивность верстки
 
@@ -26,78 +27,6 @@ function CustomTabPanel(props: TabPanelProps) {
     </div>
   );
 }
-
-export const arr = [
-  {
-    JavaScript: [
-      {
-        "тема 1 JS": [
-          {
-            "вопрос 1": {
-              вопрос:
-                "К какому типу данных преобразует значение функция alert?",
-              "правильный ответ": "к строке",
-              "неправильный ответ 1": "к числу",
-              "неправильный ответ 2": "к символу",
-            },
-          },
-          {},
-        ],
-      },
-      { "тема 2 JS": [{}, {}] },
-      { "тема 3 JS": [{}, {}] },
-    ],
-  },
-  {
-    TypeScript: [
-      { "тема 1 TS": [{}, {}] },
-      { "тема 2 TS": [{}, {}] },
-      { "тема 3 TS": [{}, {}] },
-    ],
-  },
-  {
-    CSS: [
-      { "тема 1 CSS": [{}, {}] },
-      { "тема 2 CSS": [{}, {}] },
-      { "тема 3 CSS": [{}, {}] },
-    ],
-  },
-  {
-    HTML: [
-      { "тема 1 HTML": [{}, {}] },
-      { "тема 2 HTML": [{}, {}] },
-      { "тема 3 HTML": [{}, {}] },
-    ],
-  },
-  {
-    Git: [
-      { "тема 1 Git": [{}, {}] },
-      { "тема 2 Git": [{}, {}] },
-      { "тема 3 Git": [{}, {}] },
-    ],
-  },
-  {
-    React: [
-      { "тема 1 React": [{}, {}] },
-      { "тема 2 React": [{}, {}] },
-      { "тема 3 React": [{}, {}] },
-    ],
-  },
-  {
-    Cmd: [
-      { "тема 1 Cmd": [{}, {}] },
-      { "тема 2 Cmd": [{}, {}] },
-      { "тема 3 Cmd": [{}, {}] },
-    ],
-  },
-  {
-    Прочее: [
-      { "тема 1 Прочее": [{}, {}] },
-      { "тема 2 Прочее": [{}, {}] },
-      { "тема 3 Прочее": [{}, {}] },
-    ],
-  },
-];
 
 const CoursesSelectionWithMaterialUI = () => {
   const [value, setValue] = useState(0);
