@@ -5,7 +5,7 @@ import {
   TabsTrigger,
 } from "../../../chadcnComponents/ui/tabs";
 
-import { arr } from "../creatingQuestionsByYourself/coursesSelectionWithMaterialUI";
+import { arr } from "../../../common/dataExample";
 
 const CoursesSelectionWithShadcnUI = () => {
   return (

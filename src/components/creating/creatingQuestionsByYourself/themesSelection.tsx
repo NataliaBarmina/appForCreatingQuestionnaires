@@ -88,6 +88,6 @@ const ThemesSelection = ({ value }: MyProps) => {
   );
 };
 export default ThemesSelection;
-//   component="a"
-//   href="#creating"
+
+//   component="a"href="#creating"
 //TODO: я должна передать item в стэйт?

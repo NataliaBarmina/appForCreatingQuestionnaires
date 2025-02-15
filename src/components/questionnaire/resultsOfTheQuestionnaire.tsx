@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Textarea, Input } from "../../common/createFields";
 import { TFields } from "../../common/createFields";
 import classNames from "classnames";
+import { questionSet } from "../../common/dataExample";
 
 const schema = yup.object({
   questionForAnalysis: yup.string(),
@@ -15,29 +16,6 @@ const schema = yup.object({
 
 const ResultsOfTheQuestionnaire = () => {
   const percentageOfCorrectAnswers = "95%";
-
-  const questionSet = [
-    {
-      "К какому типу данных преобразует значение функция alert?": {
-        1: "к строке",
-        2: "к символу",
-      },
-    },
-
-    {
-      "К какому типу данных преобразует значение математические операторы?": {
-        1: "к числам",
-        2: "undefined",
-      },
-    },
-
-    {
-      " Что нужно использовать, чтобы преобразовать значение к строке?": {
-        1: "функцию String(value)",
-        2: "оператор +",
-      },
-    },
-  ];
 
   const {
     register,
