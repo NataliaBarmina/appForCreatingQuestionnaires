@@ -33,7 +33,6 @@ const DefaultPage = () => {
         className={classNames(
           "z-0 col-span-5 col-start-1 row-span-7 row-start-1 h-[70vw] w-[70vw]",
           "rounded-full border-8 border-dotted border-gray-600/50",
-          // "2xl:h-[70vh] 2xl:w-[70vh]",
           "md:landscape:h-[55vw] md:landscape:w-[55vw]",
           "md:portrait:h-[60vh] md:portrait:w-[60vh]",
           "lg:landscape:h-[48vw] lg:landscape:w-[48vw]",

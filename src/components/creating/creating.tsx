@@ -21,7 +21,6 @@ const Creating = () => {
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
           <button
             onClick={() => navigate("/coursesSelectionWithShadcnUI")}
-            // formForCreatingQuestionsByAI
             className={classNames(
               //общие стили для всех кнопок:
               "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",

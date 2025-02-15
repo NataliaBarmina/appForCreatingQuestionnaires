@@ -6,7 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
-//! нужно проверить адаптивность верстки
+//TODO:! нужно проверить адаптивность верстки
 
 interface MyProps {
   value: any;
@@ -53,8 +53,8 @@ const ThemesSelection = ({ value }: MyProps) => {
                 <ListItemButton
                   onClick={() => {
                     navigate("/formForCreatingQuestionsYourself");
-                    // добавить обработчик отправляющий название курса{themeOfCourse} и темы{Object.keys(item)} в стэйт
-                    // нужно найти тему{Object.keys(item)} на которой произошло событие
+                    //TODO: добавить обработчик отправляющий название курса{themeOfCourse} и темы{Object.keys(item)} в стэйт
+                    //TODO: нужно найти тему{Object.keys(item)} на которой произошло событие
                   }}
                 >
                   <ListItemText primary={Object.keys(item)} />
@@ -90,4 +90,4 @@ const ThemesSelection = ({ value }: MyProps) => {
 export default ThemesSelection;
 //   component="a"
 //   href="#creating"
-// я должна передать item в стэйт?
+//TODO: я должна передать item в стэйт?

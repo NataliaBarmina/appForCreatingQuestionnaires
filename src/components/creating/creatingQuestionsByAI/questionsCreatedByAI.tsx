@@ -14,7 +14,7 @@ const schema = yup.object({
 });
 
 const QuestionsCreatedByAI = () => {
-  // должно приходить в пропсах название курса
+  //TODO: должно приходить в пропсах название курса
   const nameOfCourse = "какой-то курс";
   const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
 
