@@ -5,16 +5,18 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
+import { Topic, Question } from "../../../common/dataExample";
 
 //TODO:! нужно проверить адаптивность верстки
 
-interface MyProps {
-  value: any;
-}
+export type MyProps = {
+  themeOfCourse: string[];
+  listOfThemes: Topic[];
+};
 
-const ThemesSelection = ({ value }: MyProps) => {
-  const themeOfCourse = Object.keys(value);
-  const listOfThemes: any = Object.values(value)[0];
+const ThemesSelection = ({ themeOfCourse, listOfThemes }: MyProps) => {
+  const arrayListOfThemes = Object.values(listOfThemes);
+
   const navigate = useNavigate();
   return (
     <div>
@@ -34,7 +36,7 @@ const ThemesSelection = ({ value }: MyProps) => {
       >
         <nav aria-label="main mailbox folders">
           <List>
-            {listOfThemes.map((item: any, index: number) => (
+            {arrayListOfThemes.map((item: Topic, index: number) => (
               <ListItem
                 disablePadding
                 key={index}

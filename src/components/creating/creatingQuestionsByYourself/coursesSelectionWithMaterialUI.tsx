@@ -3,6 +3,7 @@ import { useState } from "react";
 import { theme } from "../../../common/themeForMaterialUI";
 import ThemesSelection from "./themesSelection";
 import { arr } from "../../../common/dataExample";
+import { Subject } from "../../../common/dataExample";
 
 //TODO:! нужно проверить адаптивность верстки
 
@@ -75,7 +76,7 @@ const CoursesSelectionWithMaterialUI = () => {
             scrollButtons="auto"
             aria-label="scrollable auto tabs example"
           >
-            {arr.map((item: any, index: number) => (
+            {arr.map((item: Subject, index: number) => (
               <Tab
                 sx={tabStyle}
                 label={Object.keys(item)[0]}
@@ -87,9 +88,12 @@ const CoursesSelectionWithMaterialUI = () => {
           </Tabs>
         </Box>
 
-        {arr.map((item: any, index: number) => (
+        {arr.map((item: Subject, index: number) => (
           <CustomTabPanel value={value} index={index} key={index}>
-            <ThemesSelection value={item} />
+            <ThemesSelection
+              themeOfCourse={Object.keys(item)}
+              listOfThemes={Object.values(item)[0]}
+            />
           </CustomTabPanel>
         ))}
       </Box>
