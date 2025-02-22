@@ -1,11 +1,11 @@
 name: Build and Deploy
 
 on:
-  pull_request:
-    types:
-      - closed
-  # push:
-  #   branches: ["main", "materialUI"]
+  # pull_request:
+  #   types:
+  #     - closed
+  push:
+    branches: ["main", "materialUI", "shadcnUI"]
 
 permissions:
   pages: write
