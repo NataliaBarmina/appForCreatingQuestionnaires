@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RoundLabel } from "../../../common/roundLabel";
 import classNames from "classnames";
 import { questionSet } from "../../../common/dataExample";
+import Alert from "../../../components/alertDialog";
 
 const schema = yup.object({
   questionExample: yup.string(),
@@ -104,63 +105,51 @@ const QuestionsCreatedByAI = () => {
             </div>
           </div>
           <div className="mb-8 flex w-full justify-evenly">
-            <button
-              onClick={() => alert("сохраняем данные в стэйт")}
-              className={classNames(
-                //общие стили для всех кнопок:
-                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-                "rounded-lg border-2 border-solid border-gray-600",
-                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-                "hover:border hover:border-solid hover:border-pink-900",
-                // меняющиеся стили:
-                "xs:w-[29vw] xs:py-1 xs:text-[3.5vw]",
-                "s:w-[20vw] s:py-2 s:text-[2.5vw]",
-                "md:w-[15vw] md:text-[1.8vw]",
-                "lg:w-[13vw] lg:text-[1.5vw]",
-                "xl:w-[10vw] xl:text-[1.2vw]",
-                "2xl:w-[8vw] 2xl:text-[1vw]",
-              )}
-            >
-              сохранить
-            </button>
-            <button
-              onClick={() => alert("disabled=false")}
-              className={classNames(
-                //общие стили для всех кнопок:
-                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-                "rounded-lg border-2 border-solid border-gray-600",
-                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-                "hover:border hover:border-solid hover:border-pink-900",
-                // меняющиеся стили:
-                "xs:w-[30vw] xs:py-1 xs:text-[3.5vw]",
-                "s:w-[22vw] s:text-[2.5vw]",
-                "md:w-[15vw] md:text-[1.8vw]",
-                "lg:w-[13vw] lg:text-[1.5vw]",
-                "xl:w-[10vw] xl:text-[1.2vw]",
-                "2xl:w-[9vw] 2xl:text-[1vw]",
-              )}
-            >
-              редактировать
-            </button>
-            <button
-              onClick={() => alert("удаляем данные из стэйта")}
-              className={classNames(
-                //общие стили для всех кнопок:
-                "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-                "rounded-lg border-2 border-solid border-gray-600",
-                "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-                "hover:border hover:border-solid hover:border-pink-900",
-                // меняющиеся стили:
-                "xs:w-[29vw] xs:py-1 xs:text-[3.5vw]",
-                "s:w-[20vw] s:text-[2.5vw]",
-                "md:w-[15vw] md:text-[1.8vw]",
-                "lg:w-[13vw] lg:text-[1.5vw]",
-                "xl:w-[10vw] xl:text-[1.2vw]",
-                "2xl:w-[8vw] 2xl:text-[1vw]",
-              )}
-            >
-              удалить
-            </button>
+            <div>
+              <Alert
+                whatToDo={"сохраняем данные в стэйт"}
+                alertDialogTitle={"Вы уверены?"}
+                alertDialogDescription={
+                  "Внимательно проверьте полученные вопросы и ответы. Правильный ответ должен находиться на первом месте"
+                }
+                alertDialogAction={"продолжить редактирование"}
+                alertDialogCancel={"сохранить вопрос"}
+                buttonName={"сохранить"}
+              />
+            </div>
+            <div>
+              <button
+                onClick={() => alert("disabled=false")}
+                className={classNames(
+                  //общие стили для всех кнопок:
+                  "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
+                  "rounded-lg border-2 border-solid border-gray-600",
+                  "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
+                  "hover:border hover:border-solid hover:border-pink-900",
+                  // меняющиеся стили:
+                  "xs:w-[29vw] xs:py-1 xs:text-[3.5vw]",
+                  "s:w-[20vw] s:py-2 s:text-[2.5vw]",
+                  "md:w-[15vw] md:text-[1.8vw]",
+                  "lg:w-[13vw] lg:text-[1.5vw]",
+                  "xl:w-[10vw] xl:text-[1.2vw]",
+                  "2xl:w-[8vw] 2xl:text-[1vw]",
+                )}
+              >
+                редактировать
+              </button>
+            </div>
+            <div>
+              <Alert
+                whatToDo={"удаляем данные из стэйта"}
+                alertDialogTitle={"Вы уверены?"}
+                alertDialogDescription={
+                  "Это действие нельзя отменить. Вопрос будет полностью удален."
+                }
+                alertDialogAction={"продолжить редактирование"}
+                alertDialogCancel={"удалить вопрос"}
+                buttonName={"удалить"}
+              />
+            </div>
           </div>
         </div>
       ))}

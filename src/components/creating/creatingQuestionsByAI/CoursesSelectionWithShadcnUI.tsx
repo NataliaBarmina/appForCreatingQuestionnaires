@@ -6,6 +6,7 @@ import {
 } from "../../../chadcnComponents/ui/tabs";
 
 import { arr } from "../../../common/dataExample";
+import FormForCreatingQuestionsByAI from "./formForCreatingQuestionsByAI";
 
 const CoursesSelectionWithShadcnUI = () => {
   return (
@@ -24,6 +25,7 @@ const CoursesSelectionWithShadcnUI = () => {
           </TabsContent>
         ))}
       </Tabs>
+      <FormForCreatingQuestionsByAI />
     </div>
   );
 };
