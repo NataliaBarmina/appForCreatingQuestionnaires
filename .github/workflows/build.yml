@@ -1,11 +1,11 @@
 name: Build and Deploy
 
 on:
-  # pull_request:
-  #   types:
-  #     - closed
-  push:
-    branches: ["main", "materialUI", "shadcnUI"]
+  pull_request:
+    types:
+      - closed
+  # push:
+  #   branches: ["main", "materialUI", "shadcnUI"]
 
 permissions:
   pages: write
@@ -13,11 +13,11 @@ permissions:
   contents: read
 
 jobs:
-  # if_merged:
-  #   if: github.event.pull_request.merged == true
-  #   runs-on: ubuntu-latest
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
   build:
-    # needs: if_merged
+    needs: if_merged
     runs-on: ubuntu-latest
 
     steps:
