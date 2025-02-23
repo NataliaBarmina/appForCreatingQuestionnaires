@@ -7,6 +7,7 @@ import { RoundLabel } from "../../../common/roundLabel";
 import classNames from "classnames";
 import { questionSet } from "../../../common/dataExample";
 import Alert from "../../../components/alertDialog";
+import FormForEditingQuestions from "./formForEditingQuestins";
 
 const schema = yup.object({
   questionExample: yup.string(),
@@ -118,7 +119,7 @@ const QuestionsCreatedByAI = () => {
               />
             </div>
             <div>
-              <button
+              {/* <button
                 onClick={() => alert("disabled=false")}
                 className={classNames(
                   //общие стили для всех кнопок:
@@ -136,7 +137,8 @@ const QuestionsCreatedByAI = () => {
                 )}
               >
                 редактировать
-              </button>
+              </button> */}
+              <FormForEditingQuestions />
             </div>
             <div>
               <Alert
