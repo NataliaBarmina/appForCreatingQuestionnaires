@@ -1,4 +1,4 @@
-import Button_3 from "../common/button_3";
+import Button_3 from "../common/commonButtons";
 import {
   AlertDialog,
   AlertDialogAction,

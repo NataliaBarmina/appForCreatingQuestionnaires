@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Textarea, Input } from "../../common/createFields";
+import { Textarea } from "../../common/createFields";
 import { TFields } from "../../common/createFields";
 import classNames from "classnames";
 import { questionSet } from "../../common/dataExample";
