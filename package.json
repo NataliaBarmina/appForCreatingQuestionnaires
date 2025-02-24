@@ -14,7 +14,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@hookform/resolvers": "^3.9.1",
+    "@hookform/resolvers": "^3.10.0",
     "@mui/lab": "^6.0.0-beta.24",
     "@mui/material": "^6.4.1",
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -28,11 +28,12 @@
     "lucide-react": "^0.475.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.53.2",
+    "react-hook-form": "^7.54.2",
     "react-router-dom": "^6.28.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
-    "yup": "^1.5.0"
+    "yup": "^1.5.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
