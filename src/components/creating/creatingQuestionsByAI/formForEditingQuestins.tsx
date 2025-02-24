@@ -6,7 +6,7 @@ import {
   DialogPortal,
   DialogOverlay,
 } from "../../../chadcnComponents/ui/dialog";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -16,7 +16,7 @@ import { Button_2 } from "../../../common/commonButtons";
 import classNames from "classnames";
 
 function FormForEditingQuestions() {
-  const [container, setContainer] = useState(null);
+  const container = useRef(null);
   const [open, setOpen] = useState(false);
 
   const closeDialog = () => {
@@ -29,7 +29,7 @@ function FormForEditingQuestions() {
         <DialogTrigger>
           <Button_3 buttonName={"редактировать"}></Button_3>
         </DialogTrigger>
-        <DialogPortal container={container}>
+        <DialogPortal container={container.current}>
           <DialogOverlay />
           <DialogContent>
             <form
@@ -45,7 +45,7 @@ function FormForEditingQuestions() {
         </DialogPortal>
       </Dialog>
 
-      <div ref={setContainer} />
+      <div ref={container} />
     </div>
   );
 }
