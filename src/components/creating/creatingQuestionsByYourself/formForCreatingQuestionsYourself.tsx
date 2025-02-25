@@ -6,18 +6,6 @@ import { TFields } from "../../../common/createFields";
 import { RoundLabel } from "../../../common/roundLabel";
 import classNames from "classnames";
 
-import { Button } from "../../../chadcnComponents/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../../../chadcnComponents/ui/form";
-import { Textarea as ChadcnTextarea } from "../../../chadcnComponents/ui/textarea";
-
 const schema = yup.object({
   selfWrittenTopicName: yup.string().required(),
   selfWrittenQuestion: yup.string().required(),
@@ -168,82 +156,7 @@ const FormForCreatingQuestionsYourself = () => {
           </div>
         </div>
       </form>
-      <FormForCreatingQuestionsYourself1 />
     </div>
   );
 };
 export default FormForCreatingQuestionsYourself;
-
-const schema1 = yup.object({
-  тема: yup.string().required("это поле обязательно"),
-  selfWrittenQ: yup.string().required("это поле обязательно"),
-  selfWrittenA1: yup.string().required("это поле обязательно"),
-  selfWrittenA2: yup.string().required("это поле обязательно"),
-  selfWrittenA3: yup.string().required("это поле обязательно"),
-});
-export function FormForCreatingQuestionsYourself1() {
-  const form = useForm({
-    resolver: yupResolver(schema1),
-    defaultValues: {
-      тема: "",
-      selfWrittenQ: "",
-      selfWrittenA1: "",
-      selfWrittenA2: "",
-      selfWrittenA3: "",
-    },
-  });
-
-  function onSubmit(values: any) {
-    console.log(values);
-  }
-  return (
-    <div>
-      <div className="p-8 text-[150%] font-bold">
-        Форма для самостоятельного создания вопросов
-      </div>
-
-      <div
-        className={classNames(
-          "mx-auto w-[100vw] bg-green-800",
-          "border-2 border-solid border-gray-600",
-          "s:w-[90vw] s:rounded-2xl",
-          "md:w-[65vw]",
-          "lg:w-[55vw]",
-          "xl:w-[50vw]",
-          "2xl:w-[45vw]",
-        )}
-      >
-        <div className={classNames("mx-auto w-[95%]", "s:w-[90%]")}>
-          <div className="p-8 text-lg font-bold text-blue-100">
-            Курс {nameOfCourse}
-          </div>
-
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <FormField
-                control={form.control}
-                name="тема"
-                render={({ field }) => (
-                  <FormItem>
-                    {/* <FormLabel>Username</FormLabel> */}
-                    <FormControl>
-                      <ChadcnTextarea
-                        placeholder="введите название темы"
-                        {...field}
-                      />
-                    </FormControl>
-                    {/* <FormDescription>
-                      This is your public display name.
-                    </FormDescription> */}
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit">Submit</Button>
-            </form>
-          </Form>
-        </div>
-      </div>
-    </div>
-  );
-}
