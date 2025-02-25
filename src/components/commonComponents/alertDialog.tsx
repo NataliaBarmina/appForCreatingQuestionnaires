@@ -1,4 +1,4 @@
-import Button_3 from "../common/commonButtons";
+import Button_3 from "./commonButtons";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -9,7 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../chadcnComponents/ui/alert-dialog";
+} from "../../chadcnComponents/ui/alert-dialog";
 
 interface AlertProps {
   //   onDelete: () => void; // Функция, которая будет вызываться при удалении

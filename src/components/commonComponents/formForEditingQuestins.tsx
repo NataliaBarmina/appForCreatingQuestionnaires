@@ -1,18 +1,18 @@
-import Button_3 from "../../../common/commonButtons";
+import Button_3 from "./commonButtons";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
   DialogPortal,
   DialogOverlay,
-} from "../../../chadcnComponents/ui/dialog";
+} from "../../chadcnComponents/ui/dialog";
 import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Textarea } from "../../../common/createFields";
-import { TFields } from "../../../common/createFields";
-import { Button_2 } from "../../../common/commonButtons";
+import { Textarea } from "../../common/createFields";
+import { TFields } from "../../common/createFields";
+import { Button_2 } from "./commonButtons";
 import classNames from "classnames";
 
 function FormForEditingQuestions() {
