@@ -36,7 +36,7 @@ const QuestionsCreatedByAI = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="pb-1">
+    <div className="pb-1">
       <div className="p-4 text-[150%] font-bold">
         Вопросы созданные нейросетью
       </div>
@@ -44,118 +44,103 @@ const QuestionsCreatedByAI = () => {
       <div className="p-4 text-xl font-bold">Курс {nameOfCourse}</div>
 
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
-
-      {questionSet.map((item, index) => (
-        <div
-          className={classNames(
-            "mx-auto mb-8 bg-green-800",
-            "border-2 border-solid border-gray-600",
-            "xs:w-[100vw]",
-            "sm:w-[95vw] sm:rounded-2xl",
-            "md:w-[65vw]",
-            "lg:w-[55vw]",
-            "xl:w-[50vw]",
-            "2xl:w-[45vw]",
-          )}
-        >
-          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-          <div className="mx-auto mb-8 w-[90%]">
-            <Textarea
-              placeholder=""
-              register={register}
-              fieldName="questionExample"
-              defaultValue={`${Object.keys(item)}`}
-              disabled={true}
-              styles=""
-            />
-            <div className="ml-4 flex">
-              <div className="mr-4 w-[10%]">
-                <RoundLabel value="а" />
-                <RoundLabel value="б" />
-                <RoundLabel value="в" />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {questionSet.map((item, index) => (
+          <div
+            className={classNames(
+              "mx-auto mb-8 bg-green-800 py-2",
+              "xs:w-[100vw]",
+              "sm:w-[95vw] sm:rounded-2xl",
+              "md:w-[65vw]",
+              "lg:w-[55vw]",
+              "xl:w-[50vw]",
+              "2xl:w-[45vw]",
+            )}
+          >
+            <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
+            <div className="mx-auto mb-8 w-[90%]">
+              <Textarea
+                placeholder=""
+                register={register}
+                fieldName="questionExample"
+                defaultValue={`${Object.keys(item)}`}
+                disabled={true}
+                styles=""
+              />
+              <div className="flex flex-col">
+                <div className="mx-auto w-[90%]">
+                  <div className="text-center text-sm text-white">
+                    правильный ответ
+                  </div>
+                  <Input
+                    type="text"
+                    placeholder=""
+                    register={register}
+                    fieldName="answerExample1"
+                    defaultValue={`${Object.values(item)[0][1]}`}
+                    disabled={true}
+                    styles="mb-6 "
+                  />
+                  <div className="text-center text-sm text-white">
+                    неправильный ответ
+                  </div>
+                  <Input
+                    type="text"
+                    placeholder=""
+                    register={register}
+                    fieldName="answerExample2"
+                    defaultValue={`${Object.values(item)[0][2]}`}
+                    disabled={true}
+                    styles="bg-pink-100 mb-6"
+                  />
+                  <div className="text-center text-sm text-white">
+                    неправильный ответ
+                  </div>
+                  <Input
+                    type="text"
+                    placeholder=""
+                    register={register}
+                    fieldName="answerExample3"
+                    defaultValue={`${Object.values(item)[0][3]}`}
+                    disabled={true}
+                    styles="bg-pink-100"
+                  />
+                </div>
               </div>
-              <div className="w-[89%]">
-                <Input
-                  type="text"
-                  placeholder=""
-                  register={register}
-                  fieldName="answerExample1"
-                  defaultValue={`${Object.values(item)[0][1]}`}
-                  disabled={true}
-                  styles=""
+            </div>
+            <div className="mb-8 flex w-full justify-evenly">
+              <div>
+                <Alert
+                  whatToDo={"сохраняем данные в стэйт"}
+                  alertDialogTitle={"Вы уверены?"}
+                  alertDialogDescription={
+                    "Внимательно проверьте полученные вопросы и ответы. Правильный ответ должен находиться на первом месте"
+                  }
+                  alertDialogAction={"продолжить редактирование"}
+                  alertDialogCancel={"сохранить вопрос"}
+                  buttonName={"сохранить"}
                 />
-                <Input
-                  type="text"
-                  placeholder=""
-                  register={register}
-                  fieldName="answerExample2"
-                  defaultValue={`${Object.values(item)[0][2]}`}
-                  disabled={true}
-                  styles=""
-                />
-                <Input
-                  type="text"
-                  placeholder=""
-                  register={register}
-                  fieldName="answerExample3"
-                  defaultValue={`${Object.values(item)[0][3]}`}
-                  disabled={true}
-                  styles=""
+              </div>
+              <div>
+                <FormForEditingQuestions />
+              </div>
+              <div>
+                <Alert
+                  whatToDo={"удаляем данные из стэйта"}
+                  alertDialogTitle={"Вы уверены?"}
+                  alertDialogDescription={
+                    "Это действие нельзя отменить. Вопрос будет полностью удален."
+                  }
+                  alertDialogAction={"продолжить редактирование"}
+                  alertDialogCancel={"удалить вопрос"}
+                  buttonName={"удалить"}
                 />
               </div>
             </div>
           </div>
-          <div className="mb-8 flex w-full justify-evenly">
-            <div>
-              <Alert
-                whatToDo={"сохраняем данные в стэйт"}
-                alertDialogTitle={"Вы уверены?"}
-                alertDialogDescription={
-                  "Внимательно проверьте полученные вопросы и ответы. Правильный ответ должен находиться на первом месте"
-                }
-                alertDialogAction={"продолжить редактирование"}
-                alertDialogCancel={"сохранить вопрос"}
-                buttonName={"сохранить"}
-              />
-            </div>
-            <div>
-              {/* <button
-                onClick={() => alert("disabled=false")}
-                className={classNames(
-                  //общие стили для всех кнопок:
-                  "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-                  "rounded-lg border-2 border-solid border-gray-600",
-                  "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-                  "hover:border hover:border-solid hover:border-pink-900",
-                  // меняющиеся стили:
-                  "xs:w-[29vw] xs:py-1 xs:text-[3.5vw]",
-                  "s:w-[20vw] s:py-2 s:text-[2.5vw]",
-                  "md:w-[15vw] md:text-[1.8vw]",
-                  "lg:w-[13vw] lg:text-[1.5vw]",
-                  "xl:w-[10vw] xl:text-[1.2vw]",
-                  "2xl:w-[8vw] 2xl:text-[1vw]",
-                )}
-              >
-                редактировать
-              </button> */}
-              <FormForEditingQuestions />
-            </div>
-            <div>
-              <Alert
-                whatToDo={"удаляем данные из стэйта"}
-                alertDialogTitle={"Вы уверены?"}
-                alertDialogDescription={
-                  "Это действие нельзя отменить. Вопрос будет полностью удален."
-                }
-                alertDialogAction={"продолжить редактирование"}
-                alertDialogCancel={"удалить вопрос"}
-                buttonName={"удалить"}
-              />
-            </div>
-          </div>
-        </div>
-      ))}
-    </form>
+        ))}
+      </form>
+    </div>
   );
 };
 export default QuestionsCreatedByAI;

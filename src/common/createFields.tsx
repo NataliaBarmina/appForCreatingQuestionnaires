@@ -51,10 +51,10 @@ export const Textarea = ({
     <div>
       <textarea
         className={classNames(
-          "w-[100%] bg-blue-100",
-          "border-4 border-solid border-blue-200",
+          "w-[100%] bg-blue-100 font-bold italic",
           "placeholder:text-sm placeholder:text-purple-900",
-          "mb-2 p-1 text-[120%]",
+          "border-4 border-solid border-blue-200",
+          "mb-2 py-4 pl-4 text-[120%]",
           styles,
         )}
         placeholder={placeholder}
@@ -79,10 +79,10 @@ export const Input = ({
     <div>
       <input
         className={classNames(
-          "w-[100%] bg-blue-100",
+          "w-[100%] bg-blue-100 font-bold italic",
           "border-4 border-solid border-blue-200",
           "placeholder:text-sm placeholder:text-purple-900",
-          "mb-2 p-1",
+          "mb-2 py-2 pl-4",
           styles,
         )}
         defaultValue={defaultValue}

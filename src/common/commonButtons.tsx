@@ -9,12 +9,11 @@ type ButtonProps = {
 };
 
 const commonStylesForButtons = classNames(
-  "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-  "rounded-lg border-2 border-solid border-gray-600",
+  "mx-auto bg-[#241515]  text-[#F1E8F3] font-bold shadow-md shadow-[#DBEBD7]",
+  "rounded-lg ",
   "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
   "hover:border hover:border-solid hover:border-pink-900",
 );
-
 const Button_3 = ({ buttonName }: ButtonProps) => {
   return (
     <div>
@@ -26,7 +25,7 @@ const Button_3 = ({ buttonName }: ButtonProps) => {
           "md:w-[15vw] md:text-[1.8vw]",
           "lg:w-[13vw] lg:text-[1.5vw]",
           "xl:w-[10vw] xl:text-[1.2vw]",
-          "2xl:w-[8vw] 2xl:text-[1vw]",
+          "2xl:w-[8vw] 2xl:text-[0.8vw]",
         )}
       >
         {buttonName}
@@ -57,7 +56,7 @@ export const Button_2 = ({
       "md:text-[2.2vw]",
       "lg:text-[1.8vw]",
       "xl:text-[1.5vw]",
-      "2xl:text-[1.1vw]",
+      "2xl:text-[1vw]",
     )}
   >
     {buttonName}

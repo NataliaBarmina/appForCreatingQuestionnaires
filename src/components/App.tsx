@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div
       className={classNames(
-        "mx-auto border-2 border-solid border-black text-center",
+        "mx-auto text-center",
         "md:min-h-dvh md:bg-black",
         "lg:w-[85%]",
         "xl:w-[80%]",
@@ -17,7 +17,7 @@ const App = () => {
         <div
           className={classNames(
             "z-50 mb-2 h-[12vh] w-[100%]",
-            "bg-green-800 shadow-lg shadow-pink-600",
+            "bg-green-800 shadow-lg shadow-[#241515]",
             "md:fixed md:left-0 md:top-0",
             "lg:left-[7.5vw] lg:w-[85%]",
             "xl:left-[10vw] xl:w-[80%]",
@@ -28,6 +28,7 @@ const App = () => {
       <div
         className={classNames(
           "mx-auto block w-screen align-top",
+          "shadow-lg shadow-[#241515]",
           "md:inline-block md:min-h-[86vh] md:w-[30%]",
           "lg:pt-[13vh]",
         )}
@@ -47,7 +48,8 @@ const App = () => {
       </div>
       <div
         className={classNames(
-          "mx-auto w-screen bg-blue-200 text-center",
+          "mx-auto w-screen bg-[#D3D6D6] text-center",
+          "shadow-lg shadow-[#241515]",
           "md:inline-block md:min-h-[86vh] md:w-[70%]",
         )}
       >
@@ -70,7 +72,7 @@ export const Links = ({ to, content }: ComponentProps) => {
         "mb-2 block w-[100%] bg-black p-4",
         "text-center text-[140%] text-white",
         "shadow-lg shadow-pink-600",
-        "hover:text-pink-900 focus:text-purple-700",
+        "hover:text-pink-900 focus:text-emerald-400",
         "md:mb-[8vh] md:shadow-none lg:mb-[11vh]",
       )}
     >

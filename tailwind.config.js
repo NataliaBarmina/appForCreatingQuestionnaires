@@ -42,7 +42,7 @@ module.exports = {
           800: "hsl(var(--green))",
         },
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
+        input: "hsl(var(--input))", // настроила для текстареи
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
