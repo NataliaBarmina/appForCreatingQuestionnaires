@@ -26,23 +26,23 @@ export type TFields = {
   stringWrongAnswerForAnalysis?: string; //resultsOfTheQuestionnaire
 };
 
-interface MyProps {
+type MyProps = {
   defaultValue: string; //TODO:?надо убрать
   placeholder: string;
   disabled: boolean;
   styles: string;
   fieldName: keyof TFields;
   register: UseFormRegister<TFields>;
-}
+};
 
-interface MyPropsInput {
+type MyPropsInput = {
   type: string; //только инпут
-}
-
+};
+//todo: добавить rouded?, проверить паддинги и маржины
 export const Textarea = ({
   defaultValue = "", //TODO:надо убрать
   placeholder = "",
-  disabled = false,
+  disabled = false, //TODO:надо убрать?
   fieldName,
   register,
   styles,
@@ -70,7 +70,7 @@ export const Input = ({
   defaultValue = "", //TODO:надо убрать
   type = "text",
   placeholder = "",
-  disabled = false,
+  disabled = false, //TODO:надо убрать?
   fieldName,
   register,
   styles,

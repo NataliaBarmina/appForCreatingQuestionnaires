@@ -1,10 +1,11 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TFields, Textarea } from "../../common/createFields";
+import { TFields } from "../../common/createFields";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { questionSet } from "../../common/dataExample";
+import StaticFieldForQuestionsAndAnswers from "../commonComponents/staticFieldForQuestionsAndAnswers";
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),
@@ -47,13 +48,10 @@ const Questionnaire = () => {
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mx-auto mb-8 w-[90%]">
             <div className="mb-3">
-              <Textarea
-                placeholder=""
-                register={register}
-                fieldName="questionFromSurvey"
-                defaultValue={`${Object.keys(item)}`}
-                disabled={true}
+              <StaticFieldForQuestionsAndAnswers
                 styles=""
+                value={`${Object.keys(item)}`}
+                id=""
               />
             </div>
             <div className="mb-12 ml-[4%] w-[96%]">
@@ -99,10 +97,10 @@ const Questionnaire = () => {
 };
 export default Questionnaire;
 
-interface MyProps {
+type MyProps = {
   value: string;
   name: string;
-}
+};
 
 const RadioInput = ({ value, name }: MyProps) => {
   return (
