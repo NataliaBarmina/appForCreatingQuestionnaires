@@ -14,6 +14,30 @@ const commonStylesForButtons = classNames(
   "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
   "hover:border hover:border-solid hover:border-pink-900",
 );
+
+export const BigButton = ({ buttonName, onclick }: ButtonProps) => {
+  return (
+    <div>
+      <button
+        onClick={() => {
+          onclick();
+        }}
+        className={classNames(
+          commonStylesForButtons,
+          "block w-[45vw] py-2 xs:text-[5vw]",
+          "s:w-[35vw] s:py-4 s:text-[3.5vw]",
+          "md:landscape:w-[30vw] md:landscape:text-[3vw]",
+          "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
+          "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",
+          "2xl:landscape:w-[14vw] 2xl:landscape:text-[1.3vw]",
+        )}
+      >
+        {buttonName}
+      </button>
+    </div>
+  );
+};
+
 const Button_3 = ({ buttonName }: ButtonProps) => {
   return (
     <div>
