@@ -11,7 +11,7 @@ import {
   AlertDialogTrigger,
 } from "../../chadcnComponents/ui/alert-dialog";
 
-interface AlertProps {
+type AlertProps = {
   //   onDelete: () => void; // Функция, которая будет вызываться при удалении
   //   onContinue: () => void; // Функция, которая будет вызываться при продолжении
   whatToDo: string;
@@ -20,7 +20,7 @@ interface AlertProps {
   alertDialogAction: string;
   alertDialogCancel: string;
   buttonName: string;
-}
+};
 
 const Alert = ({
   whatToDo,

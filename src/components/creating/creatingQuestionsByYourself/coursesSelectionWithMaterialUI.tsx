@@ -7,11 +7,11 @@ import { Subject } from "../../../common/dataExample";
 
 //TODO:! нужно проверить адаптивность верстки
 
-interface TabPanelProps {
+type TabPanelProps = {
   children?: React.ReactNode;
   index: number;
   value: number;
-}
+};
 
 const tabStyle = {
   bgcolor: "background.paper",
