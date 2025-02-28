@@ -38,6 +38,7 @@ type MyProps = {
 type MyPropsInput = {
   type: string; //только инпут
 };
+
 //todo: добавить rouded?, проверить паддинги и маржины
 export const Textarea = ({
   defaultValue = "", //TODO:надо убрать
