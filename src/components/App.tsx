@@ -60,10 +60,10 @@ const App = () => {
 };
 export default App;
 
-interface ComponentProps {
+type ComponentProps = {
   to: string;
   content: string;
-}
+};
 export const Links = ({ to, content }: ComponentProps) => {
   return (
     <Link

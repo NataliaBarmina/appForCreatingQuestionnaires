@@ -41,9 +41,9 @@ const CourseSelection = () => {
 
 export default CourseSelection;
 
-interface ComponentProps {
+type ComponentProps = {
   course: string;
-}
+};
 
 const Courses = ({ course }: ComponentProps) => {
   const navigate = useNavigate();

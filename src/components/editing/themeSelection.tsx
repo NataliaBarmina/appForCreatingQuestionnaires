@@ -28,9 +28,9 @@ const ThemeSelection = () => {
   );
 };
 
-interface ComponentProps {
+type ComponentProps = {
   value: string;
-}
+};
 const Theme = ({ value }: ComponentProps) => {
   const navigate = useNavigate();
   return (

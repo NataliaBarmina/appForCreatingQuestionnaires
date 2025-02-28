@@ -46,14 +46,14 @@ const DefaultPage = () => {
 };
 export default DefaultPage;
 
-interface ComponentProps {
+type ComponentProps = {
   colSpan: string;
   colStart: string;
   rowSpan: string;
   rowStart: string;
   content: string;
   link: string;
-}
+};
 
 const Circle = ({
   colSpan,
