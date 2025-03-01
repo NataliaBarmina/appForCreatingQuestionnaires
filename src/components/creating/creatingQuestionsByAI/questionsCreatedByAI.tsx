@@ -43,8 +43,9 @@ const QuestionsCreatedByAI = () => {
       {arr.map((item, index) => (
         <div
           className={classNames(
-            "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
-            "s:w-[90vw] s:rounded-2xl",
+            "mx-auto mb-8 w-[100vw] bg-green-800",
+            "xs:px-0",
+            "s:w-[90vw] s:rounded-2xl s:px-8",
             "md:w-[65vw]",
             "lg:w-[55vw]",
             "xl:w-[50vw]",
@@ -52,15 +53,15 @@ const QuestionsCreatedByAI = () => {
           )}
         >
           <div className="py-6 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-
-          <BlokedFieldWithAnswersAndQuestions
-            question={item.вопрос}
-            correctAnswer={item.ответ_1}
-            wrongAnswer1={item.ответ_2}
-            wrongAnswer2={item.ответ_3}
-          />
-
-          <div className="mb-8 flex w-full justify-evenly py-8">
+          <div className="mx-auto w-[95%]">
+            <BlokedFieldWithAnswersAndQuestions
+              question={item.вопрос}
+              correctAnswer={item.ответ_1}
+              wrongAnswer1={item.ответ_2}
+              wrongAnswer2={item.ответ_3}
+            />
+          </div>
+          <div className="mb-8 flex w-full justify-around py-8">
             <div>
               <Alert
                 whatToDo={"сохраняем данные в стэйт"}

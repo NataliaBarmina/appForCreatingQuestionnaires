@@ -6,7 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { Topic } from "../../../common/dataExample";
-import { Button } from "../../../components/commonComponents/commonButtons";
+import { Button } from "../../commonComponents/buttons";
 
 //TODO:! нужно проверить адаптивность верстки
 
