@@ -6,7 +6,7 @@ import { createHashRouter } from "react-router-dom";
 import "./index.css";
 
 import DefaultPage from "./components/defaultPage";
-import Preloader from "./common/preloader";
+import Preloader from "./components/commonComponents/preloader";
 
 import { lazy, Suspense } from "react";
 

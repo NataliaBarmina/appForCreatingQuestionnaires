@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { Button } from "../commonComponents/commonButtons";
+import { Button } from "../commonComponents/buttons";
 
 const Creating = () => {
   const navigate = useNavigate();

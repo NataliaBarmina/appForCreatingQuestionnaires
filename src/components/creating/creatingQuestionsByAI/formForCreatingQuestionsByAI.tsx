@@ -1,11 +1,11 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Textarea } from "../../../common/createFields";
-import { TFields } from "../../../common/createFields";
+import { Textarea } from "../../commonComponents/createFields";
+import { TFields } from "../../commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classNames from "classnames";
-import Button from "../../../components/commonComponents/commonButtons";
+import Button from "../../commonComponents/buttons";
 
 const schema = yup.object({
   topicName: yup.string().required("Это поле обязательно"),

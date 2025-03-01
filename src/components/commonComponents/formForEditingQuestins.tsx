@@ -1,4 +1,4 @@
-import Button from "./commonButtons";
+import Button from "./buttons";
 import {
   Dialog,
   DialogContent,
@@ -10,8 +10,8 @@ import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Textarea } from "../../common/createFields";
-import { TFields } from "../../common/createFields";
+import { Textarea } from "./createFields";
+import { TFields } from "./createFields";
 import classNames from "classnames";
 
 function FormForEditingQuestions() {
