@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { BigButton } from "../commonComponents/commonButtons";
+import { Button } from "../commonComponents/commonButtons";
 
 const Creating = () => {
   const navigate = useNavigate();
@@ -20,12 +20,14 @@ const Creating = () => {
         )}
       >
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
-          <BigButton
+          <Button
             buttonName="нейросетью"
+            size="big"
             onclick={() => navigate("/coursesSelectionWithShadcnUI")}
           />
-          <BigButton
+          <Button
             buttonName="самостоятельно"
+            size="big"
             onclick={() => navigate("/coursesSelectionWithMaterialUI")}
           />
         </div>
@@ -34,4 +36,3 @@ const Creating = () => {
   );
 };
 export default Creating;
-//

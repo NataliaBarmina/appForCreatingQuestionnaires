@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { questionSet } from "../../common/dataExample";
 import StaticFieldForQuestionsAndAnswers from "../commonComponents/staticFieldForQuestionsAndAnswers";
+import Button from "../commonComponents/commonButtons";
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),
@@ -71,27 +72,11 @@ const Questionnaire = () => {
           </div>
         </div>
       ))}
-      <button
-        onClick={() => navigate("/resultsOfTheQuestionnaire")}
-        className={classNames(
-          //общие стили для всех кнопок:
-          "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-          "rounded-lg border-2 border-solid border-gray-600",
-          "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-          "hover:border hover:border-solid hover:border-pink-900",
-          // меняющиеся стили:
-          "w-[30vw] p-2",
-          "xs:text-[4vw]",
-          "s:w-[25vw] s:text-[3vw]",
-          "sm:w-[20vw] sm:text-[2.6vw]",
-          "md:w-[15vw] md:text-[2.1vw]",
-          "lg:w-[12vw] lg:text-[1.8vw]",
-          "xl:w-[10vw] xl:text-[1.5vw]",
-          "2xl:w-[10vw] 2xl:text-[1.2vw]",
-        )}
-      >
-        сохранить
-      </button>
+      <Button
+        buttonName="сохранить"
+        size="middle"
+        onclick={() => navigate("/resultsOfTheQuestionnaire")}
+      />
     </form>
   );
 };

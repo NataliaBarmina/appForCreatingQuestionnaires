@@ -1,4 +1,4 @@
-import Button_3 from "./commonButtons";
+import Button from "./commonButtons";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -34,7 +34,13 @@ const Alert = ({
   return (
     <AlertDialog>
       <AlertDialogTrigger>
-        <Button_3 buttonName={buttonName} />
+        <Button
+          buttonName={buttonName}
+          size="small"
+          disabled={false}
+          type="button"
+          onclick={() => {}}
+        />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

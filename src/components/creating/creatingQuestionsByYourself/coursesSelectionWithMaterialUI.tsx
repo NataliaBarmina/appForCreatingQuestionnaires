@@ -41,7 +41,7 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 }
@@ -58,14 +58,15 @@ const CoursesSelectionWithMaterialUI = () => {
       <Box
         sx={{
           width: "100%",
-          marginTop: "30px",
+          paddingTop: "30px",
+          paddingBottom: "35px",
         }}
       >
         <Box
           sx={{
             maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },
             display: "inline-block",
-            margin: "o auto",
+            margin: " auto",
           }}
         >
           <Tabs
@@ -87,7 +88,6 @@ const CoursesSelectionWithMaterialUI = () => {
             ))}
           </Tabs>
         </Box>
-
         {arr.map((item: Subject, index: number) => (
           <CustomTabPanel value={value} index={index} key={index}>
             <ThemesSelection
@@ -101,3 +101,11 @@ const CoursesSelectionWithMaterialUI = () => {
   );
 };
 export default CoursesSelectionWithMaterialUI;
+
+//! образец как можно менять свойства, если sx не разрешен
+// import { styled } from "@mui/system";
+// const CustomStyledTabPanel = styled(CustomTabPanel)(({ theme }) => ({
+//   backgroundColor: "red", // Пример для изменения фона
+//   padding: "20px", // Пример для изменения отступов
+//   borderRadius: "8px", // Пример для изменения углов
+// }));
