@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classNames from "classnames";
+import Button from "../../../components/commonComponents/commonButtons";
 
 const schema = yup.object({
   topicName: yup.string().required("Это поле обязательно"),
@@ -89,25 +90,7 @@ const FormForCreatingQuestionsByAI = () => {
           </div>
         </div>
         <div className="mb-10">
-          <button
-            className={classNames(
-              //общие стили для всех кнопок:
-              "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-              "rounded-lg border-2 border-solid border-gray-600",
-              "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-              "hover:border hover:border-solid hover:border-pink-900",
-              // меняющиеся стили:
-              "p-2 xs:w-[31vw] xs:text-[5vw]",
-              "s:w-[25vw] s:text-[3.8vw]",
-              "sm:w-[20vw] sm:text-[3vw]",
-              "md:w-[15vw] md:text-[2vw]",
-              "lg:w-[10vw] lg:text-[1.6vw]",
-              "xl:w-[10vw] xl:text-[1.6vw]",
-              "2xl:w-[8vw] 2xl:text-[1.2vw]",
-            )}
-          >
-            Отправить
-          </button>
+          <Button buttonName="Отправить" size="middle" />
         </div>
       </div>
     </form>

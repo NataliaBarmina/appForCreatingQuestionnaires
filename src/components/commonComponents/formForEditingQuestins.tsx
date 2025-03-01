@@ -1,4 +1,4 @@
-import Button_3 from "./commonButtons";
+import Button from "./commonButtons";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +12,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Textarea } from "../../common/createFields";
 import { TFields } from "../../common/createFields";
-import { Button_2 } from "./commonButtons";
 import classNames from "classnames";
 
 function FormForEditingQuestions() {
@@ -27,7 +26,13 @@ function FormForEditingQuestions() {
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
-          <Button_3 buttonName={"редактировать"}></Button_3>
+          <Button
+            buttonName={"редактировать"}
+            size="small"
+            disabled={false}
+            type="button"
+            onclick={() => {}}
+          ></Button>
         </DialogTrigger>
         <DialogPortal container={container.current}>
           <DialogOverlay />
@@ -159,13 +164,19 @@ const Form = ({ closeDialog }: { closeDialog: () => void }) => {
           </div>
         )}
         <div className="mx-auto mb-12 mt-6 flex w-[80%] justify-between px-[4vw]">
-          <Button_2
+          <Button
             buttonName="сохранить"
+            size="middle"
             disabled={!!hasErrors}
             type="button"
             onclick={handleSubmit(onSubmit)}
           />
-          <Button_2 buttonName="удалить" onclick={handleDelete} type="button" />
+          <Button
+            buttonName="удалить"
+            size="middle"
+            onclick={handleDelete}
+            type="button"
+          />
         </div>
       </div>
     </form>
