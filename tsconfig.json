@@ -11,7 +11,15 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["src/components/*"],
+      "@common/*": ["src/common/*"],
+      "@commonComponents/*": ["src/components/commonComponents/*"],
+      "@creating/*": ["src/components/creating/*"],
+      "@editing/*": ["src/components/editing/*"],
+      "@questionnaire/*": ["src/components/questionnaire/*"],
+      "@lib/*": ["src/chadcnComponents/lib/*"],
+      "@ui/*": ["src/chadcnComponents/ui/*"]
     }
   }
 }
