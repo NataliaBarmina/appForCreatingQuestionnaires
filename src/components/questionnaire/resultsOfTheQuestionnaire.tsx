@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { questionSet } from "../../common/dataExample";
-import { Label } from "../../chadcnComponents/ui/label";
-import StaticFieldForQuestionsAndAnswers from "../commonComponents/staticFieldForQuestionsAndAnswers";
+import { questionSet } from "@common/dataExample";
+import { Label } from "@ui/label";
+import StaticFieldForQuestionsAndAnswers from "@commonComponents/staticFieldForQuestionsAndAnswers";
 
 const ResultsOfTheQuestionnaire = () => {
   const percentageOfCorrectAnswers = "95%";

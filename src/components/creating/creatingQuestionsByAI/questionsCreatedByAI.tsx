@@ -1,8 +1,8 @@
-import { Question } from "../../../common/dataExample";
+import { Question } from "@common/dataExample";
 import classNames from "classnames";
-import Alert from "../../commonComponents/alertDialog";
-import FormForEditingQuestions from "../../commonComponents/formForEditingQuestins";
-import BlokedFieldWithAnswersAndQuestions from "../../../components/commonComponents/blokedFieldWithAnswersAndQuestions";
+import Alert from "@commonComponents/alertDialog";
+import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
+import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
 
 //todo: типизация для пропсов, которые будут предаваться в QuestionsCreatedByAI
 type QuestionsCreatedByAIProps = {

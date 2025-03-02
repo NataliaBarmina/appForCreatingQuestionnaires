@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import classNames from "classnames";
-import Alert from "../../commonComponents/alertDialog";
+import Alert from "@commonComponents/alertDialog";
 import {
   Form,
   FormControl,
@@ -10,8 +10,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../../chadcnComponents/ui/form";
-import { Textarea } from "../../../chadcnComponents/ui/textarea";
+} from "@ui/form";
+import { Textarea } from "@ui/textarea";
 
 const schema = yup.object({
   selfWrittenTopicName: yup.string().required(),
@@ -134,7 +134,7 @@ const FormForCreatingQuestionsYourself = () => {
                   whatToDo={"сохраняем данные в стэйт"}
                   alertDialogTitle={"Вы уверены?"}
                   alertDialogDescription={
-                    "Внимательно проверьте полученные вопросы и ответы. Правильный ответ должен находиться на первом месте"
+                    "Внимательно проверьте вопросы и ответы. Правильный ответ должен находиться на первом месте"
                   }
                   alertDialogAction={"продолжить редактирование"}
                   alertDialogCancel={"сохранить вопрос"}
