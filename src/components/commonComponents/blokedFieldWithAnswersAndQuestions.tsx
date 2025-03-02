@@ -1,5 +1,5 @@
 import StaticFieldForQuestionsAndAnswers from "./staticFieldForQuestionsAndAnswers";
-import { Label } from "../../chadcnComponents/ui/label";
+import { Label } from "@ui/label";
 
 type MyProps = {
   question: string;

@@ -1,12 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TFields } from "../commonComponents/createFields";
+import { TFields } from "@commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { questionSet } from "../../common/dataExample";
-import StaticFieldForQuestionsAndAnswers from "../commonComponents/staticFieldForQuestionsAndAnswers";
-import Button from "../commonComponents/buttons";
+import { questionSet } from "@common/dataExample";
+import StaticFieldForQuestionsAndAnswers from "@commonComponents/staticFieldForQuestionsAndAnswers";
+import Button from "@commonComponents/buttons";
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),

@@ -5,13 +5,12 @@ import {
   DialogTrigger,
   DialogPortal,
   DialogOverlay,
-} from "../../chadcnComponents/ui/dialog";
+} from "@ui/dialog";
 import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Textarea } from "./createFields";
-import { TFields } from "./createFields";
+import { Textarea, TFields } from "./createFields";
 import classNames from "classnames";
 
 function FormForEditingQuestions() {

@@ -1,11 +1,6 @@
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../../../chadcnComponents/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ui/tabs";
 
-import { arr } from "../../../common/dataExample";
+import { arr } from "@common/dataExample";
 import FormForCreatingQuestionsByAI from "./formForCreatingQuestionsByAI";
 
 const CoursesSelectionWithShadcnUI = () => {
