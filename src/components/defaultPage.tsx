@@ -32,7 +32,7 @@ const DefaultPage = () => {
       <div
         className={classNames(
           "z-0 col-span-5 col-start-1 row-span-7 row-start-1 h-[70vw] w-[70vw]",
-          "rounded-full border-8 border-dotted border-gray-600/50",
+          "rounded-full border-8 border-dotted border-stone-700",
           "md:landscape:h-[55vw] md:landscape:w-[55vw]",
           "md:portrait:h-[60vh] md:portrait:w-[60vh]",
           "lg:landscape:h-[48vw] lg:landscape:w-[48vw]",
@@ -66,14 +66,14 @@ const Circle = ({
   const navigate = useNavigate();
 
   return (
-    <div className={classNames("z-10", colSpan, colStart, rowSpan, rowStart)}>
+    <div className={classNames("z-50", colSpan, colStart, rowSpan, rowStart)}>
       <div
         className={classNames(
           "flex h-[30vw] w-[30vw] items-center justify-center",
-          "rounded-full border-2 border-solid border-black",
-          "bg-gray-400 shadow-lg shadow-black",
-          "hover:border-2 hover:border-solid hover:border-pink-600",
-          "hover:cursor-pointer hover:shadow-xl hover:shadow-pink-600",
+          "rounded-full",
+          "bg-stone-700 text-pink-100 shadow-md shadow-stone-950",
+          "hover:border-2 hover:border-solid hover:border-zinc-800",
+          "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
           "md:landscape:h-[20vw] md:landscape:w-[20vw]",
           "md:portrait:h-[27vh] md:portrait:w-[27vh]",
           "lg:landscape:h-[18vw] lg:landscape:w-[18vw]",

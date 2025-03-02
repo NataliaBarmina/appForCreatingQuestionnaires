@@ -10,10 +10,10 @@ type ButtonProps = {
 };
 
 const commonStylesForButtons = classNames(
-  "mx-auto bg-[#241515]  text-[#F1E8F3] font-bold shadow-md shadow-[#DBEBD7]",
+  "mx-auto bg-stone-900  text-pink-100 font-bold shadow-lg shadow-stone-800",
   "rounded-lg py-2",
-  "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-  "hover:border hover:border-solid hover:border-pink-900",
+  "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
+  "hover:border hover:border-solid hover:border-zinc-950",
 );
 
 export const Button = ({
