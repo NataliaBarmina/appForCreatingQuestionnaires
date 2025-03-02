@@ -1,7 +1,33 @@
 import classNames from "classnames";
-import { questionSet } from "@common/dataExample";
 import { Label } from "@ui/label";
 import StaticFieldForQuestionsAndAnswers from "@commonComponents/staticFieldForQuestionsAndAnswers";
+
+const questionSet = [
+  //todo: потом удалить
+  {
+    "К какому типу данных преобразует значение функция alert?": {
+      1: "к строке",
+      2: "к символу",
+      3: "к числу",
+    },
+  },
+
+  {
+    "К какому типу данных преобразует значение математические операторы?": {
+      1: "к числам",
+      2: "undefined",
+      3: "к нулю",
+    },
+  },
+
+  {
+    " Что нужно использовать, чтобы преобразовать значение к строке?": {
+      1: "функцию String(value)",
+      2: "оператор +",
+      3: "заключить в кавычки",
+    },
+  },
+];
 
 const ResultsOfTheQuestionnaire = () => {
   const percentageOfCorrectAnswers = "95%";
