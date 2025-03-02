@@ -4,9 +4,38 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { TFields } from "@commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { questionSet } from "@common/dataExample";
 import StaticFieldForQuestionsAndAnswers from "@commonComponents/staticFieldForQuestionsAndAnswers";
 import Button from "@commonComponents/buttons";
+
+const questions = [
+  //todo: потом удалить
+  {
+    вопрос: "Свойство display какое значение принимает?",
+    ответ_1: "flex",
+    ответ_2: "relative",
+    ответ_3: "justify-content",
+  },
+  {
+    вопрос: "Что такое инлайн - стили и какой они имеют приоритет?",
+    ответ_1:
+      "стили которые пишутся прямо в HTML  и имеют самый высокий приоритет",
+    ответ_2: "стили которые пишутся  в CSS  и имеют самый высокий приоритет",
+    ответ_3: "стили которые пишутся прямо в HTML  и имеют низкий приоритет",
+  },
+
+  {
+    вопрос: "За что отвечает z- index?",
+    ответ_1: "за расположение элементов по оси z",
+    ответ_2: "за расположение элементов по оси x",
+    ответ_3: "за расположение элементов по оси y",
+  },
+  {
+    вопрос: "Какие значения принимает свойство position?",
+    ответ_1: "relative",
+    ответ_2: "flex",
+    ответ_3: "justify-content",
+  },
+];
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),
@@ -34,7 +63,7 @@ const Questionnaire = () => {
         Ответьте на вопросы:
       </div>
 
-      {questionSet.map((item, index) => (
+      {questions.map((item, index) => (
         <div
           className={classNames(
             "mx-auto mb-8 w-[100vw] bg-green-800",
@@ -51,21 +80,21 @@ const Questionnaire = () => {
             <div className="mb-3">
               <StaticFieldForQuestionsAndAnswers
                 styles=""
-                value={`${Object.keys(item)}`}
+                value={item.вопрос}
                 id=""
               />
             </div>
             <div className="mb-12 ml-[4%] w-[96%]">
               <RadioInput
-                value={`${Object.values(item)[0][1]}`}
+                value={item.ответ_1}
                 name={`radioInputFromSurvey${index}`}
               />
               <RadioInput
-                value={`${Object.values(item)[0][2]}`}
+                value={item.ответ_2}
                 name={`radioInputFromSurvey${index}`}
               />
               <RadioInput
-                value={`${Object.values(item)[0][3]}`}
+                value={item.ответ_3}
                 name={`radioInputFromSurvey${index}`}
               />
             </div>
