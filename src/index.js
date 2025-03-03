@@ -7,6 +7,7 @@ import "./index.css";
 
 import DefaultPage from "./components/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
+import FormSelection from "./components/formSelection";
 
 import { lazy, Suspense } from "react";
 
@@ -151,6 +152,10 @@ const router = createHashRouter(
               <FormForCreatingQuestionsYourself />
             </Suspense>
           ),
+        },
+        {
+          path: "/formSelection",
+          element: <FormSelection />,
         },
         {
           path: "/",

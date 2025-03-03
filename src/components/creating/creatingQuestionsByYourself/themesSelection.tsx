@@ -7,14 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { Topic } from "@common/dataExample";
 import { Button } from "@commonComponents/buttons";
 
-//TODO:! нужно проверить адаптивность верстки
-
 export type MyProps = {
   themeOfCourse: string[];
   listOfThemes: Topic[];
+  buttonName: string;
 };
 
-const ThemesSelection = ({ themeOfCourse, listOfThemes }: MyProps) => {
+const ThemesSelection = ({
+  themeOfCourse,
+  listOfThemes,
+  buttonName,
+}: MyProps) => {
   const arrayListOfThemes = Object.values(listOfThemes);
 
   const navigate = useNavigate();
@@ -23,7 +26,6 @@ const ThemesSelection = ({ themeOfCourse, listOfThemes }: MyProps) => {
       <div className="py-8 text-xl font-bold">
         Выберите тему из курса {themeOfCourse}
       </div>
-
       <Box
         sx={{
           width: { xs: "100%", sm: "90%" },
@@ -54,10 +56,9 @@ const ThemesSelection = ({ themeOfCourse, listOfThemes }: MyProps) => {
               >
                 <ListItemButton
                   onClick={() => {
-                    navigate("/formForCreatingQuestionsYourself");
-                    //TODO: добавить обработчик отправляющий название курса{themeOfCourse} и темы{Object.keys(item)} в стэйт?
-                    //TODO: нужно найти тему{Object.keys(item)} на которой произошло событие
-                    //TODO: я должна передать item в стэйт?
+                    navigate("/formSelection", {
+                      state: { buttonName },
+                    });
                   }}
                 >
                   <ListItemText primary={Object.keys(item)} />
@@ -66,15 +67,23 @@ const ThemesSelection = ({ themeOfCourse, listOfThemes }: MyProps) => {
             ))}
           </List>
         </nav>
-        <Button
-          onclick={() => navigate("/formForCreatingQuestionsYourself")}
-          buttonName="Добавить тему"
-          disabled={false}
-          type="button"
-          size="middle"
-        />
+        {buttonName !== "редактирование" && (
+          <Button
+            onclick={() => {
+              navigate("/formSelection", {
+                state: { buttonName },
+              });
+            }}
+            buttonName="Добавить тему"
+            disabled={false}
+            type="button"
+            size="middle"
+          />
+        )}
       </Box>
     </div>
   );
 };
 export default ThemesSelection;
+
+//TODO: добавить обработчик отправляющий название курса{themeOfCourse} и темы{Object.keys(item)} в стэйт?

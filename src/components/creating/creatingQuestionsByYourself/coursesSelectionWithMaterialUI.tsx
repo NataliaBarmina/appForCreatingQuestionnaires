@@ -1,6 +1,7 @@
 import { Tabs, Tab, Box, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
+import { useLocation } from "react-router-dom";
 import ThemesSelection from "./themesSelection";
 import { arr, Subject } from "@common/dataExample";
 
@@ -52,6 +53,9 @@ const CoursesSelectionWithMaterialUI = () => {
     setValue(newValue);
   };
 
+  const location = useLocation();
+  const buttonName = location.state?.buttonName;
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -92,6 +96,7 @@ const CoursesSelectionWithMaterialUI = () => {
             <ThemesSelection
               themeOfCourse={Object.keys(item)}
               listOfThemes={Object.values(item)[0]}
+              buttonName={buttonName}
             />
           </CustomTabPanel>
         ))}
