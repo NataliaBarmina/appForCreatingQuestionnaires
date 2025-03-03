@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { Label } from "@ui/label";
-import StaticFieldForQuestionsAndAnswers from "@commonComponents/staticFieldForQuestionsAndAnswers";
+import { BlockedField } from "@commonComponents/createFields";
 
 const questionSet = [
   //todo: потом удалить
@@ -57,7 +57,7 @@ const ResultsOfTheQuestionnaire = () => {
           >
             <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
             <div className="mx-auto w-[90%]">
-              <StaticFieldForQuestionsAndAnswers
+              <BlockedField
                 styles="mb-6"
                 value={`${Object.keys(item)}`}
                 id={""}
@@ -66,7 +66,7 @@ const ResultsOfTheQuestionnaire = () => {
                 <Label className="text-white" htmlFor="correctAnswer">
                   ПРАВИЛЬНЫЙ ОТВЕТ
                 </Label>
-                <StaticFieldForQuestionsAndAnswers
+                <BlockedField
                   styles="mb-6"
                   value={`${Object.values(item)[0][1]}`}
                   id={"correctAnswer"}
@@ -74,7 +74,7 @@ const ResultsOfTheQuestionnaire = () => {
                 <Label className="text-white" htmlFor="yourAnswer">
                   ВАШ ОТВЕТ
                 </Label>
-                <StaticFieldForQuestionsAndAnswers
+                <BlockedField
                   styles="mb-8"
                   value={`${Object.values(item)[0][2]}`}
                   id={"yourAnswer"}

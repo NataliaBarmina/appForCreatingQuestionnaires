@@ -18,7 +18,7 @@ const DefaultPage = () => {
         rowSpan="row-span-3"
         rowStart="row-start-4"
         content="Редактирование"
-        link="/courseSelection"
+        link="/coursesSelection"
       />
       <Circle
         colSpan="col-span-2"

@@ -1,10 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TFields } from "@commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import StaticFieldForQuestionsAndAnswers from "@commonComponents/staticFieldForQuestionsAndAnswers";
+import { BlockedField, TFields } from "@commonComponents/createFields";
 import Button from "@commonComponents/buttons";
 
 const questions = [
@@ -78,11 +77,7 @@ const Questionnaire = () => {
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mx-auto mb-8 w-[90%]">
             <div className="mb-3">
-              <StaticFieldForQuestionsAndAnswers
-                styles=""
-                value={item.вопрос}
-                id=""
-              />
+              <BlockedField styles="" value={item.вопрос} id="" />
             </div>
             <div className="mb-12 ml-[4%] w-[96%]">
               <RadioInput
