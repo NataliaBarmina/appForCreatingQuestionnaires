@@ -23,12 +23,20 @@ const Creating = () => {
           <Button
             buttonName="нейросетью"
             size="big"
-            onclick={() => navigate("/coursesSelectionWithShadcnUI")}
+            onclick={() =>
+              navigate("/coursesSelectionWithMaterialUI", {
+                state: { buttonName: "нейросетью" },
+              })
+            }
           />
           <Button
             buttonName="самостоятельно"
             size="big"
-            onclick={() => navigate("/coursesSelectionWithMaterialUI")}
+            onclick={() =>
+              navigate("/coursesSelectionWithMaterialUI", {
+                state: { buttonName: "самостоятельно" },
+              })
+            }
           />
         </div>
       </div>
