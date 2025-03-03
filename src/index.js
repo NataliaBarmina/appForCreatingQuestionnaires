@@ -7,50 +7,29 @@ import "./index.css";
 
 import DefaultPage from "./components/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
-import FormSelection from "./components/formSelection";
 
 import { lazy, Suspense } from "react";
 
 const Creating = lazy(() => import("./components/creating/creating"));
+const FormSelection = lazy(
+  () => import("./components/commonComponents/formSelection"),
+);
 const Questionnaire = lazy(
   () => import("./components/questionnaire/questionnaire"),
 );
 const QuestionsCreatedByAI = lazy(
-  () =>
-    import("./components/creating/creatingQuestionsByAI/questionsCreatedByAI"),
+  () => import("./components/creating/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
-  () =>
-    import(
-      "./components/creating/creatingQuestionsByYourself/formForCreatingQuestionsYourself"
-    ),
+  () => import("./components/creating/formForCreatingQuestionsYourself"),
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () =>
-    import(
-      "./components/creating/creatingQuestionsByAI/formForCreatingQuestionsByAI"
-    ),
+  () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
-const CourseSelection = lazy(
-  () => import("./components/editing/courseSelection"),
-);
-const CoursesSelectionWithMaterialUI = lazy(
-  () =>
-    import(
-      "./components/creating/creatingQuestionsByYourself/coursesSelectionWithMaterialUI"
-    ),
+const CoursesSelection = lazy(
+  () => import("./components/commonComponents/coursesSelection"),
 );
 
-const CoursesSelectionWithShadcnUI = lazy(
-  () =>
-    import(
-      "./components/creating/creatingQuestionsByAI/CoursesSelectionWithShadcnUI"
-    ),
-);
-
-const ThemeSelection = lazy(
-  () => import("./components/editing/themeSelection"),
-);
 const QuestionList = lazy(() => import("./components/editing/questionList"));
 const ResultsOfTheQuestionnaire = lazy(
   () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
@@ -73,26 +52,10 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/courseSelection",
+          path: "/coursesSelection",
           element: (
             <Suspense fallback={<Preloader />}>
-              <CourseSelection />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/coursesSelectionWithShadcnUI",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <CoursesSelectionWithShadcnUI />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/coursesSelectionWithMaterialUI",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <CoursesSelectionWithMaterialUI />
+              <CoursesSelection />
             </Suspense>
           ),
         },
@@ -101,14 +64,6 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <QuestionList />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/themeSelection",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <ThemeSelection />
             </Suspense>
           ),
         },
@@ -155,7 +110,11 @@ const router = createHashRouter(
         },
         {
           path: "/formSelection",
-          element: <FormSelection />,
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <FormSelection />
+            </Suspense>
+          ),
         },
         {
           path: "/",

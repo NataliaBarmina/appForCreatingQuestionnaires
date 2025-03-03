@@ -24,7 +24,7 @@ const Creating = () => {
             buttonName="нейросетью"
             size="big"
             onclick={() =>
-              navigate("/coursesSelectionWithMaterialUI", {
+              navigate("/coursesSelection", {
                 state: { buttonName: "нейросетью" },
               })
             }
@@ -33,7 +33,7 @@ const Creating = () => {
             buttonName="самостоятельно"
             size="big"
             onclick={() =>
-              navigate("/coursesSelectionWithMaterialUI", {
+              navigate("/coursesSelection", {
                 state: { buttonName: "самостоятельно" },
               })
             }
