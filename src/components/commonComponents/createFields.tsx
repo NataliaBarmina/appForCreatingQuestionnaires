@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { UseFormRegister } from "react-hook-form";
 
 export type TFields = {
+  //todo: проверить каких полей уже нет
   topicName?: string; //FormForCreatingQuestionsByAI
   linkToSource?: string; //FormForCreatingQuestionsByAI
   questionExample?: string; //QuestionsCreatedByAI
@@ -24,6 +25,9 @@ export type TFields = {
   wrongAnswerForAnalysis?: string; //resultsOfTheQuestionnaire
   stringRightAnswerForAnalysis?: string; //resultsOfTheQuestionnaire
   stringWrongAnswerForAnalysis?: string; //resultsOfTheQuestionnaire
+  styles?: string;
+  value?: string;
+  id?: string;
 };
 
 type MyProps = {
@@ -69,7 +73,7 @@ export const Textarea = ({
 
 export const Input = ({
   defaultValue = "", //TODO:надо убрать
-  type = "text",
+  type = "text", //TODO:надо убрать?
   placeholder = "",
   disabled = false, //TODO:надо убрать?
   fieldName,
@@ -92,6 +96,21 @@ export const Input = ({
         placeholder={placeholder}
         {...register(fieldName)}
       />
+    </div>
+  );
+};
+export const BlockedField = ({ styles, value, id }: TFields) => {
+  return (
+    <div
+      id={id}
+      className={classNames(
+        "w-[100%] bg-blue-100 text-left",
+        "rounded-md border-4 border-solid border-blue-200",
+        "mb-2 px-4 py-3 text-[120%]",
+        styles,
+      )}
+    >
+      {value}
     </div>
   );
 };
