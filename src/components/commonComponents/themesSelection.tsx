@@ -23,7 +23,7 @@ const ThemesSelection = ({
   const navigate = useNavigate();
   return (
     <div className="mx-auto w-[100%]">
-      <div className="py-8 text-xl font-bold">
+      <div className="pb-10 pt-12 text-xl font-bold">
         Выберите тему из курса {themeOfCourse}
       </div>
       <Box
@@ -50,7 +50,7 @@ const ThemesSelection = ({
                   marginBottom: "20px",
                   ":hover": {
                     backgroundColor: "#e3b6a6",
-                    boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)",
+                    boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.5)",
                   },
                 }}
               >

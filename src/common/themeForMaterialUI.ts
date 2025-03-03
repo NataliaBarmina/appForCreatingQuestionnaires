@@ -5,6 +5,9 @@ export const theme = createTheme({
     background: {
       paper: "#dec4ba",
     },
+    secondary: {
+      main: "#fce7f3",
+    },
   },
   breakpoints: {
     values: {

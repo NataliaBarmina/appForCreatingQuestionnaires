@@ -5,8 +5,6 @@ import { useLocation } from "react-router-dom";
 import ThemesSelection from "./themesSelection";
 import { arr, Subject } from "@common/dataExample";
 
-//TODO:! нужно проверить адаптивность верстки
-
 type TabPanelProps = {
   children?: React.ReactNode;
   index: number;
@@ -14,19 +12,23 @@ type TabPanelProps = {
 };
 
 const tabStyle = {
-  bgcolor: "background.paper",
-  border: "2px solid grey",
+  backgroundColor: "#767474",
   borderTopRightRadius: "15px",
   borderTopLeftRadius: "15px",
+  marginRight: "1px",
   fontWeight: 600,
   fontSize: "0.8rem",
   minWidth: "5rem",
+  color: "#C3C3C3",
   ":hover": {
-    backgroundColor: "#e09a80",
-    boxShadow: "inset 0 0 10px rgba(0, 0, 0, 0.5)",
+    backgroundColor: "#e3b6a6",
+    boxShadow: "inset 0 0 35px rgb(28,25,23)",
+    color: "black",
   },
   ":focus": {
-    backgroundColor: "#e9967a",
+    backgroundColor: "#e3b6a6",
+    boxShadow: "inset 0 0 15px rgb(28,25,23)",
+    color: "black",
   },
 };
 
@@ -61,36 +63,44 @@ const CoursesSelection = () => {
       <Box
         sx={{
           width: "100%",
-          paddingTop: "30px",
-          paddingBottom: "35px",
+          paddingBottom: "45px",
         }}
       >
-        <Box
-          sx={{
-            maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },
-            display: "inline-block",
-            margin: " auto",
-          }}
-        >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            textColor="inherit"
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="scrollable auto tabs example"
+        <div className="bg-stone-300 shadow-2xl shadow-stone-500">
+          <div className="py-10 text-xl font-bold">Выберите курс</div>
+          <Box
+            sx={{
+              maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },
+              display: "inline-block",
+              margin: " auto",
+            }}
           >
-            {arr.map((item: Subject, index: number) => (
-              <Tab
-                sx={tabStyle}
-                label={Object.keys(item)[0]}
-                key={index}
-                id={`simple-tab-${index}`}
-                aria-controls={`simple-tabpanel-${index}`}
-              />
-            ))}
-          </Tabs>
-        </Box>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              textColor="secondary"
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="scrollable auto tabs example"
+              sx={{
+                "& .MuiTabs-indicator": {
+                  backgroundColor: "black",
+                },
+              }}
+            >
+              {arr.map((item: Subject, index: number) => (
+                <Tab
+                  sx={tabStyle}
+                  label={Object.keys(item)[0]}
+                  key={index}
+                  id={`simple-tab-${index}`}
+                  aria-controls={`simple-tabpanel-${index}`}
+                />
+              ))}
+            </Tabs>
+          </Box>
+        </div>
+
         {arr.map((item: Subject, index: number) => (
           <CustomTabPanel value={value} index={index} key={index}>
             <ThemesSelection
