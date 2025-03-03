@@ -3,9 +3,9 @@ import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const classesForLinks = classNames(
-  "mb-2 block w-[100%] bg-black p-4",
+  "block p-4 bg-black  w-[100%] mb-4",
   "text-center text-[140%] text-white",
-  "shadow-lg shadow-pink-600",
+  "shadow-lg shadow-stone-900",
   "hover:text-pink-900 focus:text-emerald-400",
   "md:mb-[8vh] md:shadow-none lg:mb-[11vh]",
 );
@@ -28,7 +28,7 @@ const App = () => {
         <div
           className={classNames(
             "z-50 mb-2 h-[12vh] w-[100%]",
-            "bg-green-800 shadow-lg shadow-[#241515]",
+            "bg-green-800 shadow-lg shadow-stone-900",
             "md:fixed md:left-0 md:top-0",
             "lg:left-[7.5vw] lg:w-[85%]",
             "xl:left-[10vw] xl:w-[80%]",
@@ -58,7 +58,7 @@ const App = () => {
           <button
             className={classesForLinks}
             onClick={() => {
-              navigate("/coursesSelectionWithMaterialUI", {
+              navigate("/coursesSelection", {
                 state: { buttonName: "редактирование" },
               });
             }}

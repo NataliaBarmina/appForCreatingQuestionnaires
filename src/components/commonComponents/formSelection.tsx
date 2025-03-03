@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import FormForCreatingQuestionsYourself from "./creating/creatingQuestionsByYourself/formForCreatingQuestionsYourself";
-import FormForCreatingQuestionsByAI from "./creating/creatingQuestionsByAI/formForCreatingQuestionsByAI";
-import QuestionList from "./editing/questionList";
+import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself";
+import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI";
+import QuestionList from "../editing/questionList";
 
 const FormSelection = () => {
   const location = useLocation();

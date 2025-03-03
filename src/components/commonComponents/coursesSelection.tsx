@@ -46,7 +46,7 @@ function CustomTabPanel(props: TabPanelProps) {
   );
 }
 
-const CoursesSelectionWithMaterialUI = () => {
+const CoursesSelection = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -104,7 +104,7 @@ const CoursesSelectionWithMaterialUI = () => {
     </ThemeProvider>
   );
 };
-export default CoursesSelectionWithMaterialUI;
+export default CoursesSelection;
 
 //! образец как можно менять свойства, если sx не разрешен
 // import { styled } from "@mui/system";
