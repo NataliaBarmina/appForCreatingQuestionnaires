@@ -48,6 +48,7 @@ const ResultsOfTheQuestionnaire = () => {
 
         {questionSet.map((item, index) => (
           <div
+            key={index}
             className={classNames(
               "mx-auto mb-8 w-[95%] bg-green-800",
               "rounded-2xl",
