@@ -11,25 +11,38 @@ type QuestionsCreatedByAIProps = {
   arr: Question[];
 };
 
-const nameOfCourse = "какой-то курс";
-const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
-const arr = [
-  {
-    вопрос: "К какому типу данных преобразует значение функция alert?",
-    ответ_1: "к строке",
-    ответ_2: "к числу",
-    ответ_3: "к символу",
-  },
-  {
-    вопрос:
-      "К какому типу данных преобразует значение математические операторы?",
-    ответ_1: "к числам",
-    ответ_2: "undefined",
-    ответ_3: "к нулю",
-  },
-];
+type Theme = {
+  вопрос: string;
+  ответ_1: string;
+  ответ_2: string;
+  ответ_3: string;
+};
 
-const QuestionList = () => {
+type Myprops = {
+  course?: string;
+  questionsList?: Theme[];
+  theme?: string;
+};
+
+// const nameOfCourse = "какой-то курс";
+// const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
+// const arr = [
+//   {
+//     вопрос: "К какому типу данных преобразует значение функция alert?",
+//     ответ_1: "к строке",
+//     ответ_2: "к числу",
+//     ответ_3: "к символу",
+//   },
+//   {
+//     вопрос:
+//       "К какому типу данных преобразует значение математические операторы?",
+//     ответ_1: "к числам",
+//     ответ_2: "undefined",
+//     ответ_3: "к нулю",
+//   },
+// ];
+
+const QuestionList = ({ course, questionsList, theme }: Myprops) => {
   return (
     <div>
       <div className="pb-1">
@@ -37,9 +50,9 @@ const QuestionList = () => {
           Измените необходимый вопрос
         </div>
 
-        <div className="p-4 text-xl font-bold">Курс {nameOfCourse}</div>
+        <div className="p-4 text-xl font-bold">Курс {course}</div>
         <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
-        {arr.map((item, index) => (
+        {questionsList.map((item, index) => (
           <div
             key={index}
             className={classNames(
@@ -60,7 +73,12 @@ const QuestionList = () => {
             />
             <div className="mb-8 flex w-full justify-evenly py-10">
               <div>
-                <FormForEditingQuestions />
+                <FormForEditingQuestions
+                  question={item.вопрос}
+                  correctAnswer={item.ответ_1}
+                  wrongAnswer1={item.ответ_2}
+                  wrongAnswer2={item.ответ_3}
+                />
               </div>
               <div>
                 <Alert

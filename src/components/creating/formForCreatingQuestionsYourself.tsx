@@ -21,11 +21,12 @@ const schema = yup.object({
   selfWrittenAnswer3: yup.string().required(),
 });
 
-//TODO: здесь я должна получать из стэйта название курса и название темы
-const nameOfCourse = "JavaScript";
-const nameOfTheme = "";
+type MyProps = {
+  course: string;
+  theme: string;
+};
 
-const FormForCreatingQuestionsYourself = () => {
+const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
   const form = useForm({
     resolver: yupResolver(schema), //todo: здесь должно быть defaultValue
   });
@@ -37,12 +38,12 @@ const FormForCreatingQuestionsYourself = () => {
   return (
     <div>
       <div className="p-8 text-[150%] font-bold">
-        Форма для самостоятельного создания вопросов
+        Создайте вопрос по курсу {course}
       </div>
-
+      {/* <div className="p-8 text-[150%] font-bold">Курс {course}</div> */}
       <div
         className={classNames(
-          "mx-auto mb-5 w-[100vw] bg-green-800 px-6 pt-10",
+          "mx-auto mb-5 w-[100vw] bg-green-800 px-6",
           "border-2 border-solid border-gray-600",
           "s:w-[90vw] s:rounded-2xl",
           "md:w-[65vw]",
@@ -51,16 +52,26 @@ const FormForCreatingQuestionsYourself = () => {
           "2xl:w-[45vw]",
         )}
       >
+        {/* <div className="pb-6 pt-10 text-2xl text-yellow-50">Курс {course}</div> */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
               name="selfWrittenTopicName"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-yellow-50">ТЕМА</FormLabel>
+                <FormItem className="pt-8">
+                  <FormLabel className="text-lg text-yellow-50">
+                    Тема:
+                  </FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Введите тему" {...field} />
+                    <Textarea
+                      placeholder="введите тему"
+                      defaultValue={theme}
+                      disabled={!!theme}
+                      {...field}
+                      className="text-center font-extrabold placeholder:text-sm placeholder:font-normal"
+                      style={{ fontSize: "1.25rem" }}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -70,12 +81,17 @@ const FormForCreatingQuestionsYourself = () => {
               control={form.control}
               name="selfWrittenQuestion"
               render={({ field }) => (
-                <FormItem className="mt-4">
-                  <FormLabel className="text-yellow-50">
-                    ВВЕДИТЕ ВОПРОС
+                <FormItem className="mt-8">
+                  <FormLabel className="text-lg text-yellow-50">
+                    Вопрос:
                   </FormLabel>
                   <FormControl>
-                    <Textarea placeholder="вопрос" {...field} />
+                    <Textarea
+                      placeholder="введите вопрос"
+                      {...field}
+                      className="text-center placeholder:text-sm"
+                      style={{ fontSize: "1.2rem" }}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -86,12 +102,17 @@ const FormForCreatingQuestionsYourself = () => {
                 control={form.control}
                 name="selfWrittenAnswer1"
                 render={({ field }) => (
-                  <FormItem className="mt-4">
-                    <FormLabel className="text-yellow-50">
-                      ВВЕДИТЕ ПРАВИЛЬНЫЙ ОТВЕТ
+                  <FormItem className="mt-12">
+                    <FormLabel className="text-lg text-yellow-50">
+                      Ответы:
                     </FormLabel>
                     <FormControl>
-                      <Textarea placeholder="правильный ответ" {...field} />
+                      <Textarea
+                        placeholder="введите правильный ответ"
+                        {...field}
+                        className="text-center placeholder:text-sm"
+                        style={{ fontSize: "1.2rem" }}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -102,11 +123,13 @@ const FormForCreatingQuestionsYourself = () => {
                 name="selfWrittenAnswer2"
                 render={({ field }) => (
                   <FormItem className="mt-4">
-                    <FormLabel className="text-yellow-50">
-                      ВВЕДИТЕ НЕПРАВИЛЬНЫЙ ОТВЕТ
-                    </FormLabel>
                     <FormControl>
-                      <Textarea placeholder="неправильный ответ" {...field} />
+                      <Textarea
+                        placeholder="введите неправильный ответ"
+                        {...field}
+                        className="text-center placeholder:text-sm"
+                        style={{ fontSize: "1.2rem" }}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -117,18 +140,20 @@ const FormForCreatingQuestionsYourself = () => {
                 name="selfWrittenAnswer3"
                 render={({ field }) => (
                   <FormItem className="mt-4">
-                    <FormLabel className="text-yellow-50">
-                      ВВЕДИТЕ НЕПРАВИЛЬНЫЙ ОТВЕТ
-                    </FormLabel>
                     <FormControl>
-                      <Textarea placeholder="неправильный ответ" {...field} />
+                      <Textarea
+                        placeholder="введите неправильный ответ"
+                        {...field}
+                        className="text-center placeholder:text-sm"
+                        style={{ fontSize: "1.2rem" }}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
             </div>
-            <div className="mb-8 flex w-full justify-evenly py-8">
+            <div className="mb-8 flex w-full justify-evenly pt-14">
               <div>
                 <Alert
                   whatToDo={"сохраняем данные в стэйт"}

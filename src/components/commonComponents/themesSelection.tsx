@@ -8,23 +8,21 @@ import { Topic } from "@common/dataExample";
 import { Button } from "@commonComponents/buttons";
 
 export type MyProps = {
-  themeOfCourse: string[];
+  course: string[];
   listOfThemes: Topic[];
   buttonName: string;
 };
 
 const ThemesSelection = ({
-  themeOfCourse,
-  listOfThemes,
-  buttonName,
+  course, // название курса
+  listOfThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
+  buttonName, // название кнопки на которой произошел клик
 }: MyProps) => {
-  const arrayListOfThemes = Object.values(listOfThemes);
-
   const navigate = useNavigate();
   return (
     <div className="mx-auto w-[100%]">
       <div className="pb-10 pt-12 text-xl font-bold">
-        Выберите тему из курса {themeOfCourse}
+        Выберите тему из курса {course}
       </div>
       <Box
         sx={{
@@ -38,7 +36,7 @@ const ThemesSelection = ({
       >
         <nav aria-label="main mailbox folders">
           <List>
-            {arrayListOfThemes.map((item: Topic, index: number) => (
+            {listOfThemes.map((item: Topic, index: number) => (
               <ListItem
                 disablePadding
                 key={index}
@@ -57,7 +55,12 @@ const ThemesSelection = ({
                 <ListItemButton
                   onClick={() => {
                     navigate("/formSelection", {
-                      state: { buttonName },
+                      state: {
+                        buttonName,
+                        course: course[0],
+                        questionsList: Object.values(item)[0], //массив вопросов
+                        theme: Object.keys(item)[0],
+                      },
                     });
                   }}
                 >
@@ -71,7 +74,7 @@ const ThemesSelection = ({
           <Button
             onclick={() => {
               navigate("/formSelection", {
-                state: { buttonName },
+                state: { buttonName, course: course[0], listOfThemes },
               });
             }}
             buttonName="Добавить тему"
@@ -86,4 +89,4 @@ const ThemesSelection = ({
 };
 export default ThemesSelection;
 
-//TODO: добавить обработчик отправляющий название курса{themeOfCourse} и темы{Object.keys(item)} в стэйт?
+//TODO: добавить обработчик отправляющий название курса{course} и темы{Object.keys(item)} в стэйт?

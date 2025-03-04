@@ -11,11 +11,12 @@ const schema = yup.object({
   linkToSource: yup.string(),
 });
 
-//TODO:! Должен быть выбор курса
-//TODO:! нужно получить название этого курса и отправить в стэйт
+type MyProps = {
+  course: string;
+  theme: string;
+};
 
-const FormForCreatingQuestionsByAI = () => {
-  const nameOfCourse = "какой-то курс";
+const FormForCreatingQuestionsByAI = ({ course, theme, ...props }: MyProps) => {
   const {
     register,
     handleSubmit,
@@ -61,14 +62,14 @@ const FormForCreatingQuestionsByAI = () => {
       >
         <div className="mx-auto w-[90%]">
           <div className="p-8 text-lg font-bold text-blue-100">
-            Курс {nameOfCourse}
+            Курс {course}
           </div>
           <div className="mx-auto">
             <Textarea
               placeholder="Введите название темы"
               register={register}
               fieldName="topicName"
-              defaultValue=""
+              defaultValue={theme}
               disabled={false}
               styles=""
             />

@@ -4,13 +4,7 @@ import Alert from "@commonComponents/alertDialog";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
 import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
 
-//todo: типизация для пропсов, которые будут предаваться в QuestionsCreatedByAI
-type QuestionsCreatedByAIProps = {
-  nameOfCourse: string;
-  theme: string;
-  arr: Question[];
-};
-
+//TODO: получаем из какого-то хранилища  название курса, темы и массив с объектами вопросов
 const nameOfCourse = "какой-то курс";
 const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
 const arr = [
@@ -30,8 +24,6 @@ const arr = [
 ];
 
 const QuestionsCreatedByAI = () => {
-  //TODO: должно приходить в пропсах название курса и массив с объектами вопросов
-  ///TODO: передавть в пропсах массив с объектами вопросов
   return (
     <div className="pb-1">
       <div className="p-4 text-[150%] font-bold">
@@ -76,7 +68,12 @@ const QuestionsCreatedByAI = () => {
               />
             </div>
             <div>
-              <FormForEditingQuestions />
+              <FormForEditingQuestions
+                question={item.вопрос}
+                correctAnswer={item.ответ_1}
+                wrongAnswer1={item.ответ_2}
+                wrongAnswer2={item.ответ_3}
+              />
             </div>
             <div>
               <Alert
