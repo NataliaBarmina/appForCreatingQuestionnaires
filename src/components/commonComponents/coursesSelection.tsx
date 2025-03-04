@@ -3,7 +3,7 @@ import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "./themesSelection";
-import { arr, Subject } from "@common/dataExample";
+import { arr, Subject } from "@common/dataExample"; //todo: получаем доступ к стэйту - массиву с вопросами
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -91,7 +91,7 @@ const CoursesSelection = () => {
               {arr.map((item: Subject, index: number) => (
                 <Tab
                   sx={tabStyle}
-                  label={Object.keys(item)[0]}
+                  label={Object.keys(item)[0]} // перебор названий всех курсов
                   key={index}
                   id={`simple-tab-${index}`}
                   aria-controls={`simple-tabpanel-${index}`}
@@ -104,8 +104,8 @@ const CoursesSelection = () => {
         {arr.map((item: Subject, index: number) => (
           <CustomTabPanel value={value} index={index} key={index}>
             <ThemesSelection
-              themeOfCourse={Object.keys(item)}
-              listOfThemes={Object.values(item)[0]}
+              course={Object.keys(item)} // название темы
+              listOfThemes={Object.values(item)[0]} // массив вопросов с темами
               buttonName={buttonName}
             />
           </CustomTabPanel>

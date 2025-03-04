@@ -15,7 +15,20 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Textarea, TFields } from "./createFields";
 import classNames from "classnames";
 
-function FormForEditingQuestions() {
+type MyProps = {
+  question?: string;
+  correctAnswer?: string;
+  wrongAnswer1?: string;
+  wrongAnswer2?: string;
+  closeDialog?: () => void;
+};
+
+function FormForEditingQuestions({
+  question,
+  correctAnswer,
+  wrongAnswer1,
+  wrongAnswer2,
+}: MyProps) {
   const container = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -48,7 +61,13 @@ function FormForEditingQuestions() {
             >
               <button type="submit">Submit</button>
             </form>
-            <Form closeDialog={closeDialog} />
+            <Form
+              closeDialog={closeDialog}
+              question={question}
+              correctAnswer={correctAnswer}
+              wrongAnswer1={wrongAnswer1}
+              wrongAnswer2={wrongAnswer2}
+            />
           </DialogContent>
         </DialogPortal>
       </Dialog>
@@ -66,7 +85,13 @@ const schema = yup.object({
   answerForEditing3: yup.string().required("Ответ обязателен"),
 });
 
-const Form = ({ closeDialog }: { closeDialog: () => void }) => {
+const Form = ({
+  closeDialog,
+  question,
+  correctAnswer,
+  wrongAnswer1,
+  wrongAnswer2,
+}: MyProps) => {
   const {
     register,
     handleSubmit,
@@ -116,7 +141,7 @@ const Form = ({ closeDialog }: { closeDialog: () => void }) => {
               placeholder="вопрос"
               register={register}
               fieldName="questionForEditing"
-              defaultValue=""
+              defaultValue={question}
               disabled={false}
               styles={
                 errors.questionForEditing
@@ -131,7 +156,7 @@ const Form = ({ closeDialog }: { closeDialog: () => void }) => {
               placeholder="ответ"
               register={register}
               fieldName="answerForEditing1"
-              defaultValue=""
+              defaultValue={correctAnswer}
               disabled={false}
               styles={
                 errors.answerForEditing1 ? "border-pink-900 border-[2px]" : ""
@@ -142,7 +167,7 @@ const Form = ({ closeDialog }: { closeDialog: () => void }) => {
               placeholder="ответ"
               register={register}
               fieldName="answerForEditing2"
-              defaultValue=""
+              defaultValue={wrongAnswer1}
               disabled={false}
               styles={
                 errors.answerForEditing2 ? "border-pink-900 border-[2px]" : ""
@@ -153,7 +178,7 @@ const Form = ({ closeDialog }: { closeDialog: () => void }) => {
               placeholder="ответ"
               register={register}
               fieldName="answerForEditing3"
-              defaultValue=""
+              defaultValue={wrongAnswer2}
               disabled={false}
               styles={
                 errors.answerForEditing3 ? "border-pink-900 border-[2px] " : ""
