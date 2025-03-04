@@ -64,6 +64,7 @@ const Questionnaire = () => {
 
       {questions.map((item, index) => (
         <div
+          key={index}
           className={classNames(
             "mx-auto mb-8 w-[100vw] bg-green-800",
             "border-2 border-solid border-gray-600",

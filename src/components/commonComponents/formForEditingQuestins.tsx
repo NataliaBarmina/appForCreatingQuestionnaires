@@ -4,7 +4,9 @@ import {
   DialogContent,
   DialogTrigger,
   DialogPortal,
+  DialogTitle,
   DialogOverlay,
+  DialogDescription,
 } from "@ui/dialog";
 import { useState, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -36,6 +38,8 @@ function FormForEditingQuestions() {
         <DialogPortal container={container.current}>
           <DialogOverlay />
           <DialogContent>
+            <DialogTitle />
+            <DialogDescription />
             <form
               onSubmit={(event) => {
                 event.preventDefault();

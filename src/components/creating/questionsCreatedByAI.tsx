@@ -42,6 +42,7 @@ const QuestionsCreatedByAI = () => {
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
       {arr.map((item, index) => (
         <div
+          key={index}
           className={classNames(
             "mx-auto mb-8 w-[100vw] bg-green-800",
             "xs:px-0",
