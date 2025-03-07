@@ -56,7 +56,7 @@ const CoursesSelection = () => {
   };
 
   const location = useLocation();
-  const buttonName = location.state?.buttonName;
+  const buttonName = location.state?.buttonName.toLowerCase();
 
   return (
     <ThemeProvider theme={theme}>

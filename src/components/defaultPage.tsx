@@ -1,33 +1,51 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
+import { useCallback } from "react"; // это хук в React, который позволяет "запоминать" (или кэшировать) функции, чтобы они не пересоздавались при каждом рендере компонента. Это особенно полезно, когда функция передается в дочерние компоненты, которые могут переписать свои состояния или эффекты в зависимости от изменений этой функции.
 
 const DefaultPage = () => {
+  const navigate = useNavigate();
+
+  const navigateToPage = useCallback(
+    (link: string, buttonName?: string) => {
+      if (buttonName === "Редактирование") {
+        navigate(link, { state: { buttonName } });
+      } else navigate(link);
+    },
+    [navigate],
+  );
+
+  const circleConfig = [
+    {
+      colSpan: "col-span-3",
+      colStart: "col-start-2",
+      rowSpan: "row-span-2",
+      rowStart: "row-start-1",
+      buttonName: "Создание",
+      link: "/creating",
+    },
+    {
+      colSpan: "col-span-2",
+      colStart: "col-start-1",
+      rowSpan: "row-span-3",
+      rowStart: "row-start-4",
+      buttonName: "Редактирование",
+      link: "/coursesSelection",
+    },
+    {
+      colSpan: "col-span-2",
+      colStart: "col-start-4",
+      rowSpan: "row-span-3",
+      rowStart: "row-start-4",
+      buttonName: "Анкетирование",
+      link: "/questionnaire",
+    },
+  ];
+
   return (
     <div className="grid grid-cols-5 grid-rows-7 items-center justify-items-center py-14">
-      <Circle
-        colSpan="col-span-3"
-        colStart="col-start-2"
-        rowSpan="row-span-2"
-        rowStart="row-start-1"
-        content="Создание"
-        link="/creating"
-      />
-      <Circle
-        colSpan="col-span-2"
-        colStart="col-start-1"
-        rowSpan="row-span-3"
-        rowStart="row-start-4"
-        content="Редактирование"
-        link="/coursesSelection"
-      />
-      <Circle
-        colSpan="col-span-2"
-        colStart="col-start-4"
-        rowSpan="row-span-3"
-        rowStart="row-start-4"
-        content="Анкетирование"
-        link="/questionnaire"
-      />
+      {circleConfig.map((circle, index) => (
+        <Circle key={index} {...circle} onClick={navigateToPage} />
+      ))}
 
       <div
         className={classNames(
@@ -51,8 +69,23 @@ type ComponentProps = {
   colStart: string;
   rowSpan: string;
   rowStart: string;
-  content: string;
+  buttonName?: string;
   link: string;
+  onClick: (link: string, buttonName?: string) => void;
+};
+
+const baseCircleClasses =
+  "flex items-center justify-center rounded-full bg-stone-700 text-pink-100 shadow-md shadow-stone-950";
+const hoverCircleClasses =
+  "hover:border-2 hover:border-solid hover:border-zinc-800 hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950";
+const responsiveCircleSizes = {
+  default: "h-[30vw] w-[30vw]",
+  mdLandscape: "md:landscape:h-[20vw] md:landscape:w-[20vw]",
+  mdPortrait: "md:portrait:h-[27vh] md:portrait:w-[27vh]",
+  lgLandscape: "lg:landscape:h-[18vw] lg:landscape:w-[18vw]",
+  lgPortrait: "lg:portrait:h-[24vh] lg:portrait:w-[24vh]",
+  xlLandscape: "2xl:landscape:h-[14vw] 2xl:landscape:w-[14vw]",
+  xlPortrait: "2xl:portrait:h-[20vh] 2xl:portrait:w-[20vh]",
 };
 
 const Circle = ({
@@ -60,28 +93,29 @@ const Circle = ({
   colStart,
   rowSpan,
   rowStart,
-  content,
+  buttonName,
   link,
+  onClick,
 }: ComponentProps) => {
-  const navigate = useNavigate();
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    onClick(link, buttonName);
+  };
 
   return (
     <div className={classNames("z-50", colSpan, colStart, rowSpan, rowStart)}>
       <div
         className={classNames(
-          "flex h-[30vw] w-[30vw] items-center justify-center",
-          "rounded-full",
-          "bg-stone-700 text-pink-100 shadow-md shadow-stone-950",
-          "hover:border-2 hover:border-solid hover:border-zinc-800",
-          "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
-          "md:landscape:h-[20vw] md:landscape:w-[20vw]",
-          "md:portrait:h-[27vh] md:portrait:w-[27vh]",
-          "lg:landscape:h-[18vw] lg:landscape:w-[18vw]",
-          "lg:portrait:h-[24vh] lg:portrait:w-[24vh]",
-          "2xl:landscape:h-[14vw] 2xl:landscape:w-[14vw]",
-          "2xl:portrait:h-[20vh] 2xl:portrait:w-[20vh]",
+          baseCircleClasses,
+          hoverCircleClasses,
+          responsiveCircleSizes.default,
+          responsiveCircleSizes.mdLandscape,
+          responsiveCircleSizes.mdPortrait,
+          responsiveCircleSizes.lgLandscape,
+          responsiveCircleSizes.lgPortrait,
+          responsiveCircleSizes.xlLandscape,
+          responsiveCircleSizes.xlPortrait,
         )}
-        onClick={() => navigate(link)}
+        onClick={handleClick}
       >
         <p
           className={classNames(
@@ -91,7 +125,7 @@ const Circle = ({
             "2xl:landscape:text-[1.6vw]",
           )}
         >
-          {content}
+          {buttonName}
         </p>
       </div>
     </div>
