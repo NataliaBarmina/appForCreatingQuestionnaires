@@ -9,7 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../../chadcnComponents/ui/alert-dialog";
+} from "@ui/alert-dialog";
 
 type AlertProps = {
   //   onDelete: () => void; // Функция, которая будет вызываться при удалении
@@ -20,6 +20,10 @@ type AlertProps = {
   alertDialogAction: string;
   alertDialogCancel: string;
   buttonName: string;
+  type?: "submit" | "reset" | "button";
+  isFormValid?: boolean;
+  isSubmitting?: boolean;
+  onClick?: () => void;
 };
 
 const Alert = ({
@@ -29,6 +33,10 @@ const Alert = ({
   alertDialogAction,
   alertDialogCancel,
   buttonName,
+  type,
+  isFormValid,
+  isSubmitting,
+  onClick,
   ...props
 }: AlertProps) => {
   return (
@@ -38,24 +46,28 @@ const Alert = ({
           buttonName={buttonName}
           size="small"
           disabled={false}
-          type="button"
-          onclick={() => {}}
+          type={type}
         />
       </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
-          <AlertDialogDescription>
-            {alertDialogDescription}
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel data_what_to_do={whatToDo}>
-            {alertDialogCancel}
-          </AlertDialogCancel>
-          <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
+      {/* Показываем Alert только если форма валидна */}
+      {isFormValid && !isSubmitting && (
+        <div>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
+              <AlertDialogDescription>
+                {alertDialogDescription}
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel data_what_to_do={whatToDo} onClick={onClick}>
+                {alertDialogCancel}
+              </AlertDialogCancel>
+              <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </div>
+      )}
     </AlertDialog>
   );
 };

@@ -23,7 +23,7 @@ const Creating = () => {
           <Button
             buttonName="нейросетью"
             size="big"
-            onclick={() =>
+            onClick={() =>
               navigate("/coursesSelection", {
                 state: { buttonName: "нейросетью" },
               })
@@ -32,7 +32,7 @@ const Creating = () => {
           <Button
             buttonName="самостоятельно"
             size="big"
-            onclick={() =>
+            onClick={() =>
               navigate("/coursesSelection", {
                 state: { buttonName: "самостоятельно" },
               })

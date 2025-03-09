@@ -1,6 +1,5 @@
-import { Question } from "@common/dataExample";
 import classNames from "classnames";
-import Alert from "@commonComponents/alertDialog";
+import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
 import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
 
@@ -65,6 +64,8 @@ const QuestionsCreatedByAI = () => {
                 alertDialogAction={"продолжить редактирование"}
                 alertDialogCancel={"сохранить вопрос"}
                 buttonName={"сохранить"}
+                isFormValid={true} //todo:????
+                isSubmitting={true} //todo:????
               />
             </div>
             <div>
@@ -85,6 +86,8 @@ const QuestionsCreatedByAI = () => {
                 alertDialogAction={"продолжить редактирование"}
                 alertDialogCancel={"удалить вопрос"}
                 buttonName={"удалить"}
+                isFormValid={true} //todo:????
+                isSubmitting={true} //todo:????
               />
             </div>
           </div>
