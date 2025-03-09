@@ -72,7 +72,7 @@ const ThemesSelection = ({
         </nav>
         {buttonName !== "редактирование" && (
           <Button
-            onclick={() => {
+            onClick={() => {
               navigate("/formSelection", {
                 state: { buttonName, course: course[0], listOfThemes },
               });

@@ -100,7 +100,7 @@ const Questionnaire = () => {
       <Button
         buttonName="сохранить"
         size="middle"
-        onclick={() => navigate("/resultsOfTheQuestionnaire")}
+        onClick={() => navigate("/resultsOfTheQuestionnaire")}
       />
     </form>
   );

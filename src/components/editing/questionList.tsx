@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { Question } from "@common/dataExample";
-import Alert from "@commonComponents/alertDialog";
+import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
 import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
 
@@ -90,6 +90,8 @@ const QuestionList = ({ course, questionsList, theme }: Myprops) => {
                   alertDialogAction={"продолжить редактирование"}
                   alertDialogCancel={"удалить вопрос"}
                   buttonName={"удалить"}
+                  isFormValid={true} //todo:????
+                  isSubmitting={true} //todo:????
                 />
               </div>
             </div>

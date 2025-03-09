@@ -45,7 +45,7 @@ function FormForEditingQuestions({
             size="small"
             disabled={false}
             type="button"
-            onclick={() => {}}
+            onClick={() => {}}
           ></Button>
         </DialogTrigger>
         <DialogPortal container={container.current}>
@@ -197,12 +197,12 @@ const Form = ({
             size="middle"
             disabled={!!hasErrors}
             type="button"
-            onclick={handleSubmit(onSubmit)}
+            onClick={handleSubmit(onSubmit)}
           />
           <Button
             buttonName="удалить"
             size="middle"
-            onclick={handleDelete}
+            onClick={handleDelete}
             type="button"
           />
         </div>

@@ -2,7 +2,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import classNames from "classnames";
-import Alert from "@commonComponents/alertDialog";
+import Alert from "@commonComponents/alert";
+import Button from "@commonComponents/buttons";
 import {
   Form,
   FormControl,
@@ -13,34 +14,51 @@ import {
 } from "@ui/form";
 import { Textarea } from "@ui/textarea";
 
-const schema = yup.object({
-  selfWrittenTopicName: yup.string().required(),
-  selfWrittenQuestion: yup.string().required(),
-  selfWrittenAnswer1: yup.string().required(),
-  selfWrittenAnswer2: yup.string().required(),
-  selfWrittenAnswer3: yup.string().required(),
-});
-
 type MyProps = {
   course: string;
   theme: string;
 };
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
+  const schema = yup.object({
+    selfWrittenTopicName: yup
+      .string()
+      .required(theme ? undefined : "Это поле обязательно"), // Если `theme` передано, то не обязательное
+    selfWrittenQuestion: yup.string().required("это поле обязательно"),
+    selfWrittenAnswer1: yup.string().required("это поле обязательно"),
+    selfWrittenAnswer2: yup.string().required("это поле обязательно"),
+    selfWrittenAnswer3: yup.string().required("это поле обязательно"),
+  });
+
   const form = useForm({
-    resolver: yupResolver(schema), //todo: здесь должно быть defaultValue
+    resolver: yupResolver(schema),
+    mode: "onChange",
+    defaultValues: {
+      selfWrittenTopicName: theme || "", // Если `theme` есть, подставляем его значение
+    },
   });
 
   function onSubmit(values: any) {
-    console.log(values);
+    console.log("Сохраненные данные:", values);
   }
+
+  const isFormValid = form.formState.isValid; // Проверка на валидность формы
+  const isSubmitting = form.formState.isSubmitting; // Чтобы избежать повторной отправки
+  const formReset = () => {
+    form.reset({
+      selfWrittenTopicName: theme,
+      selfWrittenQuestion: "",
+      selfWrittenAnswer1: "",
+      selfWrittenAnswer2: "",
+      selfWrittenAnswer3: "",
+    });
+  };
 
   return (
     <div>
       <div className="p-8 text-[150%] font-bold">
         Создайте вопрос по курсу {course}
       </div>
-      {/* <div className="p-8 text-[150%] font-bold">Курс {course}</div> */}
       <div
         className={classNames(
           "mx-auto mb-5 w-[100vw] bg-green-800 px-6",
@@ -52,7 +70,6 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
           "2xl:w-[45vw]",
         )}
       >
-        {/* <div className="pb-6 pt-10 text-2xl text-yellow-50">Курс {course}</div> */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
@@ -66,7 +83,6 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
                   <FormControl>
                     <Textarea
                       placeholder="введите тему"
-                      defaultValue={theme}
                       disabled={!!theme}
                       {...field}
                       className="text-center font-extrabold placeholder:text-sm placeholder:font-normal"
@@ -156,7 +172,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
             <div className="mb-8 flex w-full justify-evenly pt-14">
               <div>
                 <Alert
-                  whatToDo={"сохраняем данные в стэйт"}
+                  whatToDo={"сохраняем данные в стэйт "}
                   alertDialogTitle={"Вы уверены?"}
                   alertDialogDescription={
                     "Внимательно проверьте вопросы и ответы. Правильный ответ должен находиться на первом месте"
@@ -164,18 +180,19 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
                   alertDialogAction={"продолжить редактирование"}
                   alertDialogCancel={"сохранить вопрос"}
                   buttonName={"сохранить"}
+                  type="submit"
+                  onClick={() => formReset()}
+                  isFormValid={isFormValid} //будем показывать Alert только если форма валидна
+                  isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
                 />
               </div>
               <div>
-                <Alert
-                  whatToDo={"очищаем форму"}
-                  alertDialogTitle={"Вы уверены?"}
-                  alertDialogDescription={
-                    "Это действие нельзя отменить. Вопрос будет полностью удален."
-                  }
-                  alertDialogAction={"продолжить редактирование"}
-                  alertDialogCancel={"удалить вопрос"}
-                  buttonName={"очистить"}
+                <Button
+                  buttonName="очистить форму"
+                  size="small"
+                  disabled={false}
+                  type="reset"
+                  onClick={() => formReset()}
                 />
               </div>
             </div>

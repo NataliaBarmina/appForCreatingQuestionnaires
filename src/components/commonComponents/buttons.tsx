@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 type ButtonProps = {
-  onclick?: () => void;
+  onClick?: () => void;
   value?: string;
   buttonName?: string;
   disabled?: boolean;
@@ -18,7 +18,7 @@ const commonStylesForButtons = classNames(
 
 export const Button = ({
   size = "middle", // Размер по умолчанию
-  onclick,
+  onClick,
   buttonName,
   disabled,
   type,
@@ -34,7 +34,7 @@ export const Button = ({
     <button
       disabled={disabled}
       type={type}
-      onClick={onclick}
+      onClick={onClick}
       className={classNames(
         commonStylesForButtons,
         sizeClasses[size], // Применяем классы в зависимости от размера
