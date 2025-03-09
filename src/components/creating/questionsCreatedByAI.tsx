@@ -56,16 +56,19 @@ const QuestionsCreatedByAI = () => {
           <div className="mb-8 flex w-full justify-around py-8">
             <div>
               <Alert
-                whatToDo={"сохраняем данные в стэйт"}
+                whatToDo={
+                  "сохраняем данные в стэйт и удаляем вопрос из временного хранилища"
+                }
                 alertDialogTitle={"Вы уверены?"}
                 alertDialogDescription={
-                  "Внимательно проверьте полученные вопросы и ответы. Правильный ответ должен находиться на первом месте"
+                  "Внимательно проверьте корректность полученных вопросов и ответов, короме того правильный ответ должен находиться на первом месте"
                 }
                 alertDialogAction={"продолжить редактирование"}
                 alertDialogCancel={"сохранить вопрос"}
                 buttonName={"сохранить"}
-                isFormValid={true} //todo:????
-                isSubmitting={true} //todo:????
+                isFormValid={true}
+                isSubmitting={false}
+                onClick={() => {}}
               />
             </div>
             <div>
@@ -78,7 +81,7 @@ const QuestionsCreatedByAI = () => {
             </div>
             <div>
               <Alert
-                whatToDo={"удаляем данные из стэйта"}
+                whatToDo={"удаляем вопрос из временного хранилища"}
                 alertDialogTitle={"Вы уверены?"}
                 alertDialogDescription={
                   "Это действие нельзя отменить. Вопрос будет полностью удален."
@@ -86,8 +89,9 @@ const QuestionsCreatedByAI = () => {
                 alertDialogAction={"продолжить редактирование"}
                 alertDialogCancel={"удалить вопрос"}
                 buttonName={"удалить"}
-                isFormValid={true} //todo:????
-                isSubmitting={true} //todo:????
+                isFormValid={true}
+                isSubmitting={false}
+                onClick={() => {}}
               />
             </div>
           </div>

@@ -24,24 +24,6 @@ type Myprops = {
   theme?: string;
 };
 
-// const nameOfCourse = "какой-то курс";
-// const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
-// const arr = [
-//   {
-//     вопрос: "К какому типу данных преобразует значение функция alert?",
-//     ответ_1: "к строке",
-//     ответ_2: "к числу",
-//     ответ_3: "к символу",
-//   },
-//   {
-//     вопрос:
-//       "К какому типу данных преобразует значение математические операторы?",
-//     ответ_1: "к числам",
-//     ответ_2: "undefined",
-//     ответ_3: "к нулю",
-//   },
-// ];
-
 const QuestionList = ({ course, questionsList, theme }: Myprops) => {
   return (
     <div>
@@ -90,8 +72,9 @@ const QuestionList = ({ course, questionsList, theme }: Myprops) => {
                   alertDialogAction={"продолжить редактирование"}
                   alertDialogCancel={"удалить вопрос"}
                   buttonName={"удалить"}
-                  isFormValid={true} //todo:????
-                  isSubmitting={true} //todo:????
+                  isFormValid={true}
+                  isSubmitting={false}
+                  onClick={() => {}}
                 />
               </div>
             </div>
