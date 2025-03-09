@@ -109,7 +109,6 @@ const Form = ({
   };
 
   const handleDelete = () => {
-    alert("Удаляем вопрос");
     closeDialog();
   };
 
@@ -193,14 +192,14 @@ const Form = ({
         )}
         <div className="mx-auto mb-12 mt-6 flex w-[80%] justify-between px-[4vw]">
           <Button
-            buttonName="сохранить"
+            buttonName="сохранить вопрос"
             size="middle"
             disabled={!!hasErrors}
             type="button"
             onClick={handleSubmit(onSubmit)}
           />
           <Button
-            buttonName="удалить"
+            buttonName="закрыть форму"
             size="middle"
             onClick={handleDelete}
             type="button"
