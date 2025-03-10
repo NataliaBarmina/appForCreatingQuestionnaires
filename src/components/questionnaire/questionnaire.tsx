@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { BlockedField, TFields } from "@commonComponents/createFields";
 import Button from "@commonComponents/buttons";
 
+//todo: получить массив перемешанных вопросов, в анкете должно быть 10 вопросов
 const questions = [
   //todo: потом удалить
   {

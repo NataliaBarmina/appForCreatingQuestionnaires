@@ -172,7 +172,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
             <div className="mb-8 flex w-full justify-evenly pt-14">
               <div>
                 <Alert
-                  whatToDo={"сохраняем данные в стэйт "}
+                  whatToDo={"сохраняем данные в стэйт "} //todo: потом удалить
                   alertDialogTitle={"Вы уверены?"}
                   alertDialogDescription={
                     "Внимательно проверьте вопросы и ответы. Правильный ответ должен находиться на первом месте"
@@ -181,7 +181,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
                   alertDialogCancel={"сохранить вопрос"}
                   buttonName={"сохранить"}
                   type="submit"
-                  onClick={() => formReset()}
+                  onContinue={() => formReset()}
                   isFormValid={isFormValid} //будем показывать Alert только если форма валидна
                   isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
                 />

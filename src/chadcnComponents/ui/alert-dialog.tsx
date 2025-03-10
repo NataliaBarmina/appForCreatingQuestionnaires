@@ -114,7 +114,6 @@ const AlertDialogAction = React.forwardRef<
       className,
     )}
     {...props}
-    // onClick={() => alert("что-то надо сделать")}
   />
 ));
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
@@ -122,24 +121,29 @@ AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Cancel>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel> & {
-    data_what_to_do: string; // Добавляем тип для 'data-what-to-do'
-    onClick?: () => void;
+    data_what_to_do: string; // Добавляем тип для 'data-what-to-do' //todo: data_what_to_do потом удалить
+    onContinue?: () => void;
   }
->(({ className, data_what_to_do, onClick, ...props }, ref) => (
-  <AlertDialogPrimitive.Cancel
-    ref={ref}
-    className={cn(
-      buttonVariants({ variant: "destructive" }),
-      "mt-10 sm:mt-0",
-      className,
-    )}
-    {...props}
-    onClick={() => {
-      alert(`${data_what_to_do}`);
-      onClick();
-    }}
-  />
-));
+>(
+  (
+    { className, data_what_to_do, onContinue, ...props },
+    ref, //todo: data_what_to_do потом удалить
+  ) => (
+    <AlertDialogPrimitive.Cancel
+      ref={ref}
+      className={cn(
+        buttonVariants({ variant: "destructive" }),
+        "mt-10 sm:mt-0",
+        className,
+      )}
+      {...props}
+      onClick={() => {
+        alert(`${data_what_to_do}`); //todo: data_what_to_do потом удалить
+        onContinue();
+      }}
+    />
+  ),
+);
 AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 export {

@@ -4,13 +4,6 @@ import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
 import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
 
-//todo: типизация для пропсов, которые будут предаваться в QuestionList
-type QuestionsCreatedByAIProps = {
-  nameOfCourse: string;
-  theme: string;
-  arr: Question[];
-};
-
 type Theme = {
   вопрос: string;
   ответ_1: string;
@@ -64,7 +57,7 @@ const QuestionList = ({ course, questionsList, theme }: Myprops) => {
               </div>
               <div>
                 <Alert
-                  whatToDo={"удаляем данные из стэйта"}
+                  whatToDo={"удаляем данные из стэйта"} //todo: потом удалить
                   alertDialogTitle={"Вы уверены?"}
                   alertDialogDescription={
                     "Это действие нельзя отменить. Вопрос будет полностью удален."
@@ -74,7 +67,7 @@ const QuestionList = ({ course, questionsList, theme }: Myprops) => {
                   buttonName={"удалить"}
                   isFormValid={true}
                   isSubmitting={false}
-                  onClick={() => {}}
+                  onContinue={() => {}}
                 />
               </div>
             </div>

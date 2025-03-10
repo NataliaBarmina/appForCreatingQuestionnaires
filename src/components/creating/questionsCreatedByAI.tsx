@@ -57,6 +57,7 @@ const QuestionsCreatedByAI = () => {
             <div>
               <Alert
                 whatToDo={
+                  //todo: потом удалить
                   "сохраняем данные в стэйт и удаляем вопрос из временного хранилища"
                 }
                 alertDialogTitle={"Вы уверены?"}
@@ -68,7 +69,7 @@ const QuestionsCreatedByAI = () => {
                 buttonName={"сохранить"}
                 isFormValid={true}
                 isSubmitting={false}
-                onClick={() => {}}
+                onContinue={() => {}}
               />
             </div>
             <div>
@@ -81,7 +82,7 @@ const QuestionsCreatedByAI = () => {
             </div>
             <div>
               <Alert
-                whatToDo={"удаляем вопрос из временного хранилища"}
+                whatToDo={"удаляем вопрос из временного хранилища"} //todo: потом удалить
                 alertDialogTitle={"Вы уверены?"}
                 alertDialogDescription={
                   "Это действие нельзя отменить. Вопрос будет полностью удален."
@@ -91,7 +92,7 @@ const QuestionsCreatedByAI = () => {
                 buttonName={"удалить"}
                 isFormValid={true}
                 isSubmitting={false}
-                onClick={() => {}}
+                onContinue={() => {}}
               />
             </div>
           </div>

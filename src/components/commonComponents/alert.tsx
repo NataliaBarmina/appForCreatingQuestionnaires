@@ -12,9 +12,9 @@ import {
 } from "@ui/alert-dialog";
 
 type AlertProps = {
-  //   onDelete: () => void; // Функция, которая будет вызываться при удалении
-  //   onContinue: () => void; // Функция, которая будет вызываться при продолжении
-  whatToDo: string;
+  //   onDelete: () => void; //??todo: Функция, которая будет вызываться при удалении
+  onContinue?: () => void;
+  whatToDo: string; //todo: потом удалить
   alertDialogTitle: string;
   alertDialogDescription: string;
   alertDialogAction: string;
@@ -23,11 +23,10 @@ type AlertProps = {
   type?: "submit" | "reset" | "button";
   isFormValid?: boolean;
   isSubmitting?: boolean;
-  onClick?: () => void;
 };
 
 const Alert = ({
-  whatToDo,
+  whatToDo, //todo: потом удалить
   alertDialogTitle,
   alertDialogDescription,
   alertDialogAction,
@@ -36,7 +35,7 @@ const Alert = ({
   type,
   isFormValid,
   isSubmitting,
-  onClick,
+  onContinue,
   ...props
 }: AlertProps) => {
   return (
@@ -60,7 +59,10 @@ const Alert = ({
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel data_what_to_do={whatToDo} onClick={onClick}>
+              <AlertDialogCancel
+                data_what_to_do={whatToDo} //todo: потом удалить
+                onContinue={onContinue}
+              >
                 {alertDialogCancel}
               </AlertDialogCancel>
               <AlertDialogAction>{alertDialogAction}</AlertDialogAction>

@@ -16,7 +16,7 @@ type MyProps = {
   theme: string;
 };
 
-const FormForCreatingQuestionsByAI = ({ course, theme, ...props }: MyProps) => {
+const FormForCreatingQuestionsByAI = ({ course, theme }: MyProps) => {
   const {
     register,
     handleSubmit,
@@ -25,6 +25,9 @@ const FormForCreatingQuestionsByAI = ({ course, theme, ...props }: MyProps) => {
   } = useForm({
     mode: "onBlur",
     resolver: yupResolver(schema),
+    defaultValues: {
+      topicName: theme,
+    },
   });
 
   const navigate = useNavigate();
@@ -69,8 +72,6 @@ const FormForCreatingQuestionsByAI = ({ course, theme, ...props }: MyProps) => {
               placeholder="Введите название темы"
               register={register}
               fieldName="topicName"
-              defaultValue={theme}
-              disabled={false}
               styles=""
             />
 
@@ -83,8 +84,6 @@ const FormForCreatingQuestionsByAI = ({ course, theme, ...props }: MyProps) => {
               placeholder="Введите ссылку на источник"
               register={register}
               fieldName="linkToSource"
-              defaultValue=""
-              disabled={false}
               styles=""
             />
           </div>

@@ -88,5 +88,3 @@ const ThemesSelection = ({
   );
 };
 export default ThemesSelection;
-
-//TODO: добавить обработчик отправляющий название курса{course} и темы{Object.keys(item)} в стэйт?

@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { Label } from "@ui/label";
 import { BlockedField } from "@commonComponents/createFields";
 
+//todo: получить массив через пропсы из Questionnaire и массив ответов и сравнить их
 const questionSet = [
   //todo: потом удалить
   {
