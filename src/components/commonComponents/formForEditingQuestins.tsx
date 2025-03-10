@@ -100,6 +100,12 @@ const Form = ({
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
+    defaultValues: {
+      questionForEditing: question,
+      answerForEditing1: correctAnswer,
+      answerForEditing2: wrongAnswer1,
+      answerForEditing3: wrongAnswer2,
+    },
   });
 
   const onSubmit: SubmitHandler<TFields> = (data, errors) => {
@@ -140,8 +146,6 @@ const Form = ({
               placeholder="вопрос"
               register={register}
               fieldName="questionForEditing"
-              defaultValue={question}
-              disabled={false}
               styles={
                 errors.questionForEditing
                   ? "border-pink-900 border-[3.5px]"
@@ -155,8 +159,6 @@ const Form = ({
               placeholder="ответ"
               register={register}
               fieldName="answerForEditing1"
-              defaultValue={correctAnswer}
-              disabled={false}
               styles={
                 errors.answerForEditing1 ? "border-pink-900 border-[2px]" : ""
               }
@@ -166,8 +168,6 @@ const Form = ({
               placeholder="ответ"
               register={register}
               fieldName="answerForEditing2"
-              defaultValue={wrongAnswer1}
-              disabled={false}
               styles={
                 errors.answerForEditing2 ? "border-pink-900 border-[2px]" : ""
               }
@@ -177,8 +177,6 @@ const Form = ({
               placeholder="ответ"
               register={register}
               fieldName="answerForEditing3"
-              defaultValue={wrongAnswer2}
-              disabled={false}
               styles={
                 errors.answerForEditing3 ? "border-pink-900 border-[2px] " : ""
               }
