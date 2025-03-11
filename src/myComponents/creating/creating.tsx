@@ -1,4 +1,3 @@
-// import TailwindSample from "../sample/tailwindSample";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
@@ -40,7 +39,7 @@ const Creating = () => {
             нейросетью
           </button>
           <button
-            onClick={() => navigate("/formForCreatingQuestionsYourself")}
+            onClick={() => navigate("/coursesSelection")}
             className={classNames(
               //общие стили для всех кнопок:
               "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
@@ -60,7 +59,6 @@ const Creating = () => {
           </button>
         </div>
       </div>
-      {/* <TailwindSample /> */}
     </div>
   );
 };

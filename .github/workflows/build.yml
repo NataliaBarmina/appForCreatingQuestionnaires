@@ -1,6 +1,11 @@
 name: Build and Deploy
 
-on: push
+on:
+  pull_request:
+    types:
+      - closed
+  # push:
+  #   branches: ["main", "materialUI"]
 
 permissions:
   pages: write
@@ -8,7 +13,11 @@ permissions:
   contents: read
 
 jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
   build:
+    needs: if_merged
     runs-on: ubuntu-latest
 
     steps:

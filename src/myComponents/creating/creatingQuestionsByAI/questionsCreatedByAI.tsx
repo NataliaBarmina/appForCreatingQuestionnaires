@@ -1,9 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Textarea, Input } from "../../common/createFields";
-import { TFields } from "../../common/createFields";
+import { Textarea, Input } from "../../../common/createFields";
+import { TFields } from "../../../common/createFields";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RoundLabel } from "../../common/roundLabel";
+import { RoundLabel } from "../../../common/roundLabel";
 import classNames from "classnames";
 
 const schema = yup.object({
@@ -14,6 +14,8 @@ const schema = yup.object({
 });
 
 const QuestionsCreatedByAI = () => {
+  // должно приходить в пропсах название курса
+  const nameOfCourse = "какой-то курс";
   const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
 
   const questionSet = [
@@ -61,6 +63,8 @@ const QuestionsCreatedByAI = () => {
       <div className="p-4 text-[150%] font-bold">
         Вопросы созданные нейросетью
       </div>
+
+      <div className="p-4 text-xl font-bold">Курс {nameOfCourse}</div>
 
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
 

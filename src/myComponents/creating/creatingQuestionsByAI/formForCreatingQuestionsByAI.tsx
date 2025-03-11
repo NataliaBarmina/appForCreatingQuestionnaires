@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Textarea } from "../../common/createFields";
-import { TFields } from "../../common/createFields";
+import { Textarea } from "../../../common/createFields";
+import { TFields } from "../../../common/createFields";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -11,7 +11,11 @@ const schema = yup.object({
   linkToSource: yup.string(),
 });
 
+//! Должен быть выбор курса
+//! нужно получить название этого курса и отправить в стэйт
+
 const FormForCreatingQuestionsByAI = () => {
+  const nameOfCourse = "какой-то курс";
   const {
     register,
     handleSubmit,
@@ -56,7 +60,10 @@ const FormForCreatingQuestionsByAI = () => {
         )}
       >
         <div className="mx-auto w-[90%]">
-          <div className="mx-auto mt-12">
+          <div className="p-8 text-lg font-bold text-blue-100">
+            Курс {nameOfCourse}
+          </div>
+          <div className="mx-auto">
             <Textarea
               placeholder="Введите название темы"
               register={register}
@@ -70,7 +77,7 @@ const FormForCreatingQuestionsByAI = () => {
               {errors.topicName?.message}
             </p>
           </div>
-          <div className="mb-12 mt-12 2xl:mb-[8vh]">
+          <div className="mt-12 2xl:mb-[8vh]">
             <Textarea
               placeholder="Введите ссылку на источник"
               register={register}
@@ -81,7 +88,7 @@ const FormForCreatingQuestionsByAI = () => {
             />
           </div>
         </div>
-        <div className="mb-8">
+        <div className="mb-10">
           <button
             className={classNames(
               //общие стили для всех кнопок:
