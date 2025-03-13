@@ -6,9 +6,9 @@ const DefaultPage = () => {
   const navigate = useNavigate();
 
   const navigateToPage = useCallback(
-    (link: string, buttonName?: string) => {
-      if (buttonName === "Редактирование") {
-        navigate(link, { state: { buttonName } });
+    (link: string, buttonLabel?: string) => {
+      if (buttonLabel === "Редактирование") {
+        navigate(link, { state: { buttonLabel } });
       } else navigate(link);
     },
     [navigate],
@@ -20,7 +20,7 @@ const DefaultPage = () => {
       colStart: "col-start-2",
       rowSpan: "row-span-2",
       rowStart: "row-start-1",
-      buttonName: "Создание",
+      buttonLabel: "Создание",
       link: "/creating",
     },
     {
@@ -28,7 +28,7 @@ const DefaultPage = () => {
       colStart: "col-start-1",
       rowSpan: "row-span-3",
       rowStart: "row-start-4",
-      buttonName: "Редактирование",
+      buttonLabel: "Редактирование",
       link: "/coursesSelection",
     },
     {
@@ -36,7 +36,7 @@ const DefaultPage = () => {
       colStart: "col-start-4",
       rowSpan: "row-span-3",
       rowStart: "row-start-4",
-      buttonName: "Анкетирование",
+      buttonLabel: "Анкетирование",
       link: "/questionnaire",
     },
   ];
@@ -69,9 +69,9 @@ type ComponentProps = {
   colStart: string;
   rowSpan: string;
   rowStart: string;
-  buttonName?: string;
+  buttonLabel?: string;
   link: string;
-  onClick: (link: string, buttonName?: string) => void;
+  onClick: (link: string, buttonLabel?: string) => void;
 };
 
 const baseCircleClasses =
@@ -93,12 +93,12 @@ const Circle = ({
   colStart,
   rowSpan,
   rowStart,
-  buttonName,
+  buttonLabel,
   link,
   onClick,
 }: ComponentProps) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    onClick(link, buttonName);
+    onClick(link, buttonLabel);
   };
 
   return (
@@ -125,7 +125,7 @@ const Circle = ({
             "2xl:landscape:text-[1.6vw]",
           )}
         >
-          {buttonName}
+          {buttonLabel}
         </p>
       </div>
     </div>

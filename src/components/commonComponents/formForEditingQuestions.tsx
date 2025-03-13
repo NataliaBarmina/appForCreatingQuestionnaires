@@ -41,7 +41,7 @@ function FormForEditingQuestions({
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger>
           <Button
-            buttonName={"редактировать"}
+            buttonLabel={"редактировать"}
             size="small"
             disabled={false}
             type="button"
@@ -190,14 +190,14 @@ const Form = ({
         )}
         <div className="mx-auto mb-12 mt-6 flex w-[80%] justify-between px-[4vw]">
           <Button
-            buttonName="сохранить вопрос"
+            buttonLabel="сохранить вопрос"
             size="middle"
             disabled={!!hasErrors}
             type="button"
             onClick={handleSubmit(onSubmit)}
           />
           <Button
-            buttonName="закрыть форму"
+            buttonLabel="закрыть форму"
             size="middle"
             onClick={handleDelete}
             type="button"

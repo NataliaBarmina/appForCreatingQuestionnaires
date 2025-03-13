@@ -8,7 +8,7 @@ type MyProps = {
   wrongAnswer2: string;
 };
 
-const BlokedFieldWithAnswersAndQuestions = ({
+const BlockedFieldWithAnswersAndQuestions = ({
   question,
   correctAnswer,
   wrongAnswer1,
@@ -38,4 +38,4 @@ const BlokedFieldWithAnswersAndQuestions = ({
     </div>
   );
 };
-export default BlokedFieldWithAnswersAndQuestions;
+export default BlockedFieldWithAnswersAndQuestions;

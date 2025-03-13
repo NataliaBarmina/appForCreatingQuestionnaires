@@ -1,19 +1,27 @@
-export type Question = {
+export type TQuestion = {
   вопрос: string;
   ответ_1: string;
   ответ_2: string;
   ответ_3: string;
 };
 
-export type Topic = {
-  [key: string]: Question[];
+export type TTopic = {
+  [key: string]: TQuestion[];
 };
 
-export type Subject = {
-  [key: string]: Topic[];
+export type TSubject = {
+  [key: string]: TTopic[];
 };
 
-export const arr: Subject[] = [
+export type TQuizMetadata = {
+  buttonLabel?: string;
+  course?: string;
+  theme?: string;
+  questionsList?: TQuestion[];
+  listOfThemes?: TTopic[];
+};
+
+export const arr: TSubject[] = [
   {
     JavaScript: [
       {
@@ -189,11 +197,3 @@ export const arr: Subject[] = [
     ],
   },
 ];
-
-type AnswerOptions = {
-  [key: number]: string; // Номера вариантов ответов (1, 2, 3 и т.д.) и их значения (строки)
-};
-
-type QuestionSet = Array<{
-  [question: string]: AnswerOptions; // Вопрос (строка) и соответствующие варианты ответов
-}>;

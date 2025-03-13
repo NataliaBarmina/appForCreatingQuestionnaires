@@ -2,36 +2,23 @@ import { useLocation } from "react-router-dom";
 import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself";
 import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI";
 import QuestionList from "../editing/questionList";
-
-type Theme = {
-  вопрос: string;
-  ответ_1: string;
-  ответ_2: string;
-  ответ_3: string;
-};
-
-type LocationState = {
-  buttonName?: string;
-  course?: string;
-  questionsList?: Theme[];
-  theme?: string;
-};
+import { TQuizMetadata } from "@/common/dataExample";
 
 const FormSelection = () => {
   const location = useLocation();
 
-  const { buttonName, course, questionsList, theme }: LocationState =
+  const { buttonLabel, course, questionsList, theme }: TQuizMetadata =
     location.state || {};
 
   return (
     <div>
-      {buttonName === "самостоятельно" && (
+      {buttonLabel === "самостоятельно" && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonName === "нейросетью" && (
+      {buttonLabel === "нейросетью" && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
-      {buttonName === "редактирование" && (
+      {buttonLabel === "редактирование" && (
         <QuestionList
           course={course}
           theme={theme}
