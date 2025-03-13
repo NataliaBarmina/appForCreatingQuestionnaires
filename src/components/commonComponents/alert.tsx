@@ -19,7 +19,7 @@ type AlertProps = {
   alertDialogDescription: string;
   alertDialogAction: string;
   alertDialogCancel: string;
-  buttonName: string;
+  buttonLabel: string;
   type?: "submit" | "reset" | "button";
   isFormValid?: boolean;
   isSubmitting?: boolean;
@@ -31,7 +31,7 @@ const Alert = ({
   alertDialogDescription,
   alertDialogAction,
   alertDialogCancel,
-  buttonName,
+  buttonLabel,
   type,
   isFormValid,
   isSubmitting,
@@ -42,7 +42,7 @@ const Alert = ({
     <AlertDialog>
       <AlertDialogTrigger>
         <Button
-          buttonName={buttonName}
+          buttonLabel={buttonLabel}
           size="small"
           disabled={false}
           type={type}

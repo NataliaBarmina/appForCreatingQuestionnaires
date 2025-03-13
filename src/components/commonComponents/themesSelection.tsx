@@ -4,21 +4,17 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
-import { Topic } from "@common/dataExample";
 import { Button } from "@commonComponents/buttons";
-
-export type MyProps = {
-  course: string[];
-  listOfThemes: Topic[];
-  buttonName: string;
-};
+import { TTopic } from "@common/dataExample";
+import { TQuizMetadata } from "@common/dataExample";
 
 const ThemesSelection = ({
   course, // название курса
   listOfThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
-  buttonName, // название кнопки на которой произошел клик
-}: MyProps) => {
+  buttonLabel, // название кнопки на которой произошел клик
+}: TQuizMetadata) => {
   const navigate = useNavigate();
+  console.log(course);
   return (
     <div className="mx-auto w-[100%]">
       <div className="pb-10 pt-12 text-xl font-bold">
@@ -36,7 +32,7 @@ const ThemesSelection = ({
       >
         <nav aria-label="main mailbox folders">
           <List>
-            {listOfThemes.map((item: Topic, index: number) => (
+            {listOfThemes.map((item: TTopic, index: number) => (
               <ListItem
                 disablePadding
                 key={index}
@@ -56,8 +52,8 @@ const ThemesSelection = ({
                   onClick={() => {
                     navigate("/formSelection", {
                       state: {
-                        buttonName,
-                        course: course[0],
+                        buttonLabel,
+                        course: course,
                         questionsList: Object.values(item)[0], //массив вопросов
                         theme: Object.keys(item)[0],
                       },
@@ -70,14 +66,14 @@ const ThemesSelection = ({
             ))}
           </List>
         </nav>
-        {buttonName !== "редактирование" && (
+        {buttonLabel !== "редактирование" && (
           <Button
             onClick={() => {
               navigate("/formSelection", {
-                state: { buttonName, course: course[0], listOfThemes },
+                state: { buttonLabel, course: course, listOfThemes },
               });
             }}
-            buttonName="Добавить тему"
+            buttonLabel="Добавить тему"
             disabled={false}
             type="button"
             size="middle"

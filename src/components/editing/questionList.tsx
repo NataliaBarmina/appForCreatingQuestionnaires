@@ -1,23 +1,10 @@
 import classNames from "classnames";
-import { Question } from "@common/dataExample";
 import Alert from "@commonComponents/alert";
-import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
-import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
+import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
+import { TQuizMetadata } from "@/common/dataExample";
 
-type Theme = {
-  вопрос: string;
-  ответ_1: string;
-  ответ_2: string;
-  ответ_3: string;
-};
-
-type Myprops = {
-  course?: string;
-  questionsList?: Theme[];
-  theme?: string;
-};
-
-const QuestionList = ({ course, questionsList, theme }: Myprops) => {
+const QuestionList = ({ course, questionsList, theme }: TQuizMetadata) => {
   return (
     <div>
       <div className="pb-1">
@@ -40,7 +27,7 @@ const QuestionList = ({ course, questionsList, theme }: Myprops) => {
             )}
           >
             <div className="py-6 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-            <BlokedFieldWithAnswersAndQuestions
+            <BlockedFieldWithAnswersAndQuestions
               question={item.вопрос}
               correctAnswer={item.ответ_1}
               wrongAnswer1={item.ответ_2}
@@ -64,7 +51,7 @@ const QuestionList = ({ course, questionsList, theme }: Myprops) => {
                   }
                   alertDialogAction={"продолжить редактирование"}
                   alertDialogCancel={"удалить вопрос"}
-                  buttonName={"удалить"}
+                  buttonLabel={"удалить"}
                   isFormValid={true}
                   isSubmitting={false}
                   onContinue={() => {}}

@@ -13,13 +13,9 @@ import {
   FormMessage,
 } from "@ui/form";
 import { Textarea } from "@ui/textarea";
+import { TQuizMetadata } from "@/common/dataExample";
 
-type MyProps = {
-  course: string;
-  theme: string;
-};
-
-const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
+const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizMetadata) => {
   const schema = yup.object({
     selfWrittenTopicName: yup
       .string()
@@ -179,7 +175,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
                   }
                   alertDialogAction={"продолжить редактирование"}
                   alertDialogCancel={"сохранить вопрос"}
-                  buttonName={"сохранить"}
+                  buttonLabel={"сохранить"}
                   type="submit"
                   onContinue={() => formReset()}
                   isFormValid={isFormValid} //будем показывать Alert только если форма валидна
@@ -188,7 +184,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: MyProps) => {
               </div>
               <div>
                 <Button
-                  buttonName="очистить форму"
+                  buttonLabel="очистить форму"
                   size="small"
                   disabled={false}
                   type="reset"

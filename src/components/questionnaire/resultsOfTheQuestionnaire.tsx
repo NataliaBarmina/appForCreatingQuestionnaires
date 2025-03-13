@@ -3,7 +3,7 @@ import { Label } from "@ui/label";
 import { BlockedField } from "@commonComponents/createFields";
 
 //todo: получить массив через пропсы из Questionnaire и массив ответов и сравнить их
-const questionSet = [
+const questionsList = [
   //todo: потом удалить
   {
     "К какому типу данных преобразует значение функция alert?": {
@@ -47,7 +47,7 @@ const ResultsOfTheQuestionnaire = () => {
           Анализ неправильных ответов:
         </div>
 
-        {questionSet.map((item, index) => (
+        {questionsList.map((item, index) => (
           <div
             key={index}
             className={classNames(

@@ -59,7 +59,7 @@ const App = () => {
             className={classesForLinks}
             onClick={() => {
               navigate("/coursesSelection", {
-                state: { buttonName: "редактирование" },
+                state: { buttonLabel: "редактирование" },
               });
             }}
           >

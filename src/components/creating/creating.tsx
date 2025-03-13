@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { Button } from "@components/commonComponents/buttons";
+import { Button } from "@commonComponents/buttons";
 
 const Creating = () => {
   const navigate = useNavigate();
@@ -21,20 +21,20 @@ const Creating = () => {
       >
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
           <Button
-            buttonName="нейросетью"
+            buttonLabel="нейросетью"
             size="big"
             onClick={() =>
               navigate("/coursesSelection", {
-                state: { buttonName: "нейросетью" },
+                state: { buttonLabel: "нейросетью" },
               })
             }
           />
           <Button
-            buttonName="самостоятельно"
+            buttonLabel="самостоятельно"
             size="big"
             onClick={() =>
               navigate("/coursesSelection", {
-                state: { buttonName: "самостоятельно" },
+                state: { buttonLabel: "самостоятельно" },
               })
             }
           />

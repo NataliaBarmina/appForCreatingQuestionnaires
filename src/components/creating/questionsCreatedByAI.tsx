@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import Alert from "@commonComponents/alert";
-import FormForEditingQuestions from "@commonComponents/formForEditingQuestins";
-import BlokedFieldWithAnswersAndQuestions from "@commonComponents/blokedFieldWithAnswersAndQuestions";
+import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
 
 //TODO: получаем из какого-то хранилища  название курса, темы и массив с объектами вопросов
-const nameOfCourse = "какой-то курс";
+const course = "какой-то курс";
 const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
 const arr = [
   {
@@ -29,7 +29,7 @@ const QuestionsCreatedByAI = () => {
         Вопросы созданные нейросетью
       </div>
 
-      <div className="p-4 text-xl font-bold">Курс {nameOfCourse}</div>
+      <div className="p-4 text-xl font-bold">Курс {course}</div>
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
       {arr.map((item, index) => (
         <div
@@ -46,7 +46,7 @@ const QuestionsCreatedByAI = () => {
         >
           <div className="py-6 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mx-auto w-[95%]">
-            <BlokedFieldWithAnswersAndQuestions
+            <BlockedFieldWithAnswersAndQuestions
               question={item.вопрос}
               correctAnswer={item.ответ_1}
               wrongAnswer1={item.ответ_2}
@@ -66,7 +66,7 @@ const QuestionsCreatedByAI = () => {
                 }
                 alertDialogAction={"продолжить редактирование"}
                 alertDialogCancel={"сохранить вопрос"}
-                buttonName={"сохранить"}
+                buttonLabel={"сохранить"}
                 isFormValid={true}
                 isSubmitting={false}
                 onContinue={() => {}}
@@ -89,7 +89,7 @@ const QuestionsCreatedByAI = () => {
                 }
                 alertDialogAction={"продолжить редактирование"}
                 alertDialogCancel={"удалить вопрос"}
-                buttonName={"удалить"}
+                buttonLabel={"удалить"}
                 isFormValid={true}
                 isSubmitting={false}
                 onContinue={() => {}}

@@ -7,7 +7,7 @@ import { BlockedField, TFields } from "@commonComponents/createFields";
 import Button from "@commonComponents/buttons";
 
 //todo: получить массив перемешанных вопросов, в анкете должно быть 10 вопросов
-const questions = [
+const questionsList = [
   //todo: потом удалить
   {
     вопрос: "Свойство display какое значение принимает?",
@@ -63,7 +63,7 @@ const Questionnaire = () => {
         Ответьте на вопросы:
       </div>
 
-      {questions.map((item, index) => (
+      {questionsList.map((item, index) => (
         <div
           key={index}
           className={classNames(
@@ -99,7 +99,7 @@ const Questionnaire = () => {
         </div>
       ))}
       <Button
-        buttonName="сохранить"
+        buttonLabel="сохранить"
         size="middle"
         onClick={() => navigate("/resultsOfTheQuestionnaire")}
       />
