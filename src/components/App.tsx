@@ -56,7 +56,7 @@ const App = () => {
           )}
         >
           <Link to="/creating" className={classesForLinks}>
-            {t("link.creating")}
+            {t("link.create")}
           </Link>
           <button
             className={classesForLinks}

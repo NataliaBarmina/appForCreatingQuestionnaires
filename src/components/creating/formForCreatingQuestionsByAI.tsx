@@ -48,7 +48,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
           "pb-16 2xl:pt-20",
         )}
       >
-        {t("header.headerFormForCreatingQuestionsByAI")}
+        {t("header.formCreateByAI")}
       </div>
       <div
         className={classNames(
@@ -64,11 +64,11 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
       >
         <div className="mx-auto w-[90%]">
           <div className="p-8 text-lg font-bold text-blue-100">
-            {t("header.headerCourse")} {course}
+            {t("header.course")} {course}
           </div>
           <div className="mx-auto">
             <Textarea
-              placeholder={t("placeholder.addTheme")}
+              placeholder={t("placeholder.topic")}
               register={register}
               fieldName="topicName"
               styles=""
@@ -80,7 +80,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
           </div>
           <div className="mt-12 2xl:mb-[8vh]">
             <Textarea
-              placeholder={t("placeholder.addLink")}
+              placeholder={t("placeholder.sourceLink")}
               register={register}
               fieldName="linkToSource"
               styles=""

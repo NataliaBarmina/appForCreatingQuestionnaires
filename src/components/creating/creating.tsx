@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { Button } from "@commonComponents/buttons";
+import Button from "@commonComponents/buttons";
 import { useTranslation } from "react-i18next";
 
 const Creating = () => {
@@ -9,9 +9,7 @@ const Creating = () => {
 
   return (
     <div className="pb-6">
-      <div className="pb-8 pt-12 text-[150%] font-bold">
-        {t("link.creating")}
-      </div>
+      <div className="pb-8 pt-12 text-[150%] font-bold">{t("link.create")}</div>
       <div
         className={classNames(
           "mx-auto rounded-full bg-[rgb(48,80,80)]/85",

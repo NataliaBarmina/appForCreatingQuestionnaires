@@ -11,11 +11,11 @@ const QuestionList = ({ course, questionsList, theme }: TQuizMetadata) => {
     <div>
       <div className="pb-1">
         <div className="p-4 text-[150%] font-bold">
-          {t("header.changeHeader")}
+          {t("header.editQuestion")}
         </div>
 
         <div className="p-4 text-xl font-bold">
-          {t("header.headerCourse")} {course}
+          {t("header.course")} {course}
         </div>
         <div className="mb-4 text-xl">{`${t("header.theme")} ${theme}`}</div>
         {questionsList.map((item, index) => (
@@ -30,7 +30,7 @@ const QuestionList = ({ course, questionsList, theme }: TQuizMetadata) => {
               "2xl:w-[45vw]",
             )}
           >
-            <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.question")} ${index + 1}`}</div>
+            <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
               question={item.вопрос}
               correctAnswer={item.ответ_1}
@@ -49,10 +49,10 @@ const QuestionList = ({ course, questionsList, theme }: TQuizMetadata) => {
               <div>
                 <Alert
                   whatToDo={"удаляем данные из стэйта"} //todo: потом удалить
-                  alertDialogTitle={t("alert.alertDialogTitle")}
-                  alertDialogDescription={t("alert.alertDialogDescription2")}
-                  alertDialogAction={t("alert.alertDialogAction")}
-                  alertDialogCancel={t("alert.alertDialogDelete")}
+                  alertDialogTitle={t("alert.title")}
+                  alertDialogDescription={t("alert.deleteWarning")}
+                  alertDialogAction={t("alert.continueEditing")}
+                  alertDialogCancel={t("alert.deleteQuestion")}
                   buttonLabel={t("buttonLabel.delete")}
                   isFormValid={true}
                   isSubmitting={false}

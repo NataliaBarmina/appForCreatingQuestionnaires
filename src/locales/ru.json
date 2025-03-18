@@ -1,6 +1,7 @@
 {
+  "required": "Это поле обязательно",
   "link": {
-    "creating": "Создание вопросов",
+    "create": "Создание вопросов",
     "questionnaire": "Анкетирование",
     "editing": "Редактирование вопросов"
   },
@@ -10,48 +11,52 @@
     "editing": "Редактирование",
     "byAI": "нейросетью",
     "yourself": "самостоятельно",
-    "send": "Отправить",
+    "send": "отправить",
     "save": "сохранить",
     "reset": "очистить форму",
-    "delete": "удалить"
+    "delete": "удалить",
+    "edit": "редактировать",
+    "closeForm": "закрыть форму",
+    "addTheme": "добавить тему"
   },
-  "required": "Это поле обязательно",
   "header": {
-    "headerFormForCreatingQuestionsByAI": "Форма для создания вопросов нейросетью",
-    "headerCourse": "Курс",
-    "headerCreateQuestion": " Создайте вопрос по курсу",
-    "headerCreatedByAI": "Вопросы созданные нейросетью",
-    "headerQuestionNumber": "вопрос №",
-    "changeHeader": "Измените необходимый вопрос",
+    "formCreateByAI": "Форма для создания вопросов нейросетью",
+    "createQuestion": " Создайте вопрос по курсу",
+    "questionsGeneratedByAI": "Вопросы созданные нейросетью",
+    "editQuestion": "Измените необходимый вопрос",
     "answerToQuestion": "Ответьте на вопросы:",
+    "changingQuestion": "Измените вопрос",
+    "courseSelection": "Выберите курс",
+    "themeSelection": "Выберите тему из курса",
+    "course": "Курс",
     "theme": "Тема:",
-    "question": "вопрос №",
+    "questionNumber": "вопрос №",
     "congratulation": "Поздравляем!",
-    "youAnswered": "Вы ответили на вопросы анкеты.",
-    "percent": "Процент правильных ответов",
-    "analysis": " Анализ неправильных ответов:"
+    "completedSurvey": "Вы завершили анкетирование.",
+    "correctPercentage": "Процент правильных ответов",
+    "wrongAnswersAnalysis": " Анализ неправильных ответов:"
   },
   "placeholder": {
-    "addTheme": "Введите название темы",
-    "addLink": "Введите ссылку на источник",
-    "addQuestion": "введите вопрос",
-    "addWrongAnswer": "введите неправильный ответ",
-    "addCorrectAnswer": "введите правильный ответ"
+    "topic": "Введите название темы",
+    "sourceLink": "Введите ссылку на источник",
+    "question": "введите вопрос",
+    "wrongAnswer": "введите неправильный ответ",
+    "correctAnswer": "введите правильный ответ"
   },
   "formLabel": {
-    "labelTheme": "Тема:",
-    "labelQuestion": "Вопрос:",
-    "labelAnswers": " Ответы:",
+    "topic": "Тема:",
+    "question": "Вопрос:",
+    "answers": " Ответы:",
     "correctAnswer": "ПРАВИЛЬНЫЙ ОТВЕТ",
-    "yourAnswer": " ВАШ ОТВЕТ"
+    "yourAnswer": " ВАШ ОТВЕТ",
+    "wrongAnswer": "НЕПРАВИЛЬНЫЙ ОТВЕТ"
   },
   "alert": {
-    "alertDialogTitle": "Вы уверены?",
-    "alertDialogDescription1": "Внимательно проверьте корректность полученных вопросов и ответов, короме того правильный ответ должен находиться на первом месте",
-    "alertDialogDescription2": "Это действие нельзя отменить. Вопрос будет полностью удален.",
-    "alertDialogDescription3": "Внимательно проверьте вопросы и ответы. Правильный ответ должен находиться на первом месте",
-    "alertDialogAction": "продолжить редактирование",
-    "alertDialogCancel": "сохранить вопрос",
-    "alertDialogDelete": "удалить вопрос"
+    "title": "Вы уверены?",
+    "checkQuestions": "Проверьте правильность вопросов и ответов. Правильный ответ должен быть первым в списке.",
+    "deleteWarning": "Это действие нельзя отменить. Вопрос будет полностью удален.",
+    "continueEditing": "продолжить редактирование",
+    "saveQuestion": "сохранить вопрос",
+    "deleteQuestion": "удалить вопрос"
   }
 }

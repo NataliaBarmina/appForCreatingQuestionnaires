@@ -3,22 +3,24 @@ import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestio
 import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI";
 import QuestionList from "../editing/questionList";
 import { TQuizMetadata } from "@/common/dataExample";
+import { useTranslation } from "react-i18next";
 
 const FormSelection = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const { buttonLabel, course, questionsList, theme }: TQuizMetadata =
     location.state || {};
 
   return (
     <div>
-      {buttonLabel === "самостоятельно" && (
+      {buttonLabel === t("buttonLabel.yourself") && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonLabel === "нейросетью" && (
+      {buttonLabel === t("buttonLabel.byAI") && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
-      {buttonLabel === "редактирование" && (
+      {buttonLabel === t("buttonLabel.editing").toLowerCase() && (
         <QuestionList
           course={course}
           theme={theme}
