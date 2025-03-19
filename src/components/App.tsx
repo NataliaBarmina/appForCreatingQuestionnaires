@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./languageSwitcher";
 
 const classesForLinks = classNames(
   "block p-4 bg-black  w-[100%] mb-4",
@@ -37,7 +38,9 @@ const App = () => {
             "xl:left-[10vw] xl:w-[80%]",
             "2xl:left-[14.9vw] 2xl:w-[70%]",
           )}
-        ></div>
+        >
+          <LanguageSwitcher />
+        </div>
       </div>
       <div
         className={classNames(
