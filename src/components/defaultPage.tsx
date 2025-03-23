@@ -1,33 +1,7 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-
-const circleConfig = [
-  {
-    colSpan: "col-span-3",
-    colStart: "col-start-2",
-    rowSpan: "row-span-2",
-    rowStart: "row-start-1",
-    buttonLabel: "Создание",
-    link: "/creating",
-  },
-  {
-    colSpan: "col-span-2",
-    colStart: "col-start-1",
-    rowSpan: "row-span-3",
-    rowStart: "row-start-4",
-    buttonLabel: "Редактирование",
-    link: "/coursesSelection",
-  },
-  {
-    colSpan: "col-span-2",
-    colStart: "col-start-4",
-    rowSpan: "row-span-3",
-    rowStart: "row-start-4",
-    buttonLabel: "Анкетирование",
-    link: "/questionnaire",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const DefaultPage = () => {
   const navigate = useNavigate();
@@ -40,6 +14,33 @@ const DefaultPage = () => {
     },
     [navigate],
   );
+
+  const circleConfig = [
+    {
+      colSpan: "col-span-3",
+      colStart: "col-start-2",
+      rowSpan: "row-span-2",
+      rowStart: "row-start-1",
+      buttonLabel: "Создание",
+      link: "/creating",
+    },
+    {
+      colSpan: "col-span-2",
+      colStart: "col-start-1",
+      rowSpan: "row-span-3",
+      rowStart: "row-start-4",
+      buttonLabel: "Редактирование",
+      link: "/coursesSelection",
+    },
+    {
+      colSpan: "col-span-2",
+      colStart: "col-start-4",
+      rowSpan: "row-span-3",
+      rowStart: "row-start-4",
+      buttonLabel: "Анкетирование",
+      link: "/questionnaire",
+    },
+  ];
 
   return (
     <div className="grid grid-cols-5 grid-rows-7 items-center justify-items-center py-14">

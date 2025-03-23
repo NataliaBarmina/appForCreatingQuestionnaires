@@ -6,13 +6,16 @@ import * as yup from "yup";
 import classNames from "classnames";
 import Button from "@commonComponents/buttons";
 import { TQuizData } from "@/common/dataExample";
-
-const schema = yup.object({
-  topicName: yup.string().required("Это поле обязательно"),
-  linkToSource: yup.string(),
-});
+import { useTranslation } from "react-i18next";
 
 const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
+  const { t } = useTranslation();
+
+  const schema = yup.object({
+    topicName: yup.string().required(t("required")),
+    linkToSource: yup.string(),
+  });
+
   const {
     register,
     handleSubmit,
@@ -45,7 +48,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
           "pb-16 2xl:pt-20",
         )}
       >
-        Форма для создания вопросов нейросетью
+        {t("header.headerFormForCreatingQuestionsByAI")}
       </div>
       <div
         className={classNames(
@@ -61,11 +64,11 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
       >
         <div className="mx-auto w-[90%]">
           <div className="p-8 text-lg font-bold text-blue-100">
-            Курс {course}
+            {t("header.headerCourse")} {course}
           </div>
           <div className="mx-auto">
             <Textarea
-              placeholder="Введите название темы"
+              placeholder={t("placeholder.addTheme")}
               register={register}
               fieldName="topicName"
               styles=""
@@ -77,7 +80,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
           </div>
           <div className="mt-12 2xl:mb-[8vh]">
             <Textarea
-              placeholder="Введите ссылку на источник"
+              placeholder={t("placeholder.addLink")}
               register={register}
               fieldName="linkToSource"
               styles=""
@@ -85,7 +88,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
           </div>
         </div>
         <div className="mb-10">
-          <Button buttonLabel="Отправить" size="middle" />
+          <Button buttonLabel={t("buttonLabel.send")} size="middle" />
         </div>
       </div>
     </form>

@@ -14,16 +14,19 @@ import {
 } from "@ui/form";
 import { Textarea } from "@ui/textarea";
 import { TQuizData } from "@/common/dataExample";
+import { useTranslation } from "react-i18next";
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
+  const { t } = useTranslation();
+
+  const requiredString = yup.string().required(t("required"));
+
   const schema = yup.object({
-    selfWrittenTopicName: yup
-      .string()
-      .required(theme ? undefined : "Это поле обязательно"), // Если `theme` передано, то не обязательное
-    selfWrittenQuestion: yup.string().required("это поле обязательно"),
-    selfWrittenAnswer1: yup.string().required("это поле обязательно"),
-    selfWrittenAnswer2: yup.string().required("это поле обязательно"),
-    selfWrittenAnswer3: yup.string().required("это поле обязательно"),
+    selfWrittenTopicName: theme ? yup.string() : requiredString,
+    selfWrittenQuestion: requiredString,
+    selfWrittenAnswer1: requiredString,
+    selfWrittenAnswer2: requiredString,
+    selfWrittenAnswer3: requiredString,
   });
 
   const form = useForm({
@@ -35,7 +38,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   });
 
   function onSubmit(values: any) {
-    console.log("Сохраненные данные:", values);
+    console.log("Сохраненные данные:", values); //todo- удалить или что-то сделать
   }
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы
@@ -53,7 +56,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   return (
     <div>
       <div className="p-8 text-[150%] font-bold">
-        Создайте вопрос по курсу {course}
+        {t("header.headerCreateQuestion")} {course}
       </div>
       <div
         className={classNames(
@@ -74,11 +77,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               render={({ field }) => (
                 <FormItem className="pt-8">
                   <FormLabel className="text-lg text-yellow-50">
-                    Тема:
+                    {t("formLabel.labelTheme")}
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="введите тему"
+                      placeholder={t("placeholder.addTheme")}
                       disabled={!!theme}
                       {...field}
                       className="text-center font-extrabold placeholder:text-sm placeholder:font-normal"
@@ -95,11 +98,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               render={({ field }) => (
                 <FormItem className="mt-8">
                   <FormLabel className="text-lg text-yellow-50">
-                    Вопрос:
+                    {t("formLabel.labelQuestion")}
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="введите вопрос"
+                      placeholder={t("placeholder.addQuestion")}
                       {...field}
                       className="text-center placeholder:text-sm"
                       style={{ fontSize: "1.2rem" }}
@@ -116,11 +119,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                 render={({ field }) => (
                   <FormItem className="mt-12">
                     <FormLabel className="text-lg text-yellow-50">
-                      Ответы:
+                      {t("formLabel.labelAnswers")}
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="введите правильный ответ"
+                        placeholder={t("placeholder.addCorrectAnswer")}
                         {...field}
                         className="text-center placeholder:text-sm"
                         style={{ fontSize: "1.2rem" }}
@@ -137,7 +140,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                   <FormItem className="mt-4">
                     <FormControl>
                       <Textarea
-                        placeholder="введите неправильный ответ"
+                        placeholder={t("placeholder.addWrongAnswer")}
                         {...field}
                         className="text-center placeholder:text-sm"
                         style={{ fontSize: "1.2rem" }}
@@ -154,7 +157,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                   <FormItem className="mt-4">
                     <FormControl>
                       <Textarea
-                        placeholder="введите неправильный ответ"
+                        placeholder={t("placeholder.addWrongAnswer")}
                         {...field}
                         className="text-center placeholder:text-sm"
                         style={{ fontSize: "1.2rem" }}
@@ -169,13 +172,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               <div>
                 <Alert
                   whatToDo={"сохраняем данные в стэйт "} //todo: потом удалить
-                  alertDialogTitle={"Вы уверены?"}
-                  alertDialogDescription={
-                    "Внимательно проверьте вопросы и ответы. Правильный ответ должен находиться на первом месте"
-                  }
-                  alertDialogAction={"продолжить редактирование"}
-                  alertDialogCancel={"сохранить вопрос"}
-                  buttonLabel={"сохранить"}
+                  alertDialogTitle={t("alert.alertDialogTitle")}
+                  alertDialogDescription={t("alert.alertDialogDescription3")}
+                  alertDialogAction={t("alert.alertDialogAction")}
+                  alertDialogCancel={t("alert.alertDialogCancel")}
+                  buttonLabel={t("buttonLabel.save")}
                   type="submit"
                   onContinue={() => onFormReset()}
                   isFormValid={isFormValid} //будем показывать Alert только если форма валидна
@@ -184,7 +185,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               </div>
               <div>
                 <Button
-                  buttonLabel="очистить форму"
+                  buttonLabel={t("buttonLabel.reset")}
                   size="small"
                   disabled={false}
                   type="reset"

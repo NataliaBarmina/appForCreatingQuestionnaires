@@ -3,18 +3,23 @@ import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { questionsList } from "@common/dataExample"; //TODO: получаем из какого-то временного хранилища  массив с объектами вопросов
 
 const QuestionsCreatedByAI = () => {
   const location = useLocation();
   const { course, theme } = location.state || {};
+
+  const { t } = useTranslation();
   return (
     <div className="pb-1">
       <div className="p-4 text-[150%] font-bold">
-        Вопросы созданные нейросетью
+        {t("header.headerCreatedByAI")}
       </div>
 
-      <div className="p-4 text-xl font-bold">Курс {course}</div>
+      <div className="p-4 text-xl font-bold">
+        {t("header.headerCourse")} {course}
+      </div>
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
       {questionsList.map((item, index) => (
         <div
@@ -29,7 +34,9 @@ const QuestionsCreatedByAI = () => {
             "2xl:w-[45vw]",
           )}
         >
-          <div className="py-6 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
+          <div className="py-6 text-lg font-bold text-blue-100">
+            {t("header.headerQuestionNumber")} {index + 1}
+          </div>
           <div className="mx-auto w-[95%]">
             <BlockedFieldWithAnswersAndQuestions
               question={item.question}
@@ -45,13 +52,11 @@ const QuestionsCreatedByAI = () => {
                   //todo: потом удалить
                   "сохраняем данные в стэйт и удаляем вопрос из временного хранилища"
                 }
-                alertDialogTitle={"Вы уверены?"}
-                alertDialogDescription={
-                  "Внимательно проверьте корректность полученных вопросов и ответов, короме того правильный ответ должен находиться на первом месте"
-                }
-                alertDialogAction={"продолжить редактирование"}
-                alertDialogCancel={"сохранить вопрос"}
-                buttonLabel={"сохранить"}
+                alertDialogTitle={t("alert.alertDialogTitle")}
+                alertDialogDescription={t("alert.alertDialogDescription1")}
+                alertDialogAction={t("alert.alertDialogAction")}
+                alertDialogCancel={t("alert.alertDialogCancel")}
+                buttonLabel={t("buttonLabel.save")}
                 isFormValid={true}
                 isSubmitting={false}
                 onContinue={() => {}}
@@ -68,13 +73,11 @@ const QuestionsCreatedByAI = () => {
             <div>
               <Alert
                 whatToDo={"удаляем вопрос из временного хранилища"} //todo: потом удалить
-                alertDialogTitle={"Вы уверены?"}
-                alertDialogDescription={
-                  "Это действие нельзя отменить. Вопрос будет полностью удален."
-                }
-                alertDialogAction={"продолжить редактирование"}
-                alertDialogCancel={"удалить вопрос"}
-                buttonLabel={"удалить"}
+                alertDialogTitle={t("alert.alertDialogTitle")}
+                alertDialogDescription={t("alert.alertDialogDescription2")}
+                alertDialogAction={t("alert.alertDialogAction")}
+                alertDialogCancel={t("alert.alertDialogDelete")}
+                buttonLabel={t("buttonLabel.delete")}
                 isFormValid={true}
                 isSubmitting={false}
                 onContinue={() => {}}
