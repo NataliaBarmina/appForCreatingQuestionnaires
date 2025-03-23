@@ -58,7 +58,7 @@ const App = () => {
       <div className={classesForNavPanel}>
         <div className={classesForFixingNavPanel}>
           <Link to="/creating" className={classesForLinks}>
-            {t("link.creating")}
+            {t("link.create")}
           </Link>
           <button
             className={classesForLinks}

@@ -56,7 +56,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   return (
     <div>
       <div className="p-8 text-[150%] font-bold">
-        {t("header.headerCreateQuestion")} {course}
+        {t("header.createQuestion")} {course}
       </div>
       <div
         className={classNames(
@@ -77,11 +77,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               render={({ field }) => (
                 <FormItem className="pt-8">
                   <FormLabel className="text-lg text-yellow-50">
-                    {t("formLabel.labelTheme")}
+                    {t("formLabel.topic")}
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder={t("placeholder.addTheme")}
+                      placeholder={t("placeholder.topic")}
                       disabled={!!theme}
                       {...field}
                       className="text-center font-extrabold placeholder:text-sm placeholder:font-normal"
@@ -98,11 +98,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               render={({ field }) => (
                 <FormItem className="mt-8">
                   <FormLabel className="text-lg text-yellow-50">
-                    {t("formLabel.labelQuestion")}
+                    {t("formLabel.question")}
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder={t("placeholder.addQuestion")}
+                      placeholder={t("placeholder.question")}
                       {...field}
                       className="text-center placeholder:text-sm"
                       style={{ fontSize: "1.2rem" }}
@@ -119,11 +119,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                 render={({ field }) => (
                   <FormItem className="mt-12">
                     <FormLabel className="text-lg text-yellow-50">
-                      {t("formLabel.labelAnswers")}
+                      {t("formLabel.answers")}
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder={t("placeholder.addCorrectAnswer")}
+                        placeholder={t("placeholder.correctAnswer")}
                         {...field}
                         className="text-center placeholder:text-sm"
                         style={{ fontSize: "1.2rem" }}
@@ -140,7 +140,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                   <FormItem className="mt-4">
                     <FormControl>
                       <Textarea
-                        placeholder={t("placeholder.addWrongAnswer")}
+                        placeholder={t("placeholder.wrongAnswer")}
                         {...field}
                         className="text-center placeholder:text-sm"
                         style={{ fontSize: "1.2rem" }}
@@ -157,7 +157,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                   <FormItem className="mt-4">
                     <FormControl>
                       <Textarea
-                        placeholder={t("placeholder.addWrongAnswer")}
+                        placeholder={t("placeholder.wrongAnswer")}
                         {...field}
                         className="text-center placeholder:text-sm"
                         style={{ fontSize: "1.2rem" }}
@@ -172,10 +172,10 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               <div>
                 <Alert
                   whatToDo={"сохраняем данные в стэйт "} //todo: потом удалить
-                  alertDialogTitle={t("alert.alertDialogTitle")}
-                  alertDialogDescription={t("alert.alertDialogDescription3")}
-                  alertDialogAction={t("alert.alertDialogAction")}
-                  alertDialogCancel={t("alert.alertDialogCancel")}
+                  alertDialogTitle={t("alert.title")}
+                  alertDialogDescription={t("alert.checkQuestions")}
+                  alertDialogAction={t("alert.continueEditing")}
+                  alertDialogCancel={t("alert.saveQuestion")}
                   buttonLabel={t("buttonLabel.save")}
                   type="submit"
                   onContinue={() => onFormReset()}

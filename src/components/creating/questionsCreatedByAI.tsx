@@ -14,11 +14,11 @@ const QuestionsCreatedByAI = () => {
   return (
     <div className="pb-1">
       <div className="p-4 text-[150%] font-bold">
-        {t("header.headerCreatedByAI")}
+        {t("header.questionsGeneratedByAI")}
       </div>
 
       <div className="p-4 text-xl font-bold">
-        {t("header.headerCourse")} {course}
+        {t("header.course")} {course}
       </div>
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
       {questionsList.map((item, index) => (
@@ -35,7 +35,7 @@ const QuestionsCreatedByAI = () => {
           )}
         >
           <div className="py-6 text-lg font-bold text-blue-100">
-            {t("header.headerQuestionNumber")} {index + 1}
+            {t("header.questionNumber")} {index + 1}
           </div>
           <div className="mx-auto w-[95%]">
             <BlockedFieldWithAnswersAndQuestions
@@ -52,10 +52,10 @@ const QuestionsCreatedByAI = () => {
                   //todo: потом удалить
                   "сохраняем данные в стэйт и удаляем вопрос из временного хранилища"
                 }
-                alertDialogTitle={t("alert.alertDialogTitle")}
-                alertDialogDescription={t("alert.alertDialogDescription1")}
-                alertDialogAction={t("alert.alertDialogAction")}
-                alertDialogCancel={t("alert.alertDialogCancel")}
+                alertDialogTitle={t("alert.title")}
+                alertDialogDescription={t("alert.checkQuestions")}
+                alertDialogAction={t("alert.continueEditing")}
+                alertDialogCancel={t("alert.saveQuestion")}
                 buttonLabel={t("buttonLabel.save")}
                 isFormValid={true}
                 isSubmitting={false}
@@ -73,10 +73,10 @@ const QuestionsCreatedByAI = () => {
             <div>
               <Alert
                 whatToDo={"удаляем вопрос из временного хранилища"} //todo: потом удалить
-                alertDialogTitle={t("alert.alertDialogTitle")}
-                alertDialogDescription={t("alert.alertDialogDescription2")}
-                alertDialogAction={t("alert.alertDialogAction")}
-                alertDialogCancel={t("alert.alertDialogDelete")}
+                alertDialogTitle={t("alert.title")}
+                alertDialogDescription={t("alert.deleteWarning")}
+                alertDialogAction={t("alert.continueEditing")}
+                alertDialogCancel={t("alert.deleteQuestion")}
                 buttonLabel={t("buttonLabel.delete")}
                 isFormValid={true}
                 isSubmitting={false}

@@ -17,7 +17,7 @@ export type TFields = {
 };
 
 type MyProps = {
-  placeholder: string;
+  placeholder?: string;
   styles: string;
   fieldName: keyof TFields;
   register: UseFormRegister<TFields>;
