@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@lib/utils";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./languageSwitcher";
 
 const classesForLinks = cn(
   "block p-4 bg-black  w-[100%] mb-4",
@@ -54,6 +55,7 @@ const App = () => {
       {/* чтобы текст не прятался под зеленую полосу вводим доп контейнер: */}
       <div className="md:h-[12vh] md:w-[100%]">
         <div className={classesForHead}></div>
+        <LanguageSwitcher />
       </div>
       <div className={classesForNavPanel}>
         <div className={classesForFixingNavPanel}>

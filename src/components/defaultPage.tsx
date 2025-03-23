@@ -5,10 +5,11 @@ import { useTranslation } from "react-i18next";
 
 const DefaultPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const navigateToPage = useCallback(
     (link: string, buttonLabel?: string) => {
-      if (buttonLabel === "Редактирование") {
+      if (buttonLabel === t("buttonLabel.editing")) {
         navigate(link, { state: { buttonLabel } });
       } else navigate(link);
     },
