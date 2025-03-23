@@ -3,6 +3,7 @@ import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "./themesSelection";
+import { useTranslation } from "react-i18next";
 import { arr, TSubject } from "@common/dataExample"; //todo: получаем доступ к стэйту - массиву с вопросами
 
 type TabPanelProps = {
@@ -50,7 +51,7 @@ function CustomTabPanel(props: TabPanelProps) {
 
 const CoursesSelection = () => {
   const [value, setValue] = useState(0);
-
+  const { t } = useTranslation();
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -67,7 +68,9 @@ const CoursesSelection = () => {
         }}
       >
         <div className="bg-stone-300 shadow-2xl shadow-stone-500">
-          <div className="py-10 text-xl font-bold">Выберите курс</div>
+          <div className="py-10 text-xl font-bold">
+            {t("header.courseSelection")}
+          </div>
           <Box
             sx={{
               maxWidth: { xs: "98vw", md: "68vw", lg: "55vw" },

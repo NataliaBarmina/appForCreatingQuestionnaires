@@ -76,7 +76,7 @@ const Questionnaire = () => {
             "2xl:w-[45vw]",
           )}
         >
-          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`${t("header.question")} ${index + 1}`}</div>
+          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
           <div className="mx-auto mb-8 w-[90%]">
             <div className="mb-3">
               <BlockedField styles="" value={item.вопрос} id="" />
