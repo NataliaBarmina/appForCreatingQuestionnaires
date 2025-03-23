@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { Link, Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const classesForLinks = classNames(
   "block p-4 bg-black  w-[100%] mb-4",
@@ -11,6 +12,8 @@ const classesForLinks = classNames(
 );
 
 const App = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   return (
@@ -53,20 +56,20 @@ const App = () => {
           )}
         >
           <Link to="/creating" className={classesForLinks}>
-            Создание вопросов
+            {t("link.creating")}
           </Link>
           <button
             className={classesForLinks}
             onClick={() => {
               navigate("/coursesSelection", {
-                state: { buttonLabel: "редактирование" },
+                state: { buttonLabel: t("buttonLabel.editing") },
               });
             }}
           >
-            Редактирование вопросов
+            {t("link.editing")}
           </button>
           <Link to="/questionnaire" className={classesForLinks}>
-            Проведение анкетирования
+            {t("link.questionnaire")}
           </Link>
         </div>
       </div>

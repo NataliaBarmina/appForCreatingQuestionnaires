@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { Label } from "@ui/label";
 import { BlockedField } from "@commonComponents/createFields";
+import { useTranslation } from "react-i18next";
 
 //todo: получить массив через пропсы из Questionnaire и массив ответов и сравнить их
 const questionsList = [
@@ -32,19 +33,20 @@ const questionsList = [
 
 const ResultsOfTheQuestionnaire = () => {
   const percentageOfCorrectAnswers = "95%";
+  const { t } = useTranslation();
 
   return (
     <div>
       <div className="p-8 text-[150%] font-bold">
-        Поздравляем! <br /> Вы ответили на вопросы анкеты.
+        {t("header.congratulation")} <br /> {t("header.youAnswered")}
       </div>
-      <div className="mb-1 text-xl">Процент правильных ответов</div>
+      <div className="mb-1 text-xl">{t("header.percent")}</div>
       <div className="mb-10 inline-block rounded-full border border-solid border-pink-900 bg-beige px-6 py-4 shadow-lg shadow-pink-900">
         {percentageOfCorrectAnswers}
       </div>
       <div className={classNames("mx-auto w-full bg-gray-200 pb-1")}>
         <div className="mb-2 py-8 text-xl font-bold text-black">
-          Анализ неправильных ответов:
+          {t("header.analysis")}
         </div>
 
         {questionsList.map((item, index) => (
@@ -57,7 +59,7 @@ const ResultsOfTheQuestionnaire = () => {
               "md:w-[85%]",
             )}
           >
-            <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
+            <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`${t("header.question")} ${index + 1}`}</div>
             <div className="mx-auto w-[90%]">
               <BlockedField
                 styles="mb-6"
@@ -66,7 +68,7 @@ const ResultsOfTheQuestionnaire = () => {
               />
               <div className="mx-auto w-[90%]">
                 <Label className="text-white" htmlFor="correctAnswer">
-                  ПРАВИЛЬНЫЙ ОТВЕТ
+                  {t("formLabel.correctAnswer")}
                 </Label>
                 <BlockedField
                   styles="mb-6"
@@ -74,7 +76,7 @@ const ResultsOfTheQuestionnaire = () => {
                   id={"correctAnswer"}
                 />
                 <Label className="text-white" htmlFor="yourAnswer">
-                  ВАШ ОТВЕТ
+                  {t("formLabel.yourAnswer")}
                 </Label>
                 <BlockedField
                   styles="mb-8"

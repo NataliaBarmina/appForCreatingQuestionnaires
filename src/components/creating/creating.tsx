@@ -1,13 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { Button } from "@commonComponents/buttons";
+import { useTranslation } from "react-i18next";
 
 const Creating = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="pb-6">
-      <div className="pb-8 pt-12 text-[150%] font-bold">Создание вопросов</div>
+      <div className="pb-8 pt-12 text-[150%] font-bold">
+        {t("link.creating")}
+      </div>
       <div
         className={classNames(
           "mx-auto rounded-full bg-[rgb(48,80,80)]/85",
@@ -21,20 +25,20 @@ const Creating = () => {
       >
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
           <Button
-            buttonLabel="нейросетью"
+            buttonLabel={t("buttonLabel.byAI")}
             size="big"
             onClick={() =>
               navigate("/coursesSelection", {
-                state: { buttonLabel: "нейросетью" },
+                state: { buttonLabel: t("buttonLabel.byAI") },
               })
             }
           />
           <Button
-            buttonLabel="самостоятельно"
+            buttonLabel={t("buttonLabel.yourself")}
             size="big"
             onClick={() =>
               navigate("/coursesSelection", {
-                state: { buttonLabel: "самостоятельно" },
+                state: { buttonLabel: t("buttonLabel.yourself") },
               })
             }
           />

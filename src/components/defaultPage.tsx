@@ -1,13 +1,15 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useCallback } from "react"; // это хук в React, который позволяет "запоминать" (или кэшировать) функции, чтобы они не пересоздавались при каждом рендере компонента. Это особенно полезно, когда функция передается в дочерние компоненты, которые могут переписать свои состояния или эффекты в зависимости от изменений этой функции.
 
 const DefaultPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const navigateToPage = useCallback(
     (link: string, buttonLabel?: string) => {
-      if (buttonLabel === "Редактирование") {
+      if (buttonLabel === t("buttonLabel.editing")) {
         navigate(link, { state: { buttonLabel } });
       } else navigate(link);
     },
@@ -20,7 +22,7 @@ const DefaultPage = () => {
       colStart: "col-start-2",
       rowSpan: "row-span-2",
       rowStart: "row-start-1",
-      buttonLabel: "Создание",
+      buttonLabel: t("buttonLabel.creating"),
       link: "/creating",
     },
     {
@@ -28,7 +30,7 @@ const DefaultPage = () => {
       colStart: "col-start-1",
       rowSpan: "row-span-3",
       rowStart: "row-start-4",
-      buttonLabel: "Редактирование",
+      buttonLabel: t("buttonLabel.editing"),
       link: "/coursesSelection",
     },
     {
@@ -36,7 +38,7 @@ const DefaultPage = () => {
       colStart: "col-start-4",
       rowSpan: "row-span-3",
       rowStart: "row-start-4",
-      buttonLabel: "Анкетирование",
+      buttonLabel: t("buttonLabel.questionnaire"),
       link: "/questionnaire",
     },
   ];

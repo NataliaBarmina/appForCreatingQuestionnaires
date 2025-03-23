@@ -1,0 +1,57 @@
+{
+  "link": {
+    "creating": "Создание вопросов",
+    "questionnaire": "Анкетирование",
+    "editing": "Редактирование вопросов"
+  },
+  "buttonLabel": {
+    "creating": "Создание",
+    "questionnaire": "Анкетирование",
+    "editing": "Редактирование",
+    "byAI": "нейросетью",
+    "yourself": "самостоятельно",
+    "send": "Отправить",
+    "save": "сохранить",
+    "reset": "очистить форму",
+    "delete": "удалить"
+  },
+  "required": "Это поле обязательно",
+  "header": {
+    "headerFormForCreatingQuestionsByAI": "Форма для создания вопросов нейросетью",
+    "headerCourse": "Курс",
+    "headerCreateQuestion": " Создайте вопрос по курсу",
+    "headerCreatedByAI": "Вопросы созданные нейросетью",
+    "headerQuestionNumber": "вопрос №",
+    "changeHeader": "Измените необходимый вопрос",
+    "answerToQuestion": "Ответьте на вопросы:",
+    "theme": "Тема:",
+    "question": "вопрос №",
+    "congratulation": "Поздравляем!",
+    "youAnswered": "Вы ответили на вопросы анкеты.",
+    "percent": "Процент правильных ответов",
+    "analysis": " Анализ неправильных ответов:"
+  },
+  "placeholder": {
+    "addTheme": "Введите название темы",
+    "addLink": "Введите ссылку на источник",
+    "addQuestion": "введите вопрос",
+    "addWrongAnswer": "введите неправильный ответ",
+    "addCorrectAnswer": "введите правильный ответ"
+  },
+  "formLabel": {
+    "labelTheme": "Тема:",
+    "labelQuestion": "Вопрос:",
+    "labelAnswers": " Ответы:",
+    "correctAnswer": "ПРАВИЛЬНЫЙ ОТВЕТ",
+    "yourAnswer": " ВАШ ОТВЕТ"
+  },
+  "alert": {
+    "alertDialogTitle": "Вы уверены?",
+    "alertDialogDescription1": "Внимательно проверьте корректность полученных вопросов и ответов, короме того правильный ответ должен находиться на первом месте",
+    "alertDialogDescription2": "Это действие нельзя отменить. Вопрос будет полностью удален.",
+    "alertDialogDescription3": "Внимательно проверьте вопросы и ответы. Правильный ответ должен находиться на первом месте",
+    "alertDialogAction": "продолжить редактирование",
+    "alertDialogCancel": "сохранить вопрос",
+    "alertDialogDelete": "удалить вопрос"
+  }
+}

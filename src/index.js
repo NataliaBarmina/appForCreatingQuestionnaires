@@ -4,6 +4,7 @@ import App from "./components/App";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
+import "./i18n";
 
 import DefaultPage from "./components/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
