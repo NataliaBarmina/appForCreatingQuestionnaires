@@ -36,11 +36,9 @@
     "correctPercentage": "Percentage of correct answers",
     "wrongAnswersAnalysis": "Analysis of incorrect answers:",
     "correctAnswers_one": "{{count}} correct answer",
-    "correctAnswers_few": "{{count}} correct answers",
-    "correctAnswers_many": "{{count}} correct answers",
+    "correctAnswers_other": "{{count}} correct answers",
     "wrongAnswers_one": "{{count}} incorrect answer",
-    "wrongAnswers_few": "{{count}} incorrect answers",
-    "wrongAnswers_many": "{{count}} incorrect answers"
+    "wrongAnswers_other": "{{count}} incorrect answers"
   },
   "placeholder": {
     "topic": "Enter the topic name",
