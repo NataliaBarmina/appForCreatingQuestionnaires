@@ -32,7 +32,13 @@ const questionsList = [
 ];
 
 const ResultsOfTheQuestionnaire = () => {
-  const percentageOfCorrectAnswers = "95%";
+  const numberOfQuestionsInQuestionnaire = 15;
+  const numberOfCorrectAnswers = 8;
+  const numberOfWrongAnswers = 7;
+  const percentageOfCorrectAnswers = Math.round(
+    (numberOfCorrectAnswers / numberOfQuestionsInQuestionnaire) * 100,
+  );
+
   const { t } = useTranslation();
 
   return (
@@ -40,9 +46,18 @@ const ResultsOfTheQuestionnaire = () => {
       <div className="p-8 text-[150%] font-bold">
         {t("header.congratulation")} <br /> {t("header.completedSurvey")}
       </div>
-      <div className="mb-1 text-xl">{t("header.correctPercentage")}</div>
-      <div className="mb-10 inline-block rounded-full border border-solid border-pink-900 bg-beige px-6 py-4 shadow-lg shadow-pink-900">
-        {percentageOfCorrectAnswers}
+
+      <div className="mb-1 text-lg font-bold">
+        {t("header.correctPercentage")}
+      </div>
+      <div className="mb-3 inline-block rounded-full border border-solid border-pink-900 bg-beige px-6 py-4 shadow-lg shadow-pink-900">
+        {percentageOfCorrectAnswers}%
+      </div>
+      <div className="text-lg">
+        {t("header.correctAnswers", { count: numberOfCorrectAnswers })}
+      </div>
+      <div className="mb-8 text-lg">
+        {t("header.wrongAnswers", { count: numberOfWrongAnswers })}
       </div>
       <div className={classNames("mx-auto w-full bg-gray-200 pb-1")}>
         <div className="mb-2 py-8 text-xl font-bold text-black">

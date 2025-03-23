@@ -34,7 +34,13 @@
     "congratulation": "Поздравляем!",
     "completedSurvey": "Вы завершили анкетирование.",
     "correctPercentage": "Процент правильных ответов",
-    "wrongAnswersAnalysis": " Анализ неправильных ответов:"
+    "wrongAnswersAnalysis": " Анализ неправильных ответов:",
+    "correctAnswers_one": "{{count}} правильный ответ",
+    "correctAnswers_few": "{{count}} правильных ответа",
+    "correctAnswers_many": "{{count}} правильных ответов",
+    "wrongAnswers_one": "{{count}} неправильный ответ",
+    "wrongAnswers_few": "{{count}} неправильных ответа",
+    "wrongAnswers_many": "{{count}} неправильных ответов"
   },
   "placeholder": {
     "topic": "Введите название темы",
