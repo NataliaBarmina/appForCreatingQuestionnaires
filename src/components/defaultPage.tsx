@@ -6,10 +6,11 @@ import { useCallback } from "react"; // это хук в React, который �
 const DefaultPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const buttonLabel = t("buttonLabel.editing");
 
   const navigateToPage = useCallback(
     (link: string, buttonLabel?: string) => {
-      if (buttonLabel === t("buttonLabel.editing")) {
+      if (buttonLabel === buttonLabel) {
         navigate(link, { state: { buttonLabel } });
       } else navigate(link);
     },
