@@ -12,12 +12,14 @@ const FormSelection = () => {
   const { buttonLabel, course, questionsList, theme }: TQuizData =
     location.state || {};
 
+  console.log(buttonLabel);
+
   return (
     <div>
       {buttonLabel === t("buttonLabel.yourself") && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonLabel === t("buttonLabel.byAI") && (
+      {buttonLabel === t("buttonLabel.byAI").toLowerCase() && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
       {buttonLabel === t("buttonLabel.editing").toLowerCase() && (
