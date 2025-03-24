@@ -13,13 +13,9 @@ permissions:
   contents: read
 
 jobs:
-  if_merged:
+  build:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-  build:
-    needs: if_merged
-    runs-on: ubuntu-latest
-
     steps:
       - name: Get repository code
         uses: actions/checkout@v4
