@@ -47,44 +47,45 @@ const ResultsOfTheQuestionnaire = () => {
           Анализ неправильных ответов:
         </div>
 
-        {questionsList.map((item, index) => (
-          <div
-            key={index}
-            className={classNames(
-              "mx-auto mb-8 w-[95%] bg-green-800",
-              "rounded-2xl",
-              "border-2 border-solid border-gray-600",
-              "md:w-[85%]",
-            )}
-          >
-            <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
-            <div className="mx-auto w-[90%]">
-              <BlockedField
-                styles="mb-6"
-                value={`${Object.keys(item)}`}
-                id={""}
-              />
+        {questionsList.map((item, index) => {
+          const itemKeys = Object.keys(item)[0];
+          const itemValues = Object.values(item)[0];
+
+          return (
+            <div
+              key={index}
+              className={classNames(
+                "mx-auto mb-8 w-[95%] bg-green-800",
+                "rounded-2xl",
+                "border-2 border-solid border-gray-600",
+                "md:w-[85%]",
+              )}
+            >
+              <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
               <div className="mx-auto w-[90%]">
-                <Label className="text-white" htmlFor="correctAnswer">
-                  ПРАВИЛЬНЫЙ ОТВЕТ
-                </Label>
-                <BlockedField
-                  styles="mb-6"
-                  value={`${Object.values(item)[0][1]}`}
-                  id={"correctAnswer"}
-                />
-                <Label className="text-white" htmlFor="yourAnswer">
-                  ВАШ ОТВЕТ
-                </Label>
-                <BlockedField
-                  styles="mb-8"
-                  value={`${Object.values(item)[0][2]}`}
-                  id={"yourAnswer"}
-                />
+                <BlockedField styles="mb-6" value={itemKeys} />
+                <div className="mx-auto w-[90%]">
+                  <Label className="text-white" htmlFor="correctAnswer">
+                    ПРАВИЛЬНЫЙ ОТВЕТ
+                  </Label>
+                  <BlockedField
+                    styles="mb-6"
+                    value={itemValues[1]}
+                    id={"correctAnswer"}
+                  />
+                  <Label className="text-white" htmlFor="yourAnswer">
+                    ВАШ ОТВЕТ
+                  </Label>
+                  <BlockedField
+                    styles="mb-8"
+                    value={itemValues[2]}
+                    id={"yourAnswer"}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { cn } from "@lib/utils";
 
 type ButtonProps = {
   onClick?: () => void;
@@ -9,7 +9,7 @@ type ButtonProps = {
   size?: "big" | "middle" | "small";
 };
 
-const commonStylesForButtons = classNames(
+const commonStylesForButtons = cn(
   "mx-auto bg-stone-900  text-pink-100 font-bold shadow-lg shadow-stone-800",
   "rounded-lg py-2",
   "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
@@ -17,7 +17,7 @@ const commonStylesForButtons = classNames(
 );
 
 export const Button = ({
-  size = "middle", // Размер по умолчанию
+  size = "middle",
   onClick,
   buttonLabel,
   disabled,
@@ -35,7 +35,7 @@ export const Button = ({
       disabled={disabled}
       type={type}
       onClick={onClick}
-      className={classNames(
+      className={cn(
         commonStylesForButtons,
         sizeClasses[size], // Применяем классы в зависимости от размера
       )}

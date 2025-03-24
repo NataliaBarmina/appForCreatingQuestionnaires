@@ -14,7 +14,7 @@ const ThemesSelection = ({
   buttonLabel, // название кнопки на которой произошел клик
 }: TQuizMetadata) => {
   const navigate = useNavigate();
-  console.log(course);
+
   return (
     <div className="mx-auto w-[100%]">
       <div className="pb-10 pt-12 text-xl font-bold">
