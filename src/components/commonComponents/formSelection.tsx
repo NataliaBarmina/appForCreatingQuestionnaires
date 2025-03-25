@@ -2,12 +2,12 @@ import { useLocation } from "react-router-dom";
 import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself";
 import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI";
 import QuestionList from "../editing/questionList";
-import { TQuizMetadata } from "@/common/dataExample";
+import { TQuizData } from "@/common/dataExample";
 
 const FormSelection = () => {
   const location = useLocation();
 
-  const { buttonLabel, course, questionsList, theme }: TQuizMetadata =
+  const { buttonLabel, course, questionsList, theme }: TQuizData =
     location.state || {};
 
   return (

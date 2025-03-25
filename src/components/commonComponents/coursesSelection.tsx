@@ -49,10 +49,10 @@ function CustomTabPanel(props: TabPanelProps) {
 }
 
 const CoursesSelection = () => {
-  const [value, setValue] = useState(0);
+  const [tabValue, setTabValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setTabValue(newValue);
   };
 
   const location = useLocation();
@@ -76,7 +76,7 @@ const CoursesSelection = () => {
             }}
           >
             <Tabs
-              value={value}
+              value={tabValue}
               onChange={handleChange}
               textColor="secondary"
               variant="scrollable"
@@ -102,7 +102,7 @@ const CoursesSelection = () => {
         </div>
 
         {arr.map((item: TSubject, index: number) => (
-          <CustomTabPanel value={value} index={index} key={index}>
+          <CustomTabPanel value={tabValue} index={index} key={index}>
             <ThemesSelection
               course={Object.keys(item)[0]} // название темы
               listOfThemes={Object.values(item)[0]} // массив вопросов с темами

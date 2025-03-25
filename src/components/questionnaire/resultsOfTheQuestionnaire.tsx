@@ -1,34 +1,9 @@
 import classNames from "classnames";
 import { Label } from "@ui/label";
-import { BlockedField } from "@commonComponents/createFields";
+import BlockedField from "@commonComponents/blockedField";
+import { questionsList } from "@common/dataExample";
 
 //todo: получить массив через пропсы из Questionnaire и массив ответов и сравнить их
-const questionsList = [
-  //todo: потом удалить
-  {
-    "К какому типу данных преобразует значение функция alert?": {
-      1: "к строке",
-      2: "к символу",
-      3: "к числу",
-    },
-  },
-
-  {
-    "К какому типу данных преобразует значение математические операторы?": {
-      1: "к числам",
-      2: "undefined",
-      3: "к нулю",
-    },
-  },
-
-  {
-    " Что нужно использовать, чтобы преобразовать значение к строке?": {
-      1: "функцию String(value)",
-      2: "оператор +",
-      3: "заключить в кавычки",
-    },
-  },
-];
 
 const ResultsOfTheQuestionnaire = () => {
   const percentageOfCorrectAnswers = "95%";
@@ -48,9 +23,6 @@ const ResultsOfTheQuestionnaire = () => {
         </div>
 
         {questionsList.map((item, index) => {
-          const itemKeys = Object.keys(item)[0];
-          const itemValues = Object.values(item)[0];
-
           return (
             <div
               key={index}
@@ -63,14 +35,14 @@ const ResultsOfTheQuestionnaire = () => {
             >
               <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
               <div className="mx-auto w-[90%]">
-                <BlockedField styles="mb-6" value={itemKeys} />
+                <BlockedField styles="mb-6" value={item.question} />
                 <div className="mx-auto w-[90%]">
                   <Label className="text-white" htmlFor="correctAnswer">
                     ПРАВИЛЬНЫЙ ОТВЕТ
                   </Label>
                   <BlockedField
                     styles="mb-6"
-                    value={itemValues[1]}
+                    value={item.answer_1}
                     id={"correctAnswer"}
                   />
                   <Label className="text-white" htmlFor="yourAnswer">
@@ -78,7 +50,7 @@ const ResultsOfTheQuestionnaire = () => {
                   </Label>
                   <BlockedField
                     styles="mb-8"
-                    value={itemValues[2]}
+                    value={item.answer_2}
                     id={"yourAnswer"}
                   />
                 </div>

@@ -1,4 +1,4 @@
-import { BlockedField } from "@commonComponents/createFields";
+import BlockedField from "@commonComponents/blockedField";
 import { Label } from "@ui/label";
 
 type MyProps = {

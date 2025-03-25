@@ -6,13 +6,13 @@ import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@commonComponents/buttons";
 import { TTopic } from "@common/dataExample";
-import { TQuizMetadata } from "@common/dataExample";
+import { TQuizData } from "@common/dataExample";
 
 const ThemesSelection = ({
   course, // название курса
   listOfThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
   buttonLabel, // название кнопки на которой произошел клик
-}: TQuizMetadata) => {
+}: TQuizData) => {
   const navigate = useNavigate();
 
   return (

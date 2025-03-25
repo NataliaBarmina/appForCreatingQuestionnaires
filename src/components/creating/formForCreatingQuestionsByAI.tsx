@@ -5,14 +5,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classNames from "classnames";
 import Button from "@commonComponents/buttons";
-import { TQuizMetadata } from "@/common/dataExample";
+import { TQuizData } from "@/common/dataExample";
 
 const schema = yup.object({
   topicName: yup.string().required("Это поле обязательно"),
   linkToSource: yup.string(),
 });
 
-const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
+const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
   const {
     register,
     handleSubmit,

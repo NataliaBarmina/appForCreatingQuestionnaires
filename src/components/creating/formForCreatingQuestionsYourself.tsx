@@ -13,9 +13,9 @@ import {
   FormMessage,
 } from "@ui/form";
 import { Textarea } from "@ui/textarea";
-import { TQuizMetadata } from "@/common/dataExample";
+import { TQuizData } from "@/common/dataExample";
 
-const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizMetadata) => {
+const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const schema = yup.object({
     selfWrittenTopicName: yup
       .string()

@@ -3,39 +3,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { BlockedField, TFields } from "@commonComponents/createFields";
+import { TFields } from "@commonComponents/createFields";
+import BlockedField from "@commonComponents/blockedField";
 import Button from "@commonComponents/buttons";
+import { questionsList } from "@common/dataExample";
 
 //todo: получить массив перемешанных вопросов, в анкете должно быть 10 вопросов
-const questionsList = [
-  //todo: потом удалить
-  {
-    вопрос: "Свойство display какое значение принимает?",
-    ответ_1: "flex",
-    ответ_2: "relative",
-    ответ_3: "justify-content",
-  },
-  {
-    вопрос: "Что такое инлайн - стили и какой они имеют приоритет?",
-    ответ_1:
-      "стили которые пишутся прямо в HTML  и имеют самый высокий приоритет",
-    ответ_2: "стили которые пишутся  в CSS  и имеют самый высокий приоритет",
-    ответ_3: "стили которые пишутся прямо в HTML  и имеют низкий приоритет",
-  },
-
-  {
-    вопрос: "За что отвечает z- index?",
-    ответ_1: "за расположение элементов по оси z",
-    ответ_2: "за расположение элементов по оси x",
-    ответ_3: "за расположение элементов по оси y",
-  },
-  {
-    вопрос: "Какие значения принимает свойство position?",
-    ответ_1: "relative",
-    ответ_2: "flex",
-    ответ_3: "justify-content",
-  },
-];
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),
@@ -79,19 +52,19 @@ const Questionnaire = () => {
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mx-auto mb-8 w-[90%]">
             <div className="mb-3">
-              <BlockedField styles="" value={item.вопрос} id="" />
+              <BlockedField styles="" value={item.question} id="" />
             </div>
             <div className="mb-12 ml-[4%] w-[96%]">
               <RadioInput
-                value={item.ответ_1}
+                value={item.answer_1}
                 name={`radioInputFromSurvey${index}`}
               />
               <RadioInput
-                value={item.ответ_2}
+                value={item.answer_2}
                 name={`radioInputFromSurvey${index}`}
               />
               <RadioInput
-                value={item.ответ_3}
+                value={item.answer_3}
                 name={`radioInputFromSurvey${index}`}
               />
             </div>

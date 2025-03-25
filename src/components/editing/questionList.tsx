@@ -2,9 +2,9 @@ import classNames from "classnames";
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
-import { TQuizMetadata } from "@/common/dataExample";
+import { TQuizData } from "@/common/dataExample";
 
-const QuestionList = ({ course, questionsList, theme }: TQuizMetadata) => {
+const QuestionList = ({ course, questionsList, theme }: TQuizData) => {
   return (
     <div>
       <div className="pb-1">
@@ -28,18 +28,18 @@ const QuestionList = ({ course, questionsList, theme }: TQuizMetadata) => {
           >
             <div className="py-6 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
-              question={item.вопрос}
-              correctAnswer={item.ответ_1}
-              wrongAnswer1={item.ответ_2}
-              wrongAnswer2={item.ответ_3}
+              question={item.question}
+              correctAnswer={item.answer_1}
+              wrongAnswer1={item.answer_2}
+              wrongAnswer2={item.answer_3}
             />
             <div className="mb-8 flex w-full justify-evenly py-10">
               <div>
                 <FormForEditingQuestions
-                  question={item.вопрос}
-                  correctAnswer={item.ответ_1}
-                  wrongAnswer1={item.ответ_2}
-                  wrongAnswer2={item.ответ_3}
+                  question={item.question}
+                  correctAnswer={item.answer_1}
+                  wrongAnswer1={item.answer_2}
+                  wrongAnswer2={item.answer_3}
                 />
               </div>
               <div>
