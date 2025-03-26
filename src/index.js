@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./components/App";
+import App from "./components/app/index";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
