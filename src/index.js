@@ -27,7 +27,7 @@ const FormForCreatingQuestionsByAI = lazy(
   () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
 const CoursesSelection = lazy(
-  () => import("./components/commonComponents/coursesSelection"),
+  () => import("./components/commonComponents/coursesSelection/index"),
 );
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
