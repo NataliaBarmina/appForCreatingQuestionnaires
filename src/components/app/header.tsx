@@ -1,5 +1,5 @@
 import { classesForHead } from "./styles";
-import LanguageSwitcher from "../languageSwitcher";
+import LanguageSwitcher from "./languageSwitcher";
 
 const Header = () => {
   return (
