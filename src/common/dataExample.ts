@@ -21,7 +21,7 @@ export type TQuizData = {
   listOfThemes?: TTopic[];
 };
 
-export const arr: TSubject[] = [
+export const quizData: TSubject[] = [
   {
     JavaScript: [
       {
@@ -199,7 +199,7 @@ export const arr: TSubject[] = [
   },
 ];
 
-export const questionsList = [
+export const questionsList: TQuestion[] = [
   {
     question: "Свойство display какое значение принимает?",
     answer_1: "flex",

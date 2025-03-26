@@ -40,7 +40,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы
   const isSubmitting = form.formState.isSubmitting; // Чтобы избежать повторной отправки
-  const formReset = () => {
+  const onFormReset = () => {
     form.reset({
       selfWrittenTopicName: theme,
       selfWrittenQuestion: "",
@@ -177,7 +177,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                   alertDialogCancel={"сохранить вопрос"}
                   buttonLabel={"сохранить"}
                   type="submit"
-                  onContinue={() => formReset()}
+                  onContinue={() => onFormReset()}
                   isFormValid={isFormValid} //будем показывать Alert только если форма валидна
                   isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
                 />
@@ -188,7 +188,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
                   size="small"
                   disabled={false}
                   type="reset"
-                  onClick={() => formReset()}
+                  onClick={() => onFormReset()}
                 />
               </div>
             </div>

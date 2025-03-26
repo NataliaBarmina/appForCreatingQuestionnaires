@@ -3,7 +3,7 @@ import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "./themesSelection";
-import { arr, TSubject, TTopic } from "@common/dataExample"; //todo: получаем доступ к стэйту - массиву с вопросами
+import { quizData, TSubject, TTopic } from "@common/dataExample"; //todo: получаем доступ к стэйту - массиву с вопросами
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -56,11 +56,11 @@ const CoursesSelection = () => {
     setTabValue(newValue);
   };
 
-  const courseNames: string[] = arr.map(
+  const courseNames: string[] = quizData.map(
     (item: TSubject) => Object.keys(item)[0],
   );
   const selectedCourseName = courseNames[tabValue];
-  const courseEntry = arr.find(
+  const courseEntry = quizData.find(
     (item) => Object.keys(item)[0] === selectedCourseName,
   );
   const courseThemes = courseEntry[selectedCourseName] ?? [];

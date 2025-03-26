@@ -31,7 +31,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
   const onSubmit: SubmitHandler<TFields> = (data, isValid) => {
     console.log(data);
     if (isValid) {
-      navigate("/questionsCreatedByAI");
+      navigate("/questionsCreatedByAI", { state: { course, theme } });
     }
   };
 

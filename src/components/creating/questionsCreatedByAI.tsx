@@ -2,14 +2,12 @@ import classNames from "classnames";
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
-import { arr as array } from "@common/dataExample";
-
-//TODO: получаем из какого-то хранилища  название курса, темы и массив с объектами вопросов
-const course = "какой-то курс";
-const theme = "ПРЕОБРАЗОВАНИЕ ТИПОВ";
-const arr = Object.values(array[0].JavaScript[0])[0];
+import { useLocation } from "react-router-dom";
+import { questionsList } from "@common/dataExample"; //TODO: получаем из какого-то временного хранилища  массив с объектами вопросов
 
 const QuestionsCreatedByAI = () => {
+  const location = useLocation();
+  const { course, theme } = location.state || {};
   return (
     <div className="pb-1">
       <div className="p-4 text-[150%] font-bold">
@@ -18,7 +16,7 @@ const QuestionsCreatedByAI = () => {
 
       <div className="p-4 text-xl font-bold">Курс {course}</div>
       <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
-      {arr.map((item, index) => (
+      {questionsList.map((item, index) => (
         <div
           key={index}
           className={classNames(
