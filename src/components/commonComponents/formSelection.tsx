@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself";
-import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI";
+import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI/index";
 import QuestionList from "../editing/questionList";
 import { TQuizData } from "@/common/dataExample";
 import { useTranslation } from "react-i18next";

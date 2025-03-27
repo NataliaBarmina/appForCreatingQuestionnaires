@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister, FieldError } from "react-hook-form";
 
 export type TFields = {
   topicName?: string; //FormForCreatingQuestionsByAI
@@ -16,11 +16,12 @@ export type TFields = {
   questionFromSurvey?: string; // questionnaire
 };
 
-type MyProps = {
+export type MyProps = {
   placeholder?: string;
   styles: string;
   fieldName: keyof TFields;
   register: UseFormRegister<TFields>;
+  error?: FieldError;
 };
 
 export const Textarea = ({
