@@ -1,9 +1,14 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TFields, Textarea } from "../../common/createFields";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
+import { TFields } from "@commonComponents/createFields";
+import BlockedField from "@commonComponents/blockedField";
+import Button from "@commonComponents/buttons";
+import { questionsList } from "@common/dataExample";
+
+//todo: получить массив перемешанных вопросов, в анкете должно быть 10 вопросов
 
 const schema = yup.object({
   questionFromSurvey: yup.string(),
@@ -11,32 +16,6 @@ const schema = yup.object({
 
 const Questionnaire = () => {
   const navigate = useNavigate();
-
-  const questionSet = [
-    {
-      "К какому типу данных преобразует значение функция alert?": {
-        1: "к строке",
-        2: "к символу",
-        3: "к числу",
-      },
-    },
-
-    {
-      "К какому типу данных преобразует значение математические операторы?": {
-        1: "к числам",
-        2: "undefined",
-        3: "к нулю",
-      },
-    },
-
-    {
-      " Что нужно использовать, чтобы преобразовать значение к строке?": {
-        1: "функцию String(value)",
-        2: "оператор +",
-        3: "заключить в кавычки",
-      },
-    },
-  ];
 
   const {
     register,
@@ -57,8 +36,9 @@ const Questionnaire = () => {
         Ответьте на вопросы:
       </div>
 
-      {questionSet.map((item, index) => (
+      {questionsList.map((item, index) => (
         <div
+          key={index}
           className={classNames(
             "mx-auto mb-8 w-[100vw] bg-green-800",
             "border-2 border-solid border-gray-600",
@@ -72,62 +52,39 @@ const Questionnaire = () => {
           <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
           <div className="mx-auto mb-8 w-[90%]">
             <div className="mb-3">
-              <Textarea
-                placeholder=""
-                register={register}
-                fieldName="questionFromSurvey"
-                defaultValue={`${Object.keys(item)}`}
-                disabled={true}
-                styles=""
-              />
+              <BlockedField styles="" value={item.question} id="" />
             </div>
             <div className="mb-12 ml-[4%] w-[96%]">
               <RadioInput
-                value={`${Object.values(item)[0][1]}`}
+                value={item.answer_1}
                 name={`radioInputFromSurvey${index}`}
               />
               <RadioInput
-                value={`${Object.values(item)[0][2]}`}
+                value={item.answer_2}
                 name={`radioInputFromSurvey${index}`}
               />
               <RadioInput
-                value={`${Object.values(item)[0][3]}`}
+                value={item.answer_3}
                 name={`radioInputFromSurvey${index}`}
               />
             </div>
           </div>
         </div>
       ))}
-      <button
+      <Button
+        buttonLabel="сохранить"
+        size="middle"
         onClick={() => navigate("/resultsOfTheQuestionnaire")}
-        className={classNames(
-          //общие стили для всех кнопок:
-          "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-          "rounded-lg border-2 border-solid border-gray-600",
-          "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-          "hover:border hover:border-solid hover:border-pink-900",
-          // меняющиеся стили:
-          "w-[30vw] p-2",
-          "xs:text-[4vw]",
-          "s:w-[25vw] s:text-[3vw]",
-          "sm:w-[20vw] sm:text-[2.6vw]",
-          "md:w-[15vw] md:text-[2.1vw]",
-          "lg:w-[12vw] lg:text-[1.8vw]",
-          "xl:w-[10vw] xl:text-[1.5vw]",
-          "2xl:w-[10vw] 2xl:text-[1.2vw]",
-        )}
-      >
-        сохранить
-      </button>
+      />
     </form>
   );
 };
 export default Questionnaire;
 
-interface MyProps {
+type MyProps = {
   value: string;
   name: string;
-}
+};
 
 const RadioInput = ({ value, name }: MyProps) => {
   return (

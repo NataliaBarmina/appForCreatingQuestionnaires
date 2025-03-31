@@ -1,21 +1,18 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Textarea } from "../../../common/createFields";
-import { TFields } from "../../../common/createFields";
+import { Textarea, TFields } from "@commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classNames from "classnames";
+import Button from "@commonComponents/buttons";
+import { TQuizData } from "@/common/dataExample";
 
 const schema = yup.object({
   topicName: yup.string().required("Это поле обязательно"),
   linkToSource: yup.string(),
 });
 
-//! Должен быть выбор курса
-//! нужно получить название этого курса и отправить в стэйт
-
-const FormForCreatingQuestionsByAI = () => {
-  const nameOfCourse = "какой-то курс";
+const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
   const {
     register,
     handleSubmit,
@@ -24,6 +21,9 @@ const FormForCreatingQuestionsByAI = () => {
   } = useForm({
     mode: "onBlur",
     resolver: yupResolver(schema),
+    defaultValues: {
+      topicName: theme,
+    },
   });
 
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const FormForCreatingQuestionsByAI = () => {
   const onSubmit: SubmitHandler<TFields> = (data, isValid) => {
     console.log(data);
     if (isValid) {
-      navigate("/questionsCreatedByAI");
+      navigate("/questionsCreatedByAI", { state: { course, theme } });
     }
   };
 
@@ -61,15 +61,13 @@ const FormForCreatingQuestionsByAI = () => {
       >
         <div className="mx-auto w-[90%]">
           <div className="p-8 text-lg font-bold text-blue-100">
-            Курс {nameOfCourse}
+            Курс {course}
           </div>
           <div className="mx-auto">
             <Textarea
               placeholder="Введите название темы"
               register={register}
               fieldName="topicName"
-              defaultValue=""
-              disabled={false}
               styles=""
             />
 
@@ -82,32 +80,12 @@ const FormForCreatingQuestionsByAI = () => {
               placeholder="Введите ссылку на источник"
               register={register}
               fieldName="linkToSource"
-              defaultValue=""
-              disabled={false}
               styles=""
             />
           </div>
         </div>
         <div className="mb-10">
-          <button
-            className={classNames(
-              //общие стили для всех кнопок:
-              "mx-auto bg-salmon text-xl font-bold shadow-lg shadow-black",
-              "rounded-lg border-2 border-solid border-gray-600",
-              "hover:cursor-pointer hover:shadow-lg hover:shadow-pink-900",
-              "hover:border hover:border-solid hover:border-pink-900",
-              // меняющиеся стили:
-              "p-2 xs:w-[31vw] xs:text-[5vw]",
-              "s:w-[25vw] s:text-[3.8vw]",
-              "sm:w-[20vw] sm:text-[3vw]",
-              "md:w-[15vw] md:text-[2vw]",
-              "lg:w-[10vw] lg:text-[1.6vw]",
-              "xl:w-[10vw] xl:text-[1.6vw]",
-              "2xl:w-[8vw] 2xl:text-[1.2vw]",
-            )}
-          >
-            Отправить
-          </button>
+          <Button buttonLabel="Отправить" size="middle" />
         </div>
       </div>
     </form>

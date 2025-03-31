@@ -1,25 +1,13 @@
 import { createTheme } from "@mui/material";
 
-declare module "@mui/material/styles" {
-  interface BreakpointOverrides {
-    xxs: true;
-    s: true;
-    xxl: true;
-  }
-}
-
 export const theme = createTheme({
   palette: {
     background: {
       paper: "#dec4ba",
     },
-    // text: {
-    //   primary: "#173A5E",
-    //   secondary: "#46505A",
-    // },
-    // action: {
-    //   active: "#001E3C",
-    // },
+    secondary: {
+      main: "#fce7f3",
+    },
   },
   breakpoints: {
     values: {
