@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { TFields } from "@commonComponents/createFields";
 
-const UseQuestionForm = (
+const useQuestionForm = (
   defaultValues: Partial<TFields>,
   requiredMessage: string,
 ) => {
@@ -18,4 +18,4 @@ const UseQuestionForm = (
     defaultValues,
   });
 };
-export default UseQuestionForm;
+export default useQuestionForm;

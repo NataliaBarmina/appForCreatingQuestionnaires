@@ -6,7 +6,7 @@ import { TQuizMetadata } from "@/common/dataExample";
 import { useTranslation } from "react-i18next";
 import { formContainerClasses, headerClasses } from "./styles";
 import TextAreaBlock from "./textAreaBlock";
-import UseQuestionForm from "./useQuestionForm";
+import useQuestionForm from "./useQuestionForm";
 
 const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = UseQuestionForm({ topicName: theme }, t("required"));
+  } = useQuestionForm({ topicName: theme }, t("required"));
 
   const navigate = useNavigate();
 

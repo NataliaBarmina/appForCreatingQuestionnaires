@@ -22,7 +22,7 @@ const QuestionsCreatedByAI = lazy(
   () => import("./components/creating/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself"),
+  () => import("./components/creating/formForCreatingQuestionsYourself/index"),
 );
 const FormForCreatingQuestionsByAI = lazy(
   () => import("./components/creating/formForCreatingQuestionsByAI/index"),
