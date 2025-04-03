@@ -7,6 +7,7 @@ import { TFields } from "@commonComponents/createFields";
 import BlockedField from "@commonComponents/blockedField";
 import Button from "@commonComponents/buttons";
 import { questionsList } from "@common/dataExample";
+import { useTranslation } from "react-i18next";
 
 //todo: получить массив перемешанных вопросов, в анкете должно быть 10 вопросов
 
@@ -16,11 +17,10 @@ const schema = yup.object({
 
 const Questionnaire = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const {
-    register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     mode: "onChange",
@@ -33,7 +33,7 @@ const Questionnaire = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
       <div className="px-4 py-7 text-[150%] font-bold">
-        Ответьте на вопросы:
+        {t("header.answerToQuestion")}
       </div>
 
       {questionsList.map((item, index) => (
@@ -49,7 +49,7 @@ const Questionnaire = () => {
             "2xl:w-[45vw]",
           )}
         >
-          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
+          <div className="mb-2 p-4 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
           <div className="mx-auto mb-8 w-[90%]">
             <div className="mb-3">
               <BlockedField styles="" value={item.question} id="" />
@@ -72,7 +72,7 @@ const Questionnaire = () => {
         </div>
       ))}
       <Button
-        buttonLabel="сохранить"
+        buttonLabel={t("buttonLabel.save")}
         size="middle"
         onClick={() => navigate("/resultsOfTheQuestionnaire")}
       />

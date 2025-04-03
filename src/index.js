@@ -1,11 +1,12 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./components/App";
+import App from "./components/app/index";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
+import "./i18n";
 
-import DefaultPage from "./components/defaultPage";
+import DefaultPage from "./components/defaultPage/index";
 import Preloader from "./components/commonComponents/preloader";
 
 import { lazy, Suspense } from "react";
@@ -21,10 +22,10 @@ const QuestionsCreatedByAI = lazy(
   () => import("./components/creating/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself"),
+  () => import("./components/creating/formForCreatingQuestionsYourself/index"),
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI"),
+  () => import("./components/creating/formForCreatingQuestionsByAI/index"),
 );
 const CoursesSelection = lazy(
   () => import("./components/commonComponents/coursesSelection/index"),

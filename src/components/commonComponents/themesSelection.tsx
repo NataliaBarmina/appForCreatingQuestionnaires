@@ -4,9 +4,10 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@commonComponents/buttons";
+import Button from "@commonComponents/buttons";
 import { TTopic } from "@common/dataExample";
 import { TQuizData } from "@common/dataExample";
+import { useTranslation } from "react-i18next";
 
 const ThemesSelection = ({
   course, // название курса
@@ -15,10 +16,12 @@ const ThemesSelection = ({
 }: TQuizData) => {
   const navigate = useNavigate();
 
+  const { t } = useTranslation();
+
   return (
     <div className="mx-auto w-[100%]">
       <div className="pb-10 pt-12 text-xl font-bold">
-        Выберите тему из курса {course}
+        {t("header.themeSelection")} {course}
       </div>
       <Box
         sx={{
@@ -66,14 +69,14 @@ const ThemesSelection = ({
             ))}
           </List>
         </nav>
-        {buttonLabel !== "редактирование" && (
+        {buttonLabel !== t("buttonLabel.editing").toLowerCase() && (
           <Button
             onClick={() => {
               navigate("/formSelection", {
                 state: { buttonLabel, course: course, listOfThemes },
               });
             }}
-            buttonLabel="Добавить тему"
+            buttonLabel={t("buttonLabel.addTheme")}
             disabled={false}
             type="button"
             size="middle"
