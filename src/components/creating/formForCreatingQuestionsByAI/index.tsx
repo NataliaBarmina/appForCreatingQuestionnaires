@@ -2,13 +2,13 @@ import { SubmitHandler } from "react-hook-form";
 import { TFields } from "@commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import Button from "@commonComponents/buttons";
-import { TQuizMetadata } from "@/common/dataExample";
+import { TQuizData } from "@/common/dataExample";
 import { useTranslation } from "react-i18next";
 import { formContainerClasses, headerClasses } from "./styles";
 import TextAreaBlock from "./textAreaBlock";
 import useQuestionForm from "./useQuestionForm";
 
-const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizMetadata) => {
+const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
   const { t } = useTranslation();
 
   const {

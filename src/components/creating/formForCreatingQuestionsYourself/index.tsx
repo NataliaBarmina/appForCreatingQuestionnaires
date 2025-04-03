@@ -1,5 +1,5 @@
 import { Form } from "@ui/form";
-import { TQuizMetadata } from "@/common/dataExample";
+import { TQuizData } from "@/common/dataExample";
 import { useTranslation } from "react-i18next";
 import { formContainerClasses } from "./styles";
 import useQuestionForm from "./useQuestionForm";
@@ -7,7 +7,7 @@ import FormAction from "../formForCreatingQuestionsByAI/formAction";
 import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 
-const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizMetadata) => {
+const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const { t } = useTranslation();
 
   const form = useQuestionForm(theme, t("required"));
