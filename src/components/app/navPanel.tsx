@@ -22,7 +22,7 @@ const NavPanel = () => {
           className={classesForLinks}
           onClick={() => {
             navigate("/coursesSelection", {
-              state: { buttonLabel: t("buttonLabel.editing") },
+              state: { buttonID: t("buttonLabel.editing.id") },
             });
           }}
         >

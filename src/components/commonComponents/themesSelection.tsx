@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const ThemesSelection = ({
   course, // название курса
   listOfThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
-  buttonLabel, // название кнопки на которой произошел клик
+  buttonID,
 }: TQuizData) => {
   const navigate = useNavigate();
 
@@ -55,7 +55,7 @@ const ThemesSelection = ({
                   onClick={() => {
                     navigate("/formSelection", {
                       state: {
-                        buttonLabel,
+                        buttonID,
                         course: course,
                         questionsList: Object.values(item)[0], //массив вопросов
                         theme: Object.keys(item)[0],
@@ -69,11 +69,15 @@ const ThemesSelection = ({
             ))}
           </List>
         </nav>
-        {buttonLabel !== t("buttonLabel.editing").toLowerCase() && (
+        {buttonID !== t("buttonLabel.editing.id") && (
           <Button
             onClick={() => {
               navigate("/formSelection", {
-                state: { buttonLabel, course: course, listOfThemes },
+                state: {
+                  buttonID: buttonID,
+                  course: course,
+                  listOfThemes,
+                },
               });
             }}
             buttonLabel={t("buttonLabel.addTheme")}

@@ -19,7 +19,7 @@ const Creating: React.FC = () => {
 
   const handleNavigate = (labelKey: string) => {
     navigate("/coursesSelection", {
-      state: { buttonLabel: t(labelKey) },
+      state: { buttonID: labelKey },
     });
   };
 
@@ -29,14 +29,14 @@ const Creating: React.FC = () => {
       <div className={circleStyles}>
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
           <Button
-            buttonLabel={t("buttonLabel.byAI")}
+            buttonLabel={t("buttonLabel.byAI.label")}
             size="big"
-            onClick={() => handleNavigate("buttonLabel.byAI")}
+            onClick={() => handleNavigate(t("buttonLabel.byAI.id"))}
           />
           <Button
-            buttonLabel={t("buttonLabel.yourself")}
+            buttonLabel={t("buttonLabel.yourself.label")}
             size="big"
-            onClick={() => handleNavigate("buttonLabel.yourself")}
+            onClick={() => handleNavigate(t("buttonLabel.yourself.id"))}
           />
         </div>
       </div>

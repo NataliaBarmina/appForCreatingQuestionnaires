@@ -9,20 +9,18 @@ const FormSelection = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const { buttonLabel, course, questionsList, theme }: TQuizData =
+  const { buttonID, course, questionsList, theme }: TQuizData =
     location.state || {};
-
-  console.log(buttonLabel);
 
   return (
     <div>
-      {buttonLabel === t("buttonLabel.yourself") && (
+      {buttonID === t("buttonLabel.yourself.id") && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonLabel === t("buttonLabel.byAI").toLowerCase() && (
+      {buttonID === t("buttonLabel.byAI.id") && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
-      {buttonLabel === t("buttonLabel.editing").toLowerCase() && (
+      {buttonID === t("buttonLabel.editing.id") && (
         <QuestionList
           course={course}
           theme={theme}

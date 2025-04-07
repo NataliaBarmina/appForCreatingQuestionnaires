@@ -8,9 +8,9 @@
   "buttonLabel": {
     "creating": "Creating",
     "questionnaire": "Questionnaire",
-    "editing": "Editing",
-    "byAI": "by AI",
-    "yourself": "manually",
+    "editing": { "id": "EDITING", "label": "Editing" },
+    "byAI": { "id": "BY_AI", "label": "by AI" },
+    "yourself": { "id": "MANUALLY", "label": "manually" },
     "send": "send",
     "save": "save",
     "reset": "clear form",

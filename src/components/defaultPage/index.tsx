@@ -10,12 +10,12 @@ import { useMemo } from "react";
 const DefaultPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const buttonLabel = t("buttonLabel.editing");
+  const buttonID = t("buttonLabel.editing.id");
 
   const navigateToPage: TNavigateToPage = useCallback(
     (link, buttonLabel?) => {
-      if (buttonLabel === buttonLabel) {
-        navigate(link, { state: { buttonLabel } });
+      if (buttonID === buttonID) {
+        navigate(link, { state: { buttonID } });
       } else navigate(link);
     },
     [navigate],
