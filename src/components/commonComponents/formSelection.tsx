@@ -1,24 +1,26 @@
 import { useLocation } from "react-router-dom";
 import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself";
-import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI";
+import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI/index";
 import QuestionList from "../editing/questionList";
 import { TQuizData } from "@/common/dataExample";
+import { useTranslation } from "react-i18next";
 
 const FormSelection = () => {
   const location = useLocation();
+  const { t } = useTranslation();
 
-  const { buttonLabel, course, questionsList, theme }: TQuizData =
+  const { buttonID, course, questionsList, theme }: TQuizData =
     location.state || {};
 
   return (
     <div>
-      {buttonLabel === "самостоятельно" && (
+      {buttonID === t("buttonLabel.yourself.id") && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonLabel === "нейросетью" && (
+      {buttonID === t("buttonLabel.byAI.id") && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
-      {buttonLabel === "редактирование" && (
+      {buttonID === t("buttonLabel.editing.id") && (
         <QuestionList
           course={course}
           theme={theme}

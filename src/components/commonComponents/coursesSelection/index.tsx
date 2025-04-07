@@ -6,11 +6,13 @@ import ThemesSelection from "../themesSelection";
 import { HandleTabChange } from "./types";
 import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
+import { useTranslation } from "react-i18next";
 import { quizData, TSubject } from "@common/dataExample"; //todo: получаем доступ к стэйту - массиву с вопросами
 
 const CoursesSelection = () => {
   const location = useLocation();
-  const buttonLabel = location.state?.buttonLabel.toLowerCase();
+  const buttonID = location.state?.buttonID;
+  const { t } = useTranslation();
 
   const [tabValue, setTabValue] = useState(0);
 
@@ -33,7 +35,9 @@ const CoursesSelection = () => {
     <ThemeProvider theme={theme}>
       <div className="w-full pb-11">
         <div className="bg-stone-300 shadow-2xl shadow-stone-500">
-          <div className="py-10 text-xl font-bold">Выберите курс</div>
+          <div className="py-10 text-xl font-bold">
+            {t("header.courseSelection")}
+          </div>
 
           <TabsContainer
             tabValue={tabValue}
@@ -45,7 +49,7 @@ const CoursesSelection = () => {
           <ThemesSelection
             course={selectedCourseName} // название темы
             listOfThemes={courseThemes} // массив вопросов с темами
-            buttonLabel={buttonLabel}
+            buttonID={buttonID}
           />
         </CustomTabPanel>
       </div>

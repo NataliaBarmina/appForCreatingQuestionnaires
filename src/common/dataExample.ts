@@ -19,6 +19,7 @@ export type TQuizData = {
   theme?: string;
   questionsList?: TQuestion[];
   listOfThemes?: TTopic[];
+  buttonID?: string;
 };
 
 export const quizData: TSubject[] = [

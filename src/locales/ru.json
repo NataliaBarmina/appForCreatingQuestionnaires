@@ -1,0 +1,68 @@
+{
+  "required": "Это поле обязательно",
+  "link": {
+    "create": "Создание вопросов",
+    "questionnaire": "Анкетирование",
+    "editing": "Редактирование вопросов"
+  },
+  "buttonLabel": {
+    "creating": "Создание",
+    "questionnaire": "Анкетирование",
+    "editing": { "id": "EDITING", "label": "Редактирование" },
+    "byAI": { "id": "BY_AI", "label": "нейросетью" },
+    "yourself": { "id": "MANUALLY", "label": "самостоятельно" },
+    "send": "отправить",
+    "save": "сохранить",
+    "reset": "очистить форму",
+    "delete": "удалить",
+    "edit": "редактировать",
+    "closeForm": "закрыть форму",
+    "addTheme": "добавить тему"
+  },
+  "header": {
+    "formCreateByAI": "Форма для создания вопросов нейросетью",
+    "createQuestion": " Создайте вопрос по курсу",
+    "questionsGeneratedByAI": "Вопросы созданные нейросетью",
+    "editQuestion": "Измените необходимый вопрос",
+    "answerToQuestion": "Ответьте на вопросы:",
+    "changingQuestion": "Измените вопрос",
+    "courseSelection": "Выберите курс",
+    "themeSelection": "Выберите тему из курса",
+    "course": "Курс",
+    "theme": "Тема:",
+    "questionNumber": "вопрос №",
+    "congratulation": "Поздравляем!",
+    "completedSurvey": "Вы завершили анкетирование.",
+    "correctPercentage": "Процент правильных ответов",
+    "wrongAnswersAnalysis": " Анализ неправильных ответов:",
+    "correctAnswers_one": "{{count}} правильный ответ",
+    "correctAnswers_few": "{{count}} правильных ответа",
+    "correctAnswers_many": "{{count}} правильных ответов",
+    "wrongAnswers_one": "{{count}} неправильный ответ",
+    "wrongAnswers_few": "{{count}} неправильных ответа",
+    "wrongAnswers_many": "{{count}} неправильных ответов"
+  },
+  "placeholder": {
+    "topic": "Введите название темы",
+    "sourceLink": "Введите ссылку на источник",
+    "question": "введите вопрос",
+    "wrongAnswer": "введите неправильный ответ",
+    "correctAnswer": "введите правильный ответ"
+  },
+  "formLabel": {
+    "topic": "Тема:",
+    "question": "Вопрос:",
+    "answers": " Ответы:",
+    "correctAnswer": "ПРАВИЛЬНЫЙ ОТВЕТ",
+    "yourAnswer": " ВАШ ОТВЕТ",
+    "wrongAnswer": "НЕПРАВИЛЬНЫЙ ОТВЕТ"
+  },
+  "alert": {
+    "title": "Вы уверены?",
+    "checkQuestions": "Проверьте правильность вопросов и ответов. Правильный ответ должен быть первым в списке.",
+    "deleteWarning": "Это действие нельзя отменить. Вопрос будет полностью удален.",
+    "continueEditing": "продолжить редактирование",
+    "saveQuestion": "сохранить вопрос",
+    "deleteQuestion": "удалить вопрос"
+  }
+}
