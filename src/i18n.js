@@ -1,14 +1,14 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import ru from "./locales/ru.json"; // Подключаем файл с русскими текстами
-import en from "./locales/en.json"; // Добавляем английский перевод
+import ru from "./locales/ru.json";
+import en from "./locales/en.json";
 
 i18n.use(initReactI18next).init({
   resources: {
-    ru: { translation: ru }, // Только русский язык
-    en: { translation: en }, // Подключаем английский язык
+    ru: { translation: ru },
+    en: { translation: en },
   },
-  lng: "ru", // По умолчанию используем русский
+  lng: "ru",
   fallbackLng: "en", // Если не найден перевод на русском, используем английский
   interpolation: {
     escapeValue: false, // React уже защищает от XSS
