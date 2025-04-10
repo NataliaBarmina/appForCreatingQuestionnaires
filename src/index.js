@@ -19,16 +19,16 @@ const Questionnaire = lazy(
   () => import("./components/questionnaire/questionnaire"),
 );
 const QuestionsCreatedByAI = lazy(
-  () => import("./components/creating/questionsCreatedByAI"),
+  () => import("./components/creating/questionsCreateByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself/index"),
+  () => import("./components/creating/formForCreatingQuestionsYourself"),
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI/index"),
+  () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
 const CoursesSelection = lazy(
-  () => import("./components/commonComponents/coursesSelection/index"),
+  () => import("./components/commonComponents/coursesSelection"),
 );
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
