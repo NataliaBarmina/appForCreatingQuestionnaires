@@ -1,7 +1,6 @@
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
-import { actionsContainerStyles } from "./styles";
 
 type TQuestionActions = {
   question: string;
@@ -18,7 +17,7 @@ const QuestionActions = ({
 }: TQuestionActions) => {
   const { t } = useTranslation();
   return (
-    <div className={actionsContainerStyles}>
+    <div className={"mb-8 flex w-full justify-around py-8"}>
       <div>
         <Alert
           whatToDo={
