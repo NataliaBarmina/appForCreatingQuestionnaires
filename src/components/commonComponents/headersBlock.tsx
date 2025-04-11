@@ -5,6 +5,8 @@ type THeaders = {
   courseHeader: string;
   themeHeader: string;
 };
+const mainHeaderStyles = "p-4 text-[150%] font-bold";
+const headerStyles = "p-4 text-xl font-bold";
 
 const HeadersBlock = ({
   questionsGeneratedByAIHeader,
@@ -15,13 +17,11 @@ const HeadersBlock = ({
   const { course, theme } = location.state || {};
   return (
     <div>
-      <div className={"p-4 text-[150%] font-bold"}>
-        {questionsGeneratedByAIHeader}
-      </div>
-      <div className={"p-4 text-xl font-bold"}>
+      <div className={mainHeaderStyles}>{questionsGeneratedByAIHeader}</div>
+      <div className={headerStyles}>
         {courseHeader} {course}
       </div>
-      <div className={"p-4 text-xl font-bold"}>{`${themeHeader} ${theme}`}</div>
+      <div className={headerStyles}>{`${themeHeader} ${theme}`}</div>
     </div>
   );
 };

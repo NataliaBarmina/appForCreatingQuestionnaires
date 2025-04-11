@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import { cn } from "@lib/utils";
 
 export type TFields = {
   styles?: string;
@@ -6,17 +6,15 @@ export type TFields = {
   id?: string;
 };
 
+const blockedFieldStyles = [
+  "w-[100%] bg-blue-100 text-left",
+  "rounded-md border-4 border-solid border-blue-200",
+  "mb-2 px-4 py-3 text-[120%]",
+].join(" ");
+
 const BlockedField = ({ styles, value, id }: TFields) => {
   return (
-    <div
-      id={id}
-      className={classNames(
-        "w-[100%] bg-blue-100 text-left",
-        "rounded-md border-4 border-solid border-blue-200",
-        "mb-2 px-4 py-3 text-[120%]",
-        styles,
-      )}
-    >
+    <div id={id} className={cn(blockedFieldStyles, styles)}>
       {value}
     </div>
   );
