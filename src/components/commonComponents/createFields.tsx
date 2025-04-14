@@ -1,6 +1,7 @@
 import { UseFormRegister, FieldError } from "react-hook-form";
 import { cn } from "@lib/utils";
 
+//todo: проверить какие поля используются для Textarea, неиспользующиеся разнести по компонентам
 export type TFields = {
   topicName?: string; //FormForCreatingQuestionsByAI
   linkToSource?: string; //FormForCreatingQuestionsByAI
