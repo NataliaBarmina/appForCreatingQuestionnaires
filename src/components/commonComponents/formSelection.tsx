@@ -4,6 +4,7 @@ import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsBy
 import QuestionList from "../editing/questionList";
 import { TQuizData } from "@/common/dataExample";
 import { useTranslation } from "react-i18next";
+import { CreationModeButton } from "@common/dataExample";
 
 const FormSelection = () => {
   const location = useLocation();
@@ -14,13 +15,13 @@ const FormSelection = () => {
 
   return (
     <div>
-      {buttonID === t("buttonLabel.yourself.id") && (
+      {buttonID === CreationModeButton.MANUAL && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonID === t("buttonLabel.byAI.id") && (
+      {buttonID === CreationModeButton.AI && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
-      {buttonID === t("buttonLabel.editing.id") && (
+      {buttonID === CreationModeButton.EDITING && (
         <QuestionList
           course={course}
           theme={theme}

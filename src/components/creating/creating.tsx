@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@commonComponents/buttons";
 import { useTranslation } from "react-i18next";
 import { cn } from "@lib/utils";
+import { CreationModeButton } from "@common/dataExample";
 
 const circleStyles = cn(
   "mx-auto rounded-full bg-[rgb(48,80,80)]/85",
@@ -31,12 +32,12 @@ const Creating: React.FC = () => {
           <Button
             buttonLabel={t("buttonLabel.byAI.label")}
             size="big"
-            onClick={() => handleNavigate(t("buttonLabel.byAI.id"))}
+            onClick={() => handleNavigate(CreationModeButton.AI)}
           />
           <Button
             buttonLabel={t("buttonLabel.yourself.label")}
             size="big"
-            onClick={() => handleNavigate(t("buttonLabel.yourself.id"))}
+            onClick={() => handleNavigate(CreationModeButton.MANUAL)}
           />
         </div>
       </div>

@@ -6,6 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { CreationModeButton } from "@common/dataExample";
 
 const NavPanel = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const NavPanel = () => {
           className={classesForLinks}
           onClick={() => {
             navigate("/coursesSelection", {
-              state: { buttonID: t("buttonLabel.editing.id") },
+              state: { buttonID: CreationModeButton.EDITING },
             });
           }}
         >

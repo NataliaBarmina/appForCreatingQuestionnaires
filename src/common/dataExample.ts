@@ -1,3 +1,9 @@
+export enum CreationModeButton {
+  AI = "AI",
+  MANUAL = "MANUAL",
+  EDITING = "EDITING",
+}
+
 export type TQuestion = {
   question: string;
   answer_1: string;

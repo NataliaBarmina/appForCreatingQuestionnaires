@@ -1,4 +1,5 @@
 import { TranslateFn } from "./types";
+import { CreationModeButton } from "@common/dataExample";
 
 export const getCircleConfig = (t: TranslateFn) => [
   {
@@ -15,7 +16,7 @@ export const getCircleConfig = (t: TranslateFn) => [
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
     buttonLabel: t("buttonLabel.editing.label"),
-    buttonID: t("buttonLabel.editing.id"),
+    buttonID: CreationModeButton.EDITING,
     link: "/coursesSelection",
   },
   {

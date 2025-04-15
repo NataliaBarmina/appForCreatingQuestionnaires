@@ -6,15 +6,16 @@ import Circle from "./circle";
 import { TNavigateToPage } from "./types";
 import { getCircleConfig } from "./getCircleConfig";
 import { useMemo } from "react";
+import { CreationModeButton } from "@common/dataExample";
 
 const DefaultPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const buttonID = t("buttonLabel.editing.id");
+  const buttonID = CreationModeButton.EDITING;
 
   const navigateToPage: TNavigateToPage = useCallback(
-    (link, buttonLabel?) => {
-      if (buttonID === buttonID) {
+    (link) => {
+      if (buttonID) {
         navigate(link, { state: { buttonID } });
       } else navigate(link);
     },
