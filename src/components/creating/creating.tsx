@@ -30,12 +30,12 @@ const Creating: React.FC = () => {
       <div className={circleStyles}>
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">
           <Button
-            buttonLabel={t("buttonLabel.byAI.label")}
+            buttonLabel={t("buttonLabel.byAI")}
             size="big"
             onClick={() => handleNavigate(CreationModeButton.AI)}
           />
           <Button
-            buttonLabel={t("buttonLabel.yourself.label")}
+            buttonLabel={t("buttonLabel.yourself")}
             size="big"
             onClick={() => handleNavigate(CreationModeButton.MANUAL)}
           />

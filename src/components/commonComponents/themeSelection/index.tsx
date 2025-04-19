@@ -4,6 +4,7 @@ import { TQuizData, TQuestion } from "@common/dataExample";
 import { useTranslation } from "react-i18next";
 import ThemeList from "./themeList";
 import { cn } from "@lib/utils";
+import { CreationModeButton } from "@common/dataExample";
 
 const mainContainerSTyles = cn(
   "mx-auto w-full rounded-none bg-green-800",
@@ -50,9 +51,9 @@ const ThemesSelection = ({
           listOfThemes={listOfThemes}
           handleThemeClick={handleThemeClick}
         />
-        {buttonID !== t("buttonLabel.editing.id") && (
+        {buttonID !== CreationModeButton.EDITING && (
           <Button
-            onClick={() => handleAddThemeClick}
+            onClick={() => handleAddThemeClick()}
             buttonLabel={t("buttonLabel.addTheme")}
             disabled={false}
             type="button"
