@@ -24,6 +24,7 @@ type TAlertProps = {
 
   buttonLabel: string;
   type?: "submit" | "reset" | "button";
+  size: "middle" | "small" | "big";
 
   isFormValid?: boolean;
   isSubmitting?: boolean;
@@ -37,6 +38,7 @@ const Alert = ({
   alertDialogCancel,
   buttonLabel,
   type,
+  size,
   isFormValid,
   isSubmitting,
   onContinue,
@@ -46,7 +48,7 @@ const Alert = ({
       <AlertDialogTrigger>
         <Button
           buttonLabel={buttonLabel}
-          size="small"
+          size={size}
           disabled={false}
           type={type}
         />

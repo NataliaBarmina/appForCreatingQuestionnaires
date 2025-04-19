@@ -33,7 +33,7 @@ const FormForEditingQuestions = ({
         <DialogTrigger>
           <Button
             buttonLabel={t("buttonLabel.edit")}
-            size="small"
+            size="middle"
             disabled={false}
             type="button"
             onClick={() => {}}
