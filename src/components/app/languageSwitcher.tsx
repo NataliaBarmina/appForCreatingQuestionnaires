@@ -7,18 +7,16 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(lng); // Меняем язык
   };
 
+  const containerStyles =
+    "flex h-[12vh] w-full flex-col items-end justify-evenly";
+  const buttonStyles = "mr-4 rounded-md bg-red-100 p-1 w-[5rem] text-[0.8rem]";
+
   return (
-    <div className="flex h-[12vh] w-full flex-col items-end justify-evenly">
-      <button
-        onClick={() => changeLanguage("ru")}
-        className="mr-4 min-w-[4.5vw] rounded-md bg-red-100 p-1 text-sm"
-      >
+    <div className={containerStyles}>
+      <button onClick={() => changeLanguage("ru")} className={buttonStyles}>
         🇷🇺 Русский
       </button>
-      <button
-        onClick={() => changeLanguage("en")}
-        className="mr-4 min-w-[4.5vw] rounded-md bg-red-100 p-1 text-sm"
-      >
+      <button onClick={() => changeLanguage("en")} className={buttonStyles}>
         🇺🇸 English
       </button>
     </div>
