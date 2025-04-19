@@ -32,6 +32,7 @@ const QuestionActions = ({
           isFormValid={true}
           isSubmitting={false}
           onContinue={() => {}}
+          size="small"
         />
       </div>
       <div>
@@ -53,6 +54,7 @@ const QuestionActions = ({
           isFormValid={true}
           isSubmitting={false}
           onContinue={() => {}}
+          size="small"
         />
       </div>
     </div>

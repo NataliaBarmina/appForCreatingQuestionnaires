@@ -26,6 +26,7 @@ const FormAction = ({
             alertDialogCancel={t("alert.saveQuestion")}
             buttonLabel={t("buttonLabel.save")}
             type="submit"
+            size="middle"
             onContinue={() => onFormReset()}
             isFormValid={isFormValid} //будем показывать Alert только если форма валидна
             isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
@@ -34,7 +35,7 @@ const FormAction = ({
         <div>
           <Button
             buttonLabel={t("buttonLabel.reset")}
-            size="small"
+            size="middle"
             disabled={false}
             type="reset"
             onClick={() => onFormReset()}
