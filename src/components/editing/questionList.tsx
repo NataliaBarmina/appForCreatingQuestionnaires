@@ -55,6 +55,7 @@ const QuestionList = ({ questionsList }: TQuizData) => {
                   isFormValid={true}
                   isSubmitting={false}
                   onContinue={() => {}}
+                  size="middle"
                 />
               </div>
             </div>
