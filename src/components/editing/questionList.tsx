@@ -3,17 +3,21 @@ import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
 import { TQuizData } from "@/common/dataExample";
+import { useTranslation } from "react-i18next";
 
 const QuestionList = ({ course, questionsList, theme }: TQuizData) => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="pb-1">
         <div className="p-4 text-[150%] font-bold">
-          Измените необходимый вопрос
+          {t("header.editQuestion")}
         </div>
 
-        <div className="p-4 text-xl font-bold">Курс {course}</div>
-        <div className="mb-4 text-xl">{`Тема: ${theme}`}</div>
+        <div className="p-4 text-xl font-bold">
+          {t("header.course")} {course}
+        </div>
+        <div className="mb-4 text-xl">{`${t("header.theme")} ${theme}`}</div>
         {questionsList.map((item, index) => (
           <div
             key={index}
@@ -26,7 +30,7 @@ const QuestionList = ({ course, questionsList, theme }: TQuizData) => {
               "2xl:w-[45vw]",
             )}
           >
-            <div className="py-6 text-lg font-bold text-blue-100">{`вопрос №${index + 1}`}</div>
+            <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
               question={item.question}
               correctAnswer={item.answer_1}
@@ -45,13 +49,11 @@ const QuestionList = ({ course, questionsList, theme }: TQuizData) => {
               <div>
                 <Alert
                   whatToDo={"удаляем данные из стэйта"} //todo: потом удалить
-                  alertDialogTitle={"Вы уверены?"}
-                  alertDialogDescription={
-                    "Это действие нельзя отменить. Вопрос будет полностью удален."
-                  }
-                  alertDialogAction={"продолжить редактирование"}
-                  alertDialogCancel={"удалить вопрос"}
-                  buttonLabel={"удалить"}
+                  alertDialogTitle={t("alert.title")}
+                  alertDialogDescription={t("alert.deleteWarning")}
+                  alertDialogAction={t("alert.continueEditing")}
+                  alertDialogCancel={t("alert.deleteQuestion")}
+                  buttonLabel={t("buttonLabel.delete")}
                   isFormValid={true}
                   isSubmitting={false}
                   onContinue={() => {}}

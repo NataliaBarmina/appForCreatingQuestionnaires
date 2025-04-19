@@ -2,11 +2,16 @@ import { cn } from "@lib/utils";
 
 type ButtonProps = {
   onClick?: () => void;
-  value?: string;
   buttonLabel?: string;
   disabled?: boolean;
   type?: "submit" | "reset" | "button";
-  size?: "big" | "middle" | "small";
+  size?: string;
+};
+
+const sizeClasses: Record<string, string> = {
+  big: "block w-[45vw] xs:text-[5vw] s:w-[35vw] s:py-4 s:text-[3.5vw] md:landscape:w-[30vw] md:landscape:text-[3vw] lg:landscape:w-[25vw] lg:landscape:text-[2.5vw] xl:landscape:w-[20vw] xl:landscape:text-[2vw] 2xl:landscape:w-[14vw] 2xl:landscape:text-[1.3vw]",
+  middle: "inline-block p-3 text-[1rem]",
+  small: "inline-block px-2",
 };
 
 const commonStylesForButtons = cn(
@@ -15,11 +20,6 @@ const commonStylesForButtons = cn(
   "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
   "hover:border hover:border-solid hover:border-zinc-950",
 );
-const sizeClasses = {
-  big: "block w-[45vw] xs:text-[5vw] s:w-[35vw] s:py-4 s:text-[3.5vw] md:landscape:w-[30vw] md:landscape:text-[3vw] lg:landscape:w-[25vw] lg:landscape:text-[2.5vw] xl:landscape:w-[20vw] xl:landscape:text-[2vw] 2xl:landscape:w-[14vw] 2xl:landscape:text-[1.3vw]",
-  middle: "inline-block p-3 text-[1rem]",
-  small: "inline-block px-2",
-};
 
 export const Button = ({
   size = "middle",
@@ -28,8 +28,6 @@ export const Button = ({
   disabled,
   type,
 }: ButtonProps) => {
-  // Условные классы для разных размеров кнопок
-
   return (
     <button
       disabled={disabled}

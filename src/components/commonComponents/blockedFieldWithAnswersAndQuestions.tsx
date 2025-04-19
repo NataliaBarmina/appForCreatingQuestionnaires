@@ -1,5 +1,6 @@
 import BlockedField from "@commonComponents/blockedField";
 import { Label } from "@ui/label";
+import { useTranslation } from "react-i18next";
 
 type MyProps = {
   question: string;
@@ -14,12 +15,13 @@ const BlockedFieldWithAnswersAndQuestions = ({
   wrongAnswer1,
   wrongAnswer2,
 }: MyProps) => {
+  const { t } = useTranslation();
   return (
     <div>
       <BlockedField id="" value={question} styles="mb-6" />
       <div className="mx-auto w-[90%]">
         <Label className="text-white" htmlFor="correctAnswer">
-          ПРАВИЛЬНЫЙ ОТВЕТ
+          {t("formLabel.correctAnswer")}
         </Label>
         <BlockedField
           styles="mb-6"
@@ -27,11 +29,11 @@ const BlockedFieldWithAnswersAndQuestions = ({
           id={"correctAnswer"}
         />
         <Label className="text-white" htmlFor="wrongAnswer1">
-          НЕПРАВИЛЬНЫЙ ОТВЕТ
+          {t("formLabel.wrongAnswer")}
         </Label>
         <BlockedField styles="mb-8" value={wrongAnswer1} id={"wrongAnswer1"} />
         <Label className="text-white" htmlFor="wrongAnswer2">
-          НЕПРАВИЛЬНЫЙ ОТВЕТ
+          {t("formLabel.wrongAnswer")}
         </Label>
         <BlockedField styles="mb-5" value={wrongAnswer2} id={"wrongAnswer2"} />
       </div>
