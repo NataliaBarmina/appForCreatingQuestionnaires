@@ -15,7 +15,7 @@ export const getCircleConfig = (t: TranslateFn) => [
     colStart: "col-start-1",
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
-    buttonLabel: t("buttonLabel.editing.label"),
+    buttonLabel: t("buttonLabel.editing"),
     buttonID: CreationModeButton.EDITING,
     link: "/coursesSelection",
   },
