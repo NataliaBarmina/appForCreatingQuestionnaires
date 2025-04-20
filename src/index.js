@@ -16,7 +16,7 @@ const FormSelection = lazy(
   () => import("./components/commonComponents/formSelection"),
 );
 const Questionnaire = lazy(
-  () => import("./components/questionnaire/questionnaire"),
+  () => import("./components/questionnaire/questionnaire/questionnaire"),
 );
 const QuestionsCreatedByAI = lazy(
   () => import("./components/creating/questionsCreateByAI"),
@@ -33,7 +33,10 @@ const CoursesSelection = lazy(
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
 const ResultsOfTheQuestionnaire = lazy(
-  () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
+  () =>
+    import(
+      "./components/questionnaire/resultsOfTheQuestionnaire/resultOfTheQuestionnaire"
+    ),
 );
 
 const root = createRoot(document.getElementById("root"));
