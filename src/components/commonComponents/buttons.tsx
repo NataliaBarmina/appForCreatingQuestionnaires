@@ -1,6 +1,6 @@
 import { cn } from "@lib/utils";
 
-type ButtonProps = {
+type TButton = {
   onClick?: () => void;
   buttonLabel?: string;
   disabled?: boolean;
@@ -48,7 +48,7 @@ export const Button = ({
   buttonLabel,
   disabled,
   type,
-}: ButtonProps) => {
+}: TButton) => {
   return (
     <button
       disabled={disabled}

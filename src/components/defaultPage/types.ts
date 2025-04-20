@@ -1,4 +1,4 @@
-export type CircleProps = {
+export type TCircleProps = {
   colSpan: string;
   colStart: string;
   rowSpan: string;

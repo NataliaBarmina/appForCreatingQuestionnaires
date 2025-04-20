@@ -3,7 +3,7 @@ import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "../themeSelection";
-import { HandleTabChange } from "./types";
+import { THandleTabChange } from "./types";
 import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
 import { useTranslation } from "react-i18next";
@@ -16,7 +16,7 @@ const CoursesSelection = () => {
 
   const [tabValue, setTabValue] = useState(0);
 
-  const handleChange: HandleTabChange = (event, newValue) => {
+  const handleChange: THandleTabChange = (event, newValue) => {
     setTabValue(newValue);
   };
 

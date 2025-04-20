@@ -1,11 +1,11 @@
 import { radioInputStyles } from "./styles";
 
-type MyProps = {
+type TRadioInput = {
   value: string;
   name: string;
 };
 
-const RadioInput = ({ value, name }: MyProps) => {
+const RadioInput = ({ value, name }: TRadioInput) => {
   return (
     <div>
       <label className="mb-4 flex">

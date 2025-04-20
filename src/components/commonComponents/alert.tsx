@@ -11,7 +11,7 @@ import {
   AlertDialogTrigger,
 } from "@ui/alert-dialog";
 
-type AlertProps = {
+type TAlertProps = {
   whatToDo: string; //todo: потом удалить
 
   //   onDelete: () => void; //??todo: Функция, которая будет вызываться при удалении
@@ -40,7 +40,7 @@ const Alert = ({
   isFormValid,
   isSubmitting,
   onContinue,
-}: AlertProps) => {
+}: TAlertProps) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger>

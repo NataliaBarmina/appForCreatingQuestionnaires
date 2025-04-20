@@ -10,7 +10,7 @@ import { formLabelClasses, textAreaBold } from "./styles";
 import { Control } from "react-hook-form";
 import { TFields } from "@/components/commonComponents/createFields";
 
-type MyProps = {
+type TCustomTextAreaField = {
   control: Control<TFields>;
   disabled: boolean;
   name: "selfWrittenTopicName" | "selfWrittenQuestion";
@@ -24,7 +24,7 @@ const CustomTextAreaField = ({
   name,
   formLabel,
   placeholder,
-}: MyProps) => {
+}: TCustomTextAreaField) => {
   return (
     <div>
       <FormField

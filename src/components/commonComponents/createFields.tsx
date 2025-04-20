@@ -17,7 +17,7 @@ export type TFields = {
   questionFromSurvey?: string; // questionnaire
 };
 
-export type MyProps = {
+export type TTextarea = {
   placeholder?: string;
   styles: string;
   fieldName: keyof TFields;
@@ -30,7 +30,7 @@ export const Textarea = ({
   fieldName,
   register,
   styles,
-}: MyProps) => {
+}: TTextarea) => {
   const textareaStyles = cn(
     "w-[100%] bg-blue-100 font-bold italic",
     "placeholder:text-sm placeholder:text-purple-900",

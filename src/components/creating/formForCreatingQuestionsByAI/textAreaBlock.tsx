@@ -1,11 +1,11 @@
-import { Textarea, MyProps } from "@commonComponents/createFields";
+import { Textarea, TTextarea } from "@commonComponents/createFields";
 
 export const TextAreaBlock = ({
   placeholder,
   fieldName,
   register,
   error,
-}: MyProps) => {
+}: TTextarea) => {
   return (
     <div>
       <div className="mx-auto">

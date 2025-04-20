@@ -2,7 +2,7 @@ import BlockedField from "@commonComponents/blockedField";
 import { Label } from "@ui/label";
 import { useTranslation } from "react-i18next";
 
-type MyProps = {
+type TBlockedFieldWithAnswersAndQuestions = {
   question: string;
   correctAnswer: string;
   wrongAnswer1: string;
@@ -14,7 +14,7 @@ const BlockedFieldWithAnswersAndQuestions = ({
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
-}: MyProps) => {
+}: TBlockedFieldWithAnswersAndQuestions) => {
   const { t } = useTranslation();
 
   const answerFields = [

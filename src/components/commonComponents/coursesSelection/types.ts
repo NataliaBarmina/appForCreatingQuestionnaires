@@ -1,20 +1,19 @@
-import { ReactNode, SyntheticEvent } from "react";
-import { TTopic, TSubject } from "@common/dataExample";
+import { TTopic } from "@common/dataExample";
 
-export type TabPanelProps = {
+export type TTabPanelProps = {
   children?: React.ReactNode;
   index: number;
   value: number;
 };
-export type HandleTabChange = (
+export type THandleTabChange = (
   event: React.SyntheticEvent,
   newValue: number,
 ) => void;
 
-export type CoursesSelectionProps = {
+export type TCoursesSelectionProps = {
   tabValue?: number;
   selectedCourseName?: string;
   courseThemes?: TTopic[];
   courseNames?: string[];
-  handleChange?: HandleTabChange;
+  handleChange?: THandleTabChange;
 };
