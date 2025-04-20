@@ -5,6 +5,7 @@ export const TextAreaBlock = ({
   fieldName,
   register,
   error,
+  disabled,
 }: TTextarea) => {
   return (
     <div>
@@ -14,6 +15,7 @@ export const TextAreaBlock = ({
           register={register}
           fieldName={fieldName}
           styles=""
+          disabled={disabled}
         />
 
         {error && (

@@ -39,6 +39,7 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
               fieldName="topicName"
               styles=""
               error={errors.topicName}
+              disabled={!!theme}
             />
           </div>
           <div className="mt-12 2xl:mb-[8vh]">
