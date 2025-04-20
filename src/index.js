@@ -6,7 +6,7 @@ import { createHashRouter } from "react-router-dom";
 import "./index.css";
 import "./i18n";
 
-import DefaultPage from "./components/defaultPage/index";
+import { DefaultPage } from "./components/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
 
 import { lazy, Suspense } from "react";
@@ -15,9 +15,7 @@ const Creating = lazy(() => import("./components/creating/creating"));
 const FormSelection = lazy(
   () => import("./components/commonComponents/formSelection"),
 );
-const Questionnaire = lazy(
-  () => import("./components/questionnaire/questionnaire/questionnaire"),
-);
+
 const QuestionsCreatedByAI = lazy(
   () => import("./components/creating/questionsCreateByAI"),
 );
@@ -32,6 +30,10 @@ const CoursesSelection = lazy(
 );
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
+
+const Questionnaire = lazy(
+  () => import("./components/questionnaire/questionnaire/questionnaire"),
+);
 const ResultsOfTheQuestionnaire = lazy(
   () =>
     import(
