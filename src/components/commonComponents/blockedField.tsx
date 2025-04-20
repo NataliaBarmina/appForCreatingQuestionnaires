@@ -6,11 +6,11 @@ export type TFields = {
   id?: string;
 };
 
-const blockedFieldStyles = [
+const blockedFieldStyles = cn(
   "w-[100%] bg-blue-100 text-left",
   "rounded-md border-4 border-solid border-blue-200",
   "mb-2 px-4 py-3 text-[120%]",
-].join(" ");
+);
 
 const BlockedField = ({ styles, value, id }: TFields) => {
   return (
