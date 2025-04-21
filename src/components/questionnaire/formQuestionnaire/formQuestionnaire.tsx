@@ -7,7 +7,7 @@ import QuestionItem from "./questionItem";
 
 //todo: получить массив перемешанных вопросов, в анкете должно быть 10 вопросов
 
-const Questionnaire = () => {
+const FormQuestionnaire = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -38,4 +38,4 @@ const Questionnaire = () => {
     </form>
   );
 };
-export default Questionnaire;
+export default FormQuestionnaire;

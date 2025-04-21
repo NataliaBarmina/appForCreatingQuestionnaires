@@ -4,7 +4,7 @@ import HeadersBlock from "./headersBlock";
 import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
 import QuestionItem from "./questionItem";
 
-//todo: получить массив через пропсы из Questionnaire и массив ответов и сравнить их
+//todo: получить массив через пропсы из FormQuestionnaire и массив ответов и сравнить их
 
 const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();

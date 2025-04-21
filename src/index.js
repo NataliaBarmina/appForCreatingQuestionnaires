@@ -31,14 +31,11 @@ const CoursesSelection = lazy(
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
 
-const Questionnaire = lazy(
-  () => import("./components/questionnaire/questionnaire/questionnaire"),
+const FormQuestionnaire = lazy(
+  () => import("./components/questionnaire/formQuestionnaire"),
 );
 const ResultsOfTheQuestionnaire = lazy(
-  () =>
-    import(
-      "./components/questionnaire/resultsOfTheQuestionnaire/resultOfTheQuestionnaire"
-    ),
+  () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
 );
 
 const root = createRoot(document.getElementById("root"));
@@ -77,7 +74,7 @@ const router = createHashRouter(
           path: "/questionnaire",
           element: (
             <Suspense fallback={<Preloader />}>
-              <Questionnaire />
+              <FormQuestionnaire />
             </Suspense>
           ),
         },

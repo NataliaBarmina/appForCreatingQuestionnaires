@@ -1,2 +1,2 @@
-export { default as Questionnaire } from "./questionnaire/questionnaire";
-export { default as ResultsOfTheQuestionnaire } from "./resultsOfTheQuestionnaire/resultOfTheQuestionnaire";
+export { default as FormQuestionnaire } from "./formQuestionnaire";
+export { default as ResultsOfTheQuestionnaire } from "./resultsOfTheQuestionnaire";
