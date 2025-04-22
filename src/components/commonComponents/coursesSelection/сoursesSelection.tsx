@@ -2,7 +2,7 @@ import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
-import ThemesSelection from "../themeSelection";
+import ThemesSelection from "../themeSelection/themesSelection";
 import { THandleTabChange } from "./types";
 import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
