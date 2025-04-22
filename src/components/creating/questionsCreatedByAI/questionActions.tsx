@@ -1,5 +1,5 @@
 import Alert from "@commonComponents/alert";
-import FormForEditingQuestions from "@commonComponents/formForEditingQuestions";
+import FormForEditingQuestions from "@commonComponents/formForEditingQuestions/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
 
 type TQuestionActions = {
