@@ -11,13 +11,9 @@ import Preloader from "./components/commonComponents/preloader";
 
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./components/creating/creating"));
-const FormSelection = lazy(
-  () => import("./components/commonComponents/formSelection"),
-);
-
+const Creating = lazy(() => import("./components/creating"));
 const QuestionsCreatedByAI = lazy(
-  () => import("./components/creating/questionsCreateByAI"),
+  () => import("./components/creating/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
   () => import("./components/creating/formForCreatingQuestionsYourself"),
@@ -25,6 +21,10 @@ const FormForCreatingQuestionsYourself = lazy(
 const FormForCreatingQuestionsByAI = lazy(
   () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
+const FormSelection = lazy(
+  () => import("./components/commonComponents/formSelection"),
+);
+
 const CoursesSelection = lazy(
   () => import("./components/commonComponents/coursesSelection"),
 );
