@@ -1,4 +1,5 @@
 import { cn } from "@lib/utils";
+import { forwardRef } from "react";
 
 type TButton = {
   onClick?: () => void;
@@ -51,15 +52,11 @@ const sizeClasses: Record<string, string> = {
   small: smallButtonClasses,
 };
 
-export const Button = ({
-  size = "middle",
-  onClick,
-  buttonLabel,
-  disabled,
-  type,
-}: TButton) => {
+export const Button = forwardRef<HTMLButtonElement, TButton>((props, ref) => {
+  const { size = "middle", onClick, buttonLabel, disabled, type } = props;
   return (
     <button
+      ref={ref}
       disabled={disabled}
       type={type}
       onClick={onClick}
@@ -71,6 +68,6 @@ export const Button = ({
       {buttonLabel}
     </button>
   );
-};
+});
 
 export default Button;

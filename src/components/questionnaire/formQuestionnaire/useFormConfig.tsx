@@ -18,7 +18,7 @@ export const useFormConfig = () => {
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    console.log(data);
+    // console.log(data);
   };
   return {
     handleSubmit,

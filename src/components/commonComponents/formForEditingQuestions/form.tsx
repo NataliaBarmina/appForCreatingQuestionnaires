@@ -17,7 +17,7 @@ const Form = ({
   const { t } = useTranslation();
 
   const onSubmit: SubmitHandler<TFields> = (data, errors) => {
-    console.log(data);
+    // console.log(data);
     alert("сохраняем вопрос"); //todo: need to remove
     closeDialog();
   };

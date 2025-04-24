@@ -10,6 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@ui/alert-dialog";
+import { useState } from "react";
 
 type TAlertProps = {
   whatToDo: string; //todo: потом удалить
@@ -43,38 +44,40 @@ const Alert = ({
   isSubmitting,
   onContinue,
 }: TAlertProps) => {
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger>
-        <Button
-          buttonLabel={buttonLabel}
-          size={size}
-          disabled={false}
-          type={type}
-        />
-      </AlertDialogTrigger>
+  const [isOpen, setIsOpen] = useState(false);
 
-      {/* Показываем Alert только если форма валидна */}
-      {isFormValid && !isSubmitting && (
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {alertDialogDescription}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel
-              data_what_to_do={whatToDo} //todo: потом удалить
-              onContinue={onContinue}
-            >
-              {alertDialogCancel}
-            </AlertDialogCancel>
-            <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      )}
-    </AlertDialog>
+  return (
+    <>
+      <Button
+        buttonLabel={buttonLabel}
+        size={size}
+        disabled={false}
+        type={type}
+        onClick={() => setIsOpen(true)}
+      />
+      <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+        {/* Показываем Alert только если форма валидна */}
+        {isFormValid && !isSubmitting && (
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
+              <AlertDialogDescription>
+                {alertDialogDescription}
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel
+                data_what_to_do={whatToDo} //todo: потом удалить
+                onContinue={onContinue}
+              >
+                {alertDialogCancel}
+              </AlertDialogCancel>
+              <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        )}
+      </AlertDialog>
+    </>
   );
 };
 export default Alert;

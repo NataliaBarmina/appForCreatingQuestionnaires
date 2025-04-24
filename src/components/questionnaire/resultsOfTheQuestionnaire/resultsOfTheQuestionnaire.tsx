@@ -25,6 +25,7 @@ const ResultsOfTheQuestionnaire = () => {
 
         {questionsList.map((item, index) => (
           <QuestionItem
+            key={index}
             index={index}
             question={item.question}
             answer_1={item.answer_1}

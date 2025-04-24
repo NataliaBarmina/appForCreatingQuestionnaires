@@ -13,7 +13,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const form = useQuestionForm(theme, t("required"));
 
   function onSubmit(values: any) {
-    console.log("Сохраненные данные:", values); //todo- удалить или что-то сделать
+    // console.log("Сохраненные данные:", values); //todo- удалить или что-то сделать
   }
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы
