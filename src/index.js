@@ -6,32 +6,34 @@ import { createHashRouter } from "react-router-dom";
 import "./index.css";
 import "./i18n";
 
-import DefaultPage from "./components/defaultPage/index";
+import { DefaultPage } from "./components/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
 
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./components/creating/creating"));
-const FormSelection = lazy(
-  () => import("./components/commonComponents/formSelection"),
-);
-const Questionnaire = lazy(
-  () => import("./components/questionnaire/questionnaire"),
-);
+const Creating = lazy(() => import("./components/creating"));
 const QuestionsCreatedByAI = lazy(
   () => import("./components/creating/questionsCreatedByAI"),
 );
 const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself/index"),
+  () => import("./components/creating/formForCreatingQuestionsYourself"),
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI/index"),
+  () => import("./components/creating/formForCreatingQuestionsByAI"),
 );
+const FormSelection = lazy(
+  () => import("./components/commonComponents/formSelection"),
+);
+
 const CoursesSelection = lazy(
-  () => import("./components/commonComponents/coursesSelection/index"),
+  () => import("./components/commonComponents/coursesSelection"),
 );
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
+
+const FormQuestionnaire = lazy(
+  () => import("./components/questionnaire/formQuestionnaire"),
+);
 const ResultsOfTheQuestionnaire = lazy(
   () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
 );
@@ -72,7 +74,7 @@ const router = createHashRouter(
           path: "/questionnaire",
           element: (
             <Suspense fallback={<Preloader />}>
-              <Questionnaire />
+              <FormQuestionnaire />
             </Suspense>
           ),
         },

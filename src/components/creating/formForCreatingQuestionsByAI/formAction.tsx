@@ -2,7 +2,7 @@ import Alert from "@commonComponents/alert";
 import Button from "@commonComponents/buttons";
 import { useTranslation } from "react-i18next";
 
-type FormActionsProps = {
+type TFormActionsProps = {
   onFormReset: () => void;
   isFormValid: boolean;
   isSubmitting: boolean;
@@ -12,7 +12,7 @@ const FormAction = ({
   isFormValid,
   isSubmitting,
   onFormReset,
-}: FormActionsProps) => {
+}: TFormActionsProps) => {
   const { t } = useTranslation();
   return (
     <div>

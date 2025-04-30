@@ -10,14 +10,19 @@ import { textAreaBase, formLabelClasses } from "./styles";
 import { Control } from "react-hook-form";
 import { TFields } from "@/components/commonComponents/createFields";
 
-type MyProps = {
+type TAnswersField = {
   control: Control<TFields>;
   name: "selfWrittenAnswer1" | "selfWrittenAnswer2" | "selfWrittenAnswer3";
   placeholder: string;
   formLabel?: string;
 };
 
-const AnswersField = ({ control, name, placeholder, formLabel }: MyProps) => {
+const AnswersField = ({
+  control,
+  name,
+  placeholder,
+  formLabel,
+}: TAnswersField) => {
   return (
     <FormField
       control={control}

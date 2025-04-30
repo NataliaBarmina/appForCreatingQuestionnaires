@@ -1,4 +1,4 @@
-import { CircleProps } from "./types";
+import { TCircleProps } from "./types";
 import { smallCirclesStyles, circlesTextStyles } from "./styles";
 import { cn } from "@lib/utils";
 
@@ -10,7 +10,7 @@ const Circle = ({
   buttonLabel,
   link,
   onClick,
-}: CircleProps) => {
+}: TCircleProps) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     onClick(link, buttonLabel);
   };
