@@ -1,4 +1,5 @@
 import { cn } from "@lib/utils";
+import { forwardRef } from "react";
 
 type TButton = {
   onClick?: () => void;
@@ -24,7 +25,16 @@ const bigButtonClasses = cn(
   "2xl:landscape:w-[14vw] 2xl:landscape:text-[1.3vw]",
 );
 
-const middleButtonClasses = cn("inline-block py-3 text-[1rem] px-5");
+const middleButtonClasses = cn(
+  "block py-3 px-2",
+  "xs:text-[3vw] xs:w-[30vw] ",
+  "s:w-[24vw] s:text-[2.5vw] ",
+  "sm:w-[20vw] sm:text-[2.1vw]",
+  "md:landscape:w-[15vw] md:landscape:text-[1.5vw] ",
+  "lg:landscape:w-[13vw] lg:landscape:text-[1.3vw]",
+  "xl:landscape:w-[11vw] xl:landscape:text-[1.1vw]",
+  "2xl:landscape:w-[8vw] 2xl:landscape:text-[0.8vw]",
+);
 
 const smallButtonClasses = cn(
   "block ",
@@ -42,15 +52,11 @@ const sizeClasses: Record<string, string> = {
   small: smallButtonClasses,
 };
 
-export const Button = ({
-  size = "middle",
-  onClick,
-  buttonLabel,
-  disabled,
-  type,
-}: TButton) => {
+export const Button = forwardRef<HTMLButtonElement, TButton>((props, ref) => {
+  const { size = "middle", onClick, buttonLabel, disabled, type } = props;
   return (
     <button
+      ref={ref}
       disabled={disabled}
       type={type}
       onClick={onClick}
@@ -62,6 +68,6 @@ export const Button = ({
       {buttonLabel}
     </button>
   );
-};
+});
 
 export default Button;

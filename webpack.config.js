@@ -86,12 +86,28 @@ module.exports = (env) => {
           filename: "css/[name].[contenthash:8].css",
           chunkFilename: "css/[name].[contenthash:8].css",
         }),
-      isDev && new ForkTsCheckerWebpackPlugin(), //проверка типов, вынесенная в отдельный процесс
+      isDev &&
+        new ForkTsCheckerWebpackPlugin({
+          async: false, // Синхронная проверка (надежнее)
+          typescript: {
+            configFile: "tsconfig.json",
+            diagnosticOptions: {
+              semantic: true, // Проверка семантических ошибок
+              syntactic: true, // Проверка синтаксических ошибок
+            },
+            mode: "readonly", // Безопасный режим для TypeScript 5+
+          },
+          logger: {
+            infrastructure: "console", // Логи инфраструктуры
+            issues: "console", // Логи ошибок типов
+            devServer: true, // Показывать ошибки в devServer
+          },
+        }),
     ].filter(Boolean), //убираем из массива все null, undefined
     devServer: isDev
       ? {
           // позволяет сразу отражать все изменения в браузере без запуска build
-          port: env.port ?? 5000,
+          port: process.env.PORT || 0, // 0 означает "любой свободный порт"
           hot: true, // позволяет обновлять код без перезагрузки страницы
           open: true,
           historyApiFallback: true,

@@ -30,10 +30,10 @@ const FormForEditingQuestions = ({
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button
             buttonLabel={t("buttonLabel.edit")}
-            size="small"
+            size="middle"
             disabled={false}
             type="button"
             onClick={() => {}}

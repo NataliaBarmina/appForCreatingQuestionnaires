@@ -23,6 +23,7 @@ export type TTextarea = {
   fieldName: keyof TFields;
   register: UseFormRegister<TFields>;
   error?: FieldError;
+  disabled?: boolean;
 };
 
 export const Textarea = ({
@@ -30,6 +31,7 @@ export const Textarea = ({
   fieldName,
   register,
   styles,
+  disabled = false,
 }: TTextarea) => {
   const textareaStyles = cn(
     "w-[100%] bg-blue-100 font-bold italic",
@@ -44,6 +46,7 @@ export const Textarea = ({
       <textarea
         className={textareaStyles}
         placeholder={placeholder}
+        disabled={disabled}
         {...register(fieldName)}
       ></textarea>
     </div>

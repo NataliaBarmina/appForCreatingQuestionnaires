@@ -21,6 +21,7 @@ const FormQuestionnaire = () => {
 
       {questionsList.map((item, index) => (
         <QuestionItem
+          key={index}
           answer_1={item.answer_1}
           answer_2={item.answer_2}
           answer_3={item.answer_3}
