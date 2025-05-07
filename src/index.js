@@ -5,6 +5,8 @@ import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
 import "./i18n";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 import { DefaultPage } from "./components/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
@@ -138,10 +140,12 @@ const router = createHashRouter(
 );
 
 root.render(
-  <RouterProvider
-    router={router}
-    future={{
-      v7_startTransition: true,
-    }}
-  />,
+  <Provider store={store}>
+    <RouterProvider
+      router={router}
+      future={{
+        v7_startTransition: true,
+      }}
+    />
+  </Provider>,
 );
