@@ -74,6 +74,8 @@ module.exports = (env) => {
         "@common": path.resolve(__dirname, "src/common"),
         "@lib": path.resolve(__dirname, "src/chadcnComponents/lib"),
         "@ui": path.resolve(__dirname, "src/chadcnComponents/ui"),
+        "@store": path.resolve(__dirname, "src/store/"),
+        "@reducers": path.resolve(__dirname, "src/store/reducers/"),
       },
       extensions: [".tsx", ".ts", ".js"], // файлы с исходным кодом
     },
@@ -109,7 +111,11 @@ module.exports = (env) => {
           // позволяет сразу отражать все изменения в браузере без запуска build
           port: process.env.PORT || 0, // 0 означает "любой свободный порт"
           hot: true, // позволяет обновлять код без перезагрузки страницы
-          open: true,
+          open: {
+            app: {
+              name: "google-chrome",
+            },
+          },
           historyApiFallback: true,
         }
       : undefined,
