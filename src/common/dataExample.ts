@@ -1,36 +1,7 @@
-export enum CreationModeButton {
-  AI = "AI",
-  MANUAL = "MANUAL",
-  EDITING = "EDITING",
-}
+//todo: потом удалить этот файл
 
-export type TQuestion = {
-  question: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-};
+import { TQuestion } from "@store/commonTypes";
 
-export type TTopic = {
-  [key: string]: TQuestion[];
-};
-
-export type TSubject = {
-  [key: string]: TTopic[];
-};
-
-export type TQuizSubjects = Array<{
-  [subjectName: string]: TTopic[];
-}>;
-
-export type TQuizData = {
-  buttonLabel?: string;
-  course?: string;
-  theme?: string;
-  questionsList?: TQuestion[];
-  listOfThemes?: TTopic[];
-  buttonID?: string;
-};
 export const questionsList: TQuestion[] = [
   {
     question: "Свойство display какое значение принимает?",

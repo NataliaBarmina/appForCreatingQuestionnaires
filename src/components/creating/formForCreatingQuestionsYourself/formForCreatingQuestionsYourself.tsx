@@ -1,5 +1,5 @@
 import { Form } from "@ui/form";
-import { TQuizData } from "@/common/dataExample";
+import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { formContainerClasses } from "./styles";
@@ -9,11 +9,11 @@ import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";
 import type { Dispatch } from "redux";
-import { addTheme, TQuizAction } from "@reducers/createByYourSelfReducer";
+import { addTheme, TAddThemeAction } from "@reducers/createByYourSelfReducer";
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch<Dispatch<TQuizAction>>();
+  const dispatch = useDispatch<Dispatch<TAddThemeAction>>();
 
   const form = useQuestionForm(theme, t("required"));
 
@@ -21,14 +21,14 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
     const selectedTopic = theme || values.selfWrittenTopicName;
 
     dispatch(
-      addTheme(
-        course ?? "",
-        selectedTopic,
-        values.selfWrittenQuestion,
-        values.selfWrittenAnswer1,
-        values.selfWrittenAnswer2,
-        values.selfWrittenAnswer3,
-      ),
+      addTheme({
+        subject: course ?? "",
+        topic: selectedTopic,
+        question: values.selfWrittenQuestion,
+        answer_1: values.selfWrittenAnswer1,
+        answer_2: values.selfWrittenAnswer2,
+        answer_3: values.selfWrittenAnswer3,
+      }),
     );
   }
 

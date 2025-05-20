@@ -6,7 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CreationModeButton } from "@common/dataExample";
+import { CreationModeButton } from "@store/commonTypes";
 
 const NavPanel = () => {
   const navigate = useNavigate();

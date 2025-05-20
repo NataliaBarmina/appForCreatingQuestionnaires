@@ -1,5 +1,5 @@
 import { TranslateFn } from "./types";
-import { CreationModeButton } from "@common/dataExample";
+import { CreationModeButton } from "@store/commonTypes";
 
 export const getCircleConfig = (t: TranslateFn) => [
   {

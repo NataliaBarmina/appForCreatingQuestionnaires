@@ -2,9 +2,9 @@ import { useLocation } from "react-router-dom";
 import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself/formForCreatingQuestionsYourself";
 import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI/formForCreatingQuestionsByAI";
 import QuestionList from "../editing/questionList";
-import { TQuizData } from "@/common/dataExample";
+import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
-import { CreationModeButton } from "@common/dataExample";
+import { CreationModeButton } from "@store/commonTypes";
 
 const FormSelection = () => {
   const location = useLocation();

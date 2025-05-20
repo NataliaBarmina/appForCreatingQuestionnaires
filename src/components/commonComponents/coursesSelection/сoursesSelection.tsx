@@ -8,7 +8,7 @@ import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { TSubject } from "@common/dataExample";
+import { TSubject } from "@store/commonTypes";
 import { TRootState } from "@store/store";
 
 const CoursesSelection = () => {

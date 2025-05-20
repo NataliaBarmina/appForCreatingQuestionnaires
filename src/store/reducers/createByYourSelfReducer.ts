@@ -1,52 +1,30 @@
-import { TQuestion, TQuizSubjects } from "@common/dataExample";
+import { TQuestion, TQuizState } from "../commonTypes";
+import { initialState } from "../initialState";
 
-const ADD_THEME = "ADD_THEME";
-export type TQuizState = {
-  quizData: TQuizSubjects;
+export type TThemePayload = {
+  subject: string;
+  topic: string;
+  question: string;
+  answer_1: string;
+  answer_2: string;
+  answer_3: string;
 };
 
 export type TAddThemeAction = {
   type: typeof ADD_THEME;
-  payload: {
-    subject: string;
-    topic: string;
-    question: string;
-    answer_1: string;
-    answer_2: string;
-    answer_3: string;
-  };
+  payload: TThemePayload;
 };
 
-export type TQuizAction = TAddThemeAction; //todo -возможно пригодится в будушем для расширения типов экшен (type TQuizAction = TAddThemeAction | TDeleteThemeAction | TUpdateQuestionAction);
+const ADD_THEME = "ADD_THEME";
 
-const initialState: TQuizState = {
-  quizData: [
-    { JavaScript: [] },
-    { CSS: [] },
-    { TypeScript: [] },
-    { HTML: [] },
-    { Git: [] },
-    { React: [] },
-    { Cmd: [] },
-    { Прочее: [] },
-  ],
-};
-
-export const addTheme = (
-  subject: string,
-  topic: string,
-  question: string,
-  answer_1: string,
-  answer_2: string,
-  answer_3: string,
-): TAddThemeAction => ({
+export const addTheme = (payload: TThemePayload): TAddThemeAction => ({
   type: ADD_THEME,
-  payload: { subject, topic, question, answer_1, answer_2, answer_3 },
+  payload,
 });
 
 function createByYourSelfReducer(
   state: TQuizState = initialState,
-  action: TQuizAction,
+  action: TAddThemeAction,
 ): TQuizState {
   switch (action.type) {
     case ADD_THEME: {
@@ -75,15 +53,10 @@ function createByYourSelfReducer(
       if (objectWithSelectedTopic) {
         objectWithSelectedTopic[topic].push(objectWithQuestions);
       } else {
-        arrayWithSelectedThemes.push({
-          [topic]: [objectWithQuestions],
-        });
+        arrayWithSelectedThemes.push({ [topic]: [objectWithQuestions] });
       }
 
-      return {
-        ...state,
-        quizData,
-      };
+      return { ...state, quizData };
     }
     default:
       return state;
