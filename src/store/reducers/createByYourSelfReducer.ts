@@ -1,5 +1,4 @@
 import { TQuestion, TQuizState } from "../commonTypes";
-import { initialState } from "../initialState";
 
 export type TThemePayload = {
   subject: string;
@@ -13,6 +12,19 @@ export type TThemePayload = {
 export type TAddThemeAction = {
   type: typeof ADD_THEME;
   payload: TThemePayload;
+};
+
+export const initialState: TQuizState = {
+  quizData: [
+    { JavaScript: [] },
+    { CSS: [] },
+    { TypeScript: [] },
+    { HTML: [] },
+    { Git: [] },
+    { React: [] },
+    { Cmd: [] },
+    { Прочее: [] },
+  ],
 };
 
 const ADD_THEME = "ADD_THEME";
