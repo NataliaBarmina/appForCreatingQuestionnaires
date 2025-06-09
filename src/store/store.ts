@@ -5,7 +5,6 @@ import createByYourSelfReducer from "./reducers/createByYourSelfReducer";
 const rootReducer = combineReducers({
   createByYourSelf: createByYourSelfReducer,
 });
-
 const store = legacy_createStore(rootReducer);
 
 export default store;
@@ -19,4 +18,3 @@ export type TDispatch = typeof store.dispatch;
 //     test: (state = {}) => state,
 //   },
 // });
-// export default store;

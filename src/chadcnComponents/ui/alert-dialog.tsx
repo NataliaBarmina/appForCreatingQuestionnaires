@@ -105,7 +105,7 @@ AlertDialogDescription.displayName =
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
->(({ className, ...props }, ref) => (
+>(({ className, onClick, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
     className={cn(
@@ -121,10 +121,9 @@ AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
 const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Cancel>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel> & {
-    onSubmit?: () => void;
-    onFormReset?: () => void;
+    onClick?: () => void;
   }
->(({ className, onFormReset, onSubmit, ...props }, ref) => (
+>(({ className, onClick, ...props }, ref) => (
   <AlertDialogPrimitive.Cancel
     ref={ref}
     className={cn(
@@ -133,10 +132,7 @@ const AlertDialogCancel = React.forwardRef<
       className,
     )}
     {...props}
-    onClick={() => {
-      onSubmit();
-      onFormReset();
-    }}
+    onClick={onClick}
   />
 ));
 AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;

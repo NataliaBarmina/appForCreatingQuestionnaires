@@ -9,16 +9,12 @@ export type TTopic = Record<string, TQuestion[]>; // тема: массив во
 
 export type TSubject = Record<string, TTopic[]>; //курс: массив тем
 
-export type TQuizSubjects = TSubject[]; //массив курсов
-
-export type TQuizState = { quizData: TQuizSubjects }; // состояние
-
 export type TQuizData = {
   buttonLabel?: string;
   course?: string;
   theme?: string;
   questionsList?: TQuestion[];
-  listOfThemes?: TTopic[];
+  arrayWithSelectedThemes?: TTopic[];
   buttonID?: string;
 };
 

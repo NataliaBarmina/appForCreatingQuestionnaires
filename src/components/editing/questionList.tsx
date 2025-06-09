@@ -1,10 +1,14 @@
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions/formForEditingQuestions";
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
-import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import HeadersBlock from "../commonComponents/headersBlock";
 import { cn } from "@lib/utils";
+import { useDispatch } from "react-redux";
+import { deleteQuestion } from "@reducers/actions";
+import { useSelector } from "react-redux";
+import { TRootState } from "@store/store";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -15,8 +19,40 @@ const greenContainerStyles = cn(
   "2xl:w-[45vw]",
 );
 
-const QuestionList = ({ questionsList }: TQuizData) => {
+const QuestionList = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+  const { course, theme } = location.state || {};
+
+  const dispatch = useDispatch();
+
+  const questionsFromRedux = useSelector((state: TRootState) => {
+    const objectWithSelectedCourse = state.createByYourSelf.find(
+      (item) => item[course],
+    );
+    if (!objectWithSelectedCourse) return [];
+
+    const arrayWithSelectedThemes = objectWithSelectedCourse[course];
+    const objectWithSelectedTopic = arrayWithSelectedThemes.find(
+      (item) => item[theme],
+    );
+    if (!objectWithSelectedTopic) return [];
+
+    const arrayWithQuestions = objectWithSelectedTopic[theme];
+
+    return arrayWithQuestions;
+  });
+
+  const onDelete = (index: number) => {
+    dispatch(
+      deleteQuestion({
+        subject: course,
+        topic: theme,
+        questionIndex: index,
+      }),
+    );
+  };
+
   return (
     <div>
       <div className="pb-1">
@@ -24,9 +60,11 @@ const QuestionList = ({ questionsList }: TQuizData) => {
           questionsGeneratedByAIHeader={t("header.editQuestion")}
           courseHeader={t("header.course")}
           themeHeader={t("header.theme")}
+          course={course}
+          theme={theme}
         />
 
-        {questionsList.map((item, index) => (
+        {questionsFromRedux.map((item, index) => (
           <div key={index} className={greenContainerStyles}>
             <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
@@ -53,8 +91,10 @@ const QuestionList = ({ questionsList }: TQuizData) => {
                   buttonLabel={t("buttonLabel.delete")}
                   isFormValid={true}
                   isSubmitting={false}
-                  onFormReset={() => {}}
                   size="middle"
+                  item={item}
+                  index={index}
+                  onClick={() => onDelete(index)}
                 />
               </div>
             </div>

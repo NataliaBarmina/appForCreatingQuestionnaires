@@ -10,8 +10,7 @@ const FormSelection = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const { buttonID, course, questionsList, theme }: TQuizData =
-    location.state || {};
+  const { buttonID, course, theme }: TQuizData = location.state || {};
 
   return (
     <div>
@@ -21,13 +20,7 @@ const FormSelection = () => {
       {buttonID === CreationModeButton.AI && (
         <FormForCreatingQuestionsByAI course={course} theme={theme} />
       )}
-      {buttonID === CreationModeButton.EDITING && (
-        <QuestionList
-          course={course}
-          theme={theme}
-          questionsList={questionsList}
-        />
-      )}
+      {buttonID === CreationModeButton.EDITING && <QuestionList />}
     </div>
   );
 };
