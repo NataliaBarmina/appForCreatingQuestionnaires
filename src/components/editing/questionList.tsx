@@ -80,6 +80,9 @@ const QuestionList = () => {
                   correctAnswer={item.answer_1}
                   wrongAnswer1={item.answer_2}
                   wrongAnswer2={item.answer_3}
+                  course={course}
+                  theme={theme}
+                  questionIndex={index}
                 />
               </div>
               <div>

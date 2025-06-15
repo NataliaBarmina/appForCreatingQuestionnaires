@@ -6,6 +6,8 @@ import { UseFormConfig } from "./useFormConfig";
 import QuestionForm from "./questionForm";
 import FormAction from "./formAction";
 import { TFormForEditingQuestions } from "./types";
+import { useDispatch } from "react-redux";
+import { editQuestion } from "@reducers/actions";
 
 const Form = ({
   closeDialog,
@@ -13,12 +15,33 @@ const Form = ({
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
+  course,
+  theme,
+  questionIndex,
 }: TFormForEditingQuestions) => {
   const { t } = useTranslation();
 
-  const onSubmit: SubmitHandler<TFields> = (data, errors) => {
-    // console.log(data);
-    alert("сохраняем вопрос"); //todo: need to remove
+  const dispatch = useDispatch();
+
+  const onSubmit: SubmitHandler<TFields> = (data) => {
+    const updatedQuestion = {
+      question: data.questionForEditing,
+      correctAnswer: data.answerForEditing1,
+      wrongAnswer1: data.answerForEditing2,
+      wrongAnswer2: data.answerForEditing3,
+    };
+
+    dispatch(
+      editQuestion({
+        subject: course,
+        topic: theme,
+        questionIndex,
+        question: updatedQuestion.question,
+        answer_1: updatedQuestion.correctAnswer,
+        answer_2: updatedQuestion.wrongAnswer1,
+        answer_3: updatedQuestion.wrongAnswer2,
+      }),
+    );
     closeDialog();
   };
 
