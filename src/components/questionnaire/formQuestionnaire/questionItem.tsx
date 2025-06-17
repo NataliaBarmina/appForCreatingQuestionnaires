@@ -2,6 +2,8 @@ import BlockedField from "@commonComponents/blockedField";
 import RadioInput from "./radioInput";
 import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { shuffleArray } from "@utils/shuffleArray";
 
 type TQuestionItem = {
   question: string;
@@ -22,6 +24,13 @@ const QuestionItem = ({
 }: TQuestionItem) => {
   const { register } = useFormContext();
 
+  const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
+
+  useEffect(() => {
+    const shuffled = shuffleArray([answer_1, answer_2, answer_3]);
+    setShuffledAnswers(shuffled);
+  }, []); // пустой массив — массив будет перемешиваться один раз
+
   return (
     <div key={index} className={greenContainerStyles}>
       <div className="mb-2 p-4 text-lg font-bold text-blue-100">
@@ -32,21 +41,14 @@ const QuestionItem = ({
           <BlockedField styles="" value={question} id="" />
         </div>
         <div className="mb-12 ml-[4%] w-[96%]">
-          <RadioInput
-            value={answer_1}
-            {...register(`radioInputFromSurvey[${index}]`)}
-            name={`radioInputFromSurvey.${index}`}
-          />
-          <RadioInput
-            value={answer_2}
-            {...register(`radioInputFromSurvey[${index}]`)}
-            name={`radioInputFromSurvey.${index}`}
-          />
-          <RadioInput
-            value={answer_3}
-            {...register(`radioInputFromSurvey[${index}]`)}
-            name={`radioInputFromSurvey.${index}`}
-          />
+          {shuffledAnswers.map((answer, index) => (
+            <RadioInput
+              key={index}
+              value={answer}
+              {...register(`radioInputFromSurvey[${index}]`)}
+              name={`radioInputFromSurvey.${index}`}
+            />
+          ))}
         </div>
       </div>
     </div>
