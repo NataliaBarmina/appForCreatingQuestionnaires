@@ -4,8 +4,7 @@ import HeadersBlock from "./headersBlock";
 import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
 import QuestionItem from "./questionItem";
 import { useEffect } from "react";
-
-//todo: получить массив через пропсы из FormQuestionnaire и массив ответов и сравнить их
+import { useLocation } from "react-router-dom";
 
 const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();
@@ -13,6 +12,10 @@ const ResultsOfTheQuestionnaire = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Скролл к верху при загрузке компонента
   }, []);
+
+  const location = useLocation();
+  const { questions } = location.state || []; //todo - использовать вместо questionsList
+  // console.log(questions);
 
   return (
     <div>

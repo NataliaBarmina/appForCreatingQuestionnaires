@@ -15,6 +15,7 @@ export type TFields = {
   answerForEditing2?: string; //QuestionList
   answerForEditing3?: string; //QuestionList
   questionFromSurvey?: string; // questionnaire
+  radioInputFromSurvey?: string[];
 };
 
 export type TTextarea = {
