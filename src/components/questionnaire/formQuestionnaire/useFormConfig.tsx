@@ -6,16 +6,17 @@ import { TQuestion } from "@store/commonTypes";
 
 export const useFormConfig = (
   questionsList: TQuestion[],
-  navigate: (path: string, options?: any) => void, // тип навигации
+  navigate: (path: string, options?: any) => void,
 ) => {
   const schema = yup.object({
     radioInputFromSurvey: yup
       .array()
-      .of(yup.string().required("Выберите вариант ответа")),
+      .of(yup.string().required("Выберите вариант ответа"))
+      .required("Выберите хотя бы один ответ"),
   });
 
   const methods = useForm({
-    mode: "onChange",
+    mode: "onSubmit",
     resolver: yupResolver(schema),
     defaultValues: {
       radioInputFromSurvey: questionsList.map(() => ""),
@@ -23,13 +24,8 @@ export const useFormConfig = (
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    console.log("Выбранные ответы:", data.radioInputFromSurvey);
-    data.radioInputFromSurvey.forEach((answer, index) => {
-      console.log(`Вопрос ${index + 1}: выбран ответ — ${answer}`);
-    });
-
     navigate("/resultsOfTheQuestionnaire", {
-      state: { answers: data.radioInputFromSurvey },
+      state: { answers: data.radioInputFromSurvey, questionsList },
     });
   };
 

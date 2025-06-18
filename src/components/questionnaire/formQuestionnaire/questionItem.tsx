@@ -2,8 +2,8 @@ import BlockedField from "@commonComponents/blockedField";
 import RadioInput from "./radioInput";
 import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
-import { useEffect, useState } from "react";
 import { shuffleArray } from "@utils/shuffleArray";
+import { useMemo } from "react";
 
 type TQuestionItem = {
   question: string;
@@ -24,12 +24,10 @@ const QuestionItem = ({
 }: TQuestionItem) => {
   const { register } = useFormContext();
 
-  const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
-
-  useEffect(() => {
-    const shuffled = shuffleArray([answer_1, answer_2, answer_3]);
-    setShuffledAnswers(shuffled);
-  }, []); // пустой массив — массив будет перемешиваться один раз
+  const shuffledAnswers = useMemo(
+    () => shuffleArray([answer_1, answer_2, answer_3]),
+    [], // пустой массив — рендер производится один раз
+  );
 
   return (
     <div key={index} className={greenContainerStyles}>
@@ -41,14 +39,21 @@ const QuestionItem = ({
           <BlockedField styles="" value={question} id="" />
         </div>
         <div className="mb-12 ml-[4%] w-[96%]">
-          {shuffledAnswers.map((answer, index) => (
-            <RadioInput
-              key={index}
-              value={answer}
-              {...register(`radioInputFromSurvey[${index}]`)}
-              name={`radioInputFromSurvey.${index}`}
-            />
-          ))}
+          <RadioInput
+            value={shuffledAnswers[0]}
+            register={register}
+            name={`radioInputFromSurvey.${index}`}
+          />
+          <RadioInput
+            value={shuffledAnswers[1]}
+            register={register}
+            name={`radioInputFromSurvey.${index}`}
+          />
+          <RadioInput
+            value={shuffledAnswers[2]}
+            register={register}
+            name={`radioInputFromSurvey.${index}`}
+          />
         </div>
       </div>
     </div>

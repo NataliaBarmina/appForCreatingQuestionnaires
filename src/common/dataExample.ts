@@ -1,4 +1,4 @@
-// //todo: потом удалить этот файл
+//todo: потом удалить этот файл
 
 import { TQuestion, TSubject } from "@store/commonTypes";
 
@@ -208,13 +208,3 @@ export const questionsList: TQuestion[] = [
 //     ],
 //   },
 // ];
-
-// export const questionsList = quizData
-//   .flatMap((item) => {
-//     const arrayThemes = Object.values(item)[0];
-
-//     return arrayThemes.flatMap((item) => {
-//       return Object.values(item)[0];
-//     });
-//   })
-//   .filter((q) => q.question.trim() !== ""); // Фильтруем пустые вопросы;

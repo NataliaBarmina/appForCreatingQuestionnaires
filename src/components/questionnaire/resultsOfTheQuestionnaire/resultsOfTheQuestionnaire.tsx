@@ -1,10 +1,10 @@
-import { questionsList } from "@common/dataExample";
 import { useTranslation } from "react-i18next";
 import HeadersBlock from "./headersBlock";
 import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
 import QuestionItem from "./questionItem";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { TQuestion } from "@store/commonTypes";
 
 const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();
@@ -14,30 +14,48 @@ const ResultsOfTheQuestionnaire = () => {
   }, []);
 
   const location = useLocation();
-  const { questions } = location.state || []; //todo - использовать вместо questionsList
-  // console.log(questions);
+  const { questionsList = [], answers = [] } = location.state || [];
+
+  const wrongAnswersCount = questionsList.reduce(
+    (acc: number, item: TQuestion, index: number) => {
+      return item.answer_1 !== answers[index] ? acc + 1 : acc;
+    },
+    0,
+  );
+
+  const questionsCount = questionsList.length;
 
   return (
     <div>
-      <HeadersBlock />
+      <HeadersBlock
+        wrongAnswersCount={wrongAnswersCount}
+        questionsCount={questionsCount}
+      />
 
       <div className={grayContainerStyles}>
         <div className={wrongAnswersAnalysisHeader}>
           {t("header.wrongAnswersAnalysis")}
         </div>
 
-        {questionsList.map((item, index) => (
-          <QuestionItem
-            key={index}
-            index={index}
-            question={item.question}
-            answer_1={item.answer_1}
-            answer_2={item.answer_2}
-            questionNumber={t("header.questionNumber")}
-            correctAnswer={t("formLabel.correctAnswer")}
-            yourAnswer={t("formLabel.yourAnswer")}
-          />
-        ))}
+        {questionsList.map((item: TQuestion, index: number) => {
+          const correctAnswer = item.answer_1;
+          const userAnswer = answers[index];
+
+          if (correctAnswer === userAnswer) return null;
+
+          return (
+            <QuestionItem
+              key={index}
+              index={index}
+              question={item.question}
+              answer_1={correctAnswer}
+              answer_2={userAnswer}
+              questionNumber={t("header.questionNumber")}
+              correctAnswer={t("formLabel.correctAnswer")}
+              yourAnswer={t("formLabel.yourAnswer")}
+            />
+          );
+        })}
       </div>
     </div>
   );
