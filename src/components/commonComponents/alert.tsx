@@ -10,11 +10,11 @@ import {
   AlertDialogTitle,
 } from "@ui/alert-dialog";
 import { useState } from "react";
+import { TQuestion } from "../../store/commonTypes";
 
 type TAlertProps = {
-  //   onDelete: () => void; //??todo: Функция, которая будет вызываться при удалении
-  onFormReset?: () => void;
-  onSubmit?: () => void;
+  onClick?: () => void;
+  // onAction?: () => void;
 
   alertDialogTitle: string;
   alertDialogDescription: string;
@@ -27,6 +27,8 @@ type TAlertProps = {
 
   isFormValid?: boolean;
   isSubmitting?: boolean;
+  item?: TQuestion;
+  index?: number;
 };
 
 const Alert = ({
@@ -39,8 +41,9 @@ const Alert = ({
   size,
   isFormValid,
   isSubmitting,
-  onFormReset,
-  onSubmit,
+  onClick,
+  item,
+  index,
 }: TAlertProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -64,7 +67,7 @@ const Alert = ({
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel onFormReset={onFormReset} onSubmit={onSubmit}>
+              <AlertDialogCancel onClick={onClick}>
                 {alertDialogCancel}
               </AlertDialogCancel>
               <AlertDialogAction>{alertDialogAction}</AlertDialogAction>

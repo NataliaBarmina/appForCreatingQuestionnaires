@@ -25,13 +25,13 @@ const BlockedFieldWithAnswersAndQuestions = ({
       styles: "mb-6",
     },
     {
-      id: wrongAnswer1,
+      id: "wrongAnswer1",
       value: wrongAnswer1,
       labelKey: t("formLabel.wrongAnswer"),
       styles: "mb-8",
     },
     {
-      id: wrongAnswer2,
+      id: "wrongAnswer2",
       value: wrongAnswer2,
       labelKey: t("formLabel.wrongAnswer"),
       styles: "mb-5",

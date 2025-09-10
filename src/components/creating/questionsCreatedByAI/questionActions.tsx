@@ -27,7 +27,6 @@ const QuestionActions = ({
           buttonLabel={t("buttonLabel.save")}
           isFormValid={true}
           isSubmitting={false}
-          onFormReset={() => {}}
           size="small"
         />
       </div>
@@ -48,7 +47,6 @@ const QuestionActions = ({
           buttonLabel={t("buttonLabel.delete")}
           isFormValid={true}
           isSubmitting={false}
-          onFormReset={() => {}}
           size="small"
         />
       </div>

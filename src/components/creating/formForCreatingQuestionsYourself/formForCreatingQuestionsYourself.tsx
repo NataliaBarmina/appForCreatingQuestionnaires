@@ -9,7 +9,8 @@ import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";
 import type { Dispatch } from "redux";
-import { addTheme, TAddThemeAction } from "@reducers/createByYourSelfReducer";
+import { addTheme } from "@reducers/actions";
+import { TAddThemeAction } from "@reducers/types";
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const { t } = useTranslation();
@@ -44,6 +45,11 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
       selfWrittenAnswer3: "",
     });
   };
+
+  const handleCreateManualQuestion = form.handleSubmit((values) => {
+    onSubmit(values);
+    onFormReset();
+  });
 
   return (
     <div>
@@ -92,7 +98,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               isFormValid={isFormValid}
               isSubmitting={isSubmitting}
               onFormReset={onFormReset}
-              onSubmit={() => form.handleSubmit(onSubmit)}
+              onCreateManualQuestion={handleCreateManualQuestion}
             />
           </form>
         </Form>

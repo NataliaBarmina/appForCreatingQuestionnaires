@@ -22,9 +22,7 @@ const CoursesSelection = () => {
     setTabValue(newValue);
   };
 
-  const quizData = useSelector(
-    (state: TRootState) => state.createByYourSelf.quizData,
-  );
+  const quizData = useSelector((state: TRootState) => state.createByYourSelf);
 
   const courseNames: string[] = quizData.map(
     (item: TSubject) => Object.keys(item)[0],
@@ -32,10 +30,11 @@ const CoursesSelection = () => {
 
   const selectedCourseName = courseNames[tabValue];
 
-  const courseEntry = quizData.find(
+  const objectWithSelectedCourse = quizData.find(
     (item) => Object.keys(item)[0] === selectedCourseName,
   ); //объект с ключом-курс
-  const courseThemes = courseEntry[selectedCourseName] ?? []; //массив тем
+  const arrayWithSelectedThemes =
+    objectWithSelectedCourse[selectedCourseName] ?? []; //массив с темами в рамках выбранного курса
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,8 +52,8 @@ const CoursesSelection = () => {
         </div>
         <CustomTabPanel value={tabValue} index={tabValue}>
           <ThemesSelection
-            course={selectedCourseName} // название темы
-            listOfThemes={courseThemes} // массив вопросов с темами
+            course={selectedCourseName} // название курса
+            arrayWithSelectedThemes={arrayWithSelectedThemes} // массив вопросов с темами
             buttonID={buttonID}
           />
         </CustomTabPanel>

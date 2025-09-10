@@ -1,55 +1,24 @@
-import { TQuestion, TQuizState } from "../commonTypes";
-
-export type TThemePayload = {
-  subject: string;
-  topic: string;
-  question: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-};
-
-export type TAddThemeAction = {
-  type: typeof ADD_THEME;
-  payload: TThemePayload;
-};
-
-export const initialState: TQuizState = {
-  quizData: [
-    { JavaScript: [] },
-    { CSS: [] },
-    { TypeScript: [] },
-    { HTML: [] },
-    { Git: [] },
-    { React: [] },
-    { Cmd: [] },
-    { Прочее: [] },
-  ],
-};
-
-const ADD_THEME = "ADD_THEME";
-
-export const addTheme = (payload: TThemePayload): TAddThemeAction => ({
-  type: ADD_THEME,
-  payload,
-});
+import { TQuestion, TSubject } from "../commonTypes";
+import { initialState } from "../initialState";
+import { TAction } from "../reducers/types";
+import { ADD_THEME, DELETE_QUESTION } from "../reducers/actions";
 
 function createByYourSelfReducer(
-  state: TQuizState = initialState,
-  action: TAddThemeAction,
-): TQuizState {
+  state: TSubject[] = initialState,
+  action: TAction,
+): TSubject[] {
   switch (action.type) {
     case ADD_THEME: {
       const { subject, topic, question, answer_1, answer_2, answer_3 } =
         action.payload;
-      const quizData = structuredClone(state.quizData); // делаем глубокую копию объекта
+      const quizData = structuredClone(state);
 
       const objectWithSelectedCourse = quizData.find((item) => item[subject]); // объект с ключом: выбранный курс
 
       const arrayWithSelectedThemes = objectWithSelectedCourse[subject]; // массив с темами в рамках выбранного курса
 
       const objectWithSelectedTopic = arrayWithSelectedThemes.find(
-        (theme) => theme[topic],
+        (item) => item[topic],
       ); // объект с ключом: выбранная тема
 
       const objectWithQuestions: TQuestion = {
@@ -59,16 +28,40 @@ function createByYourSelfReducer(
         answer_3,
       };
 
+      const newTopic = { [topic]: [objectWithQuestions] }; //новый объект тема: массив с вопросами
+
       // Если тема с таким названием (topic) есть,находим массив вопросов этой темы и пушим.
-      // Если нет, создаём новый объект с ключом — названием темы и значением- массивом с вопросом и ответами. Пушим.
+      // Если нет, пушим новый объект с темами
 
       if (objectWithSelectedTopic) {
-        objectWithSelectedTopic[topic].push(objectWithQuestions);
+        const arrayWithSelectedTopic = objectWithSelectedTopic[topic]; // массив с вопросами в рамках выбранной темы
+        arrayWithSelectedTopic.push(objectWithQuestions);
       } else {
-        arrayWithSelectedThemes.push({ [topic]: [objectWithQuestions] });
+        arrayWithSelectedThemes.push(newTopic);
       }
 
-      return { ...state, quizData };
+      return quizData;
+    }
+    case DELETE_QUESTION: {
+      const { subject, topic, questionIndex } = action.payload;
+
+      if (!topic || questionIndex === undefined) return state;
+
+      const quizData = structuredClone(state);
+
+      const objectWithSelectedCourse = quizData.find((item) => item[subject]);
+
+      const arrayWithSelectedThemes = objectWithSelectedCourse[subject];
+      const objectWithSelectedTopic = arrayWithSelectedThemes.find(
+        (item) => item[topic],
+      );
+      if (!objectWithSelectedTopic) return state;
+
+      objectWithSelectedTopic[topic] = objectWithSelectedTopic[topic].filter(
+        (_, idx) => idx !== questionIndex,
+      );
+
+      return quizData;
     }
     default:
       return state;
