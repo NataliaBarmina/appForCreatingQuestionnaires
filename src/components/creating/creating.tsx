@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@commonComponents/buttons";
 import { useTranslation } from "react-i18next";
 import { cn } from "@lib/utils";
-import { CreationModeButton } from "@common/dataExample";
+import { CreationModeButton } from "@store/commonTypes";
 
 const circleStyles = cn(
   "mx-auto rounded-full bg-[rgb(48,80,80)]/85",
@@ -19,9 +19,7 @@ const Creating: React.FC = () => {
   const { t } = useTranslation();
 
   const handleNavigate = (labelKey: string) => {
-    navigate("/coursesSelection", {
-      state: { buttonID: labelKey },
-    });
+    navigate("/coursesSelection", { state: { buttonID: labelKey } });
   };
 
   return (

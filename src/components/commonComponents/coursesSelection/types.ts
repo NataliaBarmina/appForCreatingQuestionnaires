@@ -1,4 +1,4 @@
-import { TTopic } from "@common/dataExample";
+import { TTopic } from "@store/commonTypes";
 
 export type TTabPanelProps = {
   children?: React.ReactNode;

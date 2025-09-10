@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import Button from "@commonComponents/buttons";
-import { TQuizData, TQuestion } from "@common/dataExample";
+import { TQuizData, TQuestion } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import ThemeList from "./themeList";
 import { cn } from "@lib/utils";
-import { CreationModeButton } from "@common/dataExample";
+import { CreationModeButton } from "@store/commonTypes";
 
 const mainContainerSTyles = cn(
   "mx-auto w-full rounded-none bg-green-800",
@@ -22,23 +22,12 @@ const ThemesSelection = ({
 
   const handleThemeClick = (theme: string, questions: TQuestion[]) => {
     navigate("/formSelection", {
-      state: {
-        buttonID,
-        course,
-        questionsList: questions,
-        theme,
-      },
+      state: { buttonID, course, questionsList: questions, theme },
     });
   };
 
   const handleAddThemeClick = () => {
-    navigate("/formSelection", {
-      state: {
-        buttonID,
-        course,
-        listOfThemes,
-      },
-    });
+    navigate("/formSelection", { state: { buttonID, course, listOfThemes } });
   };
 
   return (

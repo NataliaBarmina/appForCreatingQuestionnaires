@@ -1,7 +1,7 @@
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions/formForEditingQuestions";
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
-import { TQuizData } from "@/common/dataExample";
+import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import HeadersBlock from "../commonComponents/headersBlock";
 import { cn } from "@lib/utils";

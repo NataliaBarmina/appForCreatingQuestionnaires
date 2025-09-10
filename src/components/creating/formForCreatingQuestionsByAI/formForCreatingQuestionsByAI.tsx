@@ -2,7 +2,7 @@ import { SubmitHandler } from "react-hook-form";
 import { TFields } from "@commonComponents/createFields";
 import { useNavigate } from "react-router-dom";
 import Button from "@commonComponents/buttons";
-import { TQuizData } from "@/common/dataExample";
+import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import { formContainerClasses, headerClasses } from "./styles";
 import TextAreaBlock from "./textAreaBlock";

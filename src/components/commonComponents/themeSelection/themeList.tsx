@@ -2,7 +2,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { TTopic, TQuestion } from "@common/dataExample";
+import { TTopic, TQuestion } from "@store/commonTypes";
 
 type TThemeList = {
   listOfThemes: TTopic[];
