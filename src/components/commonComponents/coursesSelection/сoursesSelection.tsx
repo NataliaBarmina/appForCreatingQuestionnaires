@@ -7,7 +7,9 @@ import { THandleTabChange } from "./types";
 import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
 import { useTranslation } from "react-i18next";
-import { quizData, TSubject } from "@common/dataExample"; //todo: получаем доступ к стэйту - массиву с вопросами
+import { useSelector } from "react-redux";
+import { TSubject } from "@common/dataExample";
+import { TRootState } from "@store/store";
 
 const CoursesSelection = () => {
   const location = useLocation();
@@ -20,6 +22,10 @@ const CoursesSelection = () => {
     setTabValue(newValue);
   };
 
+  const quizData = useSelector(
+    (state: TRootState) => state.createByYourSelf.quizData,
+  );
+
   const courseNames: string[] = quizData.map(
     (item: TSubject) => Object.keys(item)[0],
   );
@@ -28,8 +34,8 @@ const CoursesSelection = () => {
 
   const courseEntry = quizData.find(
     (item) => Object.keys(item)[0] === selectedCourseName,
-  );
-  const courseThemes = courseEntry[selectedCourseName] ?? [];
+  ); //объект с ключом-курс
+  const courseThemes = courseEntry[selectedCourseName] ?? []; //массив тем
 
   return (
     <ThemeProvider theme={theme}>

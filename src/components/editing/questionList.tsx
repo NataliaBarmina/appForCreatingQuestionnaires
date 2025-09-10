@@ -46,7 +46,6 @@ const QuestionList = ({ questionsList }: TQuizData) => {
               </div>
               <div>
                 <Alert
-                  whatToDo={"удаляем данные из стэйта"} //todo: потом удалить
                   alertDialogTitle={t("alert.title")}
                   alertDialogDescription={t("alert.deleteWarning")}
                   alertDialogAction={t("alert.continueEditing")}
@@ -54,7 +53,7 @@ const QuestionList = ({ questionsList }: TQuizData) => {
                   buttonLabel={t("buttonLabel.delete")}
                   isFormValid={true}
                   isSubmitting={false}
-                  onContinue={() => {}}
+                  onFormReset={() => {}}
                   size="middle"
                 />
               </div>

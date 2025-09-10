@@ -8,15 +8,13 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@ui/alert-dialog";
 import { useState } from "react";
 
 type TAlertProps = {
-  whatToDo: string; //todo: потом удалить
-
   //   onDelete: () => void; //??todo: Функция, которая будет вызываться при удалении
-  onContinue?: () => void;
+  onFormReset?: () => void;
+  onSubmit?: () => void;
 
   alertDialogTitle: string;
   alertDialogDescription: string;
@@ -32,7 +30,6 @@ type TAlertProps = {
 };
 
 const Alert = ({
-  whatToDo, //todo: потом удалить
   alertDialogTitle,
   alertDialogDescription,
   alertDialogAction,
@@ -42,7 +39,8 @@ const Alert = ({
   size,
   isFormValid,
   isSubmitting,
-  onContinue,
+  onFormReset,
+  onSubmit,
 }: TAlertProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,10 +64,7 @@ const Alert = ({
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel
-                data_what_to_do={whatToDo} //todo: потом удалить
-                onContinue={onContinue}
-              >
+              <AlertDialogCancel onFormReset={onFormReset} onSubmit={onSubmit}>
                 {alertDialogCancel}
               </AlertDialogCancel>
               <AlertDialogAction>{alertDialogAction}</AlertDialogAction>

@@ -19,7 +19,9 @@
       "@editing/*": ["src/components/editing/*"],
       "@questionnaire/*": ["src/components/questionnaire/*"],
       "@lib/*": ["src/chadcnComponents/lib/*"],
-      "@ui/*": ["src/chadcnComponents/ui/*"]
+      "@ui/*": ["src/chadcnComponents/ui/*"],
+      "@store/*": ["src/store/*"],
+      "@reducers/*": ["src/store/reducers/*"]
     }
   }
 }

@@ -3,7 +3,8 @@ import Button from "@commonComponents/buttons";
 import { useTranslation } from "react-i18next";
 
 type TFormActionsProps = {
-  onFormReset: () => void;
+  onFormReset?: () => void;
+  onSubmit?: () => void;
   isFormValid: boolean;
   isSubmitting: boolean;
 };
@@ -12,6 +13,7 @@ const FormAction = ({
   isFormValid,
   isSubmitting,
   onFormReset,
+  onSubmit,
 }: TFormActionsProps) => {
   const { t } = useTranslation();
   return (
@@ -19,7 +21,6 @@ const FormAction = ({
       <div className="mb-8 flex w-full justify-evenly pt-14">
         <div>
           <Alert
-            whatToDo={"сохраняем данные в стэйт "} //todo: потом удалить
             alertDialogTitle={t("alert.title")}
             alertDialogDescription={t("alert.checkQuestions")}
             alertDialogAction={t("alert.continueEditing")}
@@ -27,7 +28,8 @@ const FormAction = ({
             buttonLabel={t("buttonLabel.save")}
             type="submit"
             size="middle"
-            onContinue={() => onFormReset()}
+            onFormReset={() => onFormReset()}
+            onSubmit={() => onSubmit()}
             isFormValid={isFormValid} //будем показывать Alert только если форма валидна
             isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
           />

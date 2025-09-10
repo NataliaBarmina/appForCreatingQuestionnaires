@@ -20,10 +20,6 @@ const QuestionActions = ({
     <div className={"mb-8 flex w-full justify-around py-8"}>
       <div>
         <Alert
-          whatToDo={
-            //todo: потом удалить
-            "сохраняем данные в стэйт и удаляем вопрос из временного хранилища"
-          }
           alertDialogTitle={t("alert.title")}
           alertDialogDescription={t("alert.checkQuestions")}
           alertDialogAction={t("alert.continueEditing")}
@@ -31,7 +27,7 @@ const QuestionActions = ({
           buttonLabel={t("buttonLabel.save")}
           isFormValid={true}
           isSubmitting={false}
-          onContinue={() => {}}
+          onFormReset={() => {}}
           size="small"
         />
       </div>
@@ -45,7 +41,6 @@ const QuestionActions = ({
       </div>
       <div>
         <Alert
-          whatToDo={"удаляем вопрос из временного хранилища"} //todo: потом удалить
           alertDialogTitle={t("alert.title")}
           alertDialogDescription={t("alert.deleteWarning")}
           alertDialogAction={t("alert.continueEditing")}
@@ -53,7 +48,7 @@ const QuestionActions = ({
           buttonLabel={t("buttonLabel.delete")}
           isFormValid={true}
           isSubmitting={false}
-          onContinue={() => {}}
+          onFormReset={() => {}}
           size="small"
         />
       </div>

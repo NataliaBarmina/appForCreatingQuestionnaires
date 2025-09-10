@@ -1,19 +1,35 @@
 import { Form } from "@ui/form";
 import { TQuizData } from "@/common/dataExample";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 import { formContainerClasses } from "./styles";
 import useQuestionForm from "./useQuestionForm";
 import FormAction from "../formForCreatingQuestionsByAI/formAction";
 import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
+import { TFields } from "@commonComponents/createFields";
+import type { Dispatch } from "redux";
+import { addTheme, TQuizAction } from "@reducers/createByYourSelfReducer";
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<Dispatch<TQuizAction>>();
 
   const form = useQuestionForm(theme, t("required"));
 
-  function onSubmit(values: any) {
-    // console.log("Сохраненные данные:", values); //todo- удалить или что-то сделать
+  function onSubmit(values: TFields) {
+    const selectedTopic = theme || values.selfWrittenTopicName;
+
+    dispatch(
+      addTheme(
+        course ?? "",
+        selectedTopic,
+        values.selfWrittenQuestion,
+        values.selfWrittenAnswer1,
+        values.selfWrittenAnswer2,
+        values.selfWrittenAnswer3,
+      ),
+    );
   }
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы
@@ -57,7 +73,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               <AnswersField
                 control={form.control}
                 name="selfWrittenAnswer1"
-                placeholder={t("placeholder.wrongAnswer")}
+                placeholder={t("placeholder.correctAnswer")}
                 formLabel={t("formLabel.answers").toLowerCase()}
               />
               <AnswersField
@@ -76,6 +92,7 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
               isFormValid={isFormValid}
               isSubmitting={isSubmitting}
               onFormReset={onFormReset}
+              onSubmit={() => form.handleSubmit(onSubmit)}
             />
           </form>
         </Form>
