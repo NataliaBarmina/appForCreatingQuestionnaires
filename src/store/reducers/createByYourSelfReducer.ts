@@ -107,6 +107,7 @@ function createByYourSelfReducer(
 
       return quizData;
     }
+
     default:
       return state;
   }

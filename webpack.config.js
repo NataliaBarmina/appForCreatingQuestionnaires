@@ -76,6 +76,7 @@ module.exports = (env) => {
         "@ui": path.resolve(__dirname, "src/chadcnComponents/ui"),
         "@store": path.resolve(__dirname, "src/store/"),
         "@reducers": path.resolve(__dirname, "src/store/reducers/"),
+        "@utils": path.resolve(__dirname, "src/utils/"),
       },
       extensions: [".tsx", ".ts", ".js"], // файлы с исходным кодом
     },

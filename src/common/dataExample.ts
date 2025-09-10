@@ -1,6 +1,6 @@
 //todo: потом удалить этот файл
 
-import { TQuestion } from "@store/commonTypes";
+import { TQuestion, TSubject } from "@store/commonTypes";
 
 export const questionsList: TQuestion[] = [
   {
