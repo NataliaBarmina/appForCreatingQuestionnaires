@@ -6,6 +6,9 @@ export type TFormForEditingQuestions = {
   correctAnswer?: string;
   wrongAnswer1?: string;
   wrongAnswer2?: string;
+  course?: string;
+  theme?: string;
+  questionIndex?: number;
   closeDialog?: () => void;
 };
 export type TForm = {
