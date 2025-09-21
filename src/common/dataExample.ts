@@ -1,6 +1,6 @@
 //todo: потом удалить этот файл
 
-import { TQuestion, TSubject } from "@store/commonTypes";
+import { TQuestion, TCourse } from "@store/commonTypes";
 
 export const questionsList: TQuestion[] = [
   {
@@ -31,7 +31,7 @@ export const questionsList: TQuestion[] = [
   },
 ];
 
-// export const quizData: TSubject[] = [
+// export const quizData: TCourse[] = [
 //   {
 //     JavaScript: [
 //       {

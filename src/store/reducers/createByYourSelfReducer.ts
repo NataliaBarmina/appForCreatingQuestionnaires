@@ -1,38 +1,39 @@
-import { TQuestion, TSubject } from "../commonTypes";
+import { TQuestion, TCourse } from "../commonTypes";
 import { initialState } from "../initialState";
 import { TAction } from "../reducers/types";
 import { ADD_THEME, DELETE_QUESTION, EDIT_QUESTION } from "../reducers/actions";
 
-function getSelectedTopic(state: TSubject[], subject: string, topic: string) {
+function getSelectedTopic(state: TCourse[], subject: string, topic: string) {
   // объект с ключом: выбранный курс
-  const objectWithSelectedCourse = state.find((item) => item[subject]);
+  const selectedCourse = state.find((item) => item[subject]);
 
   // массив с темами в рамках выбранного курса
-  const arrayWithSelectedThemes = objectWithSelectedCourse[subject];
+  const selectedThemes = selectedCourse[subject];
 
   // объект с ключом: выбранная тема
-  const objectWithSelectedTopic = arrayWithSelectedThemes.find(
-    (item) => item[topic],
-  );
+  const objectWithSelectedTopic = selectedThemes.find((item) => item[topic]);
   return {
-    objectWithSelectedCourse,
-    arrayWithSelectedThemes,
+    selectedCourse,
+    selectedThemes,
     objectWithSelectedTopic,
   };
 }
 
 function createByYourSelfReducer(
-  state: TSubject[] = initialState,
+  state: TCourse[] = initialState,
   action: TAction,
-): TSubject[] {
+): TCourse[] {
   switch (action.type) {
     case ADD_THEME: {
       const { subject, topic, question, answer_1, answer_2, answer_3 } =
         action.payload;
       const quizData = structuredClone(state);
 
-      const { objectWithSelectedTopic, arrayWithSelectedThemes } =
-        getSelectedTopic(quizData, subject, topic);
+      const { objectWithSelectedTopic, selectedThemes } = getSelectedTopic(
+        quizData,
+        subject,
+        topic,
+      );
 
       const objectWithQuestions: TQuestion = {
         question,
@@ -48,7 +49,7 @@ function createByYourSelfReducer(
         const arrayWithSelectedTopic = objectWithSelectedTopic[topic];
         arrayWithSelectedTopic.push(objectWithQuestions);
       } else {
-        arrayWithSelectedThemes.push({ [topic]: [objectWithQuestions] });
+        selectedThemes.push({ [topic]: [objectWithQuestions] });
       }
 
       return quizData;

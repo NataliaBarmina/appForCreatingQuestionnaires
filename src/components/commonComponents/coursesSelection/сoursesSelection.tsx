@@ -8,7 +8,7 @@ import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { TSubject } from "@store/commonTypes";
+import { TCourse } from "@store/commonTypes";
 import { TRootState } from "@store/store";
 
 const CoursesSelection = () => {
@@ -25,16 +25,15 @@ const CoursesSelection = () => {
   const quizData = useSelector((state: TRootState) => state.createByYourSelf);
 
   const courseNames: string[] = quizData.map(
-    (item: TSubject) => Object.keys(item)[0],
+    (item: TCourse) => Object.keys(item)[0],
   );
 
   const selectedCourseName = courseNames[tabValue];
 
-  const objectWithSelectedCourse = quizData.find(
+  const selectedCourse = quizData.find(
     (item) => Object.keys(item)[0] === selectedCourseName,
   ); //объект с ключом-курс
-  const arrayWithSelectedThemes =
-    objectWithSelectedCourse[selectedCourseName] ?? []; //массив с темами в рамках выбранного курса
+  const selectedThemes = selectedCourse[selectedCourseName] ?? []; //массив с темами в рамках выбранного курса
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,7 +52,7 @@ const CoursesSelection = () => {
         <CustomTabPanel value={tabValue} index={tabValue}>
           <ThemesSelection
             course={selectedCourseName} // название курса
-            arrayWithSelectedThemes={arrayWithSelectedThemes} // массив вопросов с темами
+            selectedThemes={selectedThemes} // массив вопросов с темами
             buttonID={buttonID}
           />
         </CustomTabPanel>

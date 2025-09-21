@@ -5,19 +5,16 @@ import ListItemText from "@mui/material/ListItemText";
 import { TTopic, TQuestion } from "@store/commonTypes";
 
 type TThemeList = {
-  arrayWithSelectedThemes: TTopic[];
+  selectedThemes: TTopic[];
   handleThemeClick: (theme: string, questions: TQuestion[]) => void;
 };
 
-const ThemeList = ({
-  arrayWithSelectedThemes,
-  handleThemeClick,
-}: TThemeList) => {
+const ThemeList = ({ selectedThemes, handleThemeClick }: TThemeList) => {
   return (
     <div>
       <nav aria-label="Themes list">
         <List>
-          {arrayWithSelectedThemes.map((topic: TTopic, index: number) => {
+          {selectedThemes.map((topic: TTopic, index: number) => {
             const [theme, questions] = Object.entries(topic)[0];
 
             return (

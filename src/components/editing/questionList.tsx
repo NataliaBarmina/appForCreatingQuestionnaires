@@ -27,15 +27,11 @@ const QuestionList = () => {
   const dispatch = useDispatch();
 
   const questionsFromRedux = useSelector((state: TRootState) => {
-    const objectWithSelectedCourse = state.createByYourSelf.find(
-      (item) => item[course],
-    );
-    if (!objectWithSelectedCourse) return [];
+    const selectedCourse = state.createByYourSelf.find((item) => item[course]);
+    if (!selectedCourse) return [];
 
-    const arrayWithSelectedThemes = objectWithSelectedCourse[course];
-    const objectWithSelectedTopic = arrayWithSelectedThemes.find(
-      (item) => item[theme],
-    );
+    const selectedThemes = selectedCourse[course];
+    const objectWithSelectedTopic = selectedThemes.find((item) => item[theme]);
     if (!objectWithSelectedTopic) return [];
 
     const arrayWithQuestions = objectWithSelectedTopic[theme];

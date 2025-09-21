@@ -1,6 +1,6 @@
-import { TSubject } from "./commonTypes";
+import { TCourse } from "./commonTypes";
 
-export const initialState: TSubject[] = [
+export const initialState: TCourse[] = [
   { JavaScript: [] },
   { CSS: [] },
   { TypeScript: [] },
