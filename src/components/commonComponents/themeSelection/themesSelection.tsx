@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Button from "@commonComponents/buttons";
 import { TQuizData, TQuestion } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import ThemeList from "./themeList";
@@ -22,12 +21,6 @@ const ThemesSelection = ({
     });
   };
 
-  // const handleAddThemeClick = () => {
-  //   navigate("/formSelection", {
-  //     state: { buttonID, course, selectedThemes },
-  //   });
-  // };
-
   return (
     <div className="mx-auto w-full">
       <h1 className="pb-10 pt-12 text-xl font-bold">
@@ -38,16 +31,7 @@ const ThemesSelection = ({
           selectedThemes={selectedThemes}
           handleThemeClick={handleThemeClick}
         />
-        {buttonID !== CreationModeButton.EDITING && (
-          // <Button
-          //   onClick={() => handleAddThemeClick()}
-          //   buttonLabel={t("buttonLabel.addTheme")}
-          //   disabled={false}
-          //   type="button"
-          //   size="middle"
-          // />
-          <PopoverBlock course={course} />
-        )}
+        {buttonID !== CreationModeButton.EDITING && <PopoverBlock />}
       </div>
     </div>
   );

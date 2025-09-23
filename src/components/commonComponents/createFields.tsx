@@ -3,8 +3,8 @@ import { cn } from "@lib/utils";
 
 //todo: проверить какие поля используются для Textarea, неиспользующиеся разнести по компонентам
 export type TFields = {
-  topicName?: string; //FormForCreatingQuestionsByAI
-  linkToSource?: string; //FormForCreatingQuestionsByAI
+  topicName?: string; //FormForCreatingTheme
+  linkToSource?: string; //FormForCreatingTheme
   selfWrittenTopicName?: string; //FormForCreatingQuestionsYourself
   selfWrittenQuestion?: string; //FormForCreatingQuestionsYourself
   selfWrittenAnswer1?: string; //FormForCreatingQuestionsYourself
