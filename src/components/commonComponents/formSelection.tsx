@@ -17,9 +17,9 @@ const FormSelection = () => {
       {buttonID === CreationModeButton.MANUAL && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonID === CreationModeButton.AI && (
+      {/* {buttonID === CreationModeButton.AI && (
         <FormForCreatingTheme course={course} theme={theme} />
-      )}
+      )} */}
       {buttonID === CreationModeButton.EDITING && <QuestionList />}
     </div>
   );

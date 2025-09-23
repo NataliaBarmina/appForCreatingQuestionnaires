@@ -1,26 +1,34 @@
 import { SubmitHandler } from "react-hook-form";
 import { TFields } from "@commonComponents/createFields";
-import { useNavigate } from "react-router-dom";
 import Button from "@commonComponents/buttons";
-import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import TextAreaBlock from "./textAreaBlock";
-import useQuestionForm from "./useQuestionForm";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-const FormForCreatingTheme = ({ course, theme }: TQuizData) => {
+type TFormForCreatingTheme = {
+  closePopover: () => void;
+};
+
+const FormForCreatingTheme = ({ closePopover }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
+
+  const schema = yup.object({
+    topicName: yup.string().required(t("required")),
+  });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useQuestionForm({ topicName: theme }, t("required"));
-
-  const navigate = useNavigate();
+  } = useForm<TFields>({
+    mode: "onBlur",
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    navigate("/formForCreatingQuestionsYourself", { state: { course, theme } });
-    //todo: здесь у меня поповер должен закрываться
+    closePopover();
   };
 
   return (
@@ -32,7 +40,6 @@ const FormForCreatingTheme = ({ course, theme }: TQuizData) => {
           fieldName="topicName"
           styles=""
           error={errors.topicName}
-          disabled={!!theme}
         />
       </div>
       <div>
