@@ -3,14 +3,15 @@ import { useTranslation } from "react-i18next";
 import { useFormConfig } from "./useFormConfig";
 import QuestionItem from "./questionItem";
 import { useSelector } from "react-redux";
-import { getQuestionnaire } from "@store/selectors";
+// import { getQuestionnaire } from "@store/selectors";
 import { FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { questionsList } from "@common/dataExample"; // todo - потом убрать
 
 const FormQuestionnaire = () => {
   const { t } = useTranslation();
 
-  const questionsList = useSelector(getQuestionnaire);
+  // const questionsList = useSelector(getQuestionnaire);
   const navigate = useNavigate();
 
   const methods = useFormConfig(questionsList, navigate);

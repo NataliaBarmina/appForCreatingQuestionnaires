@@ -9,7 +9,7 @@ import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";
 import type { Dispatch } from "redux";
-import { addTheme } from "@reducers/actions";
+// import { addTheme } from "@reducers/actions";
 import { TAddThemeAction } from "@reducers/types";
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
@@ -21,16 +21,16 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   function onSubmit(values: TFields) {
     const selectedTopic = theme || values.selfWrittenTopicName;
 
-    dispatch(
-      addTheme({
-        subject: course ?? "",
-        topic: selectedTopic,
-        question: values.selfWrittenQuestion,
-        answer_1: values.selfWrittenAnswer1,
-        answer_2: values.selfWrittenAnswer2,
-        answer_3: values.selfWrittenAnswer3,
-      }),
-    );
+    // dispatch(
+    //   addTheme({
+    //     course: course ?? "",
+    //     topic: selectedTopic,
+    //     question: values.selfWrittenQuestion,
+    //     answer_1: values.selfWrittenAnswer1,
+    //     answer_2: values.selfWrittenAnswer2,
+    //     answer_3: values.selfWrittenAnswer3,
+    //   }),
+    // );
   }
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы

@@ -22,7 +22,8 @@ const CoursesSelection = () => {
     setTabValue(newValue);
   };
 
-  const quizData = useSelector((state: TRootState) => state.createByYourSelf);
+  // const quizData = useSelector((state: TRootState) => state.createByYourSelf);
+  const quizData = useSelector((state: TRootState) => state.createTheme);
 
   const courseNames: string[] = quizData.map(
     (item: TCourse) => Object.keys(item)[0],

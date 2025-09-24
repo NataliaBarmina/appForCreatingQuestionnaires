@@ -1,74 +1,56 @@
+import { theme } from "@common/themeForMaterialUI";
 import { TQuestion, TCourse } from "../commonTypes";
 import { initialState } from "../initialState";
 import { TAction } from "../reducers/types";
-import { ADD_THEME, DELETE_QUESTION, EDIT_QUESTION } from "../reducers/actions";
-
-function getSelectedTopic(state: TCourse[], subject: string, topic: string) {
-  // объект с ключом: выбранный курс
-  const selectedCourse = state.find((item) => item[subject]);
-
-  // массив с темами в рамках выбранного курса
-  const selectedThemes = selectedCourse[subject];
-
-  // объект с ключом: выбранная тема
-  const objectWithSelectedTopic = selectedThemes.find((item) => item[topic]);
-  return {
-    selectedCourse,
-    selectedThemes,
-    objectWithSelectedTopic,
-  };
-}
+import { DELETE_QUESTION, EDIT_QUESTION } from "../reducers/actions";
+import { getSelectedTopic } from "./utils";
 
 function createByYourSelfReducer(
   state: TCourse[] = initialState,
   action: TAction,
 ): TCourse[] {
   switch (action.type) {
-    case ADD_THEME: {
-      const { subject, topic, question, answer_1, answer_2, answer_3 } =
-        action.payload;
-      const quizData = structuredClone(state);
+    // case ADD_THEME: {
+    //   const { course, topic, question, answer_1, answer_2, answer_3 } =
+    //     action.payload;
+    //   const quizData = structuredClone(state);
 
-      const { objectWithSelectedTopic, selectedThemes } = getSelectedTopic(
-        quizData,
-        subject,
-        topic,
-      );
+    //   const { selectedTopic, selectedThemes } = getSelectedTopic(
+    //     quizData,
+    //     course,
+    //     topic,
+    //   );
 
-      const objectWithQuestions: TQuestion = {
-        question,
-        answer_1,
-        answer_2,
-        answer_3,
-      };
+    //   const questionAndAnswers: TQuestion = {
+    //     question,
+    //     answer_1,
+    //     answer_2,
+    //     answer_3,
+    //   };
 
-      // Если тема с таким названием (topic) есть,находим массив вопросов этой темы и пушим.
-      // Если нет, пушим новый объект с темами
+    //   // Если тема с таким названием (topic) есть,находим массив вопросов этой темы и пушим.
+    //   // Если нет, пушим новый объект с темами
 
-      if (objectWithSelectedTopic) {
-        const arrayWithSelectedTopic = objectWithSelectedTopic[topic];
-        arrayWithSelectedTopic.push(objectWithQuestions);
-      } else {
-        selectedThemes.push({ [topic]: [objectWithQuestions] });
-      }
+    //   if (selectedTopic) {
+    //     const arrayWithSelectedTopic = selectedTopic[topic];
+    //     arrayWithSelectedTopic.push(questionAndAnswers);
+    //   } else {
+    //     selectedThemes.push({ [topic]: [questionAndAnswers] });
+    //   }
 
-      return quizData;
-    }
+    //   return quizData;
+    // }
     case DELETE_QUESTION: {
-      const { subject, topic, questionIndex } = action.payload;
+      const { course, topic, questionIndex } = action.payload;
 
       if (!topic || questionIndex === undefined) return state;
 
       const quizData = structuredClone(state);
 
-      const { objectWithSelectedTopic } = getSelectedTopic(
-        quizData,
-        subject,
-        topic,
-      );
-      if (!objectWithSelectedTopic) return state;
+      const { selectedTopic } = getSelectedTopic(quizData, course, topic);
+      if (!selectedTopic) return state;
 
-      objectWithSelectedTopic[topic] = objectWithSelectedTopic[topic].filter(
+      selectedTopic[topic] = selectedTopic[topic].filter(
         (_, idx) => idx !== questionIndex,
       );
 
@@ -76,7 +58,7 @@ function createByYourSelfReducer(
     }
     case EDIT_QUESTION: {
       const {
-        subject,
+        course,
         topic,
         questionIndex,
         question,
@@ -89,14 +71,10 @@ function createByYourSelfReducer(
 
       const quizData = structuredClone(state);
 
-      const { objectWithSelectedTopic } = getSelectedTopic(
-        quizData,
-        subject,
-        topic,
-      );
-      if (!objectWithSelectedTopic) return state;
+      const { selectedTopic } = getSelectedTopic(quizData, course, topic);
+      if (!selectedTopic) return state;
 
-      const arrayWithSelectedQuestions = objectWithSelectedTopic[topic];
+      const arrayWithSelectedQuestions = selectedTopic[topic];
       if (!arrayWithSelectedQuestions[questionIndex]) return state;
 
       arrayWithSelectedQuestions[questionIndex] = {
