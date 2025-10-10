@@ -14,8 +14,8 @@ export type TQuizData = {
   course?: string;
   theme?: string;
   questionsList?: TQuestion[];
-  selectedThemes?: TTopic[];
   buttonID?: string;
+  selectedTopicName?: string[];
 };
 
 export enum CreationModeButton {

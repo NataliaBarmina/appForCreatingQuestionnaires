@@ -1,4 +1,9 @@
-import { ADD_THEME, DELETE_QUESTION, EDIT_QUESTION } from "../reducers/actions";
+import {
+  ADD_THEME,
+  DELETE_QUESTION,
+  EDIT_QUESTION,
+  ADD_QUESTION,
+} from "../reducers/actions";
 
 export type TQuestionPayload = {
   course?: string;
@@ -15,6 +20,11 @@ export type TAddThemeAction = {
   payload: TQuestionPayload;
 };
 
+export type TAddQuestionAction = {
+  type: typeof ADD_QUESTION;
+  payload: TQuestionPayload;
+};
+
 export type TDeleteQuestionAction = {
   type: typeof DELETE_QUESTION;
   payload: TQuestionPayload;
@@ -28,4 +38,5 @@ export type TEditQuestionAction = {
 export type TAction =
   | TAddThemeAction
   | TDeleteQuestionAction
-  | TEditQuestionAction;
+  | TEditQuestionAction
+  | TAddQuestionAction;

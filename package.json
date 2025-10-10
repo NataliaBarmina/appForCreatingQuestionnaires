@@ -38,6 +38,7 @@
     "reselect": "^5.1.1",
     "tailwind-merge": "^3.1.0",
     "tailwindcss-animate": "^1.0.7",
+    "uuid": "^13.0.0",
     "yup": "^1.5.0"
   },
   "devDependencies": {
