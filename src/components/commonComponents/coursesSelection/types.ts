@@ -10,10 +10,10 @@ export type THandleTabChange = (
   newValue: number,
 ) => void;
 
-export type TCoursesSelectionProps = {
+export type TCoursesSelection = {
   tabValue?: number;
-  selectedCourseName?: string;
-  courseThemes?: TTopic[];
+  courseName?: string;
+  themeName?: string;
   courseNames?: string[];
   handleChange?: THandleTabChange;
 };
