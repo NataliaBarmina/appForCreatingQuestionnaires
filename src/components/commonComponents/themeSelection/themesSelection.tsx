@@ -7,17 +7,17 @@ import { mainContainerStyles } from "./styles";
 import PopoverBlock from "./popoverBlock";
 
 const ThemesSelection = ({
-  course, // название курса
-  selectedThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
+  course,
   buttonID,
+  selectedTopicName,
 }: TQuizData) => {
   const navigate = useNavigate();
 
   const { t } = useTranslation();
 
-  const handleThemeClick = (theme: string, questions: TQuestion[]) => {
+  const handleThemeClick = (theme: string) => {
     navigate("/formSelection", {
-      state: { buttonID, course, questions, theme },
+      state: { buttonID, course, theme },
     });
   };
 
@@ -28,7 +28,7 @@ const ThemesSelection = ({
       </h1>
       <div className={mainContainerStyles}>
         <ThemeList
-          selectedThemes={selectedThemes}
+          selectedTopicName={selectedTopicName}
           handleThemeClick={handleThemeClick}
         />
         {buttonID !== CreationModeButton.EDITING && (
