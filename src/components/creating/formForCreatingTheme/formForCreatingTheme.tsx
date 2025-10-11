@@ -6,8 +6,8 @@ import TextAreaBlock from "./textAreaBlock";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch, UseDispatch } from "react-redux";
-import { addTheme } from "@store/reducers/actions";
+import { useDispatch } from "react-redux";
+import { addThemes } from "@store/reducers/newReducer";
 
 type TFormForCreatingTheme = {
   closePopover: () => void;
@@ -34,10 +34,7 @@ const FormForCreatingTheme = ({
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    console.log(data.topicName);
-    console.log(course);
-    dispatch(addTheme({ course: course, topic: data.topicName }));
-
+    dispatch(addThemes({ courseName: course, themeName: data.topicName }));
     closePopover();
   };
 
