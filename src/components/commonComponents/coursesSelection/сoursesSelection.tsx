@@ -1,40 +1,24 @@
 import { ThemeProvider } from "@mui/material";
-import { useState } from "react";
 import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "../themeSelection/themesSelection";
-import { THandleTabChange } from "./types";
 import TabsContainer from "./tabsContainer";
 import CustomTabPanel from "./сustomTabPanel";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { TCourse } from "@store/commonTypes";
-import { TRootState } from "@store/store";
+import { useCoursesSelectionLogic } from "./useCoursesSelectionLogic";
 
 const CoursesSelection = () => {
   const location = useLocation();
   const buttonID = location.state?.buttonID;
   const { t } = useTranslation();
 
-  const [tabValue, setTabValue] = useState(0);
-
-  const handleChange: THandleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
-
-  // const quizData = useSelector((state: TRootState) => state.createByYourSelf);
-  const quizData = useSelector((state: TRootState) => state.createTheme);
-
-  const courseNames: string[] = quizData.map(
-    (item: TCourse) => Object.keys(item)[0],
-  );
-
-  const selectedCourseName = courseNames[tabValue];
-
-  const selectedCourse = quizData.find(
-    (item) => Object.keys(item)[0] === selectedCourseName,
-  ); //объект с ключом-курс
-  const selectedThemes = selectedCourse[selectedCourseName] ?? []; //массив с темами в рамках выбранного курса
+  const {
+    tabValue,
+    courseNames,
+    handleChange,
+    selectedCourseName,
+    selectedTopicName,
+  } = useCoursesSelectionLogic();
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,8 +36,8 @@ const CoursesSelection = () => {
         </div>
         <CustomTabPanel value={tabValue} index={tabValue}>
           <ThemesSelection
-            course={selectedCourseName} // название курса
-            selectedThemes={selectedThemes} // массив вопросов с темами
+            course={selectedCourseName}
+            selectedTopicName={selectedTopicName}
             buttonID={buttonID}
           />
         </CustomTabPanel>
