@@ -26,18 +26,19 @@ const QuestionList = () => {
 
   const dispatch = useDispatch();
 
-  const questionsFromRedux = useSelector((state: TRootState) => {
-    const selectedCourse = state.createByYourSelf.find((item) => item[course]);
-    if (!selectedCourse) return [];
+  // const questionsFromRedux = useSelector((state: TRootState) => {
+  //   console.log(state + "jgkldk");
+  //   const selectedCourse = state.reducer.find((item) => item[course]);
+  //   if (!selectedCourse) return [];
 
-    const selectedThemes = selectedCourse[course];
-    const selectedTopic = selectedThemes.find((item) => item[theme]);
-    if (!selectedTopic) return [];
+  //   const selectedThemes = selectedCourse[course];
+  //   const selectedTopic = selectedThemes.find((item) => item[theme]);
+  //   if (!selectedTopic) return [];
 
-    const arrayWithQuestions = selectedTopic[theme];
+  //   const arrayWithQuestions = selectedTopic[theme];
 
-    return arrayWithQuestions;
-  });
+  //   return arrayWithQuestions;
+  // });
 
   const onDelete = (index: number) => {
     dispatch(
@@ -51,7 +52,7 @@ const QuestionList = () => {
 
   return (
     <div>
-      <div className="pb-1">
+      <div className="bg-red-400 pb-1">
         <HeadersBlock
           questionsGeneratedByAIHeader={t("header.editQuestion")}
           courseHeader={t("header.course")}
@@ -60,7 +61,7 @@ const QuestionList = () => {
           theme={theme}
         />
 
-        {questionsFromRedux.map((item, index) => (
+        {/* {questionsFromRedux.map((item, index) => (
           <div key={index} className={greenContainerStyles}>
             <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
@@ -98,7 +99,7 @@ const QuestionList = () => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

@@ -8,29 +8,26 @@ import FormAction from "../formForCreatingTheme/formAction";
 import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";
-import type { Dispatch } from "redux";
-// import { addTheme } from "@reducers/actions";
-import { TAddThemeAction } from "@reducers/types";
+import { addQuestion } from "@reducers/actions";
 
 const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch<Dispatch<TAddThemeAction>>();
+  // const dispatch = useDispatch();
 
   const form = useQuestionForm(theme, t("required"));
 
   function onSubmit(values: TFields) {
-    const selectedTopic = theme || values.selfWrittenTopicName;
-
-    // dispatch(
-    //   addTheme({
-    //     course: course ?? "",
-    //     topic: selectedTopic,
-    //     question: values.selfWrittenQuestion,
-    //     answer_1: values.selfWrittenAnswer1,
-    //     answer_2: values.selfWrittenAnswer2,
-    //     answer_3: values.selfWrittenAnswer3,
-    //   }),
-    // );
+    // const selectedTopic = theme || values.selfWrittenTopicName;// todo - разобраться с этим  //todo - отредактировать стиль темы
+    //   dispatch(
+    //     addQuestion({
+    //       course: course,
+    //       topic: theme,
+    //       question: values.selfWrittenQuestion,
+    //       answer_1: values.selfWrittenAnswer1,
+    //       answer_2: values.selfWrittenAnswer2,
+    //       answer_3: values.selfWrittenAnswer3,
+    //     }),
+    //   );
   }
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы
@@ -38,7 +35,6 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
 
   const onFormReset = () => {
     form.reset({
-      selfWrittenTopicName: theme,
       selfWrittenQuestion: "",
       selfWrittenAnswer1: "",
       selfWrittenAnswer2: "",
@@ -56,18 +52,13 @@ const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
       <div className="p-8 text-[150%] font-bold">
         {t("header.createQuestion")} {course}
       </div>
+      <div className="p-8 text-[150%] font-bold">
+        {t("formLabel.topic")} {theme}
+      </div>
 
       <div className={formContainerClasses}>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <CustomTextAreaField
-              control={form.control}
-              disabled={!!theme}
-              name="selfWrittenTopicName"
-              formLabel={t("formLabel.topic")}
-              placeholder={t("placeholder.topic")}
-            />
-
             <CustomTextAreaField
               control={form.control}
               disabled={false}
