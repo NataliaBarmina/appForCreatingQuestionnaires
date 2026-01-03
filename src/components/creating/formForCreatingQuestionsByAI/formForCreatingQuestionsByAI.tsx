@@ -21,39 +21,23 @@ const FormForCreatingQuestionsByAI = ({ course, theme }: TQuizData) => {
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     // console.log(data);
-    navigate("/questionsCreatedByAI", { state: { course, theme } });
+    navigate("/formForCreatingQuestionsYourself", { state: { course, theme } });
   };
-
+  // /questionsCreatedByAI // todo - потом переделать, надо вводить какую-то общую компоненту
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto pb-6">
-      <div className={headerClasses}>{t("header.formCreateByAI")}</div>
-      <div className={formContainerClasses}>
-        <div className="mx-auto w-[90%]">
-          <div className="p-8 text-lg font-bold text-blue-100">
-            {t("header.course")} {course}
-          </div>
-          <div className="mx-auto">
-            <TextAreaBlock
-              placeholder={t("placeholder.topic")}
-              register={register}
-              fieldName="topicName"
-              styles=""
-              error={errors.topicName}
-              disabled={!!theme}
-            />
-          </div>
-          <div className="mt-12 2xl:mb-[8vh]">
-            <TextAreaBlock
-              placeholder={t("placeholder.sourceLink")}
-              register={register}
-              fieldName="linkToSource"
-              styles=""
-            />
-          </div>
-        </div>
-        <div className="mb-10">
-          <Button buttonLabel={t("buttonLabel.send")} size="middle" />
-        </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="mt-4">
+        <TextAreaBlock
+          placeholder={t("placeholder.topic")}
+          register={register}
+          fieldName="topicName"
+          styles=""
+          error={errors.topicName}
+          disabled={!!theme}
+        />
+      </div>
+      <div>
+        <Button buttonLabel={t("buttonLabel.send")} size="middle" />
       </div>
     </form>
   );

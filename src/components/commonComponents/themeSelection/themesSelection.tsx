@@ -3,14 +3,10 @@ import Button from "@commonComponents/buttons";
 import { TQuizData, TQuestion } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
 import ThemeList from "./themeList";
-import { cn } from "@lib/utils";
 import { CreationModeButton } from "@store/commonTypes";
+import { mainContainerStyles } from "./styles";
+import PopoverBlock from "./popoverBlock";
 
-const mainContainerSTyles = cn(
-  "mx-auto w-full rounded-none bg-green-800",
-  "px-0 py-[20px] pb-[25px]",
-  "sm:w-[90%] sm:rounded-[15px]",
-);
 const ThemesSelection = ({
   course, // название курса
   selectedThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
@@ -26,30 +22,31 @@ const ThemesSelection = ({
     });
   };
 
-  const handleAddThemeClick = () => {
-    navigate("/formSelection", {
-      state: { buttonID, course, selectedThemes },
-    });
-  };
+  // const handleAddThemeClick = () => {
+  //   navigate("/formSelection", {
+  //     state: { buttonID, course, selectedThemes },
+  //   });
+  // };
 
   return (
     <div className="mx-auto w-full">
       <h1 className="pb-10 pt-12 text-xl font-bold">
         {t("header.themeSelection")} {course}
       </h1>
-      <div className={mainContainerSTyles}>
+      <div className={mainContainerStyles}>
         <ThemeList
           selectedThemes={selectedThemes}
           handleThemeClick={handleThemeClick}
         />
         {buttonID !== CreationModeButton.EDITING && (
-          <Button
-            onClick={() => handleAddThemeClick()}
-            buttonLabel={t("buttonLabel.addTheme")}
-            disabled={false}
-            type="button"
-            size="middle"
-          />
+          // <Button
+          //   onClick={() => handleAddThemeClick()}
+          //   buttonLabel={t("buttonLabel.addTheme")}
+          //   disabled={false}
+          //   type="button"
+          //   size="middle"
+          // />
+          <PopoverBlock course={course} />
         )}
       </div>
     </div>
