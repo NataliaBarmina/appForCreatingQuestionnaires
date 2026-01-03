@@ -10,8 +10,8 @@ import { useDispatch } from "react-redux";
 import { addThemes } from "@store/reducers/newReducer";
 
 type TFormForCreatingTheme = {
-  closePopover: () => void;
-  course: string;
+  closePopover?: () => void;
+  course?: string;
 };
 
 const FormForCreatingTheme = ({
@@ -42,7 +42,7 @@ const FormForCreatingTheme = ({
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mt-4">
         <TextAreaBlock
-          placeholder={`${t("placeholder.topic")} из курса ${course}`}
+          placeholder={t("placeholder.topic")}
           register={register}
           fieldName="topicName"
           styles=""

@@ -39,6 +39,9 @@ const FormQuestionnaire = lazy(
 const ResultsOfTheQuestionnaire = lazy(
   () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
 );
+const FormForCreatingQuestionsByAI = lazy(
+  () => import("./components/creating/formForCreatingQuestionsByAI"),
+);
 
 const root = createRoot(document.getElementById("root"));
 
@@ -118,6 +121,14 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <FormSelection />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/formForCreatingQuestionsByAI",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <FormForCreatingQuestionsByAI />
             </Suspense>
           ),
         },
