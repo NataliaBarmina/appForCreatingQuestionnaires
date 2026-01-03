@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import createByYourSelfReducer from "./reducers/createByYourSelfReducer";
+import reducer from "./reducers/reducer";
 import { configureStore } from "@reduxjs/toolkit";
-import createThemeReducer from "./reducers/createThemeReducer";
+import addThemeReducer from "./reducers/newReducer";
 
 const rootReducer = combineReducers({
-  createByYourSelf: createByYourSelfReducer,
-  createTheme: createThemeReducer,
+  // reducer: reducer,
+  addTheme: addThemeReducer,
 });
 
 const store = configureStore({

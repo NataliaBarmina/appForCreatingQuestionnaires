@@ -3,11 +3,13 @@ import {
   TAddThemeAction,
   TDeleteQuestionAction,
   TEditQuestionAction,
-} from "../reducers/types";
+  TAddQuestionAction,
+} from "./types";
 
-export const DELETE_QUESTION = "DELETE-QUESTION";
-export const EDIT_QUESTION = "EDIT-QUESTION";
+export const DELETE_QUESTION = "DELETE_QUESTION";
+export const EDIT_QUESTION = "EDIT_QUESTION";
 export const ADD_THEME = "ADD_THEME";
+export const ADD_QUESTION = "ADD_QUESTION";
 
 export const addTheme = (payload: TQuestionPayload): TAddThemeAction => ({
   type: ADD_THEME,
@@ -25,5 +27,10 @@ export const editQuestion = (
   payload: TQuestionPayload,
 ): TEditQuestionAction => ({
   type: EDIT_QUESTION,
+  payload,
+});
+
+export const addQuestion = (payload: TQuestionPayload): TAddQuestionAction => ({
+  type: ADD_QUESTION,
   payload,
 });
