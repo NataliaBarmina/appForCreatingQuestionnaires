@@ -31,7 +31,9 @@ const ThemesSelection = ({
           selectedThemes={selectedThemes}
           handleThemeClick={handleThemeClick}
         />
-        {buttonID !== CreationModeButton.EDITING && <PopoverBlock />}
+        {buttonID !== CreationModeButton.EDITING && (
+          <PopoverBlock course={course} />
+        )}
       </div>
     </div>
   );

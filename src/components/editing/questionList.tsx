@@ -31,10 +31,10 @@ const QuestionList = () => {
     if (!selectedCourse) return [];
 
     const selectedThemes = selectedCourse[course];
-    const objectWithSelectedTopic = selectedThemes.find((item) => item[theme]);
-    if (!objectWithSelectedTopic) return [];
+    const selectedTopic = selectedThemes.find((item) => item[theme]);
+    if (!selectedTopic) return [];
 
-    const arrayWithQuestions = objectWithSelectedTopic[theme];
+    const arrayWithQuestions = selectedTopic[theme];
 
     return arrayWithQuestions;
   });
@@ -42,7 +42,7 @@ const QuestionList = () => {
   const onDelete = (index: number) => {
     dispatch(
       deleteQuestion({
-        subject: course,
+        course: course,
         topic: theme,
         questionIndex: index,
       }),

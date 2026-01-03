@@ -1,7 +1,7 @@
 import { ADD_THEME, DELETE_QUESTION, EDIT_QUESTION } from "../reducers/actions";
 
 export type TQuestionPayload = {
-  subject?: string;
+  course?: string;
   topic?: string;
   question?: string;
   answer_1?: string;

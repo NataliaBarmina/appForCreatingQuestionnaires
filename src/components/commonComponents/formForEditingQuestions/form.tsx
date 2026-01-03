@@ -33,7 +33,7 @@ const Form = ({
 
     dispatch(
       editQuestion({
-        subject: course,
+        course: course,
         topic: theme,
         questionIndex,
         question: updatedQuestion.question,

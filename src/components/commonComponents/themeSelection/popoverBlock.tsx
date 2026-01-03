@@ -4,7 +4,7 @@ import { popoverTriggerStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-const PopoverBlock = () => {
+const PopoverBlock = ({ course }: { course: string }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -19,7 +19,10 @@ const PopoverBlock = () => {
           width: "calc(var(--radix-popover-trigger-width) * 1.1111)",
         }}
       >
-        <FormForCreatingTheme closePopover={() => setOpen(false)} />
+        <FormForCreatingTheme
+          closePopover={() => setOpen(false)}
+          course={course}
+        />
       </PopoverContent>
     </Popover>
   );

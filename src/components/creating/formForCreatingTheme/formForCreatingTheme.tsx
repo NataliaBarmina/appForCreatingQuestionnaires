@@ -6,14 +6,20 @@ import TextAreaBlock from "./textAreaBlock";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch, UseDispatch } from "react-redux";
+import { addTheme } from "@store/reducers/actions";
 
 type TFormForCreatingTheme = {
   closePopover: () => void;
+  course: string;
 };
 
-const FormForCreatingTheme = ({ closePopover }: TFormForCreatingTheme) => {
+const FormForCreatingTheme = ({
+  closePopover,
+  course,
+}: TFormForCreatingTheme) => {
   const { t } = useTranslation();
-
+  const dispatch = useDispatch();
   const schema = yup.object({
     topicName: yup.string().required(t("required")),
   });
@@ -28,6 +34,10 @@ const FormForCreatingTheme = ({ closePopover }: TFormForCreatingTheme) => {
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
+    console.log(data.topicName);
+    console.log(course);
+    dispatch(addTheme({ course: course, topic: data.topicName }));
+
     closePopover();
   };
 
@@ -35,7 +45,7 @@ const FormForCreatingTheme = ({ closePopover }: TFormForCreatingTheme) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mt-4">
         <TextAreaBlock
-          placeholder={t("placeholder.topic")}
+          placeholder={`${t("placeholder.topic")} из курса ${course}`}
           register={register}
           fieldName="topicName"
           styles=""
