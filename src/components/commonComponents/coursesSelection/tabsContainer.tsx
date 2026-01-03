@@ -1,4 +1,4 @@
-import { TCoursesSelectionProps } from "./types";
+import { TCoursesSelection } from "./types";
 import { Tabs, Tab } from "@mui/material";
 import { tabStyle, tabsStyle } from "./styles";
 
@@ -6,7 +6,7 @@ const TabsContainer = ({
   tabValue,
   courseNames,
   handleChange,
-}: TCoursesSelectionProps) => {
+}: TCoursesSelection) => {
   return (
     <div className="mx-auto flex w-full justify-center">
       <div className="xs:w-[98vw] md:w-[68vw] lg:w-[55vw] xl:w-[40vw]">

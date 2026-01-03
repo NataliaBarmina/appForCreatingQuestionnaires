@@ -21,7 +21,7 @@ const Form = ({
 }: TFormForEditingQuestions) => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     const updatedQuestion = {
@@ -31,18 +31,18 @@ const Form = ({
       wrongAnswer2: data.answerForEditing3,
     };
 
-    dispatch(
-      editQuestion({
-        course: course,
-        topic: theme,
-        questionIndex,
-        question: updatedQuestion.question,
-        answer_1: updatedQuestion.correctAnswer,
-        answer_2: updatedQuestion.wrongAnswer1,
-        answer_3: updatedQuestion.wrongAnswer2,
-      }),
-    );
-    closeDialog();
+    //   dispatch(
+    //     editQuestion({
+    //       course: course,
+    //       topic: theme,
+    //       questionIndex,
+    //       question: updatedQuestion.question,
+    //       answer_1: updatedQuestion.correctAnswer,
+    //       answer_2: updatedQuestion.wrongAnswer1,
+    //       answer_3: updatedQuestion.wrongAnswer2,
+    //     }),
+    //   );
+    //   closeDialog();
   };
 
   const handleDelete = () => {
