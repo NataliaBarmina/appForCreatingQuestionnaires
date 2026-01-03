@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { formContainerClasses } from "./styles";
 import useQuestionForm from "./useQuestionForm";
-import FormAction from "../formForCreatingQuestionsByAI/formAction";
+import FormAction from "../formForCreatingTheme/formAction";
 import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";

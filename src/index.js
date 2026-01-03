@@ -20,8 +20,8 @@ const QuestionsCreatedByAI = lazy(
 const FormForCreatingQuestionsYourself = lazy(
   () => import("./components/creating/formForCreatingQuestionsYourself"),
 );
-const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI"),
+const FormForCreatingTheme = lazy(
+  () => import("./components/creating/formForCreatingTheme"),
 );
 const FormSelection = lazy(
   () => import("./components/commonComponents/formSelection"),
@@ -93,7 +93,7 @@ const router = createHashRouter(
           path: "/formForCreatingQuestionsByAI",
           element: (
             <Suspense fallback={<Preloader />}>
-              <FormForCreatingQuestionsByAI />
+              <FormForCreatingTheme />
             </Suspense>
           ),
         },

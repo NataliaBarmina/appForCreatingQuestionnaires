@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import FormForCreatingQuestionsYourself from "../creating/formForCreatingQuestionsYourself/formForCreatingQuestionsYourself";
-import FormForCreatingQuestionsByAI from "../creating/formForCreatingQuestionsByAI/formForCreatingQuestionsByAI";
+import FormForCreatingTheme from "../creating/formForCreatingTheme";
 import QuestionList from "../editing/questionList";
 import { TQuizData } from "@store/commonTypes";
 import { useTranslation } from "react-i18next";
@@ -17,9 +17,9 @@ const FormSelection = () => {
       {buttonID === CreationModeButton.MANUAL && (
         <FormForCreatingQuestionsYourself course={course} theme={theme} />
       )}
-      {buttonID === CreationModeButton.AI && (
-        <FormForCreatingQuestionsByAI course={course} theme={theme} />
-      )}
+      {/* {buttonID === CreationModeButton.AI && (
+        <FormForCreatingTheme course={course} theme={theme} />
+      )} */}
       {buttonID === CreationModeButton.EDITING && <QuestionList />}
     </div>
   );
