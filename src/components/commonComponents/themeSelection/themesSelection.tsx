@@ -13,7 +13,7 @@ const mainContainerSTyles = cn(
 );
 const ThemesSelection = ({
   course, // название курса
-  arrayWithSelectedThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
+  selectedThemes, // массив- [{тема1: Array(2)},{тема2: Array(2)} }
   buttonID,
 }: TQuizData) => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const ThemesSelection = ({
 
   const handleAddThemeClick = () => {
     navigate("/formSelection", {
-      state: { buttonID, course, arrayWithSelectedThemes },
+      state: { buttonID, course, selectedThemes },
     });
   };
 
@@ -39,7 +39,7 @@ const ThemesSelection = ({
       </h1>
       <div className={mainContainerSTyles}>
         <ThemeList
-          arrayWithSelectedThemes={arrayWithSelectedThemes}
+          selectedThemes={selectedThemes}
           handleThemeClick={handleThemeClick}
         />
         {buttonID !== CreationModeButton.EDITING && (

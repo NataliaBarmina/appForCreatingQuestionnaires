@@ -1,12 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { percentageOfCorrectAnswersStyles } from "./styles";
 
-const HeadersBlock = () => {
-  const numberOfQuestionsInQuestionnaire = 15;
-  const numberOfCorrectAnswers = 8;
-  const numberOfWrongAnswers = 7;
+type THeadersBlock = {
+  wrongAnswersCount: number;
+  questionsCount: number;
+};
+
+const HeadersBlock = ({ wrongAnswersCount, questionsCount }: THeadersBlock) => {
+  const correctAnswersCount = questionsCount - wrongAnswersCount;
   const percentageOfCorrectAnswers = Math.round(
-    (numberOfCorrectAnswers / numberOfQuestionsInQuestionnaire) * 100,
+    (correctAnswersCount / questionsCount) * 100,
   );
 
   const { t } = useTranslation();
@@ -23,10 +26,10 @@ const HeadersBlock = () => {
         {percentageOfCorrectAnswers}%
       </div>
       <div className="text-lg">
-        {t("header.correctAnswers", { count: numberOfCorrectAnswers })}
+        {t("header.correctAnswers", { count: correctAnswersCount })}
       </div>
       <div className="mb-8 text-lg">
-        {t("header.wrongAnswers", { count: numberOfWrongAnswers })}
+        {t("header.wrongAnswers", { count: wrongAnswersCount })}
       </div>
     </div>
   );

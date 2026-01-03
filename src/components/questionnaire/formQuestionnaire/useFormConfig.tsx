@@ -2,28 +2,35 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TFields } from "@commonComponents/createFields";
+import { TQuestion } from "@store/commonTypes";
 
-export const useFormConfig = () => {
+export const useFormConfig = (
+  questionsList: TQuestion[],
+  navigate: (path: string, options?: any) => void,
+) => {
   const schema = yup.object({
-    questionFromSurvey: yup.string(),
+    radioInputFromSurvey: yup
+      .array()
+      .of(yup.string().required("Выберите вариант ответа"))
+      .required("Выберите хотя бы один ответ"),
   });
 
-  const {
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm({
-    mode: "onChange",
+  const methods = useForm({
+    mode: "onSubmit",
     resolver: yupResolver(schema),
+    defaultValues: {
+      radioInputFromSurvey: questionsList.map(() => ""),
+    },
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    // console.log(data);
+    navigate("/resultsOfTheQuestionnaire", {
+      state: { answers: data.radioInputFromSurvey, questionsList },
+    });
   };
+
   return {
-    handleSubmit,
-    errors,
+    ...methods,
     onSubmit,
-    control,
   };
 };

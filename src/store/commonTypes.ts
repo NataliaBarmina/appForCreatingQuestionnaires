@@ -7,14 +7,14 @@ export type TQuestion = {
 
 export type TTopic = Record<string, TQuestion[]>; // тема: массив вопросов
 
-export type TSubject = Record<string, TTopic[]>; //курс: массив тем
+export type TCourse = Record<string, TTopic[]>; //курс: массив тем
 
 export type TQuizData = {
   buttonLabel?: string;
   course?: string;
   theme?: string;
   questionsList?: TQuestion[];
-  arrayWithSelectedThemes?: TTopic[];
+  selectedThemes?: TTopic[];
   buttonID?: string;
 };
 
