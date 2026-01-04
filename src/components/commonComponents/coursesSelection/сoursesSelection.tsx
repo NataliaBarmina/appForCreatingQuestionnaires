@@ -17,7 +17,7 @@ const CoursesSelection = () => {
     courseNames,
     handleChange,
     selectedCourseName,
-    selectedTopicName,
+    selectedTopics,
   } = useCoursesSelectionLogic();
 
   return (
@@ -37,7 +37,7 @@ const CoursesSelection = () => {
         <CustomTabPanel value={tabValue} index={tabValue}>
           <ThemesSelection
             course={selectedCourseName}
-            selectedTopicName={selectedTopicName}
+            selectedTopics={selectedTopics}
             buttonID={buttonID}
           />
         </CustomTabPanel>

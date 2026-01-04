@@ -10,11 +10,13 @@ import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";
 import { addQuestion } from "@reducers/actions";
 
-const FormForCreatingQuestionsYourself = ({ course, theme }: TQuizData) => {
+const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQuizData) => {
   const { t } = useTranslation();
   // const dispatch = useDispatch();
 
   const form = useQuestionForm(theme, t("required"));
+
+  //themeId // todo перписать код используя 
 
   function onSubmit(values: TFields) {
     // const selectedTopic = theme || values.selfWrittenTopicName;// todo - разобраться с этим  //todo - отредактировать стиль темы

@@ -16,14 +16,31 @@ const initialState2 = {
 };
 
 const ADD_THEMES = "ADD_THEMES";
+const ADD_QUESTIONS = "ADD_QUESTIONS"
 
-type TAddThemeAction = {
+type TAddThemesAction = {
   type: typeof ADD_THEMES;
   payload: {
     themeName: string;
     courseName: string;
   };
 };
+
+type TAddQuestionsAction = {
+  type: typeof ADD_QUESTIONS;
+  payload:{
+    courseName: string;
+    themeID: string;
+    question: string;
+    answer_1: string;
+    answer_2: string;
+    answer_3: string;
+  }
+}
+
+export type TActions =
+  | TAddThemesAction
+  | TAddQuestionsAction
 
 export const addThemes = (payload: {
   themeName: string;
@@ -33,7 +50,19 @@ export const addThemes = (payload: {
   payload,
 });
 
-const addThemeReducer = (state = initialState2, action: TAddThemeAction) => {
+export const addQuestions = (payload: {
+  courseName: string;
+  themeID: string;
+  question: string;
+  answer_1: string;
+  answer_2: string;
+  answer_3: string;
+}) => ({
+  type: ADD_QUESTIONS,
+  payload,
+});
+
+const addThemeReducer = (state = initialState2, action: TActions) => {
   switch (action.type) {
     case ADD_THEMES: {
       const themeID = uuidv4();
@@ -47,6 +76,19 @@ const addThemeReducer = (state = initialState2, action: TAddThemeAction) => {
           [themeID]: { id: themeID, themeName, courseName },
         },
       };
+    }
+    case ADD_QUESTIONS: {
+      const questionID = uuidv4();
+
+      const {courseName, themeID, question, answer_1, answer_2, answer_3} = action.payload;
+
+      return {
+        ...state,
+        questions: {
+          ...state.questions,
+          [questionID]: {id: questionID, courseName, themeID, question, answer_1, answer_2, answer_3}
+        }
+      }
     }
     default:
       return state;
