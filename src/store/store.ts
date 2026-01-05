@@ -1,10 +1,8 @@
 import { combineReducers } from "redux";
-import reducer from "./reducers/reducer";
 import { configureStore } from "@reduxjs/toolkit";
 import addThemeReducer from "./reducers/newReducer";
 
 const rootReducer = combineReducers({
-  // reducer: reducer,
   addTheme: addThemeReducer,
 });
 

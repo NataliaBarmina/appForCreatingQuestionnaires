@@ -14,17 +14,13 @@ import { TQuestion } from "../../store/commonTypes";
 
 type TAlertProps = {
   onClick?: () => void;
-  // onAction?: () => void;
-
   alertDialogTitle: string;
   alertDialogDescription: string;
   alertDialogAction: string;
   alertDialogCancel: string;
-
   buttonLabel: string;
   type?: "submit" | "reset" | "button";
   size: "middle" | "small" | "big";
-
   isFormValid?: boolean;
   isSubmitting?: boolean;
   item?: TQuestion;
@@ -42,8 +38,6 @@ const Alert = ({
   isFormValid,
   isSubmitting,
   onClick,
-  item,
-  index,
 }: TAlertProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -62,14 +56,10 @@ const Alert = ({
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
-              <AlertDialogDescription>
-                {alertDialogDescription}
-              </AlertDialogDescription>
+              <AlertDialogDescription>{alertDialogDescription}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel onClick={onClick}>
-                {alertDialogCancel}
-              </AlertDialogCancel>
+              <AlertDialogCancel onClick={onClick}>{alertDialogCancel}</AlertDialogCancel>
               <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
