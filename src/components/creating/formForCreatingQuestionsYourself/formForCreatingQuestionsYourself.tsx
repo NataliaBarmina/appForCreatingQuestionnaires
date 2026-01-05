@@ -8,28 +8,25 @@ import FormAction from "../formForCreatingTheme/formAction";
 import CustomTextAreaField from "./customTextareaField";
 import AnswersField from "./answersGroup";
 import { TFields } from "@commonComponents/createFields";
-import { addQuestion } from "@reducers/actions";
+import { addQuestions } from "@store/reducers/newReducer";
 
 const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQuizData) => {
   const { t } = useTranslation();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const form = useQuestionForm(theme, t("required"));
 
-  //themeId // todo перписать код используя 
-
   function onSubmit(values: TFields) {
-    // const selectedTopic = theme || values.selfWrittenTopicName;// todo - разобраться с этим  //todo - отредактировать стиль темы
-    //   dispatch(
-    //     addQuestion({
-    //       course: course,
-    //       topic: theme,
-    //       question: values.selfWrittenQuestion,
-    //       answer_1: values.selfWrittenAnswer1,
-    //       answer_2: values.selfWrittenAnswer2,
-    //       answer_3: values.selfWrittenAnswer3,
-    //     }),
-    //   );
+      dispatch(   
+        addQuestions({
+          courseName: course,
+          themeID: themeID,
+          question: values.selfWrittenQuestion,
+          answer_1: values.selfWrittenAnswer1,
+          answer_2: values.selfWrittenAnswer2,
+          answer_3: values.selfWrittenAnswer3,
+        }),
+      )
   }
 
   const isFormValid = form.formState.isValid; // Проверка на валидность формы
