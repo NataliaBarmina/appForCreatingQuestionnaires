@@ -42,8 +42,8 @@ const Alert = ({
   isFormValid,
   isSubmitting,
   onClick,
-  item,
-  index,
+  // item,
+  // index,
 }: TAlertProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -62,14 +62,10 @@ const Alert = ({
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
-              <AlertDialogDescription>
-                {alertDialogDescription}
-              </AlertDialogDescription>
+              <AlertDialogDescription>{alertDialogDescription}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel onClick={onClick}>
-                {alertDialogCancel}
-              </AlertDialogCancel>
+              <AlertDialogCancel onClick={onClick}>{alertDialogCancel}</AlertDialogCancel>
               <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
