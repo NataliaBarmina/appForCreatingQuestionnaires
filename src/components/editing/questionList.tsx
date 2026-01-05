@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import HeadersBlock from "../commonComponents/headersBlock";
 import { cn } from "@lib/utils";
-import { useDispatch } from "react-redux";
-// import { deleteQuestion } from "@reducers/actions";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
+import { useDispatch } from "react-redux";
+import { deleteQuestion } from "@reducers/newReducer";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -34,17 +34,15 @@ const QuestionList = () => {
   const location = useLocation();
   const { course, theme, themeID } = location.state || {};
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const onDelete = (index: number) => {
-  //   dispatch(
-  //     deleteQuestion({
-  //       course: course,
-  //       topic: theme,
-  //       questionIndex: index,
-  //     }),
-  //   );
-  // };
+  const onDelete = (id: string) => {
+    dispatch(
+      deleteQuestion({
+        questionID: id,
+      })
+    );
+  };
 
   const objectQuestions = useSelector((state: TRootState) => state.addTheme.questions);
   const questions: TQuestion[] = Object.values(objectQuestions);
@@ -92,9 +90,7 @@ const QuestionList = () => {
                   isFormValid={true}
                   isSubmitting={false}
                   size="middle"
-                  // item={item}
-                  index={index}
-                  // onClick={() => onDelete(index)}
+                  onClick={() => onDelete(item.id)}
                 />
               </div>
             </div>
