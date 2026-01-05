@@ -14,7 +14,7 @@ const CoursesSelection = () => {
 
   const {
     tabValue,
-    courseNames,
+    courses,
     handleChange,
     selectedCourseName,
     selectedTopics,
@@ -30,7 +30,7 @@ const CoursesSelection = () => {
 
           <TabsContainer
             tabValue={tabValue}
-            courseNames={courseNames}
+            courseNames={courses}
             handleChange={handleChange}
           />
         </div>

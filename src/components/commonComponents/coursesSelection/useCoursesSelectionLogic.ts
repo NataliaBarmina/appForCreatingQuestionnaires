@@ -15,8 +15,7 @@ export const useCoursesSelectionLogic = () => {
     (state: TRootState) => state.addTheme,
   );
 
-  const courseNames = Object.values(courses);
-  const selectedCourseName = courseNames[tabValue];
+  const selectedCourseName = courses[tabValue];
 
   const selectedTopics = Object.values(themes)
     .filter((item: TCoursesSelection) => item.courseName === selectedCourseName)
@@ -24,7 +23,7 @@ export const useCoursesSelectionLogic = () => {
   return {
     tabValue,
     handleChange,
-    courseNames,
+    courses,
     selectedCourseName,
     selectedTopics,
   };

@@ -1,16 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 
 const initialState2 = {
-  courses: {
-    JavaScript: "JavaScript",
-    CSS: "CSS",
-    TypeScript: "TypeScript",
-    HTML: "HTML",
-    Cmd: "Cmd",
-    Git: "Git",
-    React: "React",
-    Прочее: "Прочее",
-  },
+ courses: [ "JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее",
+],
   themes: {},
   questions: {},
 };
@@ -95,3 +87,5 @@ const addThemeReducer = (state = initialState2, action: TActions) => {
   }
 };
 export default addThemeReducer;
+
+
