@@ -7,11 +7,13 @@ import { useForm } from "react-hook-form";
 type TFormForCreatingTheme = {
   course: string;
   theme: string;
+  themeID:string;
 };
 
 const FormForCreatingQuestionsByAI = ({
   course,
   theme,
+  themeID //todo - переписать код используя 
 }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
 

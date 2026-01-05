@@ -21,7 +21,7 @@ const FormForEditingQuestions = ({
   wrongAnswer2,
   course,
   theme,
-  questionIndex,
+  questionID,
 }: TFormForEditingQuestions) => {
   const container = useRef(null); // реф для контейнера, в котором будет рендериться диалог
   const [open, setOpen] = useState(false); // управление открытием/закрытием диалога
@@ -56,7 +56,7 @@ const FormForEditingQuestions = ({
               wrongAnswer2={wrongAnswer2}
               course={course}
               theme={theme}
-              questionIndex={questionIndex}
+              questionID={questionID}
             />
           </DialogContent>
         </DialogPortal>

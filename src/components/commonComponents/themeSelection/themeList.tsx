@@ -2,10 +2,11 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { TSelectedTopic} from "@store/commonTypes";
 
 type TThemeList = {
-  handleThemeClick: (theme: string) => void;
-  selectedTopicName: string[];
+  handleThemeClick: (theme: string, themeID: string) => void;
+  selectedTopics: Array<Partial<TSelectedTopic>> ;
 };
 
 const listItemStyles = {
@@ -20,16 +21,21 @@ const listItemStyles = {
   },
 };
 
-const ThemeList = ({ handleThemeClick, selectedTopicName }: TThemeList) => {
+const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
+
+  console.log("topics",selectedTopics)
+   const selectedTopicNames = selectedTopics 
+      .map((item: TSelectedTopic) => item.themeName); 
+
   return (
     <div>
       <nav aria-label="Themes list">
         <List>
-          {selectedTopicName.map((theme: string, index: number) => {
+           {selectedTopics.map((themes: TSelectedTopic, index: number) => {
             return (
               <ListItem disablePadding key={index} sx={listItemStyles}>
-                <ListItemButton onClick={() => handleThemeClick(theme)}>
-                  <ListItemText primary={theme} />
+                <ListItemButton onClick={() => handleThemeClick(themes.themeName, themes.id)}>
+                  <ListItemText primary={themes.themeName} />
                 </ListItemButton>
               </ListItem>
             );
