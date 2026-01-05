@@ -1,14 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 
 const initialState2 = {
- courses: [ "JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее",
-],
+  courses: ["JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее"],
   themes: {},
   questions: {},
 };
 
 const ADD_THEMES = "ADD_THEMES";
-const ADD_QUESTIONS = "ADD_QUESTIONS"
+const ADD_QUESTIONS = "ADD_QUESTIONS";
 
 type TAddThemesAction = {
   type: typeof ADD_THEMES;
@@ -20,24 +19,19 @@ type TAddThemesAction = {
 
 type TAddQuestionsAction = {
   type: typeof ADD_QUESTIONS;
-  payload:{
+  payload: {
     courseName: string;
     themeID: string;
     question: string;
     answer_1: string;
     answer_2: string;
     answer_3: string;
-  }
-}
+  };
+};
 
-export type TActions =
-  | TAddThemesAction
-  | TAddQuestionsAction
+export type TActions = TAddThemesAction | TAddQuestionsAction;
 
-export const addThemes = (payload: {
-  themeName: string;
-  courseName: string;
-}) => ({
+export const addThemes = (payload: { themeName: string; courseName: string }) => ({
   type: ADD_THEMES,
   payload,
 });
@@ -72,20 +66,26 @@ const addThemeReducer = (state = initialState2, action: TActions) => {
     case ADD_QUESTIONS: {
       const questionID = uuidv4();
 
-      const {courseName, themeID, question, answer_1, answer_2, answer_3} = action.payload;
+      const { courseName, themeID, question, answer_1, answer_2, answer_3 } = action.payload;
 
       return {
         ...state,
         questions: {
           ...state.questions,
-          [questionID]: {id: questionID, courseName, themeID, question, answer_1, answer_2, answer_3}
-        }
-      }
+          [questionID]: {
+            id: questionID,
+            courseName,
+            themeID,
+            question,
+            answer_1,
+            answer_2,
+            answer_3,
+          },
+        },
+      };
     }
     default:
       return state;
   }
 };
 export default addThemeReducer;
-
-
