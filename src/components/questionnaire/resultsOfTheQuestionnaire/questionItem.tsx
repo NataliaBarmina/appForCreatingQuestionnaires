@@ -1,10 +1,6 @@
 import { Label } from "@ui/label";
-import BlockedField from "@commonComponents/blockedField";
-import {
-  greenContainerStyles,
-  questionNumberHeader,
-  centeredContentStyles,
-} from "./styles";
+import BlockedField from "@commonComponents/createFields/blockedField";
+import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
 
 type TQuestionItem = {
   index: number;

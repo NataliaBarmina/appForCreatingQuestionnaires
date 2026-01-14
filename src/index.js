@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./components/app/index";
+import App from "./components/app/app";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
@@ -14,33 +14,23 @@ import Preloader from "./components/commonComponents/preloader";
 import { lazy, Suspense } from "react";
 
 const Creating = lazy(() => import("./components/creating"));
-const QuestionsCreatedByAI = lazy(
-  () => import("./components/creating/questionsCreatedByAI"),
-);
+const QuestionsCreatedByAI = lazy(() => import("./components/creating/questionsCreatedByAI"));
 const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself"),
+  () => import("./components/creating/formForCreatingQuestionsYourself")
 );
-const FormForCreatingTheme = lazy(
-  () => import("./components/creating/formForCreatingTheme"),
-);
-const FormSelection = lazy(
-  () => import("./components/commonComponents/formSelection"),
-);
+const FormForCreatingTheme = lazy(() => import("./components/creating/formForCreatingTheme"));
+const FormSelection = lazy(() => import("./components/selecting/formSelection"));
 
-const CoursesSelection = lazy(
-  () => import("./components/commonComponents/coursesSelection"),
-);
+const CoursesSelection = lazy(() => import("./components/selecting/coursesSelection"));
 
 const QuestionList = lazy(() => import("./components/editing/questionList"));
 
-const FormQuestionnaire = lazy(
-  () => import("./components/questionnaire/formQuestionnaire"),
-);
+const FormQuestionnaire = lazy(() => import("./components/questionnaire/formQuestionnaire"));
 const ResultsOfTheQuestionnaire = lazy(
-  () => import("./components/questionnaire/resultsOfTheQuestionnaire"),
+  () => import("./components/questionnaire/resultsOfTheQuestionnaire")
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI"),
+  () => import("./components/creating/formForCreatingQuestionsByAI")
 );
 
 const root = createRoot(document.getElementById("root"));
@@ -147,7 +137,7 @@ const router = createHashRouter(
       v7_partialHydration: true, // Supports partial hydration for server-side rendering
       v7_skipActionErrorRevalidation: true, // Prevents revalidation when action errors occur
     },
-  },
+  }
 );
 
 root.render(
@@ -158,5 +148,5 @@ root.render(
         v7_startTransition: true,
       }}
     />
-  </Provider>,
+  </Provider>
 );

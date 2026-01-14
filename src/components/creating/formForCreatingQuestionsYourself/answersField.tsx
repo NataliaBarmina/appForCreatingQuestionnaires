@@ -1,14 +1,8 @@
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@ui/form";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form";
 import { Textarea } from "@ui/textarea";
 import { textAreaBase, formLabelClasses } from "./styles";
 import { Control } from "react-hook-form";
-import { TFields } from "@/components/commonComponents/createFields";
+import { TFields } from "@commonComponents/createFields/createFields";
 
 type TAnswersField = {
   control: Control<TFields>;
@@ -17,12 +11,7 @@ type TAnswersField = {
   formLabel?: string;
 };
 
-const AnswersField = ({
-  control,
-  name,
-  placeholder,
-  formLabel,
-}: TAnswersField) => {
+const AnswersField = ({ control, name, placeholder, formLabel }: TAnswersField) => {
   return (
     <FormField
       control={control}

@@ -1,4 +1,4 @@
-import BlockedField from "@commonComponents/blockedField";
+import BlockedField from "../createFields/blockedField";
 import { Label } from "@ui/label";
 import { useTranslation } from "react-i18next";
 

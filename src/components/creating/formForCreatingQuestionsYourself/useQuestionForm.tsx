@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { TFields } from "@commonComponents/createFields";
+import { TFields } from "@commonComponents/createFields/createFields";
 
 const useQuestionForm = (theme?: string, requiredText?: string) => {
   const requiredString = yup.string().required(requiredText);

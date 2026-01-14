@@ -1,6 +1,6 @@
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions/formForEditingQuestions";
-import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@commonComponents/createFields/blockedFieldWithAnswersAndQuestions";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import HeadersBlock from "../commonComponents/headersBlock";

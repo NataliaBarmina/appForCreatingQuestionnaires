@@ -1,12 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TFields } from "@commonComponents/createFields";
+import { TFields } from "@commonComponents/createFields/createFields";
 import { TQuestion } from "@store/commonTypes";
 
 export const useFormConfig = (
   questionsList: TQuestion[],
-  navigate: (path: string, options?: any) => void,
+  navigate: (path: string, options?: any) => void
 ) => {
   const schema = yup.object({
     radioInputFromSurvey: yup

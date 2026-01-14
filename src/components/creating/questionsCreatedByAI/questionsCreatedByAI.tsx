@@ -1,4 +1,4 @@
-import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@commonComponents/createFields/blockedFieldWithAnswersAndQuestions";
 import { useTranslation } from "react-i18next";
 import QuestionActions from "./questionActions";
 import HeadersBlock from "../../commonComponents/headersBlock";
@@ -13,7 +13,7 @@ const greenContainerStyles = cn(
   "md:w-[65vw]",
   "lg:w-[55vw]",
   "xl:w-[50vw]",
-  "2xl:w-[45vw]",
+  "2xl:w-[45vw]"
 );
 
 const QuestionsCreatedByAI = () => {

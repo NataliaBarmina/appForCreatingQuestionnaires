@@ -1,12 +1,6 @@
-import { Textarea, TTextarea } from "@commonComponents/createFields";
+import { Textarea, TTextarea } from "@commonComponents/createFields/createFields";
 
-export const TextAreaBlock = ({
-  placeholder,
-  fieldName,
-  register,
-  error,
-  disabled,
-}: TTextarea) => {
+export const TextAreaBlock = ({ placeholder, fieldName, register, error, disabled }: TTextarea) => {
   return (
     <div>
       <div className="mx-auto">

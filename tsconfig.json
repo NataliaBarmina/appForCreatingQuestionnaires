@@ -16,6 +16,7 @@
       "@common/*": ["src/common/*"],
       "@commonComponents/*": ["src/components/commonComponents/*"],
       "@creating/*": ["src/components/creating/*"],
+      "@selecting/*": ["src/components/selecting/*"],
       "@editing/*": ["src/components/editing/*"],
       "@questionnaire/*": ["src/components/questionnaire/*"],
       "@lib/*": ["src/chadcnComponents/lib/*"],

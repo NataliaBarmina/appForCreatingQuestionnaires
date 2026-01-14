@@ -1,4 +1,4 @@
-import BlockedField from "@commonComponents/blockedField";
+import BlockedField from "@commonComponents/createFields/blockedField";
 import RadioInput from "./radioInput";
 import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
@@ -26,7 +26,7 @@ const QuestionItem = ({
 
   const shuffledAnswers = useMemo(
     () => shuffleArray([answer_1, answer_2, answer_3]),
-    [], // пустой массив — рендер производится один раз
+    [] // пустой массив — рендер производится один раз
   );
 
   return (
