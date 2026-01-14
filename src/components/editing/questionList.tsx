@@ -1,14 +1,14 @@
 import Alert from "@commonComponents/alert";
 import FormForEditingQuestions from "@commonComponents/formForEditingQuestions/formForEditingQuestions";
-import BlockedFieldWithAnswersAndQuestions from "@commonComponents/blockedFieldWithAnswersAndQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@commonComponents/createFields/blockedFieldWithAnswersAndQuestions";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import HeadersBlock from "../commonComponents/headersBlock";
 import { cn } from "@lib/utils";
-import { useDispatch } from "react-redux";
-import { deleteQuestion } from "@reducers/actions";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
+import { useDispatch } from "react-redux";
+import { deleteQuestion } from "@reducers/newReducer";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -16,43 +16,41 @@ const greenContainerStyles = cn(
   "md:w-[65vw]",
   "lg:w-[55vw]",
   "xl:w-[50vw]",
-  "2xl:w-[45vw]",
+  "2xl:w-[45vw]"
 );
 
 type TQuestion = {
-  id: string;
   courseName: string;
   themeID: string;
   question: string;
   answer_1: string;
-  answer_2?: string; 
-  answer_3?: string; 
-}
+  answer_2?: string;
+  answer_3?: string;
+  id: string;
+};
 
 const QuestionList = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const { course, theme } = location.state || {};
+  const { course, theme, themeID } = location.state || {};
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const onDelete = (index: number) => {
-  //   dispatch(
-  //     deleteQuestion({
-  //       course: course,
-  //       topic: theme,
-  //       questionIndex: index,
-  //     }),
-  //   );
-  // };
+  const onDelete = (id: string) => {
+    dispatch(
+      deleteQuestion({
+        questionID: id,
+      })
+    );
+  };
 
-  const objectQuestions = useSelector((state: TRootState)=> state.addTheme.questions)
-  const questions: TQuestion[] = Object.values(objectQuestions)
-  console.log('questions',  questions)
+  const objectQuestions = useSelector((state: TRootState) => state.addTheme.questions);
+  const questions: TQuestion[] = Object.values(objectQuestions);
+  const selectedQuestions = questions.filter((question) => question.themeID === themeID);
 
   return (
     <div>
-      <div className="bg-red-400 pb-1">
+      <div className="pb-1">
         <HeadersBlock
           questionsGeneratedByAIHeader={t("header.editQuestion")}
           courseHeader={t("header.course")}
@@ -61,7 +59,7 @@ const QuestionList = () => {
           theme={theme}
         />
 
-        {questions.map((item:any, index) => (
+        {selectedQuestions.map((item, index) => (
           <div key={item.id} className={greenContainerStyles}>
             <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
@@ -79,7 +77,7 @@ const QuestionList = () => {
                   wrongAnswer2={item.answer_3}
                   course={course}
                   theme={theme}
-                  questionID={item.id} 
+                  questionID={item.id}
                 />
               </div>
               <div>
@@ -92,9 +90,7 @@ const QuestionList = () => {
                   isFormValid={true}
                   isSubmitting={false}
                   size="middle"
-                  item={item}
-                  index={index}
-                  // onClick={() => onDelete(index)}
+                  onClick={() => onDelete(item.id)}
                 />
               </div>
             </div>

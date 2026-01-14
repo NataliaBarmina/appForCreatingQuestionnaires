@@ -1,5 +1,5 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "@commonComponents/createFields";
+import { TFields } from "@commonComponents/createFields/createFields";
 import Button from "@commonComponents/buttons";
 import { useTranslation } from "react-i18next";
 import TextAreaBlock from "./textAreaBlock";
@@ -14,10 +14,7 @@ type TFormForCreatingTheme = {
   course?: string;
 };
 
-const FormForCreatingTheme = ({
-  closePopover,
-  course,
-}: TFormForCreatingTheme) => {
+const FormForCreatingTheme = ({ closePopover, course }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const schema = yup.object({

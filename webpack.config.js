@@ -48,11 +48,7 @@ module.exports = (env) => {
           use: {
             loader: "babel-loader",
             options: {
-              presets: [
-                "@babel/preset-env",
-                "@babel/preset-typescript",
-                "@babel/preset-react",
-              ],
+              presets: ["@babel/preset-env", "@babel/preset-typescript", "@babel/preset-react"],
             },
           },
         },
@@ -61,16 +57,11 @@ module.exports = (env) => {
     resolve: {
       alias: {
         "@components": path.resolve(__dirname, "src/components"),
-        "@commonComponents": path.resolve(
-          __dirname,
-          "src/components/commonComponents",
-        ),
+        "@commonComponents": path.resolve(__dirname, "src/components/commonComponents"),
         "@creating": path.resolve(__dirname, "src/components/creating"),
         "@editing": path.resolve(__dirname, "src/components/editing"),
-        "@questionnaire": path.resolve(
-          __dirname,
-          "src/components/questionnaire",
-        ),
+        "@selecting": path.resolve(__dirname, "src/components/selecting"),
+        "@questionnaire": path.resolve(__dirname, "src/components/questionnaire"),
         "@common": path.resolve(__dirname, "src/common"),
         "@lib": path.resolve(__dirname, "src/chadcnComponents/lib"),
         "@ui": path.resolve(__dirname, "src/chadcnComponents/ui"),

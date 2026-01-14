@@ -1,5 +1,5 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "../createFields";
+import { TFields } from "../createFields/createFields";
 import { useTranslation } from "react-i18next";
 import { mainContainerStyles, headerStyles } from "./styles";
 import { UseFormConfig } from "./useFormConfig";

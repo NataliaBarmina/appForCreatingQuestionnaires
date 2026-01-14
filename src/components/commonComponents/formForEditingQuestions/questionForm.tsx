@@ -1,4 +1,4 @@
-import { Textarea } from "../createFields";
+import { Textarea } from "../createFields/createFields";
 import { errorsStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { TForm } from "./types";
