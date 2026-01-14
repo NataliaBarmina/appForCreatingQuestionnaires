@@ -8,7 +8,7 @@ export type TFormForEditingQuestions = {
   wrongAnswer2?: string;
   course?: string;
   theme?: string;
-  questionIndex?: number;
+  questionID?: number;
   closeDialog?: () => void;
 };
 export type TForm = {

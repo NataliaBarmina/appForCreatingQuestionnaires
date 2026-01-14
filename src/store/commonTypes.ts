@@ -9,13 +9,21 @@ export type TTopic = Record<string, TQuestion[]>; // тема: массив во
 
 export type TCourse = Record<string, TTopic[]>; //курс: массив тем
 
+export type TSelectedTopic = {
+  id: string;
+  themeName: string;
+  courseName: string;
+}
+
 export type TQuizData = {
   buttonLabel?: string;
   course?: string;
   theme?: string;
+  themeID?: string;
   questionsList?: TQuestion[];
   buttonID?: string;
   selectedTopicName?: string[];
+  selectedTopics?: Array<Partial<TSelectedTopic>> ;
 };
 
 export enum CreationModeButton {

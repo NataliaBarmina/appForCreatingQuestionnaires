@@ -1,9 +1,6 @@
 name: Build and Deploy
 
 on:
-  # pull_request:
-  #   types:
-  #     - closed
   push:
     branches: ["main"]
   
@@ -44,6 +41,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN}}
 
 
-          
-      # if: github.event.pull_request.merged == true    
 

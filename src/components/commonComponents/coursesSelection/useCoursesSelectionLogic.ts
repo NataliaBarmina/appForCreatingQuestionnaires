@@ -7,7 +7,7 @@ import { TCoursesSelection } from "./types";
 export const useCoursesSelectionLogic = () => {
   const [tabValue, setTabValue] = useState(0);
 
-  const handleChange: THandleTabChange = (event, newValue) => {
+  const handleChange: THandleTabChange = (_, newValue) => {
     setTabValue(newValue);
   };
 
@@ -15,18 +15,16 @@ export const useCoursesSelectionLogic = () => {
     (state: TRootState) => state.addTheme,
   );
 
-  const courseNames = Object.values(courses);
-  const selectedCourseName = courseNames[tabValue];
+  const selectedCourseName = courses[tabValue];
 
-  const selectedTopicName = Object.values(themes)
+  const selectedTopics = Object.values(themes)
     .filter((item: TCoursesSelection) => item.courseName === selectedCourseName)
-    .map((item: TCoursesSelection) => item.themeName);
 
   return {
     tabValue,
-    courseNames,
     handleChange,
+    courses,
     selectedCourseName,
-    selectedTopicName,
+    selectedTopics,
   };
 };

@@ -10,15 +10,15 @@ const FormSelection = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const { buttonID, course, theme }: TQuizData = location.state || {};
+  const { buttonID, course, theme, themeID }: TQuizData = location.state || {};
 
   return (
     <div>
       {buttonID === CreationModeButton.MANUAL && (
-        <FormForCreatingQuestionsYourself course={course} theme={theme} />
+        <FormForCreatingQuestionsYourself course={course} theme={theme} themeID={themeID}/>
       )}
       {buttonID === CreationModeButton.AI && (
-        <FormForCreatingQuestionsByAI course={course} theme={theme} />
+        <FormForCreatingQuestionsByAI course={course} theme={theme} themeID={themeID} />
       )}
       {buttonID === CreationModeButton.EDITING && <QuestionList />}
     </div>

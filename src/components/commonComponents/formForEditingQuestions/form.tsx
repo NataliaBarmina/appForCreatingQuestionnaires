@@ -17,7 +17,7 @@ const Form = ({
   wrongAnswer2,
   course,
   theme,
-  questionIndex,
+  questionID,
 }: TFormForEditingQuestions) => {
   const { t } = useTranslation();
 
@@ -35,7 +35,7 @@ const Form = ({
     //     editQuestion({
     //       course: course,
     //       topic: theme,
-    //       questionIndex,
+    //       questionID,
     //       question: updatedQuestion.question,
     //       answer_1: updatedQuestion.correctAnswer,
     //       answer_2: updatedQuestion.wrongAnswer1,

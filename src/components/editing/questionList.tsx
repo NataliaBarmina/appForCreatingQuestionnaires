@@ -19,36 +19,36 @@ const greenContainerStyles = cn(
   "2xl:w-[45vw]",
 );
 
+type TQuestion = {
+  id: string;
+  courseName: string;
+  themeID: string;
+  question: string;
+  answer_1: string;
+  answer_2?: string; 
+  answer_3?: string; 
+}
+
 const QuestionList = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const { course, theme } = location.state || {};
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  // const questionsFromRedux = useSelector((state: TRootState) => {
-  //   console.log(state + "jgkldk");
-  //   const selectedCourse = state.reducer.find((item) => item[course]);
-  //   if (!selectedCourse) return [];
+  // const onDelete = (index: number) => {
+  //   dispatch(
+  //     deleteQuestion({
+  //       course: course,
+  //       topic: theme,
+  //       questionIndex: index,
+  //     }),
+  //   );
+  // };
 
-  //   const selectedThemes = selectedCourse[course];
-  //   const selectedTopic = selectedThemes.find((item) => item[theme]);
-  //   if (!selectedTopic) return [];
-
-  //   const arrayWithQuestions = selectedTopic[theme];
-
-  //   return arrayWithQuestions;
-  // });
-
-  const onDelete = (index: number) => {
-    dispatch(
-      deleteQuestion({
-        course: course,
-        topic: theme,
-        questionIndex: index,
-      }),
-    );
-  };
+  const objectQuestions = useSelector((state: TRootState)=> state.addTheme.questions)
+  const questions: TQuestion[] = Object.values(objectQuestions)
+  console.log('questions',  questions)
 
   return (
     <div>
@@ -61,8 +61,8 @@ const QuestionList = () => {
           theme={theme}
         />
 
-        {/* {questionsFromRedux.map((item, index) => (
-          <div key={index} className={greenContainerStyles}>
+        {questions.map((item:any, index) => (
+          <div key={item.id} className={greenContainerStyles}>
             <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
               question={item.question}
@@ -79,7 +79,7 @@ const QuestionList = () => {
                   wrongAnswer2={item.answer_3}
                   course={course}
                   theme={theme}
-                  questionIndex={index}
+                  questionID={item.id} 
                 />
               </div>
               <div>
@@ -94,12 +94,12 @@ const QuestionList = () => {
                   size="middle"
                   item={item}
                   index={index}
-                  onClick={() => onDelete(index)}
+                  // onClick={() => onDelete(index)}
                 />
               </div>
             </div>
           </div>
-        ))} */}
+        ))}
       </div>
     </div>
   );
