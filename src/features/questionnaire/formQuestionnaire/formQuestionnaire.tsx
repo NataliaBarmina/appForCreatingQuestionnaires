@@ -1,4 +1,4 @@
-import Button from "../../../shared/ui/buttons";
+import Button from "@shared/ui/buttons";
 import { useTranslation } from "react-i18next";
 import { useFormConfig } from "./useFormConfig";
 import QuestionItem from "./questionItem";
@@ -6,7 +6,36 @@ import { useSelector } from "react-redux";
 // import { getQuestionnaire } from "@store/selectors";
 import { FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { questionsList } from "@common/dataExample"; // todo - потом убрать
+import { TQuestion } from "@shared/types/commonTypes";
+
+//todo: потом удалить
+export const questionsList: TQuestion[] = [
+  {
+    question: "Свойство display какое значение принимает?",
+    answer_1: "flex",
+    answer_2: "relative",
+    answer_3: "justify-content",
+  },
+  {
+    question: "Что такое инлайн - стили и какой они имеют приоритет?",
+    answer_1: "стили которые пишутся прямо в HTML  и имеют самый высокий приоритет",
+    answer_2: "стили которые пишутся  в CSS  и имеют самый высокий приоритет",
+    answer_3: "стили которые пишутся прямо в HTML  и имеют низкий приоритет",
+  },
+
+  {
+    question: "За что отвечает z- index?",
+    answer_1: "за расположение элементов по оси z",
+    answer_2: "за расположение элементов по оси x",
+    answer_3: "за расположение элементов по оси y",
+  },
+  {
+    question: "Какие значения принимает свойство position?",
+    answer_1: "relative",
+    answer_2: "flex",
+    answer_3: "justify-content",
+  },
+];
 
 const FormQuestionnaire = () => {
   const { t } = useTranslation();

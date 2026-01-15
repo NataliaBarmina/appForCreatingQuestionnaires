@@ -1,5 +1,5 @@
-import Alert from "../../../../shared/ui/alert";
-import FormForEditingQuestions from "../../../../shared/formForEditingQuestions/formForEditingQuestions";
+import Alert from "@shared/ui/alert";
+import FormForEditingQuestions from "@shared/editingQuestions/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
 
 type TQuestionActions = {

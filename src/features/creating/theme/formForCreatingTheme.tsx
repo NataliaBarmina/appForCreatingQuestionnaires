@@ -1,6 +1,6 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "../../../shared/createFields/createFields";
-import Button from "../../../shared/ui/buttons";
+import { TFields } from "@shared/createFields/createFields";
+import Button from "@shared/ui/buttons";
 import { useTranslation } from "react-i18next";
 import TextAreaBlock from "./textAreaBlock";
 import * as yup from "yup";

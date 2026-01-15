@@ -1,5 +1,5 @@
-import Alert from "../../../shared/ui/alert";
-import Button from "../../../shared/ui/buttons";
+import Alert from "@shared/ui/alert";
+import Button from "@shared/ui/buttons";
 import { useTranslation } from "react-i18next";
 
 type TFormActionsProps = {

@@ -1,4 +1,4 @@
-import { Textarea, TTextarea } from "../../../shared/createFields/createFields";
+import { Textarea, TTextarea } from "@shared/createFields/createFields";
 
 export const TextAreaBlock = ({ placeholder, fieldName, register, error, disabled }: TTextarea) => {
   return (

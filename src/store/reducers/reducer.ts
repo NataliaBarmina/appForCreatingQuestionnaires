@@ -1,4 +1,4 @@
-import { TQuestion, TCourse } from "../commonTypes";
+import { TQuestion, TCourse } from "@shared/types/commonTypes";
 import { initialState } from "../initialState";
 import { TAction } from "./types";
 import { DELETE_QUESTION, EDIT_QUESTION, ADD_QUESTION } from "./actions";
@@ -19,8 +19,7 @@ function reducer(state: TCourse[] = initialState, action: TAction): TCourse[] {
       return quizData;
     }
     case ADD_QUESTION: {
-      const { course, topic, question, answer_1, answer_2, answer_3 } =
-        action.payload;
+      const { course, topic, question, answer_1, answer_2, answer_3 } = action.payload;
 
       const quizData = structuredClone(state);
 

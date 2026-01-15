@@ -1,9 +1,9 @@
-import Alert from "../../shared/ui/alert";
-import FormForEditingQuestions from "../../shared/formForEditingQuestions/formForEditingQuestions";
-import BlockedFieldWithAnswersAndQuestions from "../../shared/createFields/blockedFieldWithAnswersAndQuestions";
+import Alert from "@shared/ui/alert";
+import FormForEditingQuestions from "@shared/editingQuestions/formForEditingQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@shared/createFields/blockedFieldWithAnswersAndQuestions";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import HeadersBlock from "../../shared/ui/headersBlock";
+import HeadersBlock from "@shared/ui/headersBlock";
 import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";

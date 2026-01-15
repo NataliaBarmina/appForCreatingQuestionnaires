@@ -10,7 +10,7 @@ import {
   AlertDialogTitle,
 } from "@ui/alert-dialog";
 import { useState } from "react";
-import { TQuestion } from "../../store/commonTypes";
+import { TQuestion } from "../types/commonTypes";
 
 type TAlertProps = {
   onClick?: () => void;

@@ -4,7 +4,7 @@ import App from "./app/app";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
-import "./i18n";
+import "./shared/ i18n/i18n";
 import { Provider } from "react-redux";
 import store from "./store/store";
 

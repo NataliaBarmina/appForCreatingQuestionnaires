@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@mui/material";
-import { theme } from "@common/themeForMaterialUI";
+import { theme } from "@shared/MUI/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "../themeSelection/themesSelection";
 import TabsContainer from "./tabsContainer";
