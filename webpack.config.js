@@ -56,12 +56,12 @@ module.exports = (env) => {
     },
     resolve: {
       alias: {
-        "@components": path.resolve(__dirname, "src/components"),
-        "@commonComponents": path.resolve(__dirname, "src/components/commonComponents"),
-        "@creating": path.resolve(__dirname, "src/components/creating"),
-        "@editing": path.resolve(__dirname, "src/components/editing"),
-        "@selecting": path.resolve(__dirname, "src/components/selecting"),
-        "@questionnaire": path.resolve(__dirname, "src/components/questionnaire"),
+        "@features": path.resolve(__dirname, "src/features"),
+        "@shared": path.resolve(__dirname, "src/shared"),
+        "@creating": path.resolve(__dirname, "src/features/creating"),
+        "@editing": path.resolve(__dirname, "src/features/editing/"),
+        "@selecting": path.resolve(__dirname, "src/features/selecting"),
+        "@questionnaire": path.resolve(__dirname, "src/features/questionnaire"),
         "@common": path.resolve(__dirname, "src/common"),
         "@lib": path.resolve(__dirname, "src/chadcnComponents/lib"),
         "@ui": path.resolve(__dirname, "src/chadcnComponents/ui"),
