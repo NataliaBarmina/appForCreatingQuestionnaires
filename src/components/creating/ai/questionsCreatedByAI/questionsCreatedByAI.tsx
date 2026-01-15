@@ -1,7 +1,7 @@
 import BlockedFieldWithAnswersAndQuestions from "@commonComponents/createFields/blockedFieldWithAnswersAndQuestions";
 import { useTranslation } from "react-i18next";
 import QuestionActions from "./questionActions";
-import HeadersBlock from "../../commonComponents/headersBlock";
+import HeadersBlock from "@commonComponents/headersBlock";
 import { cn } from "@lib/utils";
 
 import { questionsList } from "@common/dataExample"; //TODO: получаем из какого-то временного хранилища  массив с объектами вопросов

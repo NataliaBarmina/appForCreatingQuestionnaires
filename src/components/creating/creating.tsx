@@ -11,7 +11,7 @@ const circleStyles = cn(
   "md:landscape:h-[60vw] md:landscape:w-[60vw]",
   "lg:landscape:h-[48vw] lg:landscape:w-[48vw]",
   "xl:landscape:h-[40vw] xl:landscape:w-[40vw]",
-  "2xl:landscape:h-[32vw] 2xl:landscape:w-[32vw]",
+  "2xl:landscape:h-[32vw] 2xl:landscape:w-[32vw]"
 );
 
 const Creating: React.FC = () => {
@@ -23,7 +23,7 @@ const Creating: React.FC = () => {
   };
 
   return (
-    <div className="pb-6">
+    <div className="bg-red-400 pb-6">
       <div className="pb-8 pt-12 text-[150%] font-bold">{t("link.create")}</div>
       <div className={circleStyles}>
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">

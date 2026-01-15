@@ -14,11 +14,9 @@ import Preloader from "./components/commonComponents/preloader";
 import { lazy, Suspense } from "react";
 
 const Creating = lazy(() => import("./components/creating"));
-const QuestionsCreatedByAI = lazy(() => import("./components/creating/questionsCreatedByAI"));
-const FormForCreatingQuestionsYourself = lazy(
-  () => import("./components/creating/formForCreatingQuestionsYourself")
-);
-const FormForCreatingTheme = lazy(() => import("./components/creating/formForCreatingTheme"));
+const QuestionsCreatedByAI = lazy(() => import("./components/creating/ai/questionsCreatedByAI"));
+const FormForCreatingQuestionsYourself = lazy(() => import("./components/creating/manual"));
+const FormForCreatingTheme = lazy(() => import("./components/creating/theme"));
 const FormSelection = lazy(() => import("./components/selecting/formSelection"));
 
 const CoursesSelection = lazy(() => import("./components/selecting/coursesSelection"));
@@ -30,7 +28,7 @@ const ResultsOfTheQuestionnaire = lazy(
   () => import("./components/questionnaire/resultsOfTheQuestionnaire")
 );
 const FormForCreatingQuestionsByAI = lazy(
-  () => import("./components/creating/formForCreatingQuestionsByAI")
+  () => import("./components/creating/ai/formForCreatingQuestionsByAI")
 );
 
 const root = createRoot(document.getElementById("root"));

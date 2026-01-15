@@ -3,7 +3,7 @@ import { theme } from "@common/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
 import ThemesSelection from "../themeSelection/themesSelection";
 import TabsContainer from "./tabsContainer";
-import CustomTabPanel from "./сustomTabPanel";
+import CustomTabPanel from "./customTabPanel";
 import { useTranslation } from "react-i18next";
 import { useCoursesSelectionLogic } from "./useCoursesSelectionLogic";
 
@@ -12,27 +12,16 @@ const CoursesSelection = () => {
   const buttonID = location.state?.buttonID;
   const { t } = useTranslation();
 
-  const {
-    tabValue,
-    courses,
-    handleChange,
-    selectedCourseName,
-    selectedTopics,
-  } = useCoursesSelectionLogic();
+  const { tabValue, courses, handleChange, selectedCourseName, selectedTopics } =
+    useCoursesSelectionLogic();
 
   return (
     <ThemeProvider theme={theme}>
       <div className="w-full pb-11">
         <div className="bg-stone-300 shadow-2xl shadow-stone-500">
-          <div className="py-10 text-xl font-bold">
-            {t("header.courseSelection")}
-          </div>
+          <div className="py-10 text-xl font-bold">{t("header.courseSelection")}</div>
 
-          <TabsContainer
-            tabValue={tabValue}
-            courseNames={courses}
-            handleChange={handleChange}
-          />
+          <TabsContainer tabValue={tabValue} courseNames={courses} handleChange={handleChange} />
         </div>
         <CustomTabPanel value={tabValue} index={tabValue}>
           <ThemesSelection
