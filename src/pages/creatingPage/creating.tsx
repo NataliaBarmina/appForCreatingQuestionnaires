@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Button from "@commonComponents/buttons";
+import Button from "../../shared/buttons";
 import { useTranslation } from "react-i18next";
 import { cn } from "@lib/utils";
 import { CreationModeButton } from "@store/commonTypes";
