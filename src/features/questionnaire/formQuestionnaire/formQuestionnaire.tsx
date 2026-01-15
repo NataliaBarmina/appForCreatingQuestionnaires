@@ -1,4 +1,4 @@
-import Button from "../../../shared/buttons";
+import Button from "../../../shared/ui/buttons";
 import { useTranslation } from "react-i18next";
 import { useFormConfig } from "./useFormConfig";
 import QuestionItem from "./questionItem";

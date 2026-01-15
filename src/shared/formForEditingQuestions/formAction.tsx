@@ -1,4 +1,4 @@
-import Button from "../buttons";
+import Button from "../ui/buttons";
 import { buttonsContainerStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { TForm } from "./types";

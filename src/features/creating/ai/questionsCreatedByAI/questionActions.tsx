@@ -1,4 +1,4 @@
-import Alert from "../../../../shared/alert";
+import Alert from "../../../../shared/ui/alert";
 import FormForEditingQuestions from "../../../../shared/formForEditingQuestions/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
 
