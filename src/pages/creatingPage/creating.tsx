@@ -23,7 +23,7 @@ const Creating: React.FC = () => {
   };
 
   return (
-    <div className="bg-red-400 pb-6">
+    <div className="pb-6">
       <div className="pb-8 pt-12 text-[150%] font-bold">{t("link.create")}</div>
       <div className={circleStyles}>
         <div className="flex h-[100%] w-[100%] flex-col justify-evenly">

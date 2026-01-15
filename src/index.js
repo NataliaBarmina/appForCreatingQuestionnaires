@@ -8,12 +8,12 @@ import "./i18n";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-import { DefaultPage } from "./components/defaultPage";
+import { DefaultPage } from "./pages/defaultPage";
 import Preloader from "./components/commonComponents/preloader";
 
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./components/creating"));
+const Creating = lazy(() => import("./pages/creatingPage/creating"));
 const QuestionsCreatedByAI = lazy(() => import("./components/creating/ai/questionsCreatedByAI"));
 const FormForCreatingQuestionsYourself = lazy(() => import("./components/creating/manual"));
 const FormForCreatingTheme = lazy(() => import("./components/creating/theme"));
