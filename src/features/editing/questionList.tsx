@@ -1,14 +1,14 @@
-import Alert from "@shared/ui/alert";
-import FormForEditingQuestions from "@shared/editingQuestions/formForEditingQuestions";
-import BlockedFieldWithAnswersAndQuestions from "@shared/createFields/blockedFieldWithAnswersAndQuestions";
+import { Alert } from "@shared/ui";
+import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
+import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import HeadersBlock from "@shared/ui/headersBlock";
+import { HeadersBlock } from "@shared/ui";
 import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
-import { deleteQuestion } from "@reducers/newReducer";
+import { deleteQuestion } from "@store/newReducer";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -29,7 +29,7 @@ type TQuestion = {
   id: string;
 };
 
-const QuestionList = () => {
+export const QuestionList = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const { course, theme, themeID } = location.state || {};
@@ -100,4 +100,3 @@ const QuestionList = () => {
     </div>
   );
 };
-export default QuestionList;

@@ -1,1 +1,1 @@
-export { default } from "./questionsCreatedByAI";
+export { QuestionsCreatedByAI } from "./questionsCreatedByAI";

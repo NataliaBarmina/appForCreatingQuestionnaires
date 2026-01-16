@@ -1,1 +1,1 @@
-export { default } from "./formForCreatingTheme";
+export { FormForCreatingTheme } from "./formForCreatingTheme";

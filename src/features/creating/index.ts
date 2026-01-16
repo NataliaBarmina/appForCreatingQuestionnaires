@@ -1,2 +1,5 @@
-export { default } from "./creating";
-export { default as FormForCreatingTheme } from "./theme";
+export { Creating } from "./creating";
+export { FormForCreatingTheme } from "./theme";
+export { FormForCreatingQuestionsYourself } from "./manual";
+export { FormForCreatingQuestionsByAI } from "./ai/formForCreatingQuestionsByAI";
+export { QuestionsCreatedByAI } from "./ai/questionsCreatedByAI";

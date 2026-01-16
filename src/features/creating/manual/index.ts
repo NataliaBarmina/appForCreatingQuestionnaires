@@ -1,1 +1,1 @@
-export { default } from "./formForCreatingQuestionsYourself";
+export { FormForCreatingQuestionsYourself } from "./formForCreatingQuestionsYourself";

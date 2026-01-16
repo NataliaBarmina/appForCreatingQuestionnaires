@@ -1,20 +1,20 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "@shared/createFields/createFields";
-import Button from "@shared/ui/buttons";
+import { TFields } from "@/shared/createFields/textarea";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
-import TextAreaBlock from "./textAreaBlock";
+import { TextAreaBlock } from "./textAreaBlock";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import { addThemes } from "@store/reducers/newReducer";
+import { addThemes } from "@store/newReducer";
 
 type TFormForCreatingTheme = {
   closePopover?: () => void;
   course?: string;
 };
 
-const FormForCreatingTheme = ({ closePopover, course }: TFormForCreatingTheme) => {
+export const FormForCreatingTheme = ({ closePopover, course }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const schema = yup.object({
@@ -52,4 +52,3 @@ const FormForCreatingTheme = ({ closePopover, course }: TFormForCreatingTheme) =
     </form>
   );
 };
-export default FormForCreatingTheme;

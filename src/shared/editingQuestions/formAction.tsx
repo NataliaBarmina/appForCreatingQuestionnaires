@@ -1,9 +1,9 @@
-import Button from "../ui/buttons";
+import { Button } from "@shared/ui";
 import { buttonsContainerStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { TForm } from "./types";
 
-const FormAction = ({ hasErrors, onSubmit, onDelete }: TForm) => {
+export const FormAction = ({ hasErrors, onSubmit, onDelete }: TForm) => {
   const { t } = useTranslation();
   return (
     <div className={buttonsContainerStyles}>
@@ -23,4 +23,3 @@ const FormAction = ({ hasErrors, onSubmit, onDelete }: TForm) => {
     </div>
   );
 };
-export default FormAction;

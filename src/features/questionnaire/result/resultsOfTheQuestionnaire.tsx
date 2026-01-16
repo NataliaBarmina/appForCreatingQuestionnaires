@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import HeadersBlock from "./headersBlock";
+import { HeadersBlock } from "./headersBlock";
 import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
-import QuestionItem from "./questionItem";
+import { QuestionItem } from "./questionItem";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { TQuestion } from "@shared/types/commonTypes";
 
-const ResultsOfTheQuestionnaire = () => {
+export const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -52,4 +52,3 @@ const ResultsOfTheQuestionnaire = () => {
     </div>
   );
 };
-export default ResultsOfTheQuestionnaire;

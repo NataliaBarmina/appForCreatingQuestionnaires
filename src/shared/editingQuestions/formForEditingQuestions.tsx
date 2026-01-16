@@ -1,4 +1,4 @@
-import Button from "../ui/buttons";
+import { Button } from "@shared/ui";
 import {
   Dialog,
   DialogContent,
@@ -11,10 +11,10 @@ import {
 } from "@ui/dialog";
 import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import Form from "./form";
+import { Form } from "./form";
 import { TFormForEditingQuestions } from "./types";
 
-const FormForEditingQuestions = ({
+export const FormForEditingQuestions = ({
   question,
   correctAnswer,
   wrongAnswer1,
@@ -68,4 +68,3 @@ const FormForEditingQuestions = ({
     </div>
   );
 };
-export default FormForEditingQuestions;

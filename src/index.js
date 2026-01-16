@@ -1,35 +1,45 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./app/app";
+import { App } from "./app/app";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
 import "./shared/ i18n/i18n";
 import { Provider } from "react-redux";
-import store from "./store/store";
-
+import { store } from "./store/store";
 import { DefaultPage } from "./defaultPage";
-import Preloader from "./shared/ui/preloader";
-
+import { Preloader } from "./shared/ui";
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./features/creating"));
-const QuestionsCreatedByAI = lazy(() => import("./features/creating/ai/questionsCreatedByAI"));
-const FormForCreatingQuestionsYourself = lazy(() => import("./features/creating/manual"));
-const FormForCreatingTheme = lazy(() => import("./features/creating/theme"));
-const FormForCreatingQuestionsByAI = lazy(
-  () => import("./features/creating/ai/formForCreatingQuestionsByAI")
+const Creating = lazy(() => import("./features/creating").then((m) => ({ default: m.Creating })));
+const QuestionsCreatedByAI = lazy(() =>
+  import("./features/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
+);
+const FormForCreatingQuestionsByAI = lazy(() =>
+  import("./features/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
+);
+const FormForCreatingQuestionsYourself = lazy(() =>
+  import("./features/creating").then((m) => ({ default: m.FormForCreatingQuestionsYourself }))
+);
+const FormForCreatingTheme = lazy(() =>
+  import("./features/creating").then((m) => ({ default: m.FormForCreatingTheme }))
 );
 
-const FormSelection = lazy(() => import("./features/selecting/formSelection"));
-const CoursesSelection = lazy(() => import("./features/selecting/coursesSelection"));
+const FormSelection = lazy(() =>
+  import("./features/selecting").then((m) => ({ default: m.FormSelection }))
+);
+const CoursesSelection = lazy(() =>
+  import("./features/selecting").then((m) => ({ default: m.CoursesSelection }))
+);
+
+const FormQuestionnaire = lazy(() =>
+  import("./features/questionnaire").then((m) => ({ default: m.FormQuestionnaire }))
+);
+const ResultsOfTheQuestionnaire = lazy(() =>
+  import("./features/questionnaire").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
+);
 
 const QuestionList = lazy(() => import("./features/editing/questionList"));
-
-const FormQuestionnaire = lazy(() => import("./features/questionnaire/formQuestionnaire"));
-const ResultsOfTheQuestionnaire = lazy(
-  () => import("./features/questionnaire/resultsOfTheQuestionnaire")
-);
 
 const root = createRoot(document.getElementById("root"));
 

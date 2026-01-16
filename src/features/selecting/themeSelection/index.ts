@@ -1,1 +1,1 @@
-export { default } from "./themesSelection";
+export { ThemesSelection } from "./themesSelection";

@@ -1,7 +1,7 @@
-import BlockedFieldWithAnswersAndQuestions from "@shared/createFields/blockedFieldWithAnswersAndQuestions";
+import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
 import { useTranslation } from "react-i18next";
-import QuestionActions from "./questionActions";
-import HeadersBlock from "@shared/ui/headersBlock";
+import { QuestionActions } from "./questionActions";
+import { HeadersBlock } from "@shared/ui";
 import { cn } from "@lib/utils";
 import { TQuestion } from "@shared/types/commonTypes";
 
@@ -44,7 +44,7 @@ const greenContainerStyles = cn(
   "2xl:w-[45vw]"
 );
 
-const QuestionsCreatedByAI = () => {
+export const QuestionsCreatedByAI = () => {
   const { t } = useTranslation();
   return (
     <div className="pb-1">
@@ -79,4 +79,3 @@ const QuestionsCreatedByAI = () => {
     </div>
   );
 };
-export default QuestionsCreatedByAI;

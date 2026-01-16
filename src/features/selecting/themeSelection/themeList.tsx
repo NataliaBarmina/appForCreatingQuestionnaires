@@ -21,7 +21,7 @@ const listItemStyles = {
   },
 };
 
-const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
+export const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
   console.log("topics", selectedTopics);
   const selectedTopicNames = selectedTopics.map((item: TSelectedTopic) => item.themeName);
 
@@ -43,4 +43,3 @@ const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
     </div>
   );
 };
-export default ThemeList;
