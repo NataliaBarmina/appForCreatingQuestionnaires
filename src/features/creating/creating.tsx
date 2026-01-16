@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Button from "@shared/ui/buttons";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { cn } from "@lib/utils";
 import { CreationModeButton } from "@shared/types/commonTypes";
@@ -14,7 +14,7 @@ const circleStyles = cn(
   "2xl:landscape:h-[32vw] 2xl:landscape:w-[32vw]"
 );
 
-const Creating: React.FC = () => {
+export const Creating: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -42,4 +42,3 @@ const Creating: React.FC = () => {
     </div>
   );
 };
-export default Creating;

@@ -1,6 +1,6 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "@shared/createFields/createFields";
-import Button from "@shared/ui/buttons";
+import { TFields } from "@/shared/createFields/textarea";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 
@@ -10,7 +10,7 @@ type TFormForCreatingTheme = {
   themeID: string;
 };
 
-const FormForCreatingQuestionsByAI = ({
+export const FormForCreatingQuestionsByAI = ({
   course,
   theme,
   themeID, //todo - переписать код используя
@@ -34,4 +34,3 @@ const FormForCreatingQuestionsByAI = ({
     </form>
   );
 };
-export default FormForCreatingQuestionsByAI;

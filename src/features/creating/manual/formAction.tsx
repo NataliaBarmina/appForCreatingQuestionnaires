@@ -1,5 +1,5 @@
-import Alert from "@shared/ui/alert";
-import Button from "@shared/ui/buttons";
+import { Alert } from "@shared/ui";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 
 type TFormActionsProps = {
@@ -9,7 +9,7 @@ type TFormActionsProps = {
   isSubmitting: boolean;
 };
 
-const FormAction = ({
+export const FormAction = ({
   isFormValid,
   isSubmitting,
   onFormReset,
@@ -46,4 +46,3 @@ const FormAction = ({
     </div>
   );
 };
-export default FormAction;

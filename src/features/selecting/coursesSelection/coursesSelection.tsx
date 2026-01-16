@@ -1,13 +1,13 @@
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@shared/MUI/themeForMaterialUI";
 import { useLocation } from "react-router-dom";
-import ThemesSelection from "../themeSelection/themesSelection";
-import TabsContainer from "./tabsContainer";
-import CustomTabPanel from "./customTabPanel";
+import { ThemesSelection } from "../themeSelection";
+import { TabsContainer } from "./tabsContainer";
+import { CustomTabPanel } from "./customTabPanel";
 import { useTranslation } from "react-i18next";
 import { useCoursesSelectionLogic } from "./useCoursesSelectionLogic";
 
-const CoursesSelection = () => {
+export const CoursesSelection = () => {
   const location = useLocation();
   const buttonID = location.state?.buttonID;
   const { t } = useTranslation();
@@ -34,4 +34,3 @@ const CoursesSelection = () => {
     </ThemeProvider>
   );
 };
-export default CoursesSelection;

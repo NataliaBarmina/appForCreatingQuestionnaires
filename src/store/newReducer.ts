@@ -83,7 +83,7 @@ export const deleteQuestion = (payload: { questionID: string }) => ({
   payload,
 });
 
-const addThemeReducer = (state = initialState2, action: TActions): TState => {
+export const addThemeReducer = (state = initialState2, action: TActions): TState => {
   switch (action.type) {
     case ADD_THEMES: {
       const themeID = uuidv4();
@@ -133,4 +133,3 @@ const addThemeReducer = (state = initialState2, action: TActions): TState => {
       return state;
   }
 };
-export default addThemeReducer;

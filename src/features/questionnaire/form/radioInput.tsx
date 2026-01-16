@@ -9,7 +9,7 @@ type TRadioInput = {
   register: UseFormRegister<any>;
 };
 
-const RadioInput = forwardRef<HTMLInputElement, TRadioInput>(
+export const RadioInput = forwardRef<HTMLInputElement, TRadioInput>(
   ({ value, name, register }, ref) => (
     <div>
       <label className="mb-4 flex">
@@ -22,6 +22,5 @@ const RadioInput = forwardRef<HTMLInputElement, TRadioInput>(
         <div className={radioInputStyles}>{value}</div>
       </label>
     </div>
-  ),
+  )
 );
-export default RadioInput;

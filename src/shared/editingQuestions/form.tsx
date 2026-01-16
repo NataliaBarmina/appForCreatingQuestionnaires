@@ -1,15 +1,15 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "../createFields/createFields";
+import { TFields } from "../createFields/textarea";
 import { useTranslation } from "react-i18next";
 import { mainContainerStyles, headerStyles } from "./styles";
 import { UseFormConfig } from "./useFormConfig";
-import QuestionForm from "./questionForm";
-import FormAction from "./formAction";
+import { QuestionForm } from "./questionForm";
+import { FormAction } from "./formAction";
 import { TFormForEditingQuestions } from "./types";
 import { useDispatch } from "react-redux";
-import { editQuestion } from "@reducers/actions";
+import { editQuestion } from "@/store/actions";
 
-const Form = ({
+export const Form = ({
   closeDialog,
   question,
   correctAnswer,
@@ -72,5 +72,3 @@ const Form = ({
     </form>
   );
 };
-
-export default Form;

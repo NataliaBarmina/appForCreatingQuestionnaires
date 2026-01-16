@@ -1,4 +1,4 @@
-import { TFields } from "../createFields/createFields";
+import { TFields } from "../createFields/textarea";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
 
 export type TFormForEditingQuestions = {

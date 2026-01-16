@@ -2,7 +2,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/fo
 import { Textarea } from "@ui/textarea";
 import { textAreaBase, formLabelClasses } from "./styles";
 import { Control } from "react-hook-form";
-import { TFields } from "@shared/createFields/createFields";
+import { TFields } from "@/shared/createFields/textarea";
 
 type TAnswersField = {
   control: Control<TFields>;
@@ -11,7 +11,7 @@ type TAnswersField = {
   formLabel?: string;
 };
 
-const AnswersField = ({ control, name, placeholder, formLabel }: TAnswersField) => {
+export const AnswersField = ({ control, name, placeholder, formLabel }: TAnswersField) => {
   return (
     <FormField
       control={control}
@@ -33,4 +33,3 @@ const AnswersField = ({ control, name, placeholder, formLabel }: TAnswersField) 
     />
   );
 };
-export default AnswersField;

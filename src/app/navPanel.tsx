@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CreationModeButton } from "@shared/types/commonTypes";
 
-const NavPanel = () => {
+export const NavPanel = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -33,4 +33,3 @@ const NavPanel = () => {
     </div>
   );
 };
-export default NavPanel;

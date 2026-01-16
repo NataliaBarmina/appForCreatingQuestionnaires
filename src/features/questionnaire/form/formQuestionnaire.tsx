@@ -1,7 +1,7 @@
-import Button from "@shared/ui/buttons";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { useFormConfig } from "./useFormConfig";
-import QuestionItem from "./questionItem";
+import { QuestionItem } from "./questionItem";
 import { useSelector } from "react-redux";
 // import { getQuestionnaire } from "@store/selectors";
 import { FormProvider } from "react-hook-form";
@@ -37,7 +37,7 @@ export const questionsList: TQuestion[] = [
   },
 ];
 
-const FormQuestionnaire = () => {
+export const FormQuestionnaire = () => {
   const { t } = useTranslation();
 
   // const questionsList = useSelector(getQuestionnaire);
@@ -69,4 +69,3 @@ const FormQuestionnaire = () => {
     </FormProvider>
   );
 };
-export default FormQuestionnaire;
