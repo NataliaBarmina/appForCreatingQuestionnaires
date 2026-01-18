@@ -10,10 +10,11 @@ import {
   AlertDialogTitle,
 } from "@ui/alert-dialog";
 import { useState } from "react";
-import { TQuestion } from "../types/commonTypes";
+import { TQuestion } from "@shared/types/commonTypes";
 
 type TAlertProps = {
-  onClick?: () => void;
+  handleCreateManualQuestion?: () => void;
+  onDelete?: () => void;
   alertDialogTitle: string;
   alertDialogDescription: string;
   alertDialogAction: string;
@@ -37,7 +38,8 @@ export const Alert = ({
   size,
   isFormValid,
   isSubmitting,
-  onClick,
+  handleCreateManualQuestion,
+  onDelete,
 }: TAlertProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,7 +61,9 @@ export const Alert = ({
               <AlertDialogDescription>{alertDialogDescription}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel onClick={onClick}>{alertDialogCancel}</AlertDialogCancel>
+              <AlertDialogCancel onClick={handleCreateManualQuestion || onDelete}>
+                {alertDialogCancel}
+              </AlertDialogCancel>
               <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

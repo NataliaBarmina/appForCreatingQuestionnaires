@@ -22,7 +22,6 @@ const listItemStyles = {
 };
 
 export const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
-  console.log("topics", selectedTopics);
   const selectedTopicNames = selectedTopics.map((item: TSelectedTopic) => item.themeName);
 
   return (

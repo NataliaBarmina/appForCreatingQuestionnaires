@@ -7,7 +7,7 @@ import { QuestionForm } from "./questionForm";
 import { FormAction } from "./formAction";
 import { TFormForEditingQuestions } from "./types";
 import { useDispatch } from "react-redux";
-import { editQuestion } from "@/store/actions";
+import { editQuestion } from "@store/newReducer";
 
 export const Form = ({
   closeDialog,
@@ -21,7 +21,7 @@ export const Form = ({
 }: TFormForEditingQuestions) => {
   const { t } = useTranslation();
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     const updatedQuestion = {
@@ -31,21 +31,15 @@ export const Form = ({
       wrongAnswer2: data.answerForEditing3,
     };
 
-    //   dispatch(
-    //     editQuestion({
-    //       course: course,
-    //       topic: theme,
-    //       questionID,
-    //       question: updatedQuestion.question,
-    //       answer_1: updatedQuestion.correctAnswer,
-    //       answer_2: updatedQuestion.wrongAnswer1,
-    //       answer_3: updatedQuestion.wrongAnswer2,
-    //     }),
-    //   );
-    //   closeDialog();
-  };
-
-  const handleDelete = () => {
+    dispatch(
+      editQuestion({
+        questionID,
+        question: updatedQuestion.question,
+        answer_1: updatedQuestion.correctAnswer,
+        answer_2: updatedQuestion.wrongAnswer1,
+        answer_3: updatedQuestion.wrongAnswer2,
+      })
+    );
     closeDialog();
   };
 
@@ -66,7 +60,7 @@ export const Form = ({
         <FormAction
           hasErrors={hasErrors}
           onSubmit={handleSubmit(onSubmit)}
-          onDelete={handleDelete}
+          onDelete={() => closeDialog()}
         />
       </div>
     </form>

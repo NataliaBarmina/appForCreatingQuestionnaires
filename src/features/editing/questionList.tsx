@@ -43,7 +43,6 @@ export const QuestionList = () => {
       })
     );
   };
-
   const objectQuestions = useSelector((state: TRootState) => state.addTheme.questions);
   const questions: TQuestion[] = Object.values(objectQuestions);
   const selectedQuestions = questions.filter((question) => question.themeID === themeID);
@@ -90,7 +89,7 @@ export const QuestionList = () => {
                   isFormValid={true}
                   isSubmitting={false}
                   size="middle"
-                  onClick={() => onDelete(item.id)}
+                  onDelete={() => onDelete(item.id)}
                 />
               </div>
             </div>

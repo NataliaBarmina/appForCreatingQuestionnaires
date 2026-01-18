@@ -88,7 +88,7 @@ export const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQu
               isFormValid={isFormValid}
               isSubmitting={isSubmitting}
               onFormReset={onFormReset}
-              onCreateManualQuestion={handleCreateManualQuestion}
+              handleCreateManualQuestion={handleCreateManualQuestion}
             />
           </form>
         </Form>
