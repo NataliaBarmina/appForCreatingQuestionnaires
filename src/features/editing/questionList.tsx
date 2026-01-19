@@ -8,7 +8,8 @@ import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
-import { deleteQuestion } from "@store/newReducer";
+import { deleteQuestion } from "@store/questionsReducer";
+import type { TQuestion } from "@/shared/types/commonTypes";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -19,15 +20,15 @@ const greenContainerStyles = cn(
   "2xl:w-[45vw]"
 );
 
-type TQuestion = {
-  courseName: string;
-  themeID: string;
-  question: string;
-  answer_1: string;
-  answer_2?: string;
-  answer_3?: string;
-  id: string;
-};
+// type TQuestion = {
+//   courseName: string;
+//   themeID: string;
+//   question: string;
+//   answer_1: string;
+//   answer_2?: string;
+//   answer_3?: string;
+//   id: string;
+// };
 
 export const QuestionList = () => {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ export const QuestionList = () => {
       })
     );
   };
-  const objectQuestions = useSelector((state: TRootState) => state.addTheme.questions);
+  const objectQuestions = useSelector((state: TRootState) => state.questions.questions);
   const questions: TQuestion[] = Object.values(objectQuestions);
   const selectedQuestions = questions.filter((question) => question.themeID === themeID);
 
@@ -59,7 +60,7 @@ export const QuestionList = () => {
         />
 
         {selectedQuestions.map((item, index) => (
-          <div key={item.id} className={greenContainerStyles}>
+          <div key={item.questionID} className={greenContainerStyles}>
             <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
               question={item.question}
@@ -76,7 +77,7 @@ export const QuestionList = () => {
                   wrongAnswer2={item.answer_3}
                   course={course}
                   theme={theme}
-                  questionID={item.id}
+                  questionID={item.questionID}
                 />
               </div>
               <div>
@@ -89,7 +90,7 @@ export const QuestionList = () => {
                   isFormValid={true}
                   isSubmitting={false}
                   size="middle"
-                  onDelete={() => onDelete(item.id)}
+                  onDelete={() => onDelete(item.questionID)}
                 />
               </div>
             </div>

@@ -1,19 +1,20 @@
 export type TQuestion = {
-  question: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
+  courseName?: string;
+  themeID?: string;
+  questionID?: string;
+  question?: string;
+  answer_1?: string;
+  answer_2?: string;
+  answer_3?: string;
 };
 
-export type TTopic = Record<string, TQuestion[]>; // тема: массив вопросов
-
-export type TCourse = Record<string, TTopic[]>; //курс: массив тем
+export type TTopic = Record<string, TQuestion[]>;
 
 export type TSelectedTopic = {
   id: string;
   themeName: string;
   courseName: string;
-}
+};
 
 export type TQuizData = {
   buttonLabel?: string;
@@ -23,7 +24,7 @@ export type TQuizData = {
   questionsList?: TQuestion[];
   buttonID?: string;
   selectedTopicName?: string[];
-  selectedTopics?: Array<Partial<TSelectedTopic>> ;
+  selectedTopics?: Array<Partial<TSelectedTopic>>;
 };
 
 export enum CreationModeButton {
