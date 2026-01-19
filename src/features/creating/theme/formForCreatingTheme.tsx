@@ -11,10 +11,10 @@ import { addThemes } from "@store/addThemeReducer";
 
 type TFormForCreatingTheme = {
   closePopover?: () => void;
-  course?: string;
+  courseName?: string;
 };
 
-export const FormForCreatingTheme = ({ closePopover, course }: TFormForCreatingTheme) => {
+export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const schema = yup.object({
@@ -31,7 +31,7 @@ export const FormForCreatingTheme = ({ closePopover, course }: TFormForCreatingT
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    dispatch(addThemes({ courseName: course, themeName: data.topicName }));
+    dispatch(addThemes({ courseName, themeName: data.topicName }));
     closePopover();
   };
 

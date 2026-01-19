@@ -1,20 +1,14 @@
 import { BlockedField } from "./blockedField";
 import { Label } from "@ui/label";
 import { useTranslation } from "react-i18next";
-
-type TBlockedFieldWithAnswersAndQuestions = {
-  question: string;
-  correctAnswer: string;
-  wrongAnswer1: string;
-  wrongAnswer2: string;
-};
+import type { TQuizQuestion } from "../types/commonTypes";
 
 export const BlockedFieldWithAnswersAndQuestions = ({
   question,
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
-}: TBlockedFieldWithAnswersAndQuestions) => {
+}: TQuizQuestion) => {
   const { t } = useTranslation();
 
   const answerFields = [

@@ -11,7 +11,6 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
       "@features/*": ["src/features/*"],
       "@common/*": ["src/common/*"],
       "@shared/*": ["src/shared/*"],

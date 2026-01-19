@@ -8,23 +8,18 @@ export type TQuestion = {
   answer_3?: string;
 };
 
-export type TTopic = Record<string, TQuestion[]>;
-
-export type TSelectedTopic = {
-  id: string;
+export type TTopic = {
+  themeID: string;
   themeName: string;
   courseName: string;
+  buttonID?: string;
 };
 
-export type TQuizData = {
-  buttonLabel?: string;
-  course?: string;
-  theme?: string;
-  themeID?: string;
-  questionsList?: TQuestion[];
-  buttonID?: string;
-  selectedTopicName?: string[];
-  selectedTopics?: Array<Partial<TSelectedTopic>>;
+export type TQuizQuestion = {
+  question: string;
+  correctAnswer: string;
+  wrongAnswer1: string;
+  wrongAnswer2: string;
 };
 
 export enum CreationModeButton {

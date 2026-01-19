@@ -1,5 +1,5 @@
 import { Form } from "@ui/form";
-import { TQuizData } from "@shared/types/commonTypes";
+import { TTopic } from "@shared/types/commonTypes";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { formContainerClasses } from "./styles";
@@ -10,16 +10,16 @@ import { AnswersField } from "./answersField";
 import { TFields } from "@shared/createFields/textarea";
 import { addQuestions } from "@store/questionsReducer";
 
-export const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQuizData) => {
+export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeID }: TTopic) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const form = useQuestionForm(theme, t("required"));
+  const form = useQuestionForm(themeName, t("required"));
 
   function onSubmit(values: TFields) {
     dispatch(
       addQuestions({
-        courseName: course,
+        courseName: courseName,
         themeID: themeID,
         question: values.selfWrittenQuestion,
         answer_1: values.selfWrittenAnswer1,
@@ -49,10 +49,10 @@ export const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQu
   return (
     <div>
       <div className="p-8 text-[150%] font-bold">
-        {t("header.createQuestion")} {course}
+        {t("header.createQuestion")} {courseName}
       </div>
       <div className="p-8 text-[150%] font-bold">
-        {t("formLabel.topic")} {theme}
+        {t("formLabel.topic")} {themeName}
       </div>
 
       <div className={formContainerClasses}>
