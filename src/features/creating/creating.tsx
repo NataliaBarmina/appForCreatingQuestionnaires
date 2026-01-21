@@ -14,7 +14,7 @@ const circleStyles = cn(
   "2xl:landscape:h-[32vw] 2xl:landscape:w-[32vw]"
 );
 
-export const Creating: React.FC = () => {
+export const Creating = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
