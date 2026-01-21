@@ -19,8 +19,6 @@ export const FormForEditingQuestions = ({
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
-  course,
-  theme,
   questionID,
 }: TFormForEditingQuestions) => {
   const container = useRef(null); // реф для контейнера, в котором будет рендериться диалог
@@ -54,8 +52,6 @@ export const FormForEditingQuestions = ({
               correctAnswer={correctAnswer}
               wrongAnswer1={wrongAnswer1}
               wrongAnswer2={wrongAnswer2}
-              course={course}
-              theme={theme}
               questionID={questionID}
             />
           </DialogContent>

@@ -2,7 +2,6 @@ import { Alert } from "@shared/ui";
 import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
 import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
 import { HeadersBlock } from "@shared/ui";
 import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
@@ -20,10 +19,8 @@ const greenContainerStyles = cn(
   "2xl:w-[45vw]"
 );
 
-export const QuestionList = () => {
+export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
   const { t } = useTranslation();
-  const location = useLocation();
-  const { course, theme, themeID } = location.state || {};
 
   const dispatch = useDispatch();
 
@@ -45,8 +42,8 @@ export const QuestionList = () => {
           questionsGeneratedByAIHeader={t("header.editQuestion")}
           courseHeader={t("header.course")}
           themeHeader={t("header.theme")}
-          course={course}
-          theme={theme}
+          courseName={courseName}
+          themeName={themeName}
         />
 
         {selectedQuestions.map((item, index) => (
@@ -65,8 +62,6 @@ export const QuestionList = () => {
                   correctAnswer={item.answer_1}
                   wrongAnswer1={item.answer_2}
                   wrongAnswer2={item.answer_3}
-                  course={course}
-                  theme={theme}
                   questionID={item.questionID}
                 />
               </div>

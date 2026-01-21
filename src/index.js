@@ -39,7 +39,12 @@ const ResultsOfTheQuestionnaire = lazy(() =>
   import("./features/questionnaire").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
 );
 
-const QuestionList = lazy(() => import("./features/editing/questionList"));
+const QuestionList = lazy(() =>
+  import("./features/editing/questionList").then((m) => ({ default: m.QuestionList }))
+);
+const Editing = lazy(() =>
+  import("./features/editing/editing").then((m) => ({ default: m.Editing }))
+);
 
 const root = createRoot(document.getElementById("root"));
 
@@ -54,6 +59,14 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <Creating />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/editing",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <Editing />
             </Suspense>
           ),
         },
