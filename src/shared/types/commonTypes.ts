@@ -1,5 +1,6 @@
 export type TQuestion = {
   courseName?: string;
+  themeName?: string;
   themeID?: string;
   questionID?: string;
   question?: string;
@@ -25,5 +26,4 @@ export type TQuizQuestion = {
 export enum CreationModeButton {
   AI = "AI",
   MANUAL = "MANUAL",
-  EDITING = "EDITING",
 }

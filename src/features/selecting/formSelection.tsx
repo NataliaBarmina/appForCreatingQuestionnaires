@@ -28,7 +28,9 @@ export const FormSelection = () => {
           themeID={themeID}
         />
       )}
-      {buttonID === CreationModeButton.EDITING && <QuestionList />}
+      {buttonID !== CreationModeButton.AI && buttonID !== CreationModeButton.MANUAL && (
+        <QuestionList courseName={courseName} themeName={themeName} themeID={themeID} />
+      )}
     </div>
   );
 };
