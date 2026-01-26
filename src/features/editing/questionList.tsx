@@ -85,3 +85,4 @@ export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
     </div>
   );
 };
+export default QuestionList;
