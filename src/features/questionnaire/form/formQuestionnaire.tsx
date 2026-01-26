@@ -3,45 +3,24 @@ import { useTranslation } from "react-i18next";
 import { useFormConfig } from "./useFormConfig";
 import { QuestionItem } from "./questionItem";
 import { useSelector } from "react-redux";
-// import { getQuestionnaire } from "@store/selectors";
 import { FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { TQuestion } from "@shared/types/commonTypes";
-
-//todo: потом удалить
-export const questionsList: TQuestion[] = [
-  {
-    question: "Свойство display какое значение принимает?",
-    answer_1: "flex",
-    answer_2: "relative",
-    answer_3: "justify-content",
-  },
-  {
-    question: "Что такое инлайн - стили и какой они имеют приоритет?",
-    answer_1: "стили которые пишутся прямо в HTML  и имеют самый высокий приоритет",
-    answer_2: "стили которые пишутся  в CSS  и имеют самый высокий приоритет",
-    answer_3: "стили которые пишутся прямо в HTML  и имеют низкий приоритет",
-  },
-
-  {
-    question: "За что отвечает z- index?",
-    answer_1: "за расположение элементов по оси z",
-    answer_2: "за расположение элементов по оси x",
-    answer_3: "за расположение элементов по оси y",
-  },
-  {
-    question: "Какие значения принимает свойство position?",
-    answer_1: "relative",
-    answer_2: "flex",
-    answer_3: "justify-content",
-  },
-];
+import { TRootState } from "@store/store";
+import type { TQuestion } from "@shared/types/commonTypes";
+import { useMemo, useEffect } from "react";
+import shuffle from "lodash-es/shuffle";
 
 export const FormQuestionnaire = () => {
   const { t } = useTranslation();
-
-  // const questionsList = useSelector(getQuestionnaire);
   const navigate = useNavigate();
+
+  const questions = useSelector((state: TRootState) => state.questions.questions);
+
+  const questionsList = useMemo(() => shuffle(Object.values(questions)).slice(0, 10), [questions]);
+
+  useEffect(() => {
+    if (!questionsList?.length) navigate("/creating");
+  }, [questionsList, navigate]);
 
   const methods = useFormConfig(questionsList, navigate);
 
@@ -52,15 +31,15 @@ export const FormQuestionnaire = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
         <div className="px-4 py-7 text-[150%] font-bold">{t("header.answerToQuestion")}</div>
 
-        {questionsList.map((item, index) => (
+        {questionsList.map((item: TQuestion, index: number) => (
           <QuestionItem
-            key={index}
-            answer_1={item.answer_1}
-            answer_2={item.answer_2}
-            answer_3={item.answer_3}
+            key={item.questionID}
+            correctAnswer={item.answer_1}
+            wrongAnswer_1={item.answer_2}
+            wrongAnswer_2={item.answer_3}
             index={index}
             question={item.question}
-            questionNumber={t("header.questionNumber")}
+            headerQuestionNumber={t("header.questionNumber")}
           />
         ))}
 

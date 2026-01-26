@@ -7,32 +7,32 @@ import { useMemo } from "react";
 
 type TQuestionItem = {
   question: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-  questionNumber: string;
+  correctAnswer: string;
+  wrongAnswer_1: string;
+  wrongAnswer_2: string;
+  headerQuestionNumber: string;
   index: number;
 };
 
 export const QuestionItem = ({
-  answer_1,
-  answer_2,
-  answer_3,
+  correctAnswer,
+  wrongAnswer_1,
+  wrongAnswer_2,
   index,
   question,
-  questionNumber,
+  headerQuestionNumber,
 }: TQuestionItem) => {
   const { register } = useFormContext();
 
   const shuffledAnswers = useMemo(
-    () => shuffleArray([answer_1, answer_2, answer_3]),
-    [] // пустой массив — рендер производится один раз
+    () => shuffleArray([correctAnswer, wrongAnswer_1, wrongAnswer_2]),
+    []
   );
 
   return (
     <div key={index} className={greenContainerStyles}>
       <div className="mb-2 p-4 text-lg font-bold text-blue-100">
-        {questionNumber} {index + 1}
+        {headerQuestionNumber} {index + 1}
       </div>
       <div className="mx-auto mb-8 w-[90%]">
         <div className="mb-3">
