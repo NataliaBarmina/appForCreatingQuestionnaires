@@ -1,0 +1,27 @@
+import { useLocation } from "react-router-dom";
+import FormForCreatingQuestionsYourself from "../creating/manual/formForCreatingQuestionsYourself";
+import QuestionList from "../editing/questionList";
+import { TQuizData } from "@store/commonTypes";
+import { useTranslation } from "react-i18next";
+import { CreationModeButton } from "@store/commonTypes";
+import FormForCreatingQuestionsByAI from "../creating/ai/formForCreatingQuestionsByAI";
+
+const FormSelection = () => {
+  const location = useLocation();
+  const { t } = useTranslation();
+
+  const { buttonID, course, theme, themeID }: TQuizData = location.state || {};
+
+  return (
+    <div>
+      {buttonID === CreationModeButton.MANUAL && (
+        <FormForCreatingQuestionsYourself course={course} theme={theme} themeID={themeID} />
+      )}
+      {buttonID === CreationModeButton.AI && (
+        <FormForCreatingQuestionsByAI course={course} theme={theme} themeID={themeID} />
+      )}
+      {buttonID === CreationModeButton.EDITING && <QuestionList />}
+    </div>
+  );
+};
+export default FormSelection;
