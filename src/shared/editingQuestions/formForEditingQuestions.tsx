@@ -1,4 +1,4 @@
-import Button from "../buttons";
+import Button from "../ui/buttons";
 import {
   Dialog,
   DialogContent,

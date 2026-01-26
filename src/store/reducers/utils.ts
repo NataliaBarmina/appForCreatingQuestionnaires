@@ -1,4 +1,4 @@
-import { TCourse } from "../commonTypes";
+import { TCourse } from "@shared/types/commonTypes";
 
 export function getThemes(state: TCourse[], course: string) {
   const selectedCourse = state.find((item) => item.hasOwnProperty(course));

@@ -1,10 +1,38 @@
-import BlockedFieldWithAnswersAndQuestions from "../../../../shared/createFields/blockedFieldWithAnswersAndQuestions";
+import BlockedFieldWithAnswersAndQuestions from "@shared/createFields/blockedFieldWithAnswersAndQuestions";
 import { useTranslation } from "react-i18next";
 import QuestionActions from "./questionActions";
-import HeadersBlock from "../../../../shared/headersBlock";
+import HeadersBlock from "@shared/ui/headersBlock";
 import { cn } from "@lib/utils";
+import { TQuestion } from "@shared/types/commonTypes";
 
-import { questionsList } from "@common/dataExample"; //TODO: получаем из какого-то временного хранилища  массив с объектами вопросов
+//todo: потом удалить
+const questionsList: TQuestion[] = [
+  {
+    question: "Свойство display какое значение принимает?",
+    answer_1: "flex",
+    answer_2: "relative",
+    answer_3: "justify-content",
+  },
+  {
+    question: "Что такое инлайн - стили и какой они имеют приоритет?",
+    answer_1: "стили которые пишутся прямо в HTML  и имеют самый высокий приоритет",
+    answer_2: "стили которые пишутся  в CSS  и имеют самый высокий приоритет",
+    answer_3: "стили которые пишутся прямо в HTML  и имеют низкий приоритет",
+  },
+
+  {
+    question: "За что отвечает z- index?",
+    answer_1: "за расположение элементов по оси z",
+    answer_2: "за расположение элементов по оси x",
+    answer_3: "за расположение элементов по оси y",
+  },
+  {
+    question: "Какие значения принимает свойство position?",
+    answer_1: "relative",
+    answer_2: "flex",
+    answer_3: "justify-content",
+  },
+];
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800",

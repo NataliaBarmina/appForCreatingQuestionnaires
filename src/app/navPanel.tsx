@@ -1,12 +1,8 @@
-import {
-  classesForLinks,
-  classesForNavPanel,
-  classesForFixingNavPanel,
-} from "./styles";
+import { classesForLinks, classesForNavPanel, classesForFixingNavPanel } from "./styles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CreationModeButton } from "@store/commonTypes";
+import { CreationModeButton } from "@shared/types/commonTypes";
 
 const NavPanel = () => {
   const navigate = useNavigate();

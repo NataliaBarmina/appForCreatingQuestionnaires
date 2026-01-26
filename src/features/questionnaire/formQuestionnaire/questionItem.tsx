@@ -1,8 +1,8 @@
-import BlockedField from "../../../shared/createFields/blockedField";
+import BlockedField from "@shared/createFields/blockedField";
 import RadioInput from "./radioInput";
 import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
-import { shuffleArray } from "@utils/shuffleArray";
+import { shuffleArray } from "@shared/utils/shuffleArray";
 import { useMemo } from "react";
 
 type TQuestionItem = {

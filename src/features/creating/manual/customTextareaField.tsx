@@ -2,7 +2,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/fo
 import { Textarea } from "@ui/textarea";
 import { formLabelClasses, textAreaBold } from "./styles";
 import { Control } from "react-hook-form";
-import { TFields } from "@/shared/createFields/createFields";
+import { TFields } from "@shared/createFields/createFields";
 
 type TCustomTextAreaField = {
   control: Control<TFields>;

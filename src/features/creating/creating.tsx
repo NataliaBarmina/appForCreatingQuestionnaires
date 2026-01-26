@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../shared/buttons";
+import Button from "@shared/ui/buttons";
 import { useTranslation } from "react-i18next";
 import { cn } from "@lib/utils";
-import { CreationModeButton } from "@store/commonTypes";
+import { CreationModeButton } from "@shared/types/commonTypes";
 
 const circleStyles = cn(
   "mx-auto rounded-full bg-[rgb(48,80,80)]/85",

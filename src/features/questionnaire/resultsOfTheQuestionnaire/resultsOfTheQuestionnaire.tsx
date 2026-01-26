@@ -4,7 +4,7 @@ import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
 import QuestionItem from "./questionItem";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { TQuestion } from "@store/commonTypes";
+import { TQuestion } from "@shared/types/commonTypes";
 
 const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();
@@ -16,26 +16,18 @@ const ResultsOfTheQuestionnaire = () => {
   const location = useLocation();
   const { questionsList = [], answers = [] } = location.state || [];
 
-  const wrongAnswersCount = questionsList.reduce(
-    (acc: number, item: TQuestion, index: number) => {
-      return item.answer_1 !== answers[index] ? acc + 1 : acc;
-    },
-    0,
-  );
+  const wrongAnswersCount = questionsList.reduce((acc: number, item: TQuestion, index: number) => {
+    return item.answer_1 !== answers[index] ? acc + 1 : acc;
+  }, 0);
 
   const questionsCount = questionsList.length;
 
   return (
     <div>
-      <HeadersBlock
-        wrongAnswersCount={wrongAnswersCount}
-        questionsCount={questionsCount}
-      />
+      <HeadersBlock wrongAnswersCount={wrongAnswersCount} questionsCount={questionsCount} />
 
       <div className={grayContainerStyles}>
-        <div className={wrongAnswersAnalysisHeader}>
-          {t("header.wrongAnswersAnalysis")}
-        </div>
+        <div className={wrongAnswersAnalysisHeader}>{t("header.wrongAnswersAnalysis")}</div>
 
         {questionsList.map((item: TQuestion, index: number) => {
           const correctAnswer = item.answer_1;

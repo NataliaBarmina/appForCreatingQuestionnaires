@@ -1,4 +1,4 @@
-import { TCourse } from "./commonTypes";
+import { TCourse } from "@shared/types/commonTypes";
 
 export const initialState: TCourse[] = [
   { JavaScript: [] },

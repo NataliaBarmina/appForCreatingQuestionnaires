@@ -1,14 +1,11 @@
-import { TTopic } from "@store/commonTypes";
+import { TTopic } from "@shared/types/commonTypes";
 
 export type TTabPanelProps = {
   children?: React.ReactNode;
   index: number;
   value: number;
 };
-export type THandleTabChange = (
-  event: React.SyntheticEvent,
-  newValue: number,
-) => void;
+export type THandleTabChange = (event: React.SyntheticEvent, newValue: number) => void;
 
 export type TCoursesSelection = {
   tabValue?: number;

@@ -1,24 +1,27 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./features/app/app";
+import App from "./app/app";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import "./index.css";
-import "./i18n";
+import "./shared/ i18n/i18n";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-import { DefaultPage } from "./pages/defaultPage";
-import Preloader from "./shared/preloader";
+import { DefaultPage } from "./defaultPage";
+import Preloader from "./shared/ui/preloader";
 
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./pages/creatingPage/creating"));
+const Creating = lazy(() => import("./features/creating"));
 const QuestionsCreatedByAI = lazy(() => import("./features/creating/ai/questionsCreatedByAI"));
 const FormForCreatingQuestionsYourself = lazy(() => import("./features/creating/manual"));
 const FormForCreatingTheme = lazy(() => import("./features/creating/theme"));
-const FormSelection = lazy(() => import("./features/selecting/formSelection"));
+const FormForCreatingQuestionsByAI = lazy(
+  () => import("./features/creating/ai/formForCreatingQuestionsByAI")
+);
 
+const FormSelection = lazy(() => import("./features/selecting/formSelection"));
 const CoursesSelection = lazy(() => import("./features/selecting/coursesSelection"));
 
 const QuestionList = lazy(() => import("./features/editing/questionList"));
@@ -26,9 +29,6 @@ const QuestionList = lazy(() => import("./features/editing/questionList"));
 const FormQuestionnaire = lazy(() => import("./features/questionnaire/formQuestionnaire"));
 const ResultsOfTheQuestionnaire = lazy(
   () => import("./features/questionnaire/resultsOfTheQuestionnaire")
-);
-const FormForCreatingQuestionsByAI = lazy(
-  () => import("./features/creating/ai/formForCreatingQuestionsByAI")
 );
 
 const root = createRoot(document.getElementById("root"));
