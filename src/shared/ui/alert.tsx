@@ -1,4 +1,4 @@
-import Button from "./buttons";
+import { Button } from "./buttons";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,7 +27,7 @@ type TAlertProps = {
   index?: number;
 };
 
-const Alert = ({
+export const Alert = ({
   alertDialogTitle,
   alertDialogDescription,
   alertDialogAction,
@@ -68,4 +68,3 @@ const Alert = ({
     </>
   );
 };
-export default Alert;

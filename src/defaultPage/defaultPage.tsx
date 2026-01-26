@@ -2,13 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCallback } from "react";
 import { bigCircleStyles, containerStyles } from "./styles";
-import Circle from "./circle";
+import { Circle } from "./circle";
 import { TNavigateToPage } from "./types";
 import { getCircleConfig } from "./getCircleConfig";
 import { useMemo } from "react";
 import { CreationModeButton } from "@shared/types/commonTypes";
 
-const DefaultPage = () => {
+export const DefaultPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const buttonID = CreationModeButton.EDITING;
@@ -33,4 +33,3 @@ const DefaultPage = () => {
     </div>
   );
 };
-export default DefaultPage;

@@ -8,7 +8,7 @@ type THeaders = {
 const mainHeaderStyles = "p-4 text-[150%] font-bold";
 const headerStyles = "p-4 text-xl font-bold";
 
-const HeadersBlock = ({
+export const HeadersBlock = ({
   questionsGeneratedByAIHeader,
   courseHeader,
   themeHeader,
@@ -25,4 +25,3 @@ const HeadersBlock = ({
     </div>
   );
 };
-export default HeadersBlock;

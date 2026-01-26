@@ -1,9 +1,9 @@
-import { Textarea } from "../createFields/createFields";
+import { Textarea } from "@shared/createFields";
 import { errorsStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { TForm } from "./types";
 
-const QuestionForm = ({ errors, register }: TForm) => {
+export const QuestionForm = ({ errors, register }: TForm) => {
   const { t } = useTranslation();
   return (
     <div className="mx-auto w-[95%]">
@@ -37,4 +37,3 @@ const QuestionForm = ({ errors, register }: TForm) => {
     </div>
   );
 };
-export default QuestionForm;

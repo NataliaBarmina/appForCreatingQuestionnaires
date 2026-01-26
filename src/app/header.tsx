@@ -1,7 +1,7 @@
 import { classesForHead } from "./styles";
-import LanguageSwitcher from "./languageSwitcher";
+import { LanguageSwitcher } from "./languageSwitcher";
 
-const Header = () => {
+export const Header = () => {
   return (
     <div>
       {/* чтобы текст не прятался под зеленую полосу вводим доп контейнер: */}
@@ -13,4 +13,3 @@ const Header = () => {
     </div>
   );
 };
-export default Header;

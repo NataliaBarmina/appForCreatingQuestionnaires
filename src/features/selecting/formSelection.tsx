@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
-import FormForCreatingQuestionsYourself from "../creating/manual/formForCreatingQuestionsYourself";
-import QuestionList from "../editing/questionList";
+import { FormForCreatingQuestionsYourself } from "../creating";
+import { QuestionList } from "../editing/questionList";
 import { TQuizData } from "@shared/types/commonTypes";
 import { useTranslation } from "react-i18next";
 import { CreationModeButton } from "@shared/types/commonTypes";
-import FormForCreatingQuestionsByAI from "../creating/ai/formForCreatingQuestionsByAI";
+import { FormForCreatingQuestionsByAI } from "../creating";
 
-const FormSelection = () => {
+export const FormSelection = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -24,4 +24,3 @@ const FormSelection = () => {
     </div>
   );
 };
-export default FormSelection;

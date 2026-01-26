@@ -3,14 +3,14 @@ import { TQuizData } from "@shared/types/commonTypes";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { formContainerClasses } from "./styles";
-import useQuestionForm from "./useQuestionForm";
-import FormAction from "./formAction";
-import CustomTextAreaField from "./customTextareaField";
-import AnswersField from "./answersField";
-import { TFields } from "@shared/createFields/createFields";
-import { addQuestions } from "@store/reducers/newReducer";
+import { useQuestionForm } from "./useQuestionForm";
+import { FormAction } from "./formAction";
+import { CustomTextAreaField } from "./customTextareaField";
+import { AnswersField } from "./answersField";
+import { TFields } from "@/shared/createFields/textarea";
+import { addQuestions } from "@store/newReducer";
 
-const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQuizData) => {
+export const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQuizData) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -96,4 +96,3 @@ const FormForCreatingQuestionsYourself = ({ course, theme, themeID }: TQuizData)
     </div>
   );
 };
-export default FormForCreatingQuestionsYourself;

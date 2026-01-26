@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { TQuizData } from "@shared/types/commonTypes";
 import { useTranslation } from "react-i18next";
-import ThemeList from "./themeList";
+import { ThemeList } from "./themeList";
 import { CreationModeButton } from "@shared/types/commonTypes";
 import { mainContainerStyles } from "./styles";
-import PopoverBlock from "./popoverBlock";
+import { PopoverBlock } from "./popoverBlock";
 
-const ThemesSelection = ({ course, buttonID, selectedTopics }: TQuizData) => {
+export const ThemesSelection = ({ course, buttonID, selectedTopics }: TQuizData) => {
   const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -29,4 +29,3 @@ const ThemesSelection = ({ course, buttonID, selectedTopics }: TQuizData) => {
     </div>
   );
 };
-export default ThemesSelection;

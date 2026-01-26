@@ -2,7 +2,7 @@ import { TCircleProps } from "./types";
 import { smallCirclesStyles, circlesTextStyles } from "./styles";
 import { cn } from "@lib/utils";
 
-const Circle = ({
+export const Circle = ({
   colSpan,
   colStart,
   rowSpan,
@@ -23,4 +23,3 @@ const Circle = ({
     </div>
   );
 };
-export default Circle;

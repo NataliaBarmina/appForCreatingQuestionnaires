@@ -1,4 +1,4 @@
-import BlockedField from "./blockedField";
+import { BlockedField } from "./blockedField";
 import { Label } from "@ui/label";
 import { useTranslation } from "react-i18next";
 
@@ -9,7 +9,7 @@ type TBlockedFieldWithAnswersAndQuestions = {
   wrongAnswer2: string;
 };
 
-const BlockedFieldWithAnswersAndQuestions = ({
+export const BlockedFieldWithAnswersAndQuestions = ({
   question,
   correctAnswer,
   wrongAnswer1,
@@ -55,4 +55,3 @@ const BlockedFieldWithAnswersAndQuestions = ({
     </div>
   );
 };
-export default BlockedFieldWithAnswersAndQuestions;

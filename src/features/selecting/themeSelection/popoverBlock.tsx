@@ -4,7 +4,7 @@ import { popoverTriggerStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-const PopoverBlock = ({ course }: { course: string }) => {
+export const PopoverBlock = ({ course }: { course: string }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -22,4 +22,3 @@ const PopoverBlock = ({ course }: { course: string }) => {
     </Popover>
   );
 };
-export default PopoverBlock;

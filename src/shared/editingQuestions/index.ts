@@ -1,1 +1,1 @@
-export { default } from "./formForEditingQuestions";
+export { FormForEditingQuestions } from "./formForEditingQuestions";

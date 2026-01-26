@@ -1,5 +1,5 @@
 import { Label } from "@ui/label";
-import BlockedField from "@shared/createFields/blockedField";
+import { BlockedField } from "@shared/createFields";
 import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
 
 type TQuestionItem = {
@@ -12,7 +12,7 @@ type TQuestionItem = {
   yourAnswer: string;
 };
 
-const QuestionItem = ({
+export const QuestionItem = ({
   index,
   question,
   answer_1,
@@ -48,4 +48,3 @@ const QuestionItem = ({
     </div>
   );
 };
-export default QuestionItem;

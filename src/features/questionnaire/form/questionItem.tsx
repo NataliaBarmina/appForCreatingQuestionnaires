@@ -1,5 +1,5 @@
-import BlockedField from "@shared/createFields/blockedField";
-import RadioInput from "./radioInput";
+import { BlockedField } from "@shared/createFields";
+import { RadioInput } from "./radioInput";
 import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
 import { shuffleArray } from "@shared/utils/shuffleArray";
@@ -14,7 +14,7 @@ type TQuestionItem = {
   index: number;
 };
 
-const QuestionItem = ({
+export const QuestionItem = ({
   answer_1,
   answer_2,
   answer_3,
@@ -59,4 +59,3 @@ const QuestionItem = ({
     </div>
   );
 };
-export default QuestionItem;

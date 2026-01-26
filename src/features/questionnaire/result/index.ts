@@ -1,0 +1,1 @@
+export { ResultsOfTheQuestionnaire } from "./resultsOfTheQuestionnaire";

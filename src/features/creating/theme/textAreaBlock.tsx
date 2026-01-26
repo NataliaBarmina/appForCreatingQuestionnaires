@@ -1,4 +1,4 @@
-import { Textarea, TTextarea } from "@shared/createFields/createFields";
+import { Textarea, TTextarea } from "@shared/createFields";
 
 export const TextAreaBlock = ({ placeholder, fieldName, register, error, disabled }: TTextarea) => {
   return (
@@ -21,4 +21,3 @@ export const TextAreaBlock = ({ placeholder, fieldName, register, error, disable
     </div>
   );
 };
-export default TextAreaBlock;

@@ -1,5 +1,5 @@
-import Alert from "@shared/ui/alert";
-import FormForEditingQuestions from "@shared/editingQuestions/formForEditingQuestions";
+import { Alert } from "@shared/ui";
+import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
 
 type TQuestionActions = {
@@ -9,7 +9,7 @@ type TQuestionActions = {
   wrongAnswer2: string;
 };
 
-const QuestionActions = ({
+export const QuestionActions = ({
   question,
   correctAnswer,
   wrongAnswer1,
@@ -53,4 +53,3 @@ const QuestionActions = ({
     </div>
   );
 };
-export default QuestionActions;
