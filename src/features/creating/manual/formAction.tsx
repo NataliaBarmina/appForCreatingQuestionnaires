@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 type TFormActionsProps = {
   onFormReset?: () => void;
-  onCreateManualQuestion?: () => void;
+  handleCreateManualQuestion?: () => void;
   isFormValid: boolean;
   isSubmitting: boolean;
 };
@@ -13,7 +13,7 @@ export const FormAction = ({
   isFormValid,
   isSubmitting,
   onFormReset,
-  onCreateManualQuestion,
+  handleCreateManualQuestion,
 }: TFormActionsProps) => {
   const { t } = useTranslation();
   return (
@@ -28,7 +28,7 @@ export const FormAction = ({
             buttonLabel={t("buttonLabel.save")}
             type="button"
             size="middle"
-            onClick={onCreateManualQuestion}
+            handleCreateManualQuestion={handleCreateManualQuestion}
             isFormValid={isFormValid} //будем показывать Alert только если форма валидна
             isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
           />

@@ -31,6 +31,7 @@ const initialState2: TState = {
 const ADD_THEMES = "ADD_THEMES";
 const ADD_QUESTIONS = "ADD_QUESTIONS";
 const DELETE_QUESTION = "DELETE_QUESTION";
+const EDIT_QUESTION = "EDIT_QUESTION";
 
 type TAddThemesAction = {
   type: typeof ADD_THEMES;
@@ -59,7 +60,18 @@ type TDeleQuestionAction = {
   };
 };
 
-export type TActions = TAddThemesAction | TAddQuestionsAction | TDeleQuestionAction;
+type TEditQuestion = {
+  type: typeof EDIT_QUESTION;
+  payload: {
+    questionID: string;
+    question: string;
+    answer_1: string;
+    answer_2: string;
+    answer_3: string;
+  };
+};
+
+export type TActions = TAddThemesAction | TAddQuestionsAction | TDeleQuestionAction | TEditQuestion;
 
 export const addThemes = (payload: { themeName: string; courseName: string }) => ({
   type: ADD_THEMES,
@@ -82,6 +94,14 @@ export const deleteQuestion = (payload: { questionID: string }) => ({
   type: DELETE_QUESTION,
   payload,
 });
+
+export const editQuestion = (payload: {
+  questionID: string;
+  question: string;
+  answer_1: string;
+  answer_2: string;
+  answer_3: string;
+}) => ({ type: EDIT_QUESTION, payload });
 
 export const addThemeReducer = (state = initialState2, action: TActions): TState => {
   switch (action.type) {
@@ -127,6 +147,26 @@ export const addThemeReducer = (state = initialState2, action: TActions): TState
       return {
         ...state,
         questions: remainingQuestions,
+      };
+    }
+    case EDIT_QUESTION: {
+      const { questionID, question, answer_1, answer_2, answer_3 } = action.payload;
+
+      const existing = state.questions[questionID];
+      if (!existing) return state;
+
+      return {
+        ...state,
+        questions: {
+          ...state.questions,
+          [questionID]: {
+            ...existing,
+            question,
+            answer_1,
+            answer_2,
+            answer_3,
+          },
+        },
       };
     }
     default:
