@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import { addThemeReducer } from "./newReducer";
+import { addThemeReducer } from "./addThemeReducer";
+import { questionsReducer } from "./questionsReducer";
 
 const rootReducer = combineReducers({
   addTheme: addThemeReducer,
+  questions: questionsReducer,
 });
 
 export const store = configureStore({

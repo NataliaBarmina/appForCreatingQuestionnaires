@@ -1,5 +1,5 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "@/shared/createFields/textarea";
+import { TFields } from "@shared/createFields/textarea";
 import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { TextAreaBlock } from "./textAreaBlock";
@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import { addThemes } from "@store/newReducer";
+import { addThemes } from "@store/addThemeReducer";
 
 type TFormForCreatingTheme = {
   closePopover?: () => void;

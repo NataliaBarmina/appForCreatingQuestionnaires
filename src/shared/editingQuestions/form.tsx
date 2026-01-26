@@ -7,7 +7,7 @@ import { QuestionForm } from "./questionForm";
 import { FormAction } from "./formAction";
 import { TFormForEditingQuestions } from "./types";
 import { useDispatch } from "react-redux";
-import { editQuestion } from "@store/newReducer";
+import { editQuestion } from "@store/questionsReducer";
 
 export const Form = ({
   closeDialog,
@@ -15,8 +15,6 @@ export const Form = ({
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
-  course,
-  theme,
   questionID,
 }: TFormForEditingQuestions) => {
   const { t } = useTranslation();
