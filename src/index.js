@@ -42,9 +42,7 @@ const ResultsOfTheQuestionnaire = lazy(() =>
 const QuestionList = lazy(() =>
   import("./features/editing/questionList").then((m) => ({ default: m.QuestionList }))
 );
-const Editing = lazy(() =>
-  import("./features/editing/editing").then((m) => ({ default: m.Editing }))
-);
+const Editing = lazy(() => import("./features/editing/questionList"));
 
 const root = createRoot(document.getElementById("root"));
 
