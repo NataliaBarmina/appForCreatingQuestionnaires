@@ -1,5 +1,3 @@
-import { TTopic } from "@shared/types/commonTypes";
-
 export type TTabPanelProps = {
   children?: React.ReactNode;
   index: number;

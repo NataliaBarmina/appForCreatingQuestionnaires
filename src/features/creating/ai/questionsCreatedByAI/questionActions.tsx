@@ -1,20 +1,14 @@
 import { Alert } from "@shared/ui";
 import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
-
-type TQuestionActions = {
-  question: string;
-  correctAnswer: string;
-  wrongAnswer1: string;
-  wrongAnswer2: string;
-};
+import type { TQuizQuestion } from "@shared/types/commonTypes";
 
 export const QuestionActions = ({
   question,
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
-}: TQuestionActions) => {
+}: TQuizQuestion) => {
   const { t } = useTranslation();
   return (
     <div className={"mb-8 flex w-full justify-around py-8"}>

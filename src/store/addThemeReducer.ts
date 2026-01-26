@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
-import type { TSelectedTopic } from "@/shared/types/commonTypes";
+import type { TTopic } from "@shared/types/commonTypes";
 
 type TState = {
   courses: string[];
-  themes: Record<string, TSelectedTopic>;
+  themes: Record<string, TTopic>;
 };
 
 const initialState: TState = {
@@ -37,7 +37,7 @@ export const addThemeReducer = (state = initialState, action: TAddThemesAction):
         ...state,
         themes: {
           ...state.themes,
-          [themeID]: { id: themeID, themeName, courseName },
+          [themeID]: { themeID, themeName, courseName },
         },
       };
     }

@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
 import { deleteQuestion } from "@store/questionsReducer";
-import type { TQuestion } from "@/shared/types/commonTypes";
+import type { TQuestion } from "@shared/types/commonTypes";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -19,16 +19,6 @@ const greenContainerStyles = cn(
   "xl:w-[50vw]",
   "2xl:w-[45vw]"
 );
-
-// type TQuestion = {
-//   courseName: string;
-//   themeID: string;
-//   question: string;
-//   answer_1: string;
-//   answer_2?: string;
-//   answer_3?: string;
-//   id: string;
-// };
 
 export const QuestionList = () => {
   const { t } = useTranslation();

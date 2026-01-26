@@ -25,7 +25,7 @@ export const CoursesSelection = () => {
         </div>
         <CustomTabPanel value={tabValue} index={tabValue}>
           <ThemesSelection
-            course={selectedCourseName}
+            courseName={selectedCourseName}
             selectedTopics={selectedTopics}
             buttonID={buttonID}
           />

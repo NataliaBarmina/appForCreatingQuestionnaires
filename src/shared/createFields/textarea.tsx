@@ -1,10 +1,8 @@
 import { UseFormRegister, FieldError } from "react-hook-form";
 import { cn } from "@lib/utils";
 
-//todo: проверить какие поля используются для Textarea, неиспользующиеся разнести по компонентам
 export type TFields = {
   topicName?: string; //FormForCreatingTheme
-  linkToSource?: string; //FormForCreatingTheme
   selfWrittenTopicName?: string; //FormForCreatingQuestionsYourself
   selfWrittenQuestion?: string; //FormForCreatingQuestionsYourself
   selfWrittenAnswer1?: string; //FormForCreatingQuestionsYourself
@@ -14,7 +12,6 @@ export type TFields = {
   answerForEditing1?: string; //QuestionList
   answerForEditing2?: string; //QuestionList
   answerForEditing3?: string; //QuestionList
-  questionFromSurvey?: string; // questionnaire
   radioInputFromSurvey?: string[];
 };
 
@@ -39,7 +36,7 @@ export const Textarea = ({
     "placeholder:text-sm placeholder:text-purple-900",
     "border-4 border-solid border-blue-200",
     "mb-2 py-4 pl-4 text-[120%]",
-    styles,
+    styles
   );
 
   return (
