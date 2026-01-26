@@ -11,13 +11,10 @@ import { CreationModeButton } from "@shared/types/commonTypes";
 export const DefaultPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const buttonID = CreationModeButton.EDITING;
 
   const navigateToPage: TNavigateToPage = useCallback(
     (link) => {
-      if (buttonID) {
-        navigate(link, { state: { buttonID } });
-      } else navigate(link);
+      navigate(link);
     },
     [navigate]
   );

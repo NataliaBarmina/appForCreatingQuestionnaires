@@ -2,7 +2,6 @@ import { classesForLinks, classesForNavPanel, classesForFixingNavPanel } from ".
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CreationModeButton } from "@shared/types/commonTypes";
 
 export const NavPanel = () => {
   const navigate = useNavigate();
@@ -18,9 +17,7 @@ export const NavPanel = () => {
         <button
           className={classesForLinks}
           onClick={() => {
-            navigate("/coursesSelection", {
-              state: { buttonID: CreationModeButton.EDITING },
-            });
+            navigate("/editing", {});
           }}
         >
           {t("link.editing")}

@@ -26,5 +26,4 @@ export type TQuizQuestion = {
 export enum CreationModeButton {
   AI = "AI",
   MANUAL = "MANUAL",
-  EDITING = "EDITING",
 }

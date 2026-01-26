@@ -22,7 +22,6 @@ export const ThemesSelection = ({ courseName, buttonID, selectedTopics }: TTheme
       state: { buttonID, courseName, themeName, themeID },
     });
   };
-
   return (
     <div className="mx-auto w-full">
       <h1 className="pb-10 pt-12 text-xl font-bold">
@@ -30,7 +29,9 @@ export const ThemesSelection = ({ courseName, buttonID, selectedTopics }: TTheme
       </h1>
       <div className={mainContainerStyles}>
         <ThemeList handleThemeClick={handleThemeClick} selectedTopics={selectedTopics} />
-        {buttonID !== CreationModeButton.EDITING && <PopoverBlock courseName={courseName} />}
+        {(buttonID === CreationModeButton.AI || buttonID === CreationModeButton.MANUAL) && (
+          <PopoverBlock courseName={courseName} />
+        )}
       </div>
     </div>
   );
