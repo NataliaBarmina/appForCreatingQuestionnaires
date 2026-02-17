@@ -59,6 +59,7 @@ module.exports = (env) => {
     },
     resolve: {
       alias: {
+        "@appFirebase": path.resolve(__dirname, "firebase.js"),
         "@features": path.resolve(__dirname, "src/features"),
         "@shared": path.resolve(__dirname, "src/shared"),
         "@creating": path.resolve(__dirname, "src/features/creating"),

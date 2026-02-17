@@ -7,7 +7,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import { addThemes } from "@store/addThemeReducer";
+import { addThemeAsync } from "@store/theme/thunks";
+import { TDispatch } from "@store/store";
 
 type TFormForCreatingTheme = {
   closePopover?: () => void;
@@ -16,7 +17,7 @@ type TFormForCreatingTheme = {
 
 export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<TDispatch>();
   const schema = yup.object({
     topicName: yup.string().required(t("required")),
   });
@@ -31,7 +32,7 @@ export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreat
   });
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
-    dispatch(addThemes({ courseName, themeName: data.topicName }));
+    dispatch(addThemeAsync({ themeName: data.topicName, courseName }));
     closePopover();
   };
 

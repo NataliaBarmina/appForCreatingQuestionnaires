@@ -7,7 +7,7 @@ import { QuestionForm } from "./questionForm";
 import { FormAction } from "./formAction";
 import { TFormForEditingQuestions } from "./types";
 import { useDispatch } from "react-redux";
-import { editQuestion } from "@store/questionsReducer";
+import { editQuestion } from "@store/questions/questionsReducer";
 
 export const Form = ({
   closeDialog,

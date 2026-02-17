@@ -7,7 +7,7 @@ import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
-import { deleteQuestion } from "@store/questionsReducer";
+import { deleteQuestion } from "@store/questions/questionsReducer";
 import type { TQuestion } from "@shared/types/commonTypes";
 
 const greenContainerStyles = cn(

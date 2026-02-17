@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
+      "@appFirebase": ["firebase.js"],
       "@features/*": ["src/features/*"],
       "@common/*": ["src/common/*"],
       "@shared/*": ["src/shared/*"],
