@@ -1,6 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fsListAllQuestions, TQuestionFS } from "./api";
-import { fsCreateQuestion, fsListQuestionsByTheme } from "./api";
+import {
+  fsDeleteQuestion,
+  fsListAllQuestions,
+  TQuestionFS,
+  fsCreateQuestion,
+  fsListQuestionsByTheme,
+} from "./api";
 
 export const addQuestionAsync = createAsyncThunk(
   "questions/addQuestionAsync",
@@ -19,4 +24,12 @@ export const loadQuestionsAsync = createAsyncThunk(
 export const loadAllQuestionsAsync = createAsyncThunk(
   "questions/loadAllQuestionsAsync",
   async () => await fsListAllQuestions()
+);
+
+export const deleteQuestionAsync = createAsyncThunk(
+  "questions/deleteQuestionAsync",
+  async (questionID: string) => {
+    await fsDeleteQuestion(questionID);
+    return questionID;
+  }
 );

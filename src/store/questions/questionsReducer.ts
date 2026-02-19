@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { TQuestion } from "@shared/types/commonTypes";
-import { addQuestionAsync, loadQuestionsAsync, loadAllQuestionsAsync } from "./thunk";
+import {
+  addQuestionAsync,
+  loadQuestionsAsync,
+  loadAllQuestionsAsync,
+  deleteQuestionAsync,
+} from "./thunk";
 
 type TState = {
   questions: Record<string, TQuestion>;
@@ -14,10 +19,10 @@ const questionSlice = createSlice({
   name: "questions",
   initialState,
   reducers: {
-    deleteQuestion(state, action: PayloadAction<TQuestion>) {
-      const { questionID } = action.payload;
-      delete state.questions[questionID];
-    },
+    // deleteQuestion(state, action: PayloadAction<TQuestion>) {
+    //   const { questionID } = action.payload;
+    //   delete state.questions[questionID];
+    // },
     editQuestion(state, action: PayloadAction<TQuestion>) {
       const { questionID, question, answer_1, answer_2, answer_3 } = action.payload;
 
@@ -48,8 +53,12 @@ const questionSlice = createSlice({
         action.payload.forEach((q) => {
           state.questions[q.questionID] = q;
         });
+      })
+      .addCase(deleteQuestionAsync.fulfilled, (state, action: PayloadAction<string>) => {
+        delete state.questions[action.payload];
       });
   },
 });
-export const { deleteQuestion, editQuestion } = questionSlice.actions;
+// export const { deleteQuestion, editQuestion } = questionSlice.actions;
+export const { editQuestion } = questionSlice.actions;
 export const questionsReducer = questionSlice.reducer;
