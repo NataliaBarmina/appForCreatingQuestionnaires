@@ -9,13 +9,21 @@ import { TRootState } from "@store/store";
 import type { TQuestion } from "@shared/types/commonTypes";
 import { useMemo, useEffect } from "react";
 import shuffle from "lodash-es/shuffle";
+import { TDispatch } from "@store/store";
+import { useDispatch } from "react-redux";
+import { loadAllQuestionsAsync } from "@store/questions/thunk";
 
 export const FormQuestionnaire = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const questions = useSelector((state: TRootState) => state.questions.questions);
+  const dispatch = useDispatch<TDispatch>();
 
+  useEffect(() => {
+    dispatch(loadAllQuestionsAsync());
+  }, [dispatch]);
+
+  const questions = useSelector((state: TRootState) => state.questions.questions);
   const questionsList = useMemo(() => shuffle(Object.values(questions)).slice(0, 10), [questions]);
 
   useEffect(() => {

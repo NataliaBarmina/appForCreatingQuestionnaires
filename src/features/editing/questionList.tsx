@@ -37,7 +37,7 @@ export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
 
   return (
     <div>
-      <div className="pb-1">
+      <div className="bg-red-400 pb-1">
         <HeadersBlock
           questionsGeneratedByAIHeader={t("header.editQuestion")}
           courseHeader={t("header.course")}
