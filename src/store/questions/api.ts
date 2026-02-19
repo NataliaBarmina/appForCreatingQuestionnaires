@@ -44,6 +44,6 @@ export async function deleteQuestion(questionID: string) {
   await deleteDoc(doc(db, "questions", questionID));
 }
 
-export async function updateQuestion(questionID: string, patch: Partial<TQuestion>) {
+export async function editQuestion(questionID: string, patch: Partial<TQuestion>) {
   await updateDoc(doc(db, "questions", questionID), patch);
 }

@@ -1,5 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { deleteQuestion, listAllQuestions, createQuestion, listQuestionsByTheme } from "./api";
+import {
+  deleteQuestion,
+  listAllQuestions,
+  createQuestion,
+  listQuestionsByTheme,
+  editQuestion,
+} from "./api";
 import { TQuestion } from "@shared/types/commonTypes";
 
 export const addQuestionAsync = createAsyncThunk(
@@ -26,5 +32,13 @@ export const deleteQuestionAsync = createAsyncThunk(
   async (questionID: string) => {
     await deleteQuestion(questionID);
     return questionID;
+  }
+);
+
+export const editQuestionAsync = createAsyncThunk(
+  "questions/editQuestion",
+  async (payload: { questionID: string; patch: Partial<TQuestion> }) => {
+    await editQuestion(payload.questionID, payload.patch);
+    return payload;
   }
 );

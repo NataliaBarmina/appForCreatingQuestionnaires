@@ -5,6 +5,7 @@ import {
   loadQuestionsAsync,
   loadAllQuestionsAsync,
   deleteQuestionAsync,
+  editQuestionAsync,
 } from "./thunks";
 
 type TState = {
@@ -18,21 +19,7 @@ const initialState: TState = {
 const questionSlice = createSlice({
   name: "questions",
   initialState,
-  reducers: {
-    editQuestion(state, action: PayloadAction<TQuestion>) {
-      const { questionID, question, answer_1, answer_2, answer_3 } = action.payload;
-
-      const existing = state.questions[questionID];
-
-      state.questions[questionID] = {
-        ...existing,
-        question,
-        answer_1,
-        answer_2,
-        answer_3,
-      };
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(addQuestionAsync.fulfilled, (state, action: PayloadAction<TQuestion>) => {
@@ -52,8 +39,15 @@ const questionSlice = createSlice({
       })
       .addCase(deleteQuestionAsync.fulfilled, (state, action: PayloadAction<string>) => {
         delete state.questions[action.payload];
-      });
+      })
+      .addCase(
+        editQuestionAsync.fulfilled,
+        (state, action: PayloadAction<{ questionID: string; patch: Partial<TQuestion> }>) => {
+          const { questionID, patch } = action.payload;
+          state.questions[questionID] = { ...state.questions[questionID], ...patch };
+        }
+      );
   },
 });
-export const { editQuestion } = questionSlice.actions;
+
 export const questionsReducer = questionSlice.reducer;
