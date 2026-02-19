@@ -8,7 +8,7 @@ import { FormAction } from "./formAction";
 import { CustomTextAreaField } from "./customTextareaField";
 import { AnswersField } from "./answersField";
 import { TFields } from "@shared/createFields/textarea";
-import { addQuestionAsync } from "@store/questions/thunk";
+import { addQuestionAsync } from "@store/questions/thunks";
 import type { TDispatch } from "@store/store";
 
 export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeID }: TTopic) => {

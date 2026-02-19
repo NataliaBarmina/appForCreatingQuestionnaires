@@ -5,7 +5,7 @@ import {
   loadQuestionsAsync,
   loadAllQuestionsAsync,
   deleteQuestionAsync,
-} from "./thunk";
+} from "./thunks";
 
 type TState = {
   questions: Record<string, TQuestion>;

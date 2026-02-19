@@ -7,7 +7,7 @@ import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
-import { deleteQuestionAsync } from "@store/questions/thunk";
+import { deleteQuestionAsync } from "@store/questions/thunks";
 import type { TQuestion } from "@shared/types/commonTypes";
 import { TDispatch } from "@store/store";
 
