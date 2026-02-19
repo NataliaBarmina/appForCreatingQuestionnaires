@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
 import type { TQuestion } from "@shared/types/commonTypes";
+import { addQuestionAsync, loadQuestionsAsync, loadAllQuestionsAsync } from "./thunk";
 
 type TState = {
   questions: Record<string, TQuestion>;
@@ -14,21 +14,6 @@ const questionSlice = createSlice({
   name: "questions",
   initialState,
   reducers: {
-    addQuestions(state, action: PayloadAction<TQuestion>) {
-      const ID = uuidv4();
-
-      const { courseName, themeID, question, answer_1, answer_2, answer_3 } = action.payload;
-
-      state.questions[ID] = {
-        questionID: ID,
-        courseName,
-        themeID,
-        question,
-        answer_1,
-        answer_2,
-        answer_3,
-      };
-    },
     deleteQuestion(state, action: PayloadAction<TQuestion>) {
       const { questionID } = action.payload;
       delete state.questions[questionID];
@@ -47,6 +32,24 @@ const questionSlice = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(addQuestionAsync.fulfilled, (state, action: PayloadAction<TQuestion>) => {
+        state.questions[action.payload.questionID] = action.payload;
+      })
+      .addCase(loadQuestionsAsync.fulfilled, (state, action: PayloadAction<TQuestion[]>) => {
+        state.questions = {};
+        action.payload.forEach((q) => {
+          state.questions[q.questionID] = q;
+        });
+      })
+      .addCase(loadAllQuestionsAsync.fulfilled, (state, action: PayloadAction<TQuestion[]>) => {
+        state.questions = {};
+        action.payload.forEach((q) => {
+          state.questions[q.questionID] = q;
+        });
+      });
+  },
 });
-export const { addQuestions, deleteQuestion, editQuestion } = questionSlice.actions;
+export const { deleteQuestion, editQuestion } = questionSlice.actions;
 export const questionsReducer = questionSlice.reducer;
