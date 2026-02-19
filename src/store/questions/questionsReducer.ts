@@ -19,10 +19,6 @@ const questionSlice = createSlice({
   name: "questions",
   initialState,
   reducers: {
-    // deleteQuestion(state, action: PayloadAction<TQuestion>) {
-    //   const { questionID } = action.payload;
-    //   delete state.questions[questionID];
-    // },
     editQuestion(state, action: PayloadAction<TQuestion>) {
       const { questionID, question, answer_1, answer_2, answer_3 } = action.payload;
 
@@ -43,9 +39,9 @@ const questionSlice = createSlice({
         state.questions[action.payload.questionID] = action.payload;
       })
       .addCase(loadQuestionsAsync.fulfilled, (state, action: PayloadAction<TQuestion[]>) => {
-        state.questions = {};
+        state.questions = {}; // очищаем стэйт
         action.payload.forEach((q) => {
-          state.questions[q.questionID] = q;
+          state.questions[q.questionID] = q; // заполняем
         });
       })
       .addCase(loadAllQuestionsAsync.fulfilled, (state, action: PayloadAction<TQuestion[]>) => {
@@ -59,6 +55,5 @@ const questionSlice = createSlice({
       });
   },
 });
-// export const { deleteQuestion, editQuestion } = questionSlice.actions;
 export const { editQuestion } = questionSlice.actions;
 export const questionsReducer = questionSlice.reducer;

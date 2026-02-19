@@ -1,35 +1,30 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  fsDeleteQuestion,
-  fsListAllQuestions,
-  TQuestionFS,
-  fsCreateQuestion,
-  fsListQuestionsByTheme,
-} from "./api";
+import { deleteQuestion, listAllQuestions, createQuestion, listQuestionsByTheme } from "./api";
+import { TQuestion } from "@shared/types/commonTypes";
 
 export const addQuestionAsync = createAsyncThunk(
-  "questions/addQuestionAsync",
-  async (payload: TQuestionFS) => {
-    return await fsCreateQuestion(payload);
+  "questions/addQuestion",
+  async (payload: TQuestion) => {
+    return await createQuestion(payload);
   }
 );
 
 export const loadQuestionsAsync = createAsyncThunk(
-  "questions/loadQuestionsAsync",
+  "questions/loadQuestions",
   async (themeID: string) => {
-    return await fsListQuestionsByTheme(themeID);
+    return await listQuestionsByTheme(themeID);
   }
 );
 
 export const loadAllQuestionsAsync = createAsyncThunk(
-  "questions/loadAllQuestionsAsync",
-  async () => await fsListAllQuestions()
+  "questions/loadAllQuestions",
+  async () => await listAllQuestions()
 );
 
 export const deleteQuestionAsync = createAsyncThunk(
-  "questions/deleteQuestionAsync",
+  "questions/deleteQuestion",
   async (questionID: string) => {
-    await fsDeleteQuestion(questionID);
+    await deleteQuestion(questionID);
     return questionID;
   }
 );
