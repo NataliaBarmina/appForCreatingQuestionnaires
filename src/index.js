@@ -7,7 +7,6 @@ import "./index.css";
 import "./shared/ i18n/i18n";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { DefaultPage } from "./defaultPage";
 import { Preloader } from "./shared/ui";
 import { lazy, Suspense } from "react";
 
@@ -42,9 +41,14 @@ const ResultsOfTheQuestionnaire = lazy(() =>
 const QuestionList = lazy(() =>
   import("./features/editing/questionList").then((m) => ({ default: m.QuestionList }))
 );
+
 const Editing = lazy(() =>
   import("./features/editing/editing").then((m) => ({ default: m.Editing }))
 );
+const AuthForm = lazy(() =>
+  import("./features/auth/authForm").then((m) => ({ default: m.AuthForm }))
+);
+const DashboardPage = lazy(() => import("./dashboard").then((m) => ({ default: m.DashboardPage })));
 
 const root = createRoot(document.getElementById("root"));
 
@@ -144,8 +148,24 @@ const router = createHashRouter(
           ),
         },
         {
+          path: "/authForm",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <AuthForm />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/dashboardPage",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <DashboardPage />
+            </Suspense>
+          ),
+        },
+        {
           path: "/",
-          element: <DefaultPage />,
+          element: <AuthForm />,
         },
       ],
     },

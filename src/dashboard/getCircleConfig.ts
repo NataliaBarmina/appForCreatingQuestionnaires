@@ -1,5 +1,4 @@
 import { TranslateFn } from "./types";
-import { CreationModeButton } from "@shared/types/commonTypes";
 
 export const getCircleConfig = (t: TranslateFn) => [
   {
