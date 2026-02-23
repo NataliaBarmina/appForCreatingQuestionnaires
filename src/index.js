@@ -46,7 +46,7 @@ const Editing = lazy(() =>
   import("./features/editing/editing").then((m) => ({ default: m.Editing }))
 );
 const AuthForm = lazy(() =>
-  import("./features/auth/authForm").then((m) => ({ default: m.AuthForm }))
+  import("./features/auth/authForm/authForm").then((m) => ({ default: m.AuthForm }))
 );
 const DashboardPage = lazy(() => import("./dashboard").then((m) => ({ default: m.DashboardPage })));
 

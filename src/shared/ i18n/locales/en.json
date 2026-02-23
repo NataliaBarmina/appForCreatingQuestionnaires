@@ -69,9 +69,15 @@
   },
   "auth": {
     "login": "LOGIN",
-    "logout": "LOGOUT"
-  },
-  "error": {
-    "auth": "Login error"
+    "logout": "LOGOUT",
+    "hidePassword": "hide",
+    "showPassword": "show",
+    "required": "Enter your password",
+    "matches": "Only Latin letters and digits",
+    "errors": {
+      "invalidCredential": "Incorrect password.",
+      "userNotFound": "User not found.",
+      "tooManyRequests": "Too many attempts. Try again later."
+    }
   }
 }
