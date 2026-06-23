@@ -3,27 +3,26 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "esnext", //? es6
-    "target": "es5",
+    "target": "es2015",
     "jsx": "react-jsx", // jsx- чтобы не импортировать реакт в компоненты
     "allowJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
     "paths": {
-      "@appFirebase": ["firebase.js"],
-      "@features/*": ["src/features/*"],
-      "@common/*": ["src/common/*"],
-      "@shared/*": ["src/shared/*"],
-      "@creating/*": ["src/features/creating/*"],
-      "@selecting/*": ["src/features/selecting/*"],
-      "@editing/*": ["src/features/editing/*"],
-      "@questionnaire/*": ["src/features/questionnaire/*"],
-      "@lib/*": ["src/shared/chadcn/lib/*"],
-      "@ui/*": ["src/shared/chadcn/ui/*"],
-      "@store/*": ["src/store/*"],
-      "@reducers/*": ["src/store/reducers/*"],
-      "@utils/*": ["src/shared/utils/*"]
+      "@appFirebase": ["./firebase.js"],
+      "@features/*": ["./src/features/*"],
+      "@common/*": ["./src/common/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@creating/*": ["./src/features/creating/*"],
+      "@selecting/*": ["./src/features/selecting/*"],
+      "@editing/*": ["./src/features/editing/*"],
+      "@questionnaire/*": ["./src/features/questionnaire/*"],
+      "@lib/*": ["./src/shared/chadcn/lib/*"],
+      "@ui/*": ["./src/shared/chadcn/ui/*"],
+      "@store/*": ["./src/store/*"],
+      "@reducers/*": ["./src/store/reducers/*"],
+      "@utils/*": ["./src/shared/utils/*"]
     }
   }
 }
