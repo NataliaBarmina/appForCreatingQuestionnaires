@@ -8,51 +8,42 @@ import {
   updateDoc, // обновить поля существующего документа
   deleteDoc, // удалить документ
 } from "firebase/firestore";
-import { db } from "@appFirebase";
-
-export type TQuestionFS = {
-  courseName: string;
-  themeName: string;
-  themeID: string;
-  question: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-};
+import { db } from "@appFirebase"; // доступ к базе данных Firestore
+import { TQuestion } from "@shared/types/commonTypes";
 
 // создаем вопросы
-export async function fsCreateQuestion(payload: TQuestionFS) {
-  const ref = await addDoc(collection(db, "questions"), payload);
-  return { questionID: ref.id, ...payload };
+export async function createQuestion(payload: TQuestion) {
+  const docRef = await addDoc(collection(db, "questions"), payload);
+  return { questionID: docRef.id, ...payload };
 }
 
 // получаем вопросы по ID темы для редактирования
-export async function fsListQuestionsByTheme(themeID: string) {
+export async function listQuestionsByTheme(themeID: string) {
   const q = query(
     collection(db, "questions"),
     where("themeID", "==", themeID) //только те вопросы, у которых themeID равен выбранной теме
   );
-  const snap = await getDocs(q);
+  const questionsSnapshot = await getDocs(q);
 
-  return snap.docs.map((d) => ({
-    questionID: d.id,
-    ...d.data(),
+  return questionsSnapshot.docs.map((docSnap) => ({
+    questionID: docSnap.id,
+    ...docSnap.data(),
   }));
 }
 
 // получаем все вопросы для составления анкеты
-export async function fsListAllQuestions() {
-  const snap = await getDocs(collection(db, "questions"));
-  return snap.docs.map((d) => ({
-    questionID: d.id,
-    ...d.data(),
+export async function listAllQuestions() {
+  const questionsSnapshot = await getDocs(collection(db, "questions"));
+  return questionsSnapshot.docs.map((docSnap) => ({
+    questionID: docSnap.id,
+    ...docSnap.data(),
   }));
 }
 
-export async function fsDeleteQuestion(questionID: string) {
+export async function deleteQuestion(questionID: string) {
   await deleteDoc(doc(db, "questions", questionID));
 }
 
-export async function fsUpdateQuestion(questionID: string, patch: Partial<TQuestionFS>) {
+export async function updateQuestion(questionID: string, patch: Partial<TQuestion>) {
   await updateDoc(doc(db, "questions", questionID), patch);
 }

@@ -11,7 +11,7 @@ import { useMemo, useEffect } from "react";
 import shuffle from "lodash-es/shuffle";
 import { TDispatch } from "@store/store";
 import { useDispatch } from "react-redux";
-import { loadAllQuestionsAsync } from "@store/questions/thunk";
+import { loadAllQuestionsAsync } from "@store/questions/thunks";
 
 export const FormQuestionnaire = () => {
   const { t } = useTranslation();

@@ -7,8 +7,9 @@ import { cn } from "@lib/utils";
 import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
-import { deleteQuestion } from "@store/questions/questionsReducer";
+import { deleteQuestionAsync } from "@store/questions/thunks";
 import type { TQuestion } from "@shared/types/commonTypes";
+import { TDispatch } from "@store/store";
 
 const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
@@ -22,14 +23,10 @@ const greenContainerStyles = cn(
 export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<TDispatch>();
 
   const onDelete = (id: string) => {
-    dispatch(
-      deleteQuestion({
-        questionID: id,
-      })
-    );
+    dispatch(deleteQuestionAsync(id));
   };
   const objectQuestions = useSelector((state: TRootState) => state.questions.questions);
   const questions: TQuestion[] = Object.values(objectQuestions);
@@ -37,7 +34,7 @@ export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
 
   return (
     <div>
-      <div className="bg-red-400 pb-1">
+      <div className="pb-1">
         <HeadersBlock
           questionsGeneratedByAIHeader={t("header.editQuestion")}
           courseHeader={t("header.course")}
