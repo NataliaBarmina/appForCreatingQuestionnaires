@@ -8,7 +8,7 @@ import { FormAction } from "./formAction";
 import { CustomTextAreaField } from "./customTextareaField";
 import { AnswersField } from "./answersField";
 import { TFields } from "@shared/createFields/textarea";
-import { addQuestions } from "@store/questionsReducer";
+import { addQuestions } from "@store/questions/questionsReducer";
 
 export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeID }: TTopic) => {
   const { t } = useTranslation();
