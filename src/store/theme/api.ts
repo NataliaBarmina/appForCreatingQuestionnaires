@@ -1,14 +1,9 @@
 import { collection, addDoc, getDocs, query } from "firebase/firestore";
 import { db } from "@appFirebase";
+import { TCreateTheme } from "./types";
 
 // добавляем темы в fireStore
-export async function fsCreateTheme({
-  themeName,
-  courseName,
-}: {
-  themeName: string;
-  courseName: string;
-}) {
+export async function createTheme({ themeName, courseName }: TCreateTheme) {
   const cleanName = themeName.trim();
   const ref = await addDoc(collection(db, "themes"), {
     themeName: cleanName,
@@ -18,7 +13,7 @@ export async function fsCreateTheme({
   return { themeID: ref.id, themeName: cleanName, courseName };
 }
 // получаем список тем из fireStore
-export async function fsListThemes() {
+export async function listThemes() {
   const q = query(collection(db, "themes"));
   const snap = await getDocs(q);
 

@@ -7,7 +7,8 @@ import { QuestionForm } from "./questionForm";
 import { FormAction } from "./formAction";
 import { TFormForEditingQuestions } from "./types";
 import { useDispatch } from "react-redux";
-import { editQuestion } from "@store/questions/questionsReducer";
+import { editQuestionAsync } from "@store/questions/thunks";
+import { TDispatch } from "@store/store";
 
 export const Form = ({
   closeDialog,
@@ -19,7 +20,7 @@ export const Form = ({
 }: TFormForEditingQuestions) => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<TDispatch>();
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     const updatedQuestion = {
@@ -30,12 +31,14 @@ export const Form = ({
     };
 
     dispatch(
-      editQuestion({
+      editQuestionAsync({
         questionID,
-        question: updatedQuestion.question,
-        answer_1: updatedQuestion.correctAnswer,
-        answer_2: updatedQuestion.wrongAnswer1,
-        answer_3: updatedQuestion.wrongAnswer2,
+        patch: {
+          question: data.questionForEditing,
+          answer_1: data.answerForEditing1,
+          answer_2: data.answerForEditing2,
+          answer_3: data.answerForEditing3,
+        },
       })
     );
     closeDialog();
