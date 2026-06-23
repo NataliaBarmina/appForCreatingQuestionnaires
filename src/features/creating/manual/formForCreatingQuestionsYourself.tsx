@@ -8,19 +8,21 @@ import { FormAction } from "./formAction";
 import { CustomTextAreaField } from "./customTextareaField";
 import { AnswersField } from "./answersField";
 import { TFields } from "@shared/createFields/textarea";
-import { addQuestions } from "@store/questions/questionsReducer";
+import { addQuestionAsync } from "@store/questions/thunk";
+import type { TDispatch } from "@store/store";
 
 export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeID }: TTopic) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<TDispatch>();
 
   const form = useQuestionForm(themeName, t("required"));
 
   function onSubmit(values: TFields) {
     dispatch(
-      addQuestions({
-        courseName: courseName,
-        themeID: themeID,
+      addQuestionAsync({
+        courseName,
+        themeID,
+        themeName,
         question: values.selfWrittenQuestion,
         answer_1: values.selfWrittenAnswer1,
         answer_2: values.selfWrittenAnswer2,
