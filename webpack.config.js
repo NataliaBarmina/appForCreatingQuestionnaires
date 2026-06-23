@@ -3,10 +3,13 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // плагин который будет выполнять настройку HTML;
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin"); //проверка типов, вынесенная в отдельный процесс
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const dotenv = require("dotenv");
 
 module.exports = (env) => {
   const isDev = env.mode === "development";
   const isProd = env.mode === "production";
+
+  const envFile = dotenv.config({ path: path.resolve(__dirname, ".env") }).parsed || {};
 
   return {
     mode: env.mode ?? "development",
@@ -72,6 +75,12 @@ module.exports = (env) => {
       extensions: [".tsx", ".ts", ".js"], // файлы с исходным кодом
     },
     plugins: [
+      new webpack.DefinePlugin({
+        "process.env.FIREBASE_API_KEY": JSON.stringify(envFile.FIREBASE_API_KEY),
+        "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(envFile.FIREBASE_AUTH_DOMAIN),
+        "process.env.FIREBASE_PROJECT_ID": JSON.stringify(envFile.FIREBASE_PROJECT_ID),
+        "process.env.FIREBASE_APP_ID": JSON.stringify(envFile.FIREBASE_APP_ID),
+      }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "index.html"), //ссылка до нашего HTML файла, который ,будет исп-ся в кач шаблона, именно туда плагин будет подставлять путь до нашего бандла
       }),
