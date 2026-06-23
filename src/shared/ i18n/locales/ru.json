@@ -71,9 +71,15 @@
   },
   "auth": {
     "login": "ВОЙТИ",
-    "logout": "ВЫЙТИ"
-  },
-  "error": {
-    "auth": "Ошибка входа"
+    "logout": "ВЫЙТИ",
+    "hidePassword": "спрятать",
+    "showPassword": "показать",
+    "required": "Введите пароль",
+    "matches": "Только латинские буквы и цифры",
+    "errors": {
+      "invalidCredential": "Неверный пароль",
+      "userNotFound": "Пользователь не найден",
+      "tooManyRequests": "Слишком много попыток. Попробуйте позже."
+    }
   }
 }
