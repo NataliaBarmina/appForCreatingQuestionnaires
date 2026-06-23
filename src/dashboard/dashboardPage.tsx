@@ -6,9 +6,8 @@ import { Circle } from "./circle";
 import { TNavigateToPage } from "./types";
 import { getCircleConfig } from "./getCircleConfig";
 import { useMemo } from "react";
-import { CreationModeButton } from "@shared/types/commonTypes";
 
-export const DefaultPage = () => {
+export const DashboardPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
