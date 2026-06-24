@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { TQuestion } from "@shared/types/commonTypes";
 import {
   addQuestionAsync,
   loadQuestionsAsync,
@@ -7,6 +6,10 @@ import {
   deleteQuestionAsync,
   editQuestionAsync,
 } from "./thunks";
+
+type TQuestion = {
+  questionID: string;
+};
 
 type TState = {
   questions: Record<string, TQuestion>;
