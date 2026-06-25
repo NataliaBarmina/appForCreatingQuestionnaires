@@ -1,15 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form";
 import { Textarea } from "@ui/textarea";
 import { textAreaBase, formLabelClasses } from "./styles";
-import { Control } from "react-hook-form";
-import { TFields } from "@shared/createFields/textarea";
-
-type TAnswersField = {
-  control: Control<TFields>;
-  name: "selfWrittenAnswer1" | "selfWrittenAnswer2" | "selfWrittenAnswer3";
-  placeholder: string;
-  formLabel?: string;
-};
+import type { TAnswersField } from "./types";
 
 export const AnswersField = ({ control, name, placeholder, formLabel }: TAnswersField) => {
   return (

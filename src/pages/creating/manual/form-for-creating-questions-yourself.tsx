@@ -1,23 +1,55 @@
 import { Form } from "@ui/form";
-import { TTopic } from "@shared/types/commonTypes";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import { formContainerClasses } from "./styles";
-import { useQuestionForm } from "./useQuestionForm";
-import { FormAction } from "./formAction";
-import { CustomTextAreaField } from "./customTextareaField";
-import { AnswersField } from "./answersField";
-import { TFields } from "@shared/createFields/textarea";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm, Resolver } from "react-hook-form";
+
+import { FormAction } from "@features/creating/manual/formAction";
+import { CustomTextAreaField } from "@entities/fields/customTextareaField";
+import { AnswersField } from "@entities/fields/answersField";
 import { addQuestionAsync } from "@store/questions/thunks";
+
+import { createQuestionSchema } from "./create-question-schema";
+import { formContainerClasses } from "./styles";
+import type { TFormForCreatingQuestionsYourself } from "./types";
+import type { TQuestionFields } from "@entities/fields/types";
 import type { TDispatch } from "@store/store";
 
-export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeID }: TTopic) => {
+const questionFormDefaultValues: TQuestionFields = {
+  selfWrittenQuestion: "",
+  selfWrittenAnswer1: "",
+  selfWrittenAnswer2: "",
+  selfWrittenAnswer3: "",
+};
+
+export const FormForCreatingQuestionsYourself = ({
+  courseName,
+  themeName,
+  themeID,
+}: TFormForCreatingQuestionsYourself) => {
   const { t } = useTranslation();
+
   const dispatch = useDispatch<TDispatch>();
 
-  const form = useQuestionForm(themeName, t("required"));
+  const schema = createQuestionSchema(t("required"));
 
-  function onSubmit(values: TFields) {
+  const form = useForm<TQuestionFields>({
+    resolver: yupResolver(schema) as unknown as Resolver<TQuestionFields>,
+    mode: "onChange",
+    defaultValues: questionFormDefaultValues,
+  });
+
+  const {
+    handleSubmit,
+    reset,
+    formState: { isValid, isSubmitting }, // Проверка на валидность формы и Чтобы избежать повторной отправки
+  } = form;
+
+  const onFormReset = () => {
+    reset(questionFormDefaultValues);
+  };
+
+  const onSubmit = (values: TQuestionFields) => {
     dispatch(
       addQuestionAsync({
         courseName,
@@ -29,24 +61,10 @@ export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeI
         answer_3: values.selfWrittenAnswer3,
       })
     );
-  }
 
-  const isFormValid = form.formState.isValid; // Проверка на валидность формы
-  const isSubmitting = form.formState.isSubmitting; // Чтобы избежать повторной отправки
-
-  const onFormReset = () => {
-    form.reset({
-      selfWrittenQuestion: "",
-      selfWrittenAnswer1: "",
-      selfWrittenAnswer2: "",
-      selfWrittenAnswer3: "",
-    });
-  };
-
-  const handleCreateManualQuestion = form.handleSubmit((values) => {
-    onSubmit(values);
     onFormReset();
-  });
+  };
+  const handleCreateManualQuestion = handleSubmit(onSubmit);
 
   return (
     <div>
@@ -87,7 +105,7 @@ export const FormForCreatingQuestionsYourself = ({ courseName, themeName, themeI
             </div>
 
             <FormAction
-              isFormValid={isFormValid}
+              isFormValid={isValid}
               isSubmitting={isSubmitting}
               onFormReset={onFormReset}
               handleCreateManualQuestion={handleCreateManualQuestion}

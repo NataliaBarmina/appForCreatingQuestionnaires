@@ -3,7 +3,7 @@ import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 
 type TFormActionsProps = {
-  onFormReset?: () => void;
+  onFormReset: () => void;
   handleCreateManualQuestion?: () => void;
   isFormValid: boolean;
   isSubmitting: boolean;
