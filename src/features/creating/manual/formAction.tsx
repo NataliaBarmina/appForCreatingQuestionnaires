@@ -1,24 +1,19 @@
+import { useTranslation } from "react-i18next";
 import { Alert } from "@shared/ui";
 import { Button } from "@shared/ui";
-import { useTranslation } from "react-i18next";
-
-type TFormActionsProps = {
-  onFormReset: () => void;
-  handleCreateManualQuestion?: () => void;
-  isFormValid: boolean;
-  isSubmitting: boolean;
-};
+import type { TFormAction } from "./types";
+import { formActionContainerStyle } from "./styles";
 
 export const FormAction = ({
   isFormValid,
   isSubmitting,
   onFormReset,
   handleCreateManualQuestion,
-}: TFormActionsProps) => {
+}: TFormAction) => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="mb-8 flex w-full justify-evenly pt-14">
+      <div className={formActionContainerStyle}>
         <div>
           <Alert
             alertDialogTitle={t("alert.title")}

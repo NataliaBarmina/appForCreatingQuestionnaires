@@ -5,14 +5,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Resolver } from "react-hook-form";
 
 import { FormAction } from "@features/creating/manual/formAction";
-import { CustomTextAreaField } from "@entities/fields/customTextareaField";
-import { AnswersField } from "@entities/fields/answersField";
+import { CustomTextAreaField } from "@features/creating/manual/customTextareaField";
+import { AnswersField } from "@features/creating/manual/answersField";
 import { addQuestionAsync } from "@store/questions/thunks";
 
 import { createQuestionSchema } from "./create-question-schema";
-import { formContainerClasses } from "./styles";
+import { formContainerClasses, headerStyles, answersFieldContainerStyles } from "./styles";
 import type { TFormForCreatingQuestionsYourself } from "./types";
-import type { TQuestionFields } from "@entities/fields/types";
+import type { TQuestionFields } from "@features/creating/manual/types";
 import type { TDispatch } from "@store/store";
 
 const questionFormDefaultValues: TQuestionFields = {
@@ -68,10 +68,10 @@ export const FormForCreatingQuestionsYourself = ({
 
   return (
     <div>
-      <div className="p-8 text-[150%] font-bold">
+      <div className={headerStyles}>
         {t("header.createQuestion")} {courseName}
       </div>
-      <div className="p-8 text-[150%] font-bold">
+      <div className={headerStyles}>
         {t("formLabel.topic")} {themeName}
       </div>
 
@@ -85,7 +85,7 @@ export const FormForCreatingQuestionsYourself = ({
               formLabel={t("placeholder.question")}
               placeholder={t("placeholder.question")}
             />
-            <div className="mx-auto w-[85%]">
+            <div className={answersFieldContainerStyles}>
               <AnswersField
                 control={form.control}
                 name="selfWrittenAnswer1"

@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { TQuestionFields } from "../../../entities/fields/types";
+import { TQuestionFields } from "../../../features/creating/manual/types";
 
 export const createQuestionSchema = (requiredText: string) => {
   const requiredString = yup.string().required(requiredText);

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@shared/ui";
-import { circleStyles, containerStyle, headerStyle, flexContainer } from "./styles";
 import { CreationModeButton } from "@shared/types/commonTypes";
+import { circleStyles, containerStyle, headerStyle, flexContainer } from "./styles";
 
 export const Creating = () => {
   const navigate = useNavigate();

@@ -21,3 +21,10 @@ export type TCustomTextAreaField = {
   formLabel: string;
   placeholder: string;
 };
+
+export type TFormAction = {
+  onFormReset: () => void;
+  handleCreateManualQuestion?: () => void;
+  isFormValid: boolean;
+  isSubmitting: boolean;
+};
