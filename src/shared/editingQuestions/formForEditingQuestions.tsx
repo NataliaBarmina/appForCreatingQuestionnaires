@@ -11,8 +11,15 @@ import {
 } from "@ui/dialog";
 import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Form } from "./form";
-import { TFormForEditingQuestions } from "./types";
+import { EditingForm } from "./form";
+
+export type TFormForEditingQuestions = {
+  question: string;
+  correctAnswer: string;
+  wrongAnswer1: string;
+  wrongAnswer2: string;
+  questionID: string;
+};
 
 export const FormForEditingQuestions = ({
   question,
@@ -46,7 +53,7 @@ export const FormForEditingQuestions = ({
           <DialogContent>
             <DialogTitle />
             <DialogDescription />
-            <Form
+            <EditingForm
               closeDialog={closeDialog}
               question={question}
               correctAnswer={correctAnswer}

@@ -1,5 +1,5 @@
 import { SubmitHandler } from "react-hook-form";
-import { TFields } from "@shared/createFields/textarea";
+// import { TFields } from "@shared/createFields/textarea";
 import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
@@ -12,20 +12,27 @@ export const FormForCreatingQuestionsByAI = ({
 }: TTopic) => {
   const { t } = useTranslation();
 
-  const { register, handleSubmit } = useForm<TFields>({
-    mode: "onBlur",
-  });
+  // const { register, handleSubmit } = useForm<TFields>({
+  //   mode: "onBlur",
+  // });
 
-  const onSubmit: SubmitHandler<TFields> = (data) => {};
+  // const onSubmit: SubmitHandler<TFields> = (data) => {};
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mt-4"></div>
-      <div>{`Курс ${courseName}`}</div> //todo - оформить и добавить выбор сколько вопросов
-      <div>{`Тема ${themeName}`}</div>
-      <div>
-        <Button buttonLabel={t("buttonLabel.send")} size="middle" />
-      </div>
-    </form>
+    <div>
+      FORM
+      {/* //{" "}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        // <div className="mt-4"></div>
+        // <div>{`Курс ${courseName}`}</div> //todo - оформить и добавить выбор сколько вопросов //{" "}
+        <div>{`Тема ${themeName}`}</div>
+        //{" "}
+        <div>
+          // <Button buttonLabel={t("buttonLabel.send")} size="middle" />
+          //{" "}
+        </div>
+        //{" "}
+      </form> */}
+    </div>
   );
 };

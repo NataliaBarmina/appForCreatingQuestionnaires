@@ -1,7 +1,13 @@
 import { Textarea } from "@shared/createFields";
 import { errorsStyles } from "./styles";
 import { useTranslation } from "react-i18next";
-import { TForm } from "./types";
+import { UseFormRegister, FieldErrors } from "react-hook-form";
+import { TFields } from "./form";
+
+export type TForm = {
+  register: UseFormRegister<TFields>;
+  errors: FieldErrors<TFields>;
+};
 
 export const QuestionForm = ({ errors, register }: TForm) => {
   const { t } = useTranslation();

@@ -6,3 +6,5 @@ export const textAreaBold =
 export const formLabelClasses = "text-lg text-yellow-50";
 
 export const formActionContainerStyle = "mb-8 flex w-full justify-evenly pt-14";
+
+export const answersFieldContainerStyles = "mx-auto w-[85%]";
