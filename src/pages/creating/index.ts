@@ -1,8 +1,6 @@
-export { Creating } from "./main-creating-page/creating";
+export { Creating } from "./question-creation-method/question-creation-method";
 
-export { FormForCreatingTheme } from "./theme";
-
-export { ManualCreatingPage } from "./manual/manual-creating-page";
+export { ManualCreatingPage } from "./manual/manual-question-creation";
 
 export { FormForCreatingQuestionsByAI } from "./by-Ai/formForCreatingQuestionsByAI";
 export { QuestionsCreatedByAI } from "./by-Ai/questionsCreatedByAI";

@@ -11,7 +11,7 @@ export const bigCircleStyles = cn(
   "lg:landscape:h-[48vw] lg:landscape:w-[48vw]",
   "lg:portrait:h-[55vh] lg:portrait:w-[55vh]",
   "2xl:landscape:h-[38vw] 2xl:landscape:w-[38vw]",
-  "2xl:portrait:h-[50vh] 2xl:portrait:w-[50vh]",
+  "2xl:portrait:h-[50vh] 2xl:portrait:w-[50vh]"
 );
 const baseCircleClasses =
   "flex items-center justify-center rounded-full bg-stone-700 text-pink-100 shadow-md shadow-stone-950";
@@ -36,11 +36,11 @@ export const smallCirclesStyles = cn(
   responsiveCircleSizes.lgLandscape,
   responsiveCircleSizes.lgPortrait,
   responsiveCircleSizes.xlLandscape,
-  responsiveCircleSizes.xlPortrait,
+  responsiveCircleSizes.xlPortrait
 );
 export const circlesTextStyles = cn(
   "text-[3.5vw]",
   "md:portrait:text-[2.5vh] md:landscape:text-[2.3vw]",
   "lg:landscape:text-[2vw]",
-  "2xl:landscape:text-[1.6vw]",
+  "2xl:landscape:text-[1.6vw]"
 );
