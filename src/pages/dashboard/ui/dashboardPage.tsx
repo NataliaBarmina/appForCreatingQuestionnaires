@@ -3,9 +3,8 @@ import { useTranslation } from "react-i18next";
 import { useCallback } from "react";
 import { bigCircleStyles, containerStyles } from "./styles";
 import { Circle } from "./circle";
+import { circleConfig } from "./circleConfig";
 import { TNavigateToPage } from "./types";
-import { getCircleConfig } from "./getCircleConfig";
-import { useMemo } from "react";
 
 export const DashboardPage = () => {
   const navigate = useNavigate();
@@ -17,12 +16,11 @@ export const DashboardPage = () => {
     },
     [navigate]
   );
-  const circleConfig = useMemo(() => getCircleConfig(t), [t]);
 
   return (
     <div className={containerStyles}>
       {circleConfig.map((circle, index) => (
-        <Circle key={index} {...circle} onClick={navigateToPage} />
+        <Circle key={index} {...circle} buttonLabel={t(circle.labelKey)} onClick={navigateToPage} />
       ))}
 
       <div className={bigCircleStyles}></div>

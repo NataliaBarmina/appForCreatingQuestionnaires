@@ -1,12 +1,10 @@
-import { TranslateFn } from "./types";
-
-export const getCircleConfig = (t: TranslateFn) => [
+export const circleConfig = [
   {
     colSpan: "col-span-3",
     colStart: "col-start-2",
     rowSpan: "row-span-2",
     rowStart: "row-start-1",
-    buttonLabel: t("buttonLabel.creating"),
+    labelKey: "buttonLabel.creating",
     link: "/creating",
   },
   {
@@ -14,7 +12,7 @@ export const getCircleConfig = (t: TranslateFn) => [
     colStart: "col-start-1",
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
-    buttonLabel: t("buttonLabel.editing"),
+    labelKey: "buttonLabel.editing",
     link: "/editing",
   },
   {
@@ -22,7 +20,7 @@ export const getCircleConfig = (t: TranslateFn) => [
     colStart: "col-start-4",
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
-    buttonLabel: t("buttonLabel.questionnaire"),
+    labelKey: "buttonLabel.questionnaire",
     link: "/questionnaire",
   },
 ];

@@ -9,12 +9,10 @@ import type { User } from "firebase/auth";
 
 export const AuthForm = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) {
-      setPassword("");
       setError(null);
     }
   }, [user]);

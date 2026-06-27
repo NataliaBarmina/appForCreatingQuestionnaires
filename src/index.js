@@ -45,7 +45,7 @@ const QuestionList = lazy(() =>
 );
 
 const Editing = lazy(() => import("./pages/editing/editing").then((m) => ({ default: m.Editing })));
-const AuthForm = lazy(() => import("./features/auth").then((m) => ({ default: m.AuthForm })));
+const AuthForm = lazy(() => import("./pages/auth").then((m) => ({ default: m.AuthForm })));
 const DashboardPage = lazy(() =>
   import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
 );

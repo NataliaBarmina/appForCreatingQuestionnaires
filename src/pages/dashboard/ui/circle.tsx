@@ -1,6 +1,6 @@
-import { TCircleProps } from "./types";
 import { smallCirclesStyles, circlesTextStyles } from "./styles";
 import { cn } from "@lib/utils";
+import { TCircleProps } from "./types";
 
 export const Circle = ({
   colSpan,
