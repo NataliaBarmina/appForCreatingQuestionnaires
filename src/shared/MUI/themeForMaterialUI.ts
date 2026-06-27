@@ -1,5 +1,13 @@
 import { createTheme } from "@mui/material";
 
+declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    xxs: true;
+    s: true;
+    xxl: true;
+  }
+}
+
 export const theme = createTheme({
   palette: {
     background: {

@@ -1,16 +1,7 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form";
 import { Textarea } from "@ui/textarea";
 import { formLabelClasses, textAreaBold } from "./styles";
-import { Control } from "react-hook-form";
-import { TFields } from "@shared/createFields/textarea";
-
-type TCustomTextAreaField = {
-  control: Control<TFields>;
-  disabled: boolean;
-  name: "selfWrittenTopicName" | "selfWrittenQuestion";
-  formLabel: string;
-  placeholder: string;
-};
+import type { TCustomTextAreaField } from "./types";
 
 export const CustomTextAreaField = ({
   control,

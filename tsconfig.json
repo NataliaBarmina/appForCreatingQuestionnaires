@@ -11,9 +11,13 @@
     "esModuleInterop": true,
     "paths": {
       "@appFirebase": ["./firebase.js"],
+      "@app/*": ["./src/app/*"],
+      "@entities/*": ["./src/entities/*"],
+      "@pages/*": ["./src/pages/*"],
       "@features/*": ["./src/features/*"],
-      "@common/*": ["./src/common/*"],
       "@shared/*": ["./src/shared/*"],
+      "@widgets/*": ["./src/widgets/*"],
+
       "@creating/*": ["./src/pages/creating/*"],
       "@selecting/*": ["./src/widgets/selecting/*"],
       "@editing/*": ["./src/pages/editing/*"],
@@ -24,5 +28,7 @@
       "@reducers/*": ["./src/store/reducers/*"],
       "@utils/*": ["./src/shared/utils/*"]
     }
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "firebase.js"],
+  "exclude": ["node_modules", "dist"]
 }
