@@ -25,12 +25,12 @@ export const QuestionActions = ({
         />
       </div>
       <div>
-        <FormForEditingQuestions
+        {/* <FormForEditingQuestions
           question={question}
           correctAnswer={correctAnswer}
           wrongAnswer1={wrongAnswer1}
           wrongAnswer2={wrongAnswer2}
-        />
+        /> */}
       </div>
       <div>
         <Alert

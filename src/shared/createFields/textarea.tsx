@@ -1,28 +1,29 @@
 import { UseFormRegister, FieldError } from "react-hook-form";
 import { cn } from "@lib/utils";
 
-export type TFields = {
-  topicName?: string; //FormForCreatingTheme
-  selfWrittenTopicName?: string; //FormForCreatingQuestionsYourself
-  selfWrittenQuestion?: string; //FormForCreatingQuestionsYourself
-  selfWrittenAnswer1?: string; //FormForCreatingQuestionsYourself
-  selfWrittenAnswer2?: string; //FormForCreatingQuestionsYourself
-  selfWrittenAnswer3?: string; //FormForCreatingQuestionsYourself
-  questionForEditing?: string; //QuestionList
-  answerForEditing1?: string; //QuestionList
-  answerForEditing2?: string; //QuestionList
-  answerForEditing3?: string; //QuestionList
-  radioInputFromSurvey?: string[];
-};
+// export type TFields = {
+//   topicName: string; //FormForCreatingTheme
+//   selfWrittenTopicName?: string; //FormForCreatingQuestionsYourself
+//   selfWrittenQuestion?: string; //FormForCreatingQuestionsYourself
+//   selfWrittenAnswer1?: string; //FormForCreatingQuestionsYourself
+//   selfWrittenAnswer2?: string; //FormForCreatingQuestionsYourself
+//   selfWrittenAnswer3?: string; //FormForCreatingQuestionsYourself
+//   questionForEditing?: string; //QuestionList
+//   answerForEditing1?: string; //QuestionList
+//   answerForEditing2?: string; //QuestionList
+//   answerForEditing3?: string; //QuestionList
+//   radioInputFromSurvey?: string[];
+// };
 
-export type TTextarea = {
-  placeholder?: string;
-  styles: string;
-  fieldName: keyof TFields;
-  register: UseFormRegister<TFields>;
-  error?: FieldError;
-  disabled?: boolean;
-};
+// export type TTextarea = {
+//   placeholder?: string;
+//   styles: string;
+//   fieldName: keyof TFields;
+//   register: UseFormRegister<TFields>;
+//   error?: FieldError;
+//   disabled?: boolean;
+// };
+//todo-типизиция!!!!!
 
 export const Textarea = ({
   placeholder = "",
@@ -30,7 +31,7 @@ export const Textarea = ({
   register,
   styles,
   disabled = false,
-}: TTextarea) => {
+}: any) => {
   const textareaStyles = cn(
     "w-[100%] bg-blue-100 font-bold italic",
     "placeholder:text-sm placeholder:text-purple-900",

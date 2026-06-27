@@ -19,8 +19,8 @@ const QuestionsCreatedByAI = lazy(() =>
 const FormForCreatingQuestionsByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
 );
-const FormForCreatingQuestionsYourself = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsYourself }))
+const ManualCreatingPage = lazy(() =>
+  import("./pages/creating").then((m) => ({ default: m.ManualCreatingPage }))
 );
 const FormForCreatingTheme = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingTheme }))
@@ -124,10 +124,10 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/formForCreatingQuestionsYourself",
+          path: "/manualCreatingPage",
           element: (
             <Suspense fallback={<Preloader />}>
-              <FormForCreatingQuestionsYourself />
+              <ManualCreatingPage />
             </Suspense>
           ),
         },

@@ -1,9 +1,8 @@
 import { cn } from "@lib/utils";
 
 export const headerStyles = "p-8 text-[150%] font-bold";
-export const answersFieldContainerStyles = "mx-auto w-[85%]";
 
-export const formContainerClasses = cn(
+export const formContainerStyles = cn(
   "mx-auto mb-5 w-[100vw] bg-green-800 px-6",
   "border-2 border-solid border-gray-600",
   "s:w-[90vw] s:rounded-2xl",

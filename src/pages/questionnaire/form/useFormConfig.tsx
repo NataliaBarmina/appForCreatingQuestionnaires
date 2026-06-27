@@ -1,9 +1,23 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TFields } from "@shared/createFields/textarea";
+// import { TFields } from "@shared/createFields/textarea";
 import { TQuestion } from "@shared/types/commonTypes";
 import { NavigateFunction } from "react-router-dom";
+
+export type TFields = {
+  topicName: string; //FormForCreatingTheme
+  selfWrittenTopicName?: string; //FormForCreatingQuestionsYourself
+  selfWrittenQuestion?: string; //FormForCreatingQuestionsYourself
+  selfWrittenAnswer1?: string; //FormForCreatingQuestionsYourself
+  selfWrittenAnswer2?: string; //FormForCreatingQuestionsYourself
+  selfWrittenAnswer3?: string; //FormForCreatingQuestionsYourself
+  questionForEditing?: string; //QuestionList
+  answerForEditing1?: string; //QuestionList
+  answerForEditing2?: string; //QuestionList
+  answerForEditing3?: string; //QuestionList
+  radioInputFromSurvey?: string[];
+};
 import { useMemo } from "react";
 
 export const useFormConfig = (questionsList: TQuestion[], navigate: NavigateFunction) => {

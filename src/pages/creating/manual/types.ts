@@ -1,5 +1,1 @@
-export type TFormForCreatingQuestionsYourself = {
-  themeID: string;
-  themeName: string;
-  courseName: string;
-};
+export type TManualCreatingPage = { courseName: string; themeName: string; themeID: string };
