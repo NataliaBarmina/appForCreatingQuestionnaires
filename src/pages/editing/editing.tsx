@@ -1,5 +1,5 @@
-import { Creating } from "@features/creating";
-import { CoursesSelection } from "@features/selecting";
+import { Creating } from "../creating";
+import { CoursesSelection } from "../../widgets/selecting";
 import { TRootState } from "@store/store";
 import { useSelector } from "react-redux";
 

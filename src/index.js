@@ -1,52 +1,54 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { App } from "./app/app";
 import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
-import "./index.css";
-import "./shared/ i18n/i18n";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
-import { Preloader } from "./shared/ui";
 import { lazy, Suspense } from "react";
 
-const Creating = lazy(() => import("./features/creating").then((m) => ({ default: m.Creating })));
+import "./index.css";
+import "./shared/ i18n/i18n";
+
+import { store } from "./store/store";
+import { Preloader } from "./shared/ui";
+import { MainPage } from "./app/mainPage";
+
+const Creating = lazy(() => import("./pages/creating").then((m) => ({ default: m.Creating })));
 const QuestionsCreatedByAI = lazy(() =>
-  import("./features/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
+  import("./pages/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
 );
 const FormForCreatingQuestionsByAI = lazy(() =>
-  import("./features/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
+  import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
 );
 const FormForCreatingQuestionsYourself = lazy(() =>
-  import("./features/creating").then((m) => ({ default: m.FormForCreatingQuestionsYourself }))
+  import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsYourself }))
 );
 const FormForCreatingTheme = lazy(() =>
-  import("./features/creating").then((m) => ({ default: m.FormForCreatingTheme }))
+  import("./pages/creating").then((m) => ({ default: m.FormForCreatingTheme }))
 );
 
 const FormSelection = lazy(() =>
-  import("./features/selecting").then((m) => ({ default: m.FormSelection }))
+  import("./widgets/selecting").then((m) => ({ default: m.FormSelection }))
 );
 const CoursesSelection = lazy(() =>
-  import("./features/selecting").then((m) => ({ default: m.CoursesSelection }))
+  import("./widgets/selecting").then((m) => ({ default: m.CoursesSelection }))
 );
 
 const FormQuestionnaire = lazy(() =>
-  import("./features/questionnaire").then((m) => ({ default: m.FormQuestionnaire }))
+  import("./pages/questionnaire").then((m) => ({ default: m.FormQuestionnaire }))
 );
 const ResultsOfTheQuestionnaire = lazy(() =>
-  import("./features/questionnaire").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
+  import("./pages/questionnaire").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
 );
 
 const QuestionList = lazy(() =>
-  import("./features/editing/questionList").then((m) => ({ default: m.QuestionList }))
+  import("./pages/editing/questionList").then((m) => ({ default: m.QuestionList }))
 );
 
-const Editing = lazy(() =>
-  import("./features/editing/editing").then((m) => ({ default: m.Editing }))
-);
+const Editing = lazy(() => import("./pages/editing/editing").then((m) => ({ default: m.Editing })));
 const AuthForm = lazy(() => import("./features/auth").then((m) => ({ default: m.AuthForm })));
-const DashboardPage = lazy(() => import("./dashboard").then((m) => ({ default: m.DashboardPage })));
+const DashboardPage = lazy(() =>
+  import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
+);
 
 const root = createRoot(document.getElementById("root"));
 
@@ -54,7 +56,7 @@ const router = createHashRouter(
   [
     {
       path: "/",
-      element: <App />,
+      element: <MainPage />,
       children: [
         {
           path: "/creating",

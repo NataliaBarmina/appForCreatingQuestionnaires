@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import { FormForCreatingQuestionsYourself } from "../creating";
-import { QuestionList } from "../editing/questionList";
+import { FormForCreatingQuestionsYourself } from "../../pages/creating";
+import { QuestionList } from "../../pages/editing/questionList";
 import { TTopic } from "@shared/types/commonTypes";
 import { useTranslation } from "react-i18next";
 import { CreationModeButton } from "@shared/types/commonTypes";
-import { FormForCreatingQuestionsByAI } from "../creating";
+import { FormForCreatingQuestionsByAI } from "../../pages/creating";
 
 export const FormSelection = () => {
   const location = useLocation();
