@@ -18,21 +18,19 @@ export const FormForCreatingQuestionsByAI = ({
 
   // const onSubmit: SubmitHandler<TFields> = (data) => {};
 
+  //todo - оформить и добавить выбор сколько вопросов //{" "}
+
   return (
     <div>
-      FORM
-      {/* //{" "}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        // <div className="mt-4"></div>
-        // <div>{`Курс ${courseName}`}</div> //todo - оформить и добавить выбор сколько вопросов //{" "}
-        <div>{`Тема ${themeName}`}</div>
-        //{" "}
-        <div>
-          // <Button buttonLabel={t("buttonLabel.send")} size="middle" />
-          //{" "}
-        </div>
-        //{" "}
-      </form> */}
+      <div className="mt-4"></div>
+      <div>{`Курс ${courseName}`}</div>
+      <div>{`Тема ${themeName}`}</div>
+
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+      <div>
+        <Button buttonLabel={t("buttonLabel.send")} size="middle" />
+      </div>
+      {/* </form> */}
     </div>
   );
 };

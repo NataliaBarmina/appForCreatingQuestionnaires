@@ -1,6 +1,6 @@
 import { SubmitHandler } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useForm, Resolver } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addThemeAsync } from "@store/theme/thunks";
 import { TDispatch } from "@store/store";
@@ -9,13 +9,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@shared/ui";
 import { TextAreaBlock } from "./textAreaBlock";
 
+export const createThemeSchema = (requiredText: string) =>
+  yup.object({
+    topicName: yup.string().required(requiredText),
+  });
+
+export type TTextArea = yup.InferType<ReturnType<typeof createThemeSchema>>;
+
 type TFormForCreatingTheme = {
   closePopover: () => void;
   courseName: string;
-};
-
-export type TFields = {
-  topicName: string;
 };
 
 export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreatingTheme) => {
@@ -30,19 +33,19 @@ export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreat
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TFields>({
+  } = useForm<TTextArea>({
     mode: "onBlur",
-    resolver: yupResolver(schema) as unknown as Resolver<TFields>,
+    resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<TFields> = (data) => {
+  const onSubmit: SubmitHandler<TTextArea> = (data) => {
     dispatch(addThemeAsync({ themeName: data.topicName, courseName }));
     closePopover();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mt-4 bg-red-400">
+      <div className="mt-4">
         <TextAreaBlock
           placeholder={t("placeholder.topic")}
           register={register}
