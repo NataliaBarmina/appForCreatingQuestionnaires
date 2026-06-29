@@ -1,8 +1,8 @@
-import { TCoursesSelection } from "./types";
+import { TTabsContainer } from "./types";
 import { Tabs, Tab } from "@mui/material";
 import { tabStyle, tabsStyle } from "./styles";
 
-export const TabsContainer = ({ tabValue, courseNames, handleChange }: TCoursesSelection) => {
+export const TabsContainer = ({ tabValue, courseNames, handleChange }: TTabsContainer) => {
   return (
     <div className="mx-auto flex w-full justify-center">
       <div className="xs:w-[98vw] md:w-[68vw] lg:w-[55vw] xl:w-[40vw]">
