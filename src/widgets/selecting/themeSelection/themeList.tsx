@@ -20,15 +20,16 @@ const listItemStyles = {
     boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.5)",
   },
 };
+// todo- types!!!!!
 
 export const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
-  const selectedTopicNames = selectedTopics.map((item: TTopic) => item.themeName);
+  const selectedTopicNames = selectedTopics.map((item: any) => item.themeName);
 
   return (
     <div>
       <nav aria-label="Themes list">
         <List>
-          {selectedTopics.map((themes: TTopic, index: number) => {
+          {selectedTopics.map((themes: any, index: number) => {
             return (
               <ListItem disablePadding key={index} sx={listItemStyles}>
                 <ListItemButton onClick={() => handleThemeClick(themes.themeName, themes.themeID)}>

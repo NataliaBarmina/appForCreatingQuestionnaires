@@ -4,6 +4,8 @@ import { RouterProvider } from "react-router-dom";
 import { createHashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { lazy, Suspense } from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "@shared/MUI/themeForMaterialUI";
 
 import "./index.css";
 import "./shared/ i18n/i18n";
@@ -29,8 +31,10 @@ const FormForCreatingTheme = lazy(() =>
 const FormSelection = lazy(() =>
   import("./widgets/selecting").then((m) => ({ default: m.FormSelection }))
 );
-const CoursesSelection = lazy(() =>
-  import("./widgets/selecting").then((m) => ({ default: m.CoursesSelection }))
+const CourseThemeSelection = lazy(() =>
+  import("./pages/selecting/course-theme-selection").then((m) => ({
+    default: m.CourseThemeSelection,
+  }))
 );
 
 const FormQuestionnaire = lazy(() =>
@@ -78,7 +82,7 @@ const router = createHashRouter(
           path: "/coursesSelection",
           element: (
             <Suspense fallback={<Preloader />}>
-              <CoursesSelection />
+              <CourseThemeSelection />
             </Suspense>
           ),
         },
@@ -183,11 +187,13 @@ const router = createHashRouter(
 
 root.render(
   <Provider store={store}>
-    <RouterProvider
-      router={router}
-      future={{
-        v7_startTransition: true,
-      }}
-    />
+    <ThemeProvider theme={theme}>
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+        }}
+      />
+    </ThemeProvider>
   </Provider>
 );

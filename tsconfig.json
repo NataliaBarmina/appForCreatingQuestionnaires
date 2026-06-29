@@ -3,7 +3,8 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "esnext", //? es6
-    "target": "es2015",
+    "target": "ES2017",
+    "lib": ["ES2017", "DOM"],
     "jsx": "react-jsx", // jsx- чтобы не импортировать реакт в компоненты
     "allowJs": true,
     "moduleResolution": "bundler",
