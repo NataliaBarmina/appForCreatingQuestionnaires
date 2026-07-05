@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import { lazy, Suspense } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@shared/MUI/themeForMaterialUI";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "./index.css";
 import "./shared/ i18n/i18n";
@@ -185,15 +187,28 @@ const router = createHashRouter(
   }
 );
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      retry: 1,
+    },
+  },
+});
+
 root.render(
-  <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <RouterProvider
-        router={router}
-        future={{
-          v7_startTransition: true,
-        }}
-      />
-    </ThemeProvider>
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <RouterProvider
+            router={router}
+            future={{
+              v7_startTransition: true,
+            }}
+          />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </Provider>
+  </React.StrictMode>
 );

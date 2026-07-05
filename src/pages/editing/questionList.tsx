@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { TRootState } from "@store/store";
 import { useDispatch } from "react-redux";
 import { deleteQuestionAsync } from "@store/questions/thunks";
-import type { TQuestion } from "@shared/types/commonTypes";
+// import type { TQuestion } from "@shared/types/commonTypes";
 import { TDispatch } from "@store/store";
 
 const greenContainerStyles = cn(
@@ -19,8 +19,16 @@ const greenContainerStyles = cn(
   "xl:w-[50vw]",
   "2xl:w-[45vw]"
 );
-
-export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
+// todo - tyoes
+export const QuestionList = ({
+  courseName,
+  themeName,
+  themeID,
+}: {
+  courseName: string;
+  themeName: string;
+  themeID: string;
+}) => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch<TDispatch>();
@@ -29,7 +37,7 @@ export const QuestionList = ({ courseName, themeName, themeID }: TQuestion) => {
     dispatch(deleteQuestionAsync(id));
   };
   const objectQuestions = useSelector((state: TRootState) => state.questions.questions);
-  const questions: TQuestion[] = Object.values(objectQuestions);
+  const questions: any[] = Object.values(objectQuestions);
   const selectedQuestions = questions.filter((question) => question.themeID === themeID);
 
   return (

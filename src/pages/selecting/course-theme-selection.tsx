@@ -1,13 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { ThemesSelection } from "@widgets/selecting/themeSelection";
 import { CourseSelection } from "@widgets/selecting/coursesSelection/courseSelection";
-import { TDispatch } from "@store/store";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { loadThemesAsync } from "@store/theme/thunks";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { TRootState } from "@store/store";
+import { useQuery } from "@tanstack/react-query";
+import { getThemesByCourse } from "./use-course-theme";
+import { Preloader } from "@shared/ui";
 
 export type THandleTabChange = (event: React.SyntheticEvent, newValue: number) => void;
 
@@ -16,32 +13,37 @@ export type TSelectedTopics = {
   themeName: string;
 };
 
+const courses = ["JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее"];
+
 export const CourseThemeSelection = () => {
   const location = useLocation();
   const buttonID = location.state?.buttonID;
 
   const [tabValue, setTabValue] = useState(0);
 
+  const selectedCourseName = courses[tabValue];
+
   const handleChange: THandleTabChange = (_, newValue) => {
     setTabValue(newValue);
   };
+  const {
+    data: selectedTopics = [],
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["themes", selectedCourseName],
+    queryFn: () => getThemesByCourse(selectedCourseName),
+    enabled: Boolean(selectedCourseName),
+  });
 
-  const dispatch = useDispatch<TDispatch>();
-
-  useEffect(() => {
-    dispatch(loadThemesAsync());
-  }, [dispatch]);
-
-  const { courses, themes } = useSelector((state: TRootState) => state.addTheme);
-
-  const selectedCourseName = courses[tabValue];
-
-  const selectedTopics = Object.values(themes).filter(
-    (item: TSelectedTopics) => item.courseName === selectedCourseName
-  );
-
+  if (isError) {
+    return <div>Ошибка: {error.message}</div>;
+  }
   return (
     <div className="w-full pb-11">
+      {isLoading && <Preloader />}
+
       <CourseSelection tabValue={tabValue} courses={courses} handleChange={handleChange} />
 
       <ThemesSelection

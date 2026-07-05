@@ -1,14 +1,25 @@
 import { SubmitHandler } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { addThemeAsync } from "@store/theme/thunks";
-import { TDispatch } from "@store/store";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@shared/ui";
 import { TextAreaBlock } from "./textAreaBlock";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addTheme } from "./use-add-theme";
 
+export const useAddTheme = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: addTheme,
+
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: ["themes"],
+      }),
+  });
+};
 export const createThemeSchema = (requiredText: string) =>
   yup.object({
     topicName: yup.string().required(requiredText),
@@ -23,11 +34,8 @@ type TFormForCreatingTheme = {
 
 export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreatingTheme) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch<TDispatch>();
 
-  const schema = yup.object({
-    topicName: yup.string().required(t("required")),
-  });
+  const schema = createThemeSchema(t("required"));
 
   const {
     register,
@@ -38,8 +46,13 @@ export const FormForCreatingTheme = ({ closePopover, courseName }: TFormForCreat
     resolver: yupResolver(schema),
   });
 
+  const { mutate: createQuestion, isPending, isError, error } = useAddTheme();
+
   const onSubmit: SubmitHandler<TTextArea> = (data) => {
-    dispatch(addThemeAsync({ themeName: data.topicName, courseName }));
+    createQuestion({
+      courseName,
+      themeName: data.topicName,
+    });
     closePopover();
   };
 
