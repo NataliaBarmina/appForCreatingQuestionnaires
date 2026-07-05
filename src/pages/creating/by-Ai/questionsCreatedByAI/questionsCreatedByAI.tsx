@@ -54,7 +54,7 @@ export const QuestionsCreatedByAI = () => {
         themeHeader={t("header.theme")}
       />
 
-      {questionsList.map((item, index) => (
+      {/* {questionsList.map((item, index) => (
         <div key={index} className={greenContainerStyles}>
           <div className={"py-6 text-lg font-bold text-blue-100"}>
             {t("header.questionNumber")} {index + 1}
@@ -75,7 +75,7 @@ export const QuestionsCreatedByAI = () => {
             wrongAnswer2={item.answer_3}
           />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

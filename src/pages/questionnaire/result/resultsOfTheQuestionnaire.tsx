@@ -29,7 +29,7 @@ export const ResultsOfTheQuestionnaire = () => {
       <div className={grayContainerStyles}>
         <div className={wrongAnswersAnalysisHeader}>{t("header.wrongAnswersAnalysis")}</div>
 
-        {questionsList.map((item: TQuestion, index: number) => {
+        {/* {questionsList.map((item: TQuestion, index: number) => {
           const correctAnswer = item.answer_1;
           const userAnswer = answers[index];
 
@@ -47,7 +47,7 @@ export const ResultsOfTheQuestionnaire = () => {
               yourAnswer={t("formLabel.yourAnswer")}
             />
           );
-        })}
+        })} */}
       </div>
     </div>
   );

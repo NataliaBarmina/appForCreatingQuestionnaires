@@ -1,6 +1,6 @@
 import { errorStyles } from "./styles";
 
-export const FormError = ({ message }: { message?: string }) => {
+export const FormError = ({ message }: { message?: string | null }) => {
   if (!message) return null;
   return (
     <div>

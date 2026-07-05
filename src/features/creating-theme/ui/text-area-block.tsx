@@ -1,13 +1,13 @@
 import { Textarea } from "@shared/createFields";
-import { UseFormRegister } from "react-hook-form";
-import { FieldError } from "react-hook-form";
-import { TTextArea } from "./formForCreatingTheme";
+import { FieldsError } from "@shared/ui/fields-error";
+import { FieldError, FieldPath, UseFormRegister } from "react-hook-form";
+import { TCreateThemeForm } from "./form-for-creating-theme";
 
 export type TTextarea = {
-  placeholder?: string;
+  placeholder: string;
   styles: string;
-  fieldName: keyof TTextArea;
-  register: UseFormRegister<TTextArea>;
+  fieldName: FieldPath<TCreateThemeForm>;
+  register: UseFormRegister<TCreateThemeForm>;
   error?: FieldError;
   disabled?: boolean;
 };
@@ -24,11 +24,7 @@ export const TextAreaBlock = ({ placeholder, fieldName, register, error, disable
           disabled={disabled}
         />
 
-        {error && (
-          <p className="mx-auto w-[90%] bg-blue-100 text-xl font-bold text-pink-900">
-            {error.message}
-          </p>
-        )}
+        <FieldsError message={error?.message} />
       </div>
     </div>
   );

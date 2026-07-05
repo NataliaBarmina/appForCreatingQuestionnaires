@@ -1,7 +1,7 @@
 import { formContainerStyles, headerStyles } from "./styles";
 import { TManualCreatingPage } from "./types";
 import { useTranslation } from "react-i18next";
-import { FormForCreatingQuestionsYourself } from "@features/creating/manual";
+import { FormForCreatingQuestionsYourself } from "@features/creating-question/manual";
 
 export const ManualCreatingPage = ({ courseName, themeName, themeID }: TManualCreatingPage) => {
   const { t } = useTranslation();

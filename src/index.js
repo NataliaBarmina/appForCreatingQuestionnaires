@@ -15,6 +15,7 @@ import "./shared/ i18n/i18n";
 import { store } from "./store/store";
 import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
+import { ToastContainer } from "react-toastify";
 
 const Creating = lazy(() => import("./pages/creating").then((m) => ({ default: m.Creating })));
 const QuestionsCreatedByAI = lazy(() =>
@@ -207,6 +208,7 @@ root.render(
               v7_startTransition: true,
             }}
           />
+          <ToastContainer position="top-right" autoClose={4000} />
         </ThemeProvider>
       </QueryClientProvider>
     </Provider>

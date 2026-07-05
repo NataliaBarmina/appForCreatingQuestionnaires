@@ -37,24 +37,26 @@ export const FormQuestionnaire = () => {
   const { handleSubmit, onSubmit } = methods;
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
-        <div className="px-4 py-7 text-[150%] font-bold">{t("header.answerToQuestion")}</div>
-
-        {questionsList.map((item: any, index: number) => (
-          <QuestionItem
-            key={item.questionID}
-            correctAnswer={item.answer_1}
-            wrongAnswer_1={item.answer_2}
-            wrongAnswer_2={item.answer_3}
-            index={index}
-            question={item.question}
-            headerQuestionNumber={t("header.questionNumber")}
-          />
-        ))}
-
-        <Button type="submit" buttonLabel={t("buttonLabel.save")} size="middle" />
-      </form>
-    </FormProvider>
+    <div>
+      {" "}
+      jfkisd;lfjeldkf
+      {/* <FormProvider {...methods}> */}
+      {/* <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
+          <div className="px-4 py-7 text-[150%] font-bold">{t("header.answerToQuestion")}</div>
+          {questionsList.map((item: any, index: number) => (
+            <QuestionItem
+              key={item.questionID}
+              correctAnswer={item.answer_1}
+              wrongAnswer_1={item.answer_2}
+              wrongAnswer_2={item.answer_3}
+              index={index}
+              question={item.question}
+              headerQuestionNumber={t("header.questionNumber")}
+            />
+          ))}
+          <Button type="submit" buttonLabel={t("buttonLabel.save")} size="middle" />
+        </form> */}
+      {/* </FormProvider> */}
+    </div>
   );
 };
