@@ -6,12 +6,14 @@ import { useSelector } from "react-redux";
 import { FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { TRootState } from "@store/store";
-import type { TQuestion } from "@shared/types/commonTypes";
+// import type { TQuestion } from "@shared/types/commonTypes";
 import { useMemo, useEffect } from "react";
 import shuffle from "lodash-es/shuffle";
 import { TDispatch } from "@store/store";
 import { useDispatch } from "react-redux";
 import { loadAllQuestionsAsync } from "@store/questions/thunks";
+
+// todo - tyoes
 
 export const FormQuestionnaire = () => {
   const { t } = useTranslation();
@@ -39,7 +41,7 @@ export const FormQuestionnaire = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
         <div className="px-4 py-7 text-[150%] font-bold">{t("header.answerToQuestion")}</div>
 
-        {questionsList.map((item: TQuestion, index: number) => (
+        {questionsList.map((item: any, index: number) => (
           <QuestionItem
             key={item.questionID}
             correctAnswer={item.answer_1}
