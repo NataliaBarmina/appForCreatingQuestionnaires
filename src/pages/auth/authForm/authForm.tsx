@@ -7,6 +7,8 @@ import { auth } from "@appFirebase";
 import { useState } from "react";
 import type { User } from "firebase/auth";
 
+// todo - разобраться с авторизацией, может использовать квери или редакс?
+
 export const AuthForm = () => {
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string | null>(null);

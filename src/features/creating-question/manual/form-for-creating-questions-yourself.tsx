@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
-import { FormAction } from "@features/creating/manual/formAction";
-import { CustomTextAreaField } from "@features/creating/manual/customTextareaField";
-import { AnswersField } from "@features/creating/manual/answersField";
+import { FormAction } from "@features/creating-question/manual/formAction";
+import { CustomTextAreaField } from "@features/creating-question/manual/customTextareaField";
+import { AnswersField } from "@features/creating-question/manual/answersField";
 import { addQuestionAsync } from "@store/questions/thunks";
 import { TQuestionFields, TFormForCreatingQuestionsYourself } from "./types";
 

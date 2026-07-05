@@ -79,5 +79,8 @@
       "userNotFound": "User not found.",
       "tooManyRequests": "Too many attempts. Try again later."
     }
+  },
+  "error": {
+    "somethingWentWrong": "Oops, something went wrong"
   }
 }

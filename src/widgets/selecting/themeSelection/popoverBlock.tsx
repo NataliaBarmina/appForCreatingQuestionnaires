@@ -1,5 +1,5 @@
 import { Popover, PopoverContent, PopoverTrigger } from "@ui/popover";
-import { FormForCreatingTheme } from "@features/selecting";
+import { FormForCreatingTheme } from "@features/creating-theme";
 import { popoverTriggerStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";

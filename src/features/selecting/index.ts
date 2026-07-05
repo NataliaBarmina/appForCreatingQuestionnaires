@@ -1,1 +1,0 @@
-export { FormForCreatingTheme } from "./formForCreatingTheme";
