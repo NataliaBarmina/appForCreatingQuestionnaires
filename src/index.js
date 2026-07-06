@@ -35,7 +35,7 @@ const FormSelection = lazy(() =>
   import("./widgets/selecting").then((m) => ({ default: m.FormSelection }))
 );
 const CourseThemeSelection = lazy(() =>
-  import("./pages/selecting/course-theme-selection").then((m) => ({
+  import("./pages/course-theme-selection/course-theme-selection").then((m) => ({
     default: m.CourseThemeSelection,
   }))
 );
