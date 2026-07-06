@@ -9,7 +9,7 @@ import { PopoverBlock } from "./popoverBlock";
 type TThemeSelection = {
   courseName: string;
   buttonID: string;
-  selectedTopics: Array<Partial<TTopic>>;
+  selectedTopics: any; //todo -types!!!
 };
 
 export const ThemesSelection = ({ courseName, buttonID, selectedTopics }: TThemeSelection) => {
