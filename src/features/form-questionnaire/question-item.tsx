@@ -1,9 +1,9 @@
 import { BlockedField } from "@shared/createFields";
 import { RadioInput } from "./radio-input";
-import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
 import { shuffleArray } from "@shared/utils/shuffleArray";
 import { useMemo } from "react";
+import { cn } from "@lib/utils";
 
 type TQuestionItem = {
   question: string;
@@ -14,6 +14,16 @@ type TQuestionItem = {
   index: number;
   errorMessage: any;
 };
+
+export const greenContainerStyles = cn(
+  "mx-auto mb-8 w-[100vw] bg-green-800",
+  "border-2 border-solid border-gray-600",
+  "s:w-[95vw] s:rounded-2xl",
+  "md:w-[65vw]",
+  "lg:w-[55vw]",
+  "xl:w-[50vw]",
+  "2xl:w-[45vw]"
+);
 
 export const QuestionItem = ({
   correctAnswer,
