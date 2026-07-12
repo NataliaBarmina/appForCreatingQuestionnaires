@@ -1,6 +1,13 @@
-import { radioInputStyles } from "./styles";
 import { forwardRef } from "react";
 import { UseFormRegister } from "react-hook-form";
+import { cn } from "@lib/utils";
+
+export const radioInputStyles = cn(
+  "w-[100%] bg-blue-100",
+  "border-4 border-solid border-blue-200",
+  "placeholder:text-purple-900",
+  "ml-2 rounded-lg p-2 text-left"
+);
 
 type TRadioInput = {
   value: string;

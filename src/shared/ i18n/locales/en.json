@@ -82,6 +82,7 @@
   },
   "error": {
     "somethingWentWrong": "Oops, something went wrong",
-    "loadThemesFailed": "Failed to load topics. Please try selecting another course or refreshing the page."
+    "loadThemesFailed": "Failed to load topics. Please try selecting another course or refreshing the page.",
+    "loadQuestionsFailed": "Failed to load questions. Please try refreshing the page."
   }
 }
