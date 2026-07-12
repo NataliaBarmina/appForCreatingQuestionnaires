@@ -31,15 +31,6 @@ export async function listQuestionsByTheme(themeID: string) {
   }));
 }
 
-// получаем все вопросы для составления анкеты
-export async function listAllQuestions() {
-  const questionsSnapshot = await getDocs(collection(db, "questions"));
-  return questionsSnapshot.docs.map((docSnap) => ({
-    questionID: docSnap.id,
-    ...docSnap.data(),
-  }));
-}
-
 export async function deleteQuestion(questionID: string) {
   await deleteDoc(doc(db, "questions", questionID));
 }

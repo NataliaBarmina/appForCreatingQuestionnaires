@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   deleteQuestion,
-  listAllQuestions,
+  // listAllQuestions,
   createQuestion,
   listQuestionsByTheme,
   editQuestion,
@@ -20,11 +20,6 @@ export const loadQuestionsAsync = createAsyncThunk(
   async (themeID: string) => {
     return await listQuestionsByTheme(themeID);
   }
-);
-
-export const loadAllQuestionsAsync = createAsyncThunk(
-  "questions/loadAllQuestions",
-  async () => await listAllQuestions()
 );
 
 export const deleteQuestionAsync = createAsyncThunk(

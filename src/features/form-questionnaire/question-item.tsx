@@ -1,5 +1,5 @@
 import { BlockedField } from "@shared/createFields";
-import { RadioInput } from "./radioInput";
+import { RadioInput } from "./radio-input";
 import { greenContainerStyles } from "./styles";
 import { useFormContext } from "react-hook-form";
 import { shuffleArray } from "@shared/utils/shuffleArray";
@@ -12,6 +12,7 @@ type TQuestionItem = {
   wrongAnswer_2: string;
   headerQuestionNumber: string;
   index: number;
+  errorMessage: any;
 };
 
 export const QuestionItem = ({
@@ -21,6 +22,7 @@ export const QuestionItem = ({
   index,
   question,
   headerQuestionNumber,
+  errorMessage,
 }: TQuestionItem) => {
   const { register } = useFormContext();
 
@@ -55,6 +57,12 @@ export const QuestionItem = ({
             name={`radioInputFromSurvey.${index}`}
           />
         </div>
+
+        {errorMessage && (
+          <span className="rounded-sm bg-red-50 px-2 text-lg font-bold text-pink-900">
+            {errorMessage}
+          </span>
+        )}
       </div>
     </div>
   );

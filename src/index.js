@@ -40,11 +40,11 @@ const CourseThemeSelection = lazy(() =>
   }))
 );
 
-const FormQuestionnaire = lazy(() =>
-  import("./pages/questionnaire").then((m) => ({ default: m.FormQuestionnaire }))
+const Questionnaire = lazy(() =>
+  import("./pages/questionnaire").then((m) => ({ default: m.Questionnaire }))
 );
 const ResultsOfTheQuestionnaire = lazy(() =>
-  import("./pages/questionnaire").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
+  import("./pages/result").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
 );
 
 const QuestionList = lazy(() =>
@@ -101,7 +101,7 @@ const router = createHashRouter(
           path: "/questionnaire",
           element: (
             <Suspense fallback={<Preloader />}>
-              <FormQuestionnaire />
+              <Questionnaire />
             </Suspense>
           ),
         },
