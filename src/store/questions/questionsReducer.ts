@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  addQuestionAsync,
-  loadQuestionsAsync,
-  deleteQuestionAsync,
-  editQuestionAsync,
-} from "./thunks";
+import { loadQuestionsAsync, deleteQuestionAsync, editQuestionAsync } from "./thunks";
 
 type TQuestion = {
   questionID: string;
@@ -24,9 +19,6 @@ const questionSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(addQuestionAsync.fulfilled, (state, action: PayloadAction<TQuestion>) => {
-        state.questions[action.payload.questionID] = action.payload;
-      })
       .addCase(loadQuestionsAsync.fulfilled, (state, action: PayloadAction<TQuestion[]>) => {
         state.questions = {}; // очищаем стэйт
         action.payload.forEach((q) => {

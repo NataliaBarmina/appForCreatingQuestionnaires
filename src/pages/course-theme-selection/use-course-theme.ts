@@ -7,10 +7,15 @@ export async function getThemesByCourse(courseName: string) {
 
   const snapshot = await getDocs(themesQuery);
 
-  return snapshot.docs.map((themeDoc) => ({
-    id: themeDoc.id,
-    ...themeDoc.data(),
-  }));
+  return snapshot.docs.map((document) => {
+    const data = document.data();
+
+    return {
+      id: document.id,
+      courseName: data.courseName,
+      themeName: data.themeName,
+    };
+  });
 }
 
 export const useGetThemes = (selectedCourseName: string) => {
