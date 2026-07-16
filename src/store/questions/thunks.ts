@@ -1,19 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  deleteQuestion,
-  // listAllQuestions,
-  createQuestion,
-  listQuestionsByTheme,
-  editQuestion,
-} from "./api";
+import { deleteQuestion, listQuestionsByTheme, editQuestion } from "./api";
 import { TQuestion } from "@shared/types/commonTypes";
-
-export const addQuestionAsync = createAsyncThunk(
-  "questions/addQuestion",
-  async (payload: TQuestion) => {
-    return await createQuestion(payload);
-  }
-);
 
 export const loadQuestionsAsync = createAsyncThunk(
   "questions/loadQuestions",

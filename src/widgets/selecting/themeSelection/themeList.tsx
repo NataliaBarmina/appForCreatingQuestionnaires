@@ -2,13 +2,20 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { TTopic } from "@shared/types/commonTypes";
+import { CreationModeButton } from "@shared/types/commonTypes";
+import { useNavigate } from "react-router-dom";
 
-type TThemeList = {
-  handleThemeClick: (theme: string, themeID: string) => void;
-  selectedTopics: Array<Partial<TTopic>>;
+export type TSelectedTopic = {
+  id: string;
+  courseName: string;
+  themeName: string;
 };
 
+type TThemeList = {
+  selectedTopics: TSelectedTopic[];
+  courseName: string;
+  buttonID: CreationModeButton;
+};
 const listItemStyles = {
   border: "4px solid rgb(180, 209, 210)",
   bgcolor: "rgb(240,248,255)",
@@ -20,20 +27,32 @@ const listItemStyles = {
     boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.5)",
   },
 };
-// todo- types!!!!!
 
-export const ThemeList = ({ handleThemeClick, selectedTopics }: TThemeList) => {
-  const selectedTopicNames = selectedTopics.map((item: any) => item.themeName);
+export const ThemeList = ({ selectedTopics, courseName, buttonID }: TThemeList) => {
+  const navigate = useNavigate();
+
+  const handleThemeClick = (selectedTopic: TSelectedTopic) => {
+    const { themeName, id } = selectedTopic;
+
+    navigate("/formSelection", {
+      state: {
+        buttonID,
+        courseName,
+        themeName: themeName,
+        themeID: id,
+      },
+    });
+  };
 
   return (
     <div>
       <nav aria-label="Themes list">
         <List>
-          {selectedTopics.map((themes: any, index: number) => {
+          {selectedTopics.map((theme: TSelectedTopic, index: number) => {
             return (
               <ListItem disablePadding key={index} sx={listItemStyles}>
-                <ListItemButton onClick={() => handleThemeClick(themes.themeName, themes.themeID)}>
-                  <ListItemText primary={themes.themeName} />
+                <ListItemButton onClick={() => handleThemeClick(theme)}>
+                  <ListItemText primary={theme.themeName} />
                 </ListItemButton>
               </ListItem>
             );

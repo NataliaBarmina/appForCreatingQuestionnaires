@@ -3,19 +3,12 @@ import {
   doc, // ссылка на конкретный документ по пути
   query, // собрать запрос из collection + where/orderBy/limit и т.д.
   where, // фильтр в запросе
-  addDoc, // добавить новый документ в коллекцию
   getDocs, // выполнить запрос и получить список документов
   updateDoc, // обновить поля существующего документа
   deleteDoc, // удалить документ
 } from "firebase/firestore";
 import { db } from "@appFirebase"; // доступ к базе данных Firestore
 import { TQuestion } from "@shared/types/commonTypes";
-
-// создаем вопросы
-export async function createQuestion(payload: TQuestion) {
-  const docRef = await addDoc(collection(db, "questions"), payload);
-  return { questionID: docRef.id, ...payload };
-}
 
 // получаем вопросы по ID темы для редактирования
 export async function listQuestionsByTheme(themeID: string) {
