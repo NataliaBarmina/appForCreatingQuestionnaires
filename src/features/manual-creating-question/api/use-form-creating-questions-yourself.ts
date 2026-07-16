@@ -2,7 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-type TAddQuestion = {
+type TCreateQuestion = {
   courseName: string;
   themeID: string;
   themeName: string;
@@ -12,27 +12,11 @@ type TAddQuestion = {
   answer_3: string;
 };
 
-export const createQuestion = async ({
-  courseName,
-  themeID,
-  themeName,
-  question,
-  answer_1,
-  answer_2,
-  answer_3,
-}: TAddQuestion) => {
-  return addDoc(collection(db, "questions"), {
-    themeName,
-    courseName,
-    themeID,
-    question,
-    answer_1,
-    answer_2,
-    answer_3,
-  });
+export const createQuestion = async (questionData: TCreateQuestion) => {
+  return addDoc(collection(db, "questions"), questionData);
 };
 
-export const useAddQuestion = () => {
+export const useCreateQuestion = () => {
   const queryClient = useQueryClient();
 
   return useMutation({

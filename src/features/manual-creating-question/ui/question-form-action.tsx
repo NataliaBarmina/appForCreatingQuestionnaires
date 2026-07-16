@@ -30,6 +30,7 @@ export const QuestionFormActions = ({
         isFormValid={isFormValid} //будем показывать Alert только если форма валидна
         isSubmitting={isSubmitting} //будем показывать Alert только произошло событие submit
       />
+
       <Button
         buttonLabel={t("buttonLabel.reset")}
         size="middle"

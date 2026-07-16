@@ -1,87 +1,81 @@
 import { Form } from "@ui/form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 
 import { QuestionFormActions } from "./question-form-action";
 import { CreateQuestionField } from "./create-question-field";
 import { CreateAnswerField } from "./create-answer-field";
+import { useCreateQuestion } from "../api/use-form-creating-questions-yourself";
+import { createQuestionSchema } from "../model/validation-schema";
+import { TQuestionFields } from "../model/types";
 
-import { useAddQuestion } from "../api/use-form-for-creating-questions-yourself";
-
-export type TFormForCreatingQuestionsYourself = {
-  themeID: string;
-  themeName: string;
-  courseName: string;
+const defaultValues = {
+  selfWrittenQuestion: "",
+  selfWrittenAnswer1: "",
+  selfWrittenAnswer2: "",
+  selfWrittenAnswer3: "",
 };
-
-const createRequiredString = (requiredText: string) => yup.string().trim().required(requiredText);
-
-export const createQuestionSchema = (requiredText: string) =>
-  yup.object({
-    selfWrittenQuestion: createRequiredString(requiredText),
-    selfWrittenAnswer1: createRequiredString(requiredText),
-    selfWrittenAnswer2: createRequiredString(requiredText),
-    selfWrittenAnswer3: createRequiredString(requiredText),
-  });
-
-export type TQuestionFields = yup.InferType<ReturnType<typeof createQuestionSchema>>;
 
 export const FormForCreatingQuestionsYourself = ({
   courseName,
   themeName,
   themeID,
-}: TFormForCreatingQuestionsYourself) => {
+}: {
+  themeID: string;
+  themeName: string;
+  courseName: string;
+}) => {
   const { t } = useTranslation();
 
-  const schema = createQuestionSchema(t("required"));
+  const schema = createQuestionSchema(
+    t("validation.required"),
+    t("validation.answersMustBeDifferent")
+  );
 
   const form = useForm<TQuestionFields>({
     resolver: yupResolver(schema),
     mode: "onChange",
+    defaultValues,
   });
 
   const {
+    control,
     handleSubmit,
     reset,
     formState: { isValid, isSubmitting }, // Проверка на валидность формы и Чтобы избежать повторной отправки
   } = form;
 
-  const { mutate: createQuestion } = useAddQuestion();
+  const { mutateAsync: createQuestion } = useCreateQuestion();
 
-  const onSubmit = (values: TQuestionFields) => {
-    const { selfWrittenQuestion, selfWrittenAnswer1, selfWrittenAnswer2, selfWrittenAnswer3 } =
-      values;
-    createQuestion(
-      {
-        courseName,
-        themeID,
-        themeName,
-        question: selfWrittenQuestion,
-        answer_1: selfWrittenAnswer1,
-        answer_2: selfWrittenAnswer2,
-        answer_3: selfWrittenAnswer3,
-      },
-      {
-        onSuccess: () => {
-          reset();
-        },
-        onError: (error) => {
-          const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
+  const onSubmit: SubmitHandler<TQuestionFields> = async (values) => {
+    const questionData = {
+      courseName,
+      themeID,
+      themeName,
+      question: values.selfWrittenQuestion,
+      answer_1: values.selfWrittenAnswer1,
+      answer_2: values.selfWrittenAnswer2,
+      answer_3: values.selfWrittenAnswer3,
+    };
+    try {
+      await createQuestion(questionData);
 
-          toast.error(message);
-        },
-      }
-    );
+      reset();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
+      toast.error(message);
+    }
   };
+
+  const submitForm = handleSubmit(onSubmit);
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={submitForm}>
         <CreateQuestionField
-          control={form.control}
+          control={control}
           disabled={false}
           name="selfWrittenQuestion"
           formLabel={t("placeholder.question")}
@@ -89,28 +83,33 @@ export const FormForCreatingQuestionsYourself = ({
         />
         <div className="mx-auto w-[85%]">
           <CreateAnswerField
-            control={form.control}
+            control={control}
             name="selfWrittenAnswer1"
             placeholder={t("placeholder.correctAnswer")}
             formLabel={t("formLabel.answers").toLowerCase()}
+            disabled={isSubmitting}
           />
           <CreateAnswerField
-            control={form.control}
+            control={control}
             name="selfWrittenAnswer2"
             placeholder={t("placeholder.wrongAnswer")}
+            formLabel=""
+            disabled={isSubmitting}
           />
           <CreateAnswerField
-            control={form.control}
+            control={control}
             name="selfWrittenAnswer3"
             placeholder={t("placeholder.wrongAnswer")}
+            formLabel=""
+            disabled={isSubmitting}
           />
         </div>
 
         <QuestionFormActions
           isFormValid={isValid}
           isSubmitting={isSubmitting}
-          onFormReset={() => reset()}
-          handleCreateManualQuestion={handleSubmit(onSubmit)}
+          onFormReset={() => reset}
+          handleCreateManualQuestion={submitForm}
         />
       </form>
     </Form>

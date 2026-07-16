@@ -1,5 +1,4 @@
 {
-  "required": "This field is required",
   "link": {
     "create": "Creating questions",
     "questionnaire": "Questionnaire",
@@ -84,5 +83,9 @@
     "somethingWentWrong": "Oops, something went wrong",
     "loadThemesFailed": "Failed to load topics. Please try selecting another course or refreshing the page.",
     "loadQuestionsFailed": "Failed to load questions. Please try refreshing the page."
+  },
+  "validation": {
+    "required": "This field is required",
+    "answersMustBeDifferent": "Answers must be different"
   }
 }

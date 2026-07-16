@@ -41,7 +41,7 @@ export const EditingForm = ({
 
   const dispatch = useDispatch<TDispatch>();
 
-  const schema = createSchema(t("required"));
+  const schema = createSchema(t("validation.required"));
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     const updatedQuestion = {
