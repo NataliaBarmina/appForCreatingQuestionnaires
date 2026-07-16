@@ -21,7 +21,7 @@ export const FormForCreatingTheme = ({
 }) => {
   const { t } = useTranslation();
 
-  const schema = createThemeSchema(t("required"));
+  const schema = createThemeSchema(t("validation.required"));
 
   const {
     register,

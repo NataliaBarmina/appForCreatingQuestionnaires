@@ -1,14 +1,9 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form";
 import { Textarea } from "@ui/textarea";
-import { TQuestionFields } from "./form-creating-questions-yourself";
-import { Control } from "react-hook-form";
+import { TField } from "../model/types";
 
-export type TCreateQuestionField = {
-  control: Control<TQuestionFields>;
-  disabled: boolean;
+export type TCreateQuestionField = TField & {
   name: "selfWrittenQuestion";
-  formLabel: string;
-  placeholder: string;
 };
 
 export const CreateQuestionField = ({

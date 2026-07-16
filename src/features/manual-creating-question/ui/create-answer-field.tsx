@@ -1,13 +1,9 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form";
 import { Textarea } from "@ui/textarea";
-import { Control } from "react-hook-form";
-import { TQuestionFields } from "./form-creating-questions-yourself";
+import { TField } from "../model/types";
 
-export type TCreateAnswerField = {
-  control: Control<TQuestionFields>;
+export type TCreateAnswerField = TField & {
   name: "selfWrittenAnswer1" | "selfWrittenAnswer2" | "selfWrittenAnswer3";
-  placeholder: string;
-  formLabel?: string;
 };
 
 export const CreateAnswerField = ({
@@ -15,6 +11,7 @@ export const CreateAnswerField = ({
   name,
   placeholder,
   formLabel,
+  disabled,
 }: TCreateAnswerField) => {
   return (
     <FormField
@@ -26,6 +23,7 @@ export const CreateAnswerField = ({
           <FormControl>
             <Textarea
               placeholder={placeholder}
+              disabled={disabled}
               {...field}
               className="text-center placeholder:text-sm"
               style={{ fontSize: "1.2rem" }}
