@@ -4,7 +4,7 @@ import { Button } from "@shared/ui";
 import { CreationModeButton } from "@shared/types/commonTypes";
 import { circleStyles, containerStyle, headerStyle, flexContainer } from "./styles";
 
-export const Creating = () => {
+export const QuestionCreationMethod = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 

@@ -1,29 +1,29 @@
-import { Alert } from "@shared/ui";
-import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
-import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
+// import { Alert } from "@shared/ui";
+// import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
+// import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
 import { useTranslation } from "react-i18next";
 import { HeadersBlock } from "@shared/ui";
-import { cn } from "@lib/utils";
-import { useSelector } from "react-redux";
-import { TRootState } from "@store/store";
-import { useDispatch } from "react-redux";
-import { deleteQuestionAsync } from "@store/questions/thunks";
+// import { cn } from "@lib/utils";
+// import { useSelector } from "react-redux";
+// import { TRootState } from "@store/store";
+// import { useDispatch } from "react-redux";
+// import { deleteQuestionAsync } from "@store/questions/thunks";
 // import type { TQuestion } from "@shared/types/commonTypes";
-import { TDispatch } from "@store/store";
+// import { TDispatch } from "@store/store";
 
-const greenContainerStyles = cn(
-  "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
-  "s:w-[90vw] s:rounded-2xl",
-  "md:w-[65vw]",
-  "lg:w-[55vw]",
-  "xl:w-[50vw]",
-  "2xl:w-[45vw]"
-);
+// const greenContainerStyles = cn(
+//   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
+//   "s:w-[90vw] s:rounded-2xl",
+//   "md:w-[65vw]",
+//   "lg:w-[55vw]",
+//   "xl:w-[50vw]",
+//   "2xl:w-[45vw]"
+// );
 // todo - tyoes
 export const QuestionList = ({
   courseName,
   themeName,
-  themeID,
+  // themeID,
 }: {
   courseName: string;
   themeName: string;
@@ -31,14 +31,14 @@ export const QuestionList = ({
 }) => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch<TDispatch>();
+  // const dispatch = useDispatch<TDispatch>();
 
-  const onDelete = (id: string) => {
-    dispatch(deleteQuestionAsync(id));
-  };
-  const objectQuestions = useSelector((state: TRootState) => state.questions.questions);
-  const questions: any[] = Object.values(objectQuestions);
-  const selectedQuestions = questions.filter((question) => question.themeID === themeID);
+  // const onDelete = (id: string) => {
+  //   dispatch(deleteQuestionAsync(id));
+  // };
+  // const objectQuestions = useSelector((state: TRootState) => state.questions.questions);
+  // const questions: any[] = Object.values(objectQuestions);
+  // const selectedQuestions = questions.filter((question) => question.themeID === themeID);
 
   return (
     <div>
@@ -51,7 +51,7 @@ export const QuestionList = ({
           themeName={themeName}
         />
 
-        {selectedQuestions.map((item, index) => (
+        {/* {selectedQuestions.map((item, index) => (
           <div key={item.questionID} className={greenContainerStyles}>
             <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
             <BlockedFieldWithAnswersAndQuestions
@@ -85,7 +85,7 @@ export const QuestionList = ({
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

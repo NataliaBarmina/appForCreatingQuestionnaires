@@ -1,13 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { deleteQuestion, listQuestionsByTheme, editQuestion } from "./api";
+import {
+  deleteQuestion,
+  //  listQuestionsByTheme,
+  editQuestion,
+} from "./api";
 import { TQuestion } from "@shared/types/commonTypes";
 
-export const loadQuestionsAsync = createAsyncThunk(
-  "questions/loadQuestions",
-  async (themeID: string) => {
-    return await listQuestionsByTheme(themeID);
-  }
-);
+// export const loadQuestionsAsync = createAsyncThunk(
+//   "questions/loadQuestions",
+//   async (themeID: string) => {
+//     return await listQuestionsByTheme(themeID);
+//   }
+// );
 
 export const deleteQuestionAsync = createAsyncThunk(
   "questions/deleteQuestion",

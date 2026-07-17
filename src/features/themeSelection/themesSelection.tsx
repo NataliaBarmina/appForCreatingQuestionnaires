@@ -3,13 +3,7 @@ import { ThemeList } from "./themeList";
 import { CreationModeButton } from "@shared/types/commonTypes";
 import { mainContainerStyles } from "./styles";
 import { PopoverBlock } from "./popoverBlock";
-import { TSelectedTopic } from "./themeList";
-
-type TThemeSelection = {
-  courseName: string;
-  buttonID: CreationModeButton;
-  selectedTopics: TSelectedTopic[];
-};
+import { TThemeSelection } from "./types";
 
 export const ThemesSelection = ({ courseName, buttonID, selectedTopics }: TThemeSelection) => {
   const { t } = useTranslation();

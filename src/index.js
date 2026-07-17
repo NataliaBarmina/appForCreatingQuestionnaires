@@ -17,23 +17,22 @@ import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
 import { ToastContainer } from "react-toastify";
 
-const Creating = lazy(() => import("./pages/creating").then((m) => ({ default: m.Creating })));
+const QuestionCreationMethod = lazy(() =>
+  import("./pages/creating").then((m) => ({ default: m.QuestionCreationMethod }))
+);
 const QuestionsCreatedByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
 );
 const FormForCreatingQuestionsByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
 );
-const ManualCreatingPage = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.ManualCreatingPage }))
+const ManualQuestionCreation = lazy(() =>
+  import("./pages/creating").then((m) => ({ default: m.ManualQuestionCreation }))
 );
 const FormForCreatingTheme = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingTheme }))
 );
 
-const FormSelection = lazy(() =>
-  import("./widgets/selecting").then((m) => ({ default: m.FormSelection }))
-);
 const CourseThemeSelection = lazy(() =>
   import("./pages/course-theme-selection/course-theme-selection").then((m) => ({
     default: m.CourseThemeSelection,
@@ -69,7 +68,7 @@ const router = createHashRouter(
           path: "/creating",
           element: (
             <Suspense fallback={<Preloader />}>
-              <Creating />
+              <QuestionCreationMethod />
             </Suspense>
           ),
         },
@@ -115,7 +114,7 @@ const router = createHashRouter(
         },
 
         {
-          path: "/formForCreatingQuestionsByAI",
+          path: "/formForCreatingTheme",
           element: (
             <Suspense fallback={<Preloader />}>
               <FormForCreatingTheme />
@@ -134,15 +133,7 @@ const router = createHashRouter(
           path: "/manualCreatingPage",
           element: (
             <Suspense fallback={<Preloader />}>
-              <ManualCreatingPage />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/formSelection",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <FormSelection />
+              <ManualQuestionCreation />
             </Suspense>
           ),
         },
