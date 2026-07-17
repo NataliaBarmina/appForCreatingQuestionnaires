@@ -1,6 +1,7 @@
 import { classesForLinks, classesForNavPanel, classesForFixingNavPanel } from "./styles";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { CreationModeButton } from "@shared/types/commonTypes";
 
 export const NavPanel = () => {
   const { t } = useTranslation();

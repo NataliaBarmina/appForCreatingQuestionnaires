@@ -1,10 +1,14 @@
+import { useLocation } from "react-router-dom";
 import { formContainerStyles, headerStyles } from "./styles";
-import { TManualCreatingPage } from "./types";
 import { useTranslation } from "react-i18next";
 import { FormForCreatingQuestionsYourself } from "@features/manual-creating-question";
 
-export const ManualCreatingPage = ({ courseName, themeName, themeID }: TManualCreatingPage) => {
+export const ManualQuestionCreation = () => {
   const { t } = useTranslation();
+
+  const location = useLocation();
+  const { courseName, themeName, themeID }: any = location.state || {};
+
   return (
     <>
       <div className={headerStyles}>

@@ -9,13 +9,6 @@ export type TQuestion = {
   answer_3?: string;
 };
 
-export type TTopic = {
-  themeID: string;
-  themeName: string;
-  courseName: string;
-  buttonID?: string;
-};
-
 export type TQuizQuestion = {
   question: string;
   correctAnswer: string;

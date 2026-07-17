@@ -3,7 +3,13 @@ import { SubmitHandler } from "react-hook-form";
 import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
-import type { TTopic } from "@shared/types/commonTypes";
+
+export type TTopic = {
+  themeID: string;
+  themeName: string;
+  courseName: string;
+  buttonID?: string;
+};
 
 export const FormForCreatingQuestionsByAI = ({
   courseName,

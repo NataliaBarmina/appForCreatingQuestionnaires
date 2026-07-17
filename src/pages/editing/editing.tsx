@@ -1,5 +1,5 @@
-// import { Creating } from "../creating";
-// import { CourseThemeSelection } from "../selecting/course-theme-selection";
+// import { QuestionCreationMethod } from "../creating";
+import { CourseThemeSelection } from "../course-theme-selection";
 // import { TRootState } from "@store/store";
 // import { useSelector } from "react-redux";
 
@@ -10,8 +10,8 @@ export const Editing = () => {
   // const hasThemes = Object.values(themes).length > 0;
   return (
     <div>
-      <div>тут должна быть страница!!!! Editing</div>
-      {/* {!hasThemes ? <Creating /> : <CourseThemeSelection />} */}
+      {/* {!hasThemes ? <QuestionCreationMethod /> : <CourseThemeSelection />} */}
+      <CourseThemeSelection />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-import { ThemesSelection } from "@widgets/selecting/themeSelection";
-import { CourseSelection } from "@widgets/selecting/coursesSelection/courseSelection";
+import { ThemesSelection } from "@features/themeSelection";
+import { CourseSelection } from "@features/coursesSelection/courseSelection";
 import { useState, type SyntheticEvent } from "react";
 import { Preloader } from "@shared/ui";
 import { useGetThemes } from "./use-course-theme";

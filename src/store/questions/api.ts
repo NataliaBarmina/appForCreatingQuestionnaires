@@ -1,28 +1,28 @@
 import {
-  collection, // ссылка на коллекцию
+  // collection, // ссылка на коллекцию
   doc, // ссылка на конкретный документ по пути
-  query, // собрать запрос из collection + where/orderBy/limit и т.д.
-  where, // фильтр в запросе
-  getDocs, // выполнить запрос и получить список документов
+  // query, // собрать запрос из collection + where/orderBy/limit и т.д.
+  // where, // фильтр в запросе
+  // getDocs, // выполнить запрос и получить список документов
   updateDoc, // обновить поля существующего документа
   deleteDoc, // удалить документ
 } from "firebase/firestore";
 import { db } from "@appFirebase"; // доступ к базе данных Firestore
 import { TQuestion } from "@shared/types/commonTypes";
 
-// получаем вопросы по ID темы для редактирования
-export async function listQuestionsByTheme(themeID: string) {
-  const q = query(
-    collection(db, "questions"),
-    where("themeID", "==", themeID) //только те вопросы, у которых themeID равен выбранной теме
-  );
-  const questionsSnapshot = await getDocs(q);
+// // получаем вопросы по ID темы для редактирования
+// export async function listQuestionsByTheme(themeID: string) {
+//   const q = query(
+//     collection(db, "questions"),
+//     where("themeID", "==", themeID) //только те вопросы, у которых themeID равен выбранной теме
+//   );
+//   const questionsSnapshot = await getDocs(q);
 
-  return questionsSnapshot.docs.map((docSnap) => ({
-    questionID: docSnap.id,
-    ...docSnap.data(),
-  }));
-}
+//   return questionsSnapshot.docs.map((docSnap) => ({
+//     questionID: docSnap.id,
+//     ...docSnap.data(),
+//   }));
+// }
 
 export async function deleteQuestion(questionID: string) {
   await deleteDoc(doc(db, "questions", questionID));
