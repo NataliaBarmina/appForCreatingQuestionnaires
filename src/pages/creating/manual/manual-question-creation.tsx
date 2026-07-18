@@ -7,7 +7,12 @@ export const ManualQuestionCreation = () => {
   const { t } = useTranslation();
 
   const location = useLocation();
-  const { courseName, themeName, themeID }: any = location.state || {};
+
+  const {
+    courseName,
+    themeName,
+    themeID,
+  }: { courseName: string; themeName: string; themeID: string } = location.state || {};
 
   return (
     <>

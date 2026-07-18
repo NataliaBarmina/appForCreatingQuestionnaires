@@ -13,12 +13,13 @@ export const ThemesSelection = ({ courseName, buttonID, selectedTopics }: TTheme
       <h1 className="pb-10 pt-12 text-xl font-bold">
         {t("header.themeSelection")} {courseName}
       </h1>
-      <div className={mainContainerStyles}>
-        <ThemeList selectedTopics={selectedTopics} courseName={courseName} buttonID={buttonID} />
 
+      <div className={mainContainerStyles}>
         {(buttonID === CreationModeButton.AI || buttonID === CreationModeButton.MANUAL) && (
           <PopoverBlock courseName={courseName} />
         )}
+
+        <ThemeList selectedTopics={selectedTopics} courseName={courseName} buttonID={buttonID} />
       </div>
     </div>
   );

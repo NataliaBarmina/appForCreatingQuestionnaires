@@ -9,11 +9,11 @@ export const NavPanel = () => {
   return (
     <div className={classesForNavPanel}>
       <div className={classesForFixingNavPanel}>
-        <Link to="/creating" className={classesForLinks}>
+        <Link to="/creatingQuestions" className={classesForLinks}>
           {t("link.create")}
         </Link>
 
-        <Link to="/editing" className={classesForLinks}>
+        <Link to="/editingQuestions" className={classesForLinks}>
           {t("link.editing")}
         </Link>
 

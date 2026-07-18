@@ -16,6 +16,7 @@
     "reset": "очистить форму",
     "delete": "удалить",
     "edit": "редактировать",
+    "goTo": "перейти",
     "closeForm": "закрыть форму",
     "addTheme": "добавить тему"
   },
@@ -89,5 +90,12 @@
   "validation": {
     "required": "Это поле обязательно",
     "answersMustBeDifferent": "Варианты ответов не должны повторяться"
+  },
+  "emptyState": {
+    "noThemes": "Тем нет",
+    "noQuestions": "Вопросов нет",
+    "reloadPage": "Попробуйте перезагрузить страницу",
+    "orGoToPage": "или перейдите на страницу",
+    "creatingQuestionsAndTopics": "создания вопросов и тем"
   }
 }

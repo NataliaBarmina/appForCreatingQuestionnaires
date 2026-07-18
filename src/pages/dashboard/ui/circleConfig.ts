@@ -5,7 +5,7 @@ export const circleConfig = [
     rowSpan: "row-span-2",
     rowStart: "row-start-1",
     labelKey: "buttonLabel.creating",
-    link: "/creating",
+    link: "/creatingQuestions",
   },
   {
     colSpan: "col-span-2",
@@ -13,7 +13,7 @@ export const circleConfig = [
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
     labelKey: "buttonLabel.editing",
-    link: "/editing",
+    link: "/editingQuestions",
   },
   {
     colSpan: "col-span-2",
