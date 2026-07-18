@@ -3,6 +3,7 @@
 // import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
 import { useTranslation } from "react-i18next";
 import { HeadersBlock } from "@shared/ui";
+import { useLocation } from "react-router-dom";
 // import { cn } from "@lib/utils";
 // import { useSelector } from "react-redux";
 // import { TRootState } from "@store/store";
@@ -20,16 +21,29 @@ import { HeadersBlock } from "@shared/ui";
 //   "2xl:w-[45vw]"
 // );
 // todo - tyoes
-export const QuestionList = ({
-  courseName,
-  themeName,
-  // themeID,
-}: {
-  courseName: string;
-  themeName: string;
-  themeID: string;
-}) => {
+// todo - если массив вопросов пустой, то переход на EmptyState
+
+export const QuestionList = (
+  {
+    // courseName,
+    // themeName,
+    // themeID,
+  }: {
+    courseName: string;
+    themeName: string;
+    themeID: string;
+  }
+) => {
   const { t } = useTranslation();
+
+  const location = useLocation();
+
+  const {
+    courseName,
+    themeName,
+    themeID,
+  }: { courseName: string; themeName: string; themeID: string } = location.state || {};
+  console.log(courseName, themeName, themeID);
 
   // const dispatch = useDispatch<TDispatch>();
 

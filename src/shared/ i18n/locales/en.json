@@ -16,6 +16,7 @@
     "reset": "clear form",
     "delete": "delete",
     "edit": "edit",
+    "goTo": "go to",
     "closeForm": "close form",
     "addTheme": "add theme"
   },
@@ -87,5 +88,12 @@
   "validation": {
     "required": "This field is required",
     "answersMustBeDifferent": "Answers must be different"
+  },
+  "emptyState": {
+    "noThemes": "No themes",
+    "noQuestions": "No questions",
+    "reloadPage": "Try refreshing the page",
+    "orGoToPage": "or go to the page",
+    "creatingQuestionsAndTopics": "for creating questions and topics"
   }
 }

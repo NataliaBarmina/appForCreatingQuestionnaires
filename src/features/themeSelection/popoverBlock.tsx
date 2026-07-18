@@ -14,7 +14,7 @@ export const PopoverBlock = ({ courseName }: { courseName: string }) => {
       <PopoverContent
         className="rounded-xl bg-neutral-500"
         style={{
-          width: "calc(var(--radix-popover-trigger-width) * 1.1111)",
+          width: "calc(var(--radix-popover-trigger-width) * 2.3)",
         }}
       >
         <FormForCreatingTheme closePopover={() => setOpen(false)} courseName={courseName} />
