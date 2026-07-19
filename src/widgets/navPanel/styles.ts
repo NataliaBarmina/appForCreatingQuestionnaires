@@ -1,11 +1,11 @@
 import { cn } from "@lib/utils";
 
 export const classesForLinks = cn(
-  "block p-4 bg-black  w-[100%] mb-4",
+  "block  bg-black  w-[100%] ",
   "text-center text-[140%] text-white",
   "shadow-lg shadow-stone-900",
   "hover:text-pink-900 focus:text-emerald-400",
-  "md:mb-[8vh] md:shadow-none lg:mb-[11vh]"
+  "md:mb-[7vh] md:shadow-none lg:mb-[10vh]"
 );
 
 export const classesForNavPanel = cn(

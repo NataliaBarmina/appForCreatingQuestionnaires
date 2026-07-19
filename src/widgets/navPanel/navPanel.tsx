@@ -1,7 +1,6 @@
 import { classesForLinks, classesForNavPanel, classesForFixingNavPanel } from "./styles";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { CreationModeButton } from "@shared/types/commonTypes";
 
 export const NavPanel = () => {
   const { t } = useTranslation();
@@ -9,8 +8,16 @@ export const NavPanel = () => {
   return (
     <div className={classesForNavPanel}>
       <div className={classesForFixingNavPanel}>
-        <Link to="/creatingQuestions" className={classesForLinks}>
-          {t("link.create")}
+        {/* <Link to="/themesCreation" className={classesForLinks}>
+          {t("link.createTheme")}
+        </Link> */}
+
+        {/* <Link to="/creatingQuestions" className={classesForLinks}>
+          {t("link.createQuestion")}
+        </Link> */}
+
+        <Link to="/creationOptionsPage" className={classesForLinks}>
+          {t("buttonLabel.creating")}
         </Link>
 
         <Link to="/editingQuestions" className={classesForLinks}>

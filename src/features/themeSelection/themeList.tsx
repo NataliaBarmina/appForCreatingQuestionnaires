@@ -3,7 +3,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
-import { CreationModeButton } from "@shared/types/commonTypes";
+import { TCreationModeButton } from "@shared/types/commonTypes";
 import { listItemStyles } from "./styles";
 import { TTheme, TThemeList } from "./types";
 
@@ -19,12 +19,12 @@ export const ThemeList = ({ selectedTopics, courseName, buttonID }: TThemeList) 
       themeID: id,
     };
 
-    if (buttonID === CreationModeButton.MANUAL) {
+    if (buttonID === TCreationModeButton.MANUAL_QUESTIONS) {
       navigate("/manualCreatingPage", { state });
       return;
     }
 
-    if (buttonID === CreationModeButton.AI) {
+    if (buttonID === TCreationModeButton.AI_QUESTIONS) {
       navigate("/formForCreatingQuestionsByAI", { state });
       return;
     }

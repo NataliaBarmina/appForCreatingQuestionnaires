@@ -1,1 +1,1 @@
-export { CourseThemeSelection } from "./course-theme-selection";
+export { CourseThemesContainer } from "./course-theme-container";

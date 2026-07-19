@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ThemeList } from "./themeList";
-import { CreationModeButton } from "@shared/types/commonTypes";
+import { TCreationModeButton } from "@shared/types/commonTypes";
 import { mainContainerStyles } from "./styles";
 import { PopoverBlock } from "./popoverBlock";
 import { TThemeSelection } from "./types";
@@ -15,11 +15,12 @@ export const ThemesSelection = ({ courseName, buttonID, selectedTopics }: TTheme
       </h1>
 
       <div className={mainContainerStyles}>
-        {(buttonID === CreationModeButton.AI || buttonID === CreationModeButton.MANUAL) && (
+        <ThemeList selectedTopics={selectedTopics} courseName={courseName} buttonID={buttonID} />
+
+        {(buttonID === TCreationModeButton.AI_QUESTIONS ||
+          buttonID === TCreationModeButton.MANUAL_QUESTIONS) && (
           <PopoverBlock courseName={courseName} />
         )}
-
-        <ThemeList selectedTopics={selectedTopics} courseName={courseName} buttonID={buttonID} />
       </div>
     </div>
   );
