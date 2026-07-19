@@ -33,9 +33,9 @@ const FormForCreatingTheme = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingTheme }))
 );
 
-const CourseThemeSelection = lazy(() =>
-  import("./pages/course-theme-selection/course-theme-selection").then((m) => ({
-    default: m.CourseThemeSelection,
+const CourseThemesContainer = lazy(() =>
+  import("./pages/course-theme-selection/course-theme-container").then((m) => ({
+    default: m.CourseThemesContainer,
   }))
 );
 
@@ -57,6 +57,15 @@ const AuthForm = lazy(() => import("./pages/auth").then((m) => ({ default: m.Aut
 const DashboardPage = lazy(() =>
   import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
 );
+const ThemesCreation = lazy(() =>
+  import("./pages/themes-creation/themes-creation").then((m) => ({ default: m.ThemesCreation }))
+);
+
+const CreationOptionsPage = lazy(() =>
+  import("./pages/creation-menu/creation-options-page").then((m) => ({
+    default: m.CreationOptionsPage,
+  }))
+);
 
 const root = createRoot(document.getElementById("root"));
 
@@ -75,6 +84,22 @@ const router = createHashRouter(
           ),
         },
         {
+          path: "/creationOptionsPage",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <CreationOptionsPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/themesCreation",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <ThemesCreation />
+            </Suspense>
+          ),
+        },
+        {
           path: "/editingQuestions",
           element: (
             <Suspense fallback={<Preloader />}>
@@ -83,10 +108,10 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/coursesSelection",
+          path: "/coursesThemesSelection",
           element: (
             <Suspense fallback={<Preloader />}>
-              <CourseThemeSelection />
+              <CourseThemesContainer />
             </Suspense>
           ),
         },

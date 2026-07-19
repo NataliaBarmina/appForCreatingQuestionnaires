@@ -1,6 +1,7 @@
 {
   "link": {
-    "create": "Создание вопросов",
+    "createQuestion": "Создание вопросов",
+    "createTheme": "Создание тем",
     "questionnaire": "Анкетирование",
     "editing": "Редактирование вопросов",
     "auth": "Авторизация"
@@ -9,6 +10,8 @@
     "creating": "Создание",
     "questionnaire": "Анкетирование",
     "editing": "Редактирование",
+    "questions": "Вопросы",
+    "themes": "Темы",
     "byAI": "нейросетью",
     "yourself": "самостоятельно",
     "send": "отправить",
@@ -23,6 +26,7 @@
   "header": {
     "login": "Введите пароль",
     "logout": "Выйти из аккаунта",
+    "creatingQuestionsAndTopics": "Cоздание вопросов и тем",
     "formCreateByAI": "Форма для создания вопросов нейросетью",
     "createQuestion": " Создайте вопрос по курсу",
     "questionsGeneratedByAI": "Вопросы созданные нейросетью",
@@ -96,6 +100,6 @@
     "noQuestions": "Вопросов нет",
     "reloadPage": "Попробуйте перезагрузить страницу",
     "orGoToPage": "или перейдите на страницу",
-    "creatingQuestionsAndTopics": "создания вопросов и тем"
+    "creatingQuestionsAndTopics": "создания тем"
   }
 }

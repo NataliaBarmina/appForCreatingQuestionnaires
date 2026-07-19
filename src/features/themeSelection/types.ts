@@ -1,4 +1,4 @@
-import { CreationModeButton } from "@shared/types/commonTypes";
+import { TCreationModeButton } from "@shared/types/commonTypes";
 
 export type TTheme = {
   id: string;
@@ -9,11 +9,11 @@ export type TTheme = {
 export type TThemeList = {
   selectedTopics: TTheme[];
   courseName: string;
-  buttonID: CreationModeButton;
+  buttonID: TCreationModeButton;
 };
 
 export type TThemeSelection = {
   courseName: string;
-  buttonID: CreationModeButton;
+  buttonID: TCreationModeButton;
   selectedTopics: TTheme[];
 };

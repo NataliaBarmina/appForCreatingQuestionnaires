@@ -16,7 +16,12 @@ export type TQuizQuestion = {
   wrongAnswer2: string;
 };
 
-export enum CreationModeButton {
+// todo- add types
+export enum TCreationModeButton {
   AI = "AI",
   MANUAL = "MANUAL",
+  AI_QUESTIONS = "AI_QUESTIONS",
+  MANUAL_QUESTIONS = "MANUAL_QUESTIONS",
+  AI_THEMES = "AI_THEMES",
+  MANUAL_THEMES = "MANUAL_THEMES",
 }
