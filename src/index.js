@@ -17,17 +17,11 @@ import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
 import { ToastContainer } from "react-toastify";
 
-const QuestionsCreatedByAI = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
-);
 const FormForCreatingQuestionsByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
 );
 const ManualQuestionCreation = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.ManualQuestionCreation }))
-);
-const FormForCreatingTheme = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.FormForCreatingTheme }))
 );
 
 const CourseThemesContainer = lazy(() =>
@@ -114,23 +108,6 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <ResultsOfTheQuestionnaire />
-            </Suspense>
-          ),
-        },
-
-        {
-          path: "/formForCreatingTheme",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <FormForCreatingTheme />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/questionsCreatedByAI",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <QuestionsCreatedByAI />
             </Suspense>
           ),
         },
