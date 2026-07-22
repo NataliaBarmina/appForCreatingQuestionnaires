@@ -17,20 +17,11 @@ import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
 import { ToastContainer } from "react-toastify";
 
-// const QuestionCreationMethod = lazy(() =>
-//   import("./pages/creating").then((m) => ({ default: m.QuestionCreationMethod }))
-// );
-const QuestionsCreatedByAI = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
-);
 const FormForCreatingQuestionsByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
 );
 const ManualQuestionCreation = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.ManualQuestionCreation }))
-);
-const FormForCreatingTheme = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.FormForCreatingTheme }))
 );
 
 const CourseThemesContainer = lazy(() =>
@@ -50,9 +41,6 @@ const QuestionList = lazy(() =>
   import("./pages/editing/questionList").then((m) => ({ default: m.QuestionList }))
 );
 
-const EditingQuestions = lazy(() =>
-  import("./pages/editing/editing-questions").then((m) => ({ default: m.EditingQuestions }))
-);
 const AuthForm = lazy(() => import("./pages/auth").then((m) => ({ default: m.AuthForm })));
 const DashboardPage = lazy(() =>
   import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
@@ -92,14 +80,6 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/editingQuestions",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <EditingQuestions />
-            </Suspense>
-          ),
-        },
-        {
           path: "/coursesThemesSelection",
           element: (
             <Suspense fallback={<Preloader />}>
@@ -128,23 +108,6 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <ResultsOfTheQuestionnaire />
-            </Suspense>
-          ),
-        },
-
-        {
-          path: "/formForCreatingTheme",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <FormForCreatingTheme />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/questionsCreatedByAI",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <QuestionsCreatedByAI />
             </Suspense>
           ),
         },

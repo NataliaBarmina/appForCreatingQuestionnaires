@@ -12,7 +12,7 @@ export const NavPanel = () => {
           {t("buttonLabel.creating")}
         </Link>
 
-        <Link to="/editingQuestions" className={classesForLinks}>
+        <Link to="/coursesThemesSelection" className={classesForLinks}>
           {t("link.editing")}
         </Link>
 
