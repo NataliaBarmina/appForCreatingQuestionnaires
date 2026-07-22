@@ -17,9 +17,6 @@ import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
 import { ToastContainer } from "react-toastify";
 
-// const QuestionCreationMethod = lazy(() =>
-//   import("./pages/creating").then((m) => ({ default: m.QuestionCreationMethod }))
-// );
 const QuestionsCreatedByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
 );
@@ -50,9 +47,6 @@ const QuestionList = lazy(() =>
   import("./pages/editing/questionList").then((m) => ({ default: m.QuestionList }))
 );
 
-const EditingQuestions = lazy(() =>
-  import("./pages/editing/editing-questions").then((m) => ({ default: m.EditingQuestions }))
-);
 const AuthForm = lazy(() => import("./pages/auth").then((m) => ({ default: m.AuthForm })));
 const DashboardPage = lazy(() =>
   import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
@@ -88,14 +82,6 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <ThemesCreation />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/editingQuestions",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <EditingQuestions />
             </Suspense>
           ),
         },
