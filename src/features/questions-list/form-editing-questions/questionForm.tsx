@@ -1,4 +1,4 @@
-import { Textarea } from "@shared/createFields";
+import { Textarea } from "@shared/ui";
 import { errorsStyles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { UseFormRegister, FieldErrors } from "react-hook-form";

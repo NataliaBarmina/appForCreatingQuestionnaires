@@ -1,4 +1,4 @@
-import { Textarea } from "@shared/createFields";
+import { Textarea } from "@shared/ui";
 import { FieldsError } from "@shared/ui/fields-error";
 import { FieldError, FieldPath, UseFormRegister } from "react-hook-form";
 import { TCreateThemeForm } from "./form-for-creating-theme";

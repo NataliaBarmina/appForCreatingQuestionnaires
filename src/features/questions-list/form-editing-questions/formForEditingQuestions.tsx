@@ -1,4 +1,5 @@
-import { Button } from "@shared/ui";
+import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -9,8 +10,8 @@ import {
   DialogDescription,
   DialogClose,
 } from "@ui/dialog";
-import { useState, useRef } from "react";
-import { useTranslation } from "react-i18next";
+
+import { Button } from "@shared/ui";
 import { EditingForm } from "./form";
 
 export type TFormForEditingQuestions = {
@@ -36,7 +37,7 @@ export const FormForEditingQuestions = ({
   };
   const { t } = useTranslation();
   return (
-    <div>
+    <div className="bg-red-400">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button

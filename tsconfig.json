@@ -22,7 +22,6 @@
 
       "@creating/*": ["./src/pages/creating/*"],
       "@selecting/*": ["./src/widgets/selecting/*"],
-      "@editing/*": ["./src/pages/editing/*"],
       "@questionnaire/*": ["./src/pages/questionnaire/*"],
       "@lib/*": ["./src/shared/chadcn/lib/*"],
       "@ui/*": ["./src/shared/chadcn/ui/*"],

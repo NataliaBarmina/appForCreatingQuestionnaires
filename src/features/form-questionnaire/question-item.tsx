@@ -1,4 +1,4 @@
-import { BlockedField } from "@shared/createFields";
+import { BlockedField } from "@shared/ui";
 import { RadioInput } from "./radio-input";
 import { useFormContext } from "react-hook-form";
 import { shuffleArray } from "@shared/utils/shuffleArray";

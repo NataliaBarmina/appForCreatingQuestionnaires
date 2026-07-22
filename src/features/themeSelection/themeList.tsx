@@ -29,7 +29,7 @@ export const ThemeList = ({ selectedTopics, courseName, buttonID }: TThemeList) 
       return;
     }
 
-    navigate("/questionList", { state });
+    navigate("/editingQuestions", { state });
   };
 
   return (

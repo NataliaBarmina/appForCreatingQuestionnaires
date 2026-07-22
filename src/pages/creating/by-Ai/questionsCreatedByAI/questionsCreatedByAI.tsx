@@ -1,4 +1,4 @@
-import { BlockedFieldWithAnswersAndQuestions } from "@shared/createFields";
+import { BlockedFieldWithAnswersAndQuestions } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { QuestionActions } from "./questionActions";
 import { HeadersBlock } from "@shared/ui";
@@ -43,6 +43,8 @@ const greenContainerStyles = cn(
   "xl:w-[50vw]",
   "2xl:w-[45vw]"
 );
+
+//todo - тут просто переходим на страницу QuestionsList
 
 export const QuestionsCreatedByAI = () => {
   const { t } = useTranslation();
