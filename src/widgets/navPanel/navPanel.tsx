@@ -8,14 +8,6 @@ export const NavPanel = () => {
   return (
     <div className={classesForNavPanel}>
       <div className={classesForFixingNavPanel}>
-        {/* <Link to="/themesCreation" className={classesForLinks}>
-          {t("link.createTheme")}
-        </Link> */}
-
-        {/* <Link to="/creatingQuestions" className={classesForLinks}>
-          {t("link.createQuestion")}
-        </Link> */}
-
         <Link to="/creationOptionsPage" className={classesForLinks}>
           {t("buttonLabel.creating")}
         </Link>
