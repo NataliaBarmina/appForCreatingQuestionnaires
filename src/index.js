@@ -37,8 +37,10 @@ const ResultsOfTheQuestionnaire = lazy(() =>
   import("./pages/result").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
 );
 
-const QuestionList = lazy(() =>
-  import("./pages/editing/questionList").then((m) => ({ default: m.QuestionList }))
+const EditingQuestions = lazy(() =>
+  import("./pages/editing-questions/editing-question").then((m) => ({
+    default: m.EditingQuestions,
+  }))
 );
 
 const AuthForm = lazy(() => import("./pages/auth").then((m) => ({ default: m.AuthForm })));
@@ -88,10 +90,10 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/questionList",
+          path: "/editingQuestions",
           element: (
             <Suspense fallback={<Preloader />}>
-              <QuestionList />
+              <EditingQuestions />
             </Suspense>
           ),
         },

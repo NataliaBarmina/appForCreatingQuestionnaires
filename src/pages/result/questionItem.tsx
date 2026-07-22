@@ -1,5 +1,5 @@
 import { Label } from "@ui/label";
-import { BlockedField } from "@shared/createFields";
+import { BlockedField } from "@shared/ui";
 import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
 
 type TQuestionItem = {

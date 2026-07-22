@@ -1,5 +1,5 @@
 import { Alert } from "@shared/ui";
-import { FormForEditingQuestions } from "@shared/editingQuestions/formForEditingQuestions";
+import { FormForEditingQuestions } from "@features/questions-list/form-editing-questions/formForEditingQuestions";
 import { useTranslation } from "react-i18next";
 import type { TQuizQuestion } from "@shared/types/commonTypes";
 

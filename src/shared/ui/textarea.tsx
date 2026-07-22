@@ -8,10 +8,10 @@ import { cn } from "@lib/utils";
 //   selfWrittenAnswer1?: string; //FormForCreatingQuestionsYourself
 //   selfWrittenAnswer2?: string; //FormForCreatingQuestionsYourself
 //   selfWrittenAnswer3?: string; //FormForCreatingQuestionsYourself
-//   questionForEditing?: string; //QuestionList
-//   answerForEditing1?: string; //QuestionList
-//   answerForEditing2?: string; //QuestionList
-//   answerForEditing3?: string; //QuestionList
+//   questionForEditing?: string; //EditingQuestions
+//   answerForEditing1?: string; //EditingQuestions
+//   answerForEditing2?: string; //EditingQuestions
+//   answerForEditing3?: string; //EditingQuestions
 //   radioInputFromSurvey?: string[];
 // };
 

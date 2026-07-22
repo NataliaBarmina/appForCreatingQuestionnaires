@@ -2,31 +2,24 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useQuery } from "@tanstack/react-query";
 
-export type TQuestion = {
-  id: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-  question: string;
-};
-
-type TQuestionData = Omit<TQuestion, "id">;
-
-export async function getQuestions(): Promise<TQuestion[]> {
+export async function getQuestions() {
   const snapshot = await getDocs(collection(db, "questions"));
 
   return snapshot.docs.map((questionDoc) => {
-    const data = questionDoc.data() as TQuestionData;
+    const data = questionDoc.data();
 
     return {
       id: questionDoc.id,
-      ...data,
+      question: data.question,
+      answer_1: data.answer_1,
+      answer_2: data.answer_2,
+      answer_3: data.answer_3,
     };
   });
 }
 
 export const useGetQuestions = () => {
-  return useQuery<TQuestion[]>({
+  return useQuery({
     queryKey: ["questions"],
     queryFn: () => getQuestions(),
   });
