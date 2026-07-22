@@ -75,14 +75,6 @@ const router = createHashRouter(
       path: "/",
       element: <MainPage />,
       children: [
-        // {
-        //   path: "/creatingQuestions",
-        //   element: (
-        //     <Suspense fallback={<Preloader />}>
-        //       <QuestionCreationMethod />
-        //     </Suspense>
-        //   ),
-        // },
         {
           path: "/creationOptionsPage",
           element: (
