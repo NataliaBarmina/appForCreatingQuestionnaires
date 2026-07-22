@@ -17,9 +17,9 @@ import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
 import { ToastContainer } from "react-toastify";
 
-const QuestionCreationMethod = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.QuestionCreationMethod }))
-);
+// const QuestionCreationMethod = lazy(() =>
+//   import("./pages/creating").then((m) => ({ default: m.QuestionCreationMethod }))
+// );
 const QuestionsCreatedByAI = lazy(() =>
   import("./pages/creating").then((m) => ({ default: m.QuestionsCreatedByAI }))
 );
@@ -75,14 +75,14 @@ const router = createHashRouter(
       path: "/",
       element: <MainPage />,
       children: [
-        {
-          path: "/creatingQuestions",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <QuestionCreationMethod />
-            </Suspense>
-          ),
-        },
+        // {
+        //   path: "/creatingQuestions",
+        //   element: (
+        //     <Suspense fallback={<Preloader />}>
+        //       <QuestionCreationMethod />
+        //     </Suspense>
+        //   ),
+        // },
         {
           path: "/creationOptionsPage",
           element: (

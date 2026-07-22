@@ -5,7 +5,7 @@ export const circleConfig = [
     rowSpan: "row-span-2",
     rowStart: "row-start-1",
     labelKey: "buttonLabel.creating",
-    link: "/creatingQuestions",
+    link: "/creationOptionsPage",
   },
   {
     colSpan: "col-span-2",
