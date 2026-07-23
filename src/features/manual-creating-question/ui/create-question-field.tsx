@@ -1,5 +1,4 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@ui/form";
-import { Textarea } from "@ui/textarea";
 import { TField } from "../model/types";
 
 export type TCreateQuestionField = TField & {
@@ -21,13 +20,12 @@ export const CreateQuestionField = ({
         <FormItem className="pt-8">
           <FormLabel className="text-lg text-yellow-50">{formLabel}</FormLabel>
           <FormControl>
-            <Textarea
+            <input
+              className="textarea-styles text-center"
               placeholder={placeholder}
               disabled={disabled}
-              className="text-center font-extrabold placeholder:text-sm placeholder:font-normal"
-              style={{ fontSize: "1.25rem" }}
               {...field}
-            />
+            ></input>
           </FormControl>
           <FormMessage />
         </FormItem>
