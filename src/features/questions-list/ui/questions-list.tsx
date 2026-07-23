@@ -1,29 +1,15 @@
 import { useTranslation } from "react-i18next";
-import { cn } from "@lib/utils";
 
 import { Alert, BlockedFieldWithAnswersAndQuestions } from "@shared/ui";
 
-import { FormForEditingQuestions } from "@features/questions-list/form-editing-questions/formForEditingQuestions";
-
-const greenContainerStyles = cn(
-  "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
-  "s:w-[90vw] s:rounded-2xl",
-  "md:w-[65vw]",
-  "lg:w-[55vw]",
-  "xl:w-[50vw]",
-  "2xl:w-[45vw]"
-);
-export type TQuestionList = {
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-  id: string;
-  question: string;
-};
+import { EditQuestionDialog } from "@features/questions-list/ui/edit-question-dialog";
+import { TQuestionList } from "../model/types";
+import { greenContainerStyles } from "./styles";
 
 export const QuestionsList = ({ data }: { data: TQuestionList[] }) => {
   const { t } = useTranslation();
 
+  // todo - посмотреть где используется, может применять в том месте
   const onDelete = (id: string) => {
     console.log(id);
     alert("удалить вопрос");
@@ -41,7 +27,7 @@ export const QuestionsList = ({ data }: { data: TQuestionList[] }) => {
           />
           <div className="mb-8 flex w-full justify-evenly py-10">
             <div>
-              <FormForEditingQuestions
+              <EditQuestionDialog
                 question={item.question}
                 correctAnswer={item.answer_1}
                 wrongAnswer1={item.answer_2}

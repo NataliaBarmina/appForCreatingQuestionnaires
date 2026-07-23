@@ -2,12 +2,21 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { mainContainerStyles, headerStyles } from "./styles";
-import { QuestionForm } from "./questionForm";
-import { FormAction } from "./formAction";
+
+import { Button } from "@shared/ui";
+import {
+  mainContainerStyles,
+  headerStyles,
+  buttonsContainerStyles,
+  textareaStyles,
+} from "./styles";
+import { TEditQuestionForm } from "../model/types";
+
 import { useDispatch } from "react-redux";
 import { editQuestionAsync } from "@store/questions/thunks";
 import { TDispatch } from "@store/store";
+
+//todo - обработка ошибок, если поле пустое, то добавлять красную обводку
 
 const createSchema = (requiredMessage: string) =>
   yup.object({
@@ -16,27 +25,17 @@ const createSchema = (requiredMessage: string) =>
     answerForEditing2: yup.string().required(requiredMessage),
     answerForEditing3: yup.string().required(requiredMessage),
   });
-// .required(); //без него тип всей схемы потенциально может допускать undefined
 
 export type TFields = yup.InferType<ReturnType<typeof createSchema>>;
 
-export type TFormForEditingQuestions = {
-  question: string;
-  correctAnswer: string;
-  wrongAnswer1: string;
-  wrongAnswer2: string;
-  questionID: string;
-  closeDialog: () => void;
-};
-
-export const EditingForm = ({
+export const EditQuestionForm = ({
   closeDialog,
   question,
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
   questionID,
-}: TFormForEditingQuestions) => {
+}: TEditQuestionForm) => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch<TDispatch>();
@@ -78,14 +77,37 @@ export const EditingForm = ({
   const hasErrors = Object.keys(errors).length > 0; // проверяем есть ли вообще какие-либо ошибки
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={mainContainerStyles}>
-        <div className={headerStyles}>{t("header.changingQuestion")}</div>
-        <QuestionForm errors={errors} register={register} />
-        <FormAction
-          hasErrors={hasErrors}
-          onSubmit={handleSubmit(onSubmit)}
-          onDelete={() => closeDialog()}
+    <form onSubmit={handleSubmit(onSubmit)} className={mainContainerStyles}>
+      <div className={headerStyles}>{t("header.changingQuestion")}</div>
+
+      <div className="mx-auto w-[90%]">
+        <input className={textareaStyles} {...register("questionForEditing")} />
+
+        <div className="s:ml-[2rem] s:w-[93%]">
+          <p>{t("formLabel.correctAnswer").toLowerCase()}</p>
+          <input className={textareaStyles} {...register("answerForEditing1")} />
+
+          <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
+          <input className={textareaStyles} {...register("answerForEditing2")} />
+
+          <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
+          <input className={textareaStyles} {...register("answerForEditing3")} />
+        </div>
+      </div>
+
+      <div className={buttonsContainerStyles}>
+        <Button
+          buttonLabel={t("buttonLabel.save")}
+          size="middle"
+          disabled={hasErrors}
+          type="button"
+          onClick={handleSubmit(onSubmit)}
+        />
+        <Button
+          buttonLabel={t("buttonLabel.closeForm")}
+          size="middle"
+          onClick={() => closeDialog()}
+          type="button"
         />
       </div>
     </form>
