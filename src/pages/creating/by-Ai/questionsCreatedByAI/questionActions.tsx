@@ -1,5 +1,5 @@
 import { Alert } from "@shared/ui";
-import { FormForEditingQuestions } from "@features/questions-list/form-editing-questions/formForEditingQuestions";
+import { EditQuestionDialog } from "@features/questions-list/ui/edit-question-dialog";
 import { useTranslation } from "react-i18next";
 import type { TQuizQuestion } from "@shared/types/commonTypes";
 
@@ -25,7 +25,7 @@ export const QuestionActions = ({
         />
       </div>
       <div>
-        {/* <FormForEditingQuestions
+        {/* <EditQuestionDialog
           question={question}
           correctAnswer={correctAnswer}
           wrongAnswer1={wrongAnswer1}

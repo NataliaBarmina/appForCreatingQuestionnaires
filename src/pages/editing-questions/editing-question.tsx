@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 import { HeadersBlock, LoadingError, Preloader, EmptyState } from "@shared/ui";
-import { QuestionsList } from "@features/questions-list/questions-list";
+import { QuestionsList } from "@features/questions-list";
 import { useGetQuestionsByTheme } from "./use-editing-questions";
 
 export const EditingQuestions = () => {
