@@ -1,32 +1,12 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Button } from "@shared/ui";
-import {
-  mainContainerStyles,
-  headerStyles,
-  buttonsContainerStyles,
-  textareaStyles,
-} from "./styles";
-import { TEditQuestionForm } from "../model/types";
+import { Button, FieldsError } from "@shared/ui";
+import { mainContainerStyles, headerStyles, buttonsContainerStyles, errorsStyles } from "./styles";
 
-import { useDispatch } from "react-redux";
-import { editQuestionAsync } from "@store/questions/thunks";
-import { TDispatch } from "@store/store";
-
-//todo - обработка ошибок, если поле пустое, то добавлять красную обводку
-
-const createSchema = (requiredMessage: string) =>
-  yup.object({
-    questionForEditing: yup.string().required(requiredMessage),
-    answerForEditing1: yup.string().required(requiredMessage),
-    answerForEditing2: yup.string().required(requiredMessage),
-    answerForEditing3: yup.string().required(requiredMessage),
-  });
-
-export type TFields = yup.InferType<ReturnType<typeof createSchema>>;
+import { TEditQuestionForm, TFields } from "../model/types";
+import { createSchema } from "../model/validation-schema";
 
 export const EditQuestionForm = ({
   closeDialog,
@@ -38,31 +18,25 @@ export const EditQuestionForm = ({
 }: TEditQuestionForm) => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch<TDispatch>();
-
   const schema = createSchema(t("validation.required"));
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     const updatedQuestion = {
-      question: data.questionForEditing,
+      questionForEditing: data.questionForEditing,
       correctAnswer: data.answerForEditing1,
       wrongAnswer1: data.answerForEditing2,
       wrongAnswer2: data.answerForEditing3,
     };
+    console.log(updatedQuestion, questionID);
+    alert(questionID);
 
-    dispatch(
-      editQuestionAsync({
-        questionID,
-        patch: updatedQuestion,
-      })
-    );
     closeDialog();
   };
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -74,34 +48,49 @@ export const EditQuestionForm = ({
     },
   });
 
-  const hasErrors = Object.keys(errors).length > 0; // проверяем есть ли вообще какие-либо ошибки
+  const { questionForEditing, answerForEditing1, answerForEditing2, answerForEditing3 } = errors;
+
+  const firstErrorMessage = Object.values(errors).find(Boolean)?.message;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={mainContainerStyles}>
       <div className={headerStyles}>{t("header.changingQuestion")}</div>
 
       <div className="mx-auto w-[90%]">
-        <input className={textareaStyles} {...register("questionForEditing")} />
+        <input
+          className={!questionForEditing ? "textarea-styles" : errorsStyles}
+          {...register("questionForEditing")}
+        />
 
         <div className="s:ml-[2rem] s:w-[93%]">
           <p>{t("formLabel.correctAnswer").toLowerCase()}</p>
-          <input className={textareaStyles} {...register("answerForEditing1")} />
+          <input
+            className={!answerForEditing1 ? "textarea-styles" : errorsStyles}
+            {...register("answerForEditing1")}
+          />
 
           <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
-          <input className={textareaStyles} {...register("answerForEditing2")} />
+          <input
+            className={!answerForEditing2 ? "textarea-styles" : errorsStyles}
+            {...register("answerForEditing2")}
+          />
 
           <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
-          <input className={textareaStyles} {...register("answerForEditing3")} />
+          <input
+            className={!answerForEditing3 ? "textarea-styles" : errorsStyles}
+            {...register("answerForEditing3")}
+          />
         </div>
+
+        {firstErrorMessage && <FieldsError message={t("validation.required")} />}
       </div>
 
       <div className={buttonsContainerStyles}>
         <Button
           buttonLabel={t("buttonLabel.save")}
           size="middle"
-          disabled={hasErrors}
-          type="button"
-          onClick={handleSubmit(onSubmit)}
+          disabled={!isValid}
+          type="submit"
         />
         <Button
           buttonLabel={t("buttonLabel.closeForm")}
@@ -113,3 +102,12 @@ export const EditQuestionForm = ({
     </form>
   );
 };
+
+// const dispatch = useDispatch<TDispatch>();
+
+//   dispatch(
+//     editQuestionAsync({
+//       questionID,
+//       patch: updatedQuestion,
+//     })
+//   );

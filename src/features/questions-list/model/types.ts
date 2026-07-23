@@ -17,3 +17,10 @@ export type TEditQuestionDialog = {
 export type TEditQuestionForm = TEditQuestionDialog & {
   closeDialog: () => void;
 };
+
+export type TFields = {
+  questionForEditing: string;
+  answerForEditing1: string;
+  answerForEditing2: string;
+  answerForEditing3: string;
+};

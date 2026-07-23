@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "@shared/ui";
-import { TextAreaBlock } from "./text-area-block";
 import { useAddTheme } from "../api/use-add-theme";
 import { toast } from "react-toastify";
 import { createThemeSchema } from "../model/validation-schema";
+import { FieldsError } from "@shared/ui/fields-error";
 
 export type TCreateThemeForm = {
   topicName: string;
@@ -62,13 +62,15 @@ export const FormForCreatingTheme = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mt-4">
-        <TextAreaBlock
-          placeholder={t("placeholder.topic")}
-          register={register}
-          fieldName="topicName"
-          styles=""
-          error={errors.topicName}
-        />
+        <div className="mx-auto">
+          <textarea
+            className="textarea-styles"
+            placeholder={t("placeholder.topic")}
+            {...register("topicName")}
+          />
+
+          <FieldsError message={errors?.topicName?.message} />
+        </div>
       </div>
       <div>
         <Button buttonLabel={t("buttonLabel.send")} size="middle" />

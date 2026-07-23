@@ -23,11 +23,4 @@ export const greenContainerStyles = cn(
   "2xl:w-[45vw]"
 );
 
-export const textareaStyles = cn(
-  "w-[100%] bg-blue-100 font-bold italic",
-  "placeholder:text-sm placeholder:text-purple-900",
-  "border-4 border-solid border-blue-200",
-  "mb-6 py-4 pl-4 text-[120%]"
-);
-
-export const errorsStyles = "border-pink-900 border-[2px]";
+export const errorsStyles = cn("textarea-styles", "border-pink-900");

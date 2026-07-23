@@ -9,7 +9,7 @@ import { greenContainerStyles } from "./styles";
 export const QuestionsList = ({ data }: { data: TQuestionList[] }) => {
   const { t } = useTranslation();
 
-  // todo - посмотреть где используется, может применять в том месте
+  // todo
   const onDelete = (id: string) => {
     console.log(id);
     alert("удалить вопрос");
