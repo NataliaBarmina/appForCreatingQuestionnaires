@@ -19,10 +19,6 @@ export const NavPanel = () => {
         <Link to="/questionnaire" className={classesForLinks}>
           {t("link.questionnaire")}
         </Link>
-
-        <Link to="/authForm" className={classesForLinks}>
-          {t("link.auth")}
-        </Link>
       </div>
     </div>
   );

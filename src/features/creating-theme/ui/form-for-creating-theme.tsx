@@ -69,7 +69,7 @@ export const FormForCreatingTheme = ({
             {...register("topicName")}
           />
 
-          <FieldsError message={errors?.topicName?.message} />
+          {errors?.topicName?.message && <FieldsError message={errors?.topicName?.message} />}
         </div>
       </div>
       <div>

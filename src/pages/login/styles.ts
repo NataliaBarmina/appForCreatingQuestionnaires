@@ -8,5 +8,7 @@ export const showPasswordContainerStyles = "mx-auto mb-10 flex w-[70%] items-cen
 
 export const showPasswordButtonStyles = "rounded-md border bg-green-100 bg-white px-2 py-2";
 
-export const errorStyles =
-  "text-md bg-red-50 font-bold text-red-600 inline-block px-2 rounded-md mt-4";
+export const errorStyles = "bg-red-100 rounded-md";
+
+export const containerStyles =
+  "mx-auto mt-32 w-[70%] rounded-2xl border-2 border-solid border-gray-600 bg-green-800 py-14";

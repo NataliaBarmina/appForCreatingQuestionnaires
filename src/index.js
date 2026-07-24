@@ -43,13 +43,14 @@ const EditingQuestions = lazy(() =>
   }))
 );
 
-const AuthForm = lazy(() => import("./pages/auth").then((m) => ({ default: m.AuthForm })));
 const DashboardPage = lazy(() =>
   import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
 );
 const ThemesCreation = lazy(() =>
   import("./pages/themes-creation/themes-creation").then((m) => ({ default: m.ThemesCreation }))
 );
+
+const Login = lazy(() => import("./pages/login/login").then((m) => ({ default: m.Login })));
 
 const CreationOptionsPage = lazy(() =>
   import("./pages/creation-menu/creation-options-page").then((m) => ({
@@ -65,6 +66,22 @@ const router = createHashRouter(
       path: "/",
       element: <MainPage />,
       children: [
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <Login />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/login",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <Login />
+            </Suspense>
+          ),
+        },
         {
           path: "/creationOptionsPage",
           element: (
@@ -130,24 +147,12 @@ const router = createHashRouter(
           ),
         },
         {
-          path: "/authForm",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <AuthForm />
-            </Suspense>
-          ),
-        },
-        {
           path: "/dashboardPage",
           element: (
             <Suspense fallback={<Preloader />}>
               <DashboardPage />
             </Suspense>
           ),
-        },
-        {
-          path: "/",
-          element: <AuthForm />,
         },
       ],
     },
