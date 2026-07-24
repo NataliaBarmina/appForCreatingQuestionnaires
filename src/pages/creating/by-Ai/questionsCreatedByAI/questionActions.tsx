@@ -1,7 +1,13 @@
 import { Alert } from "@shared/ui";
 import { EditQuestionDialog } from "@features/questions-list/ui/edit-question-dialog";
 import { useTranslation } from "react-i18next";
-import type { TQuizQuestion } from "@shared/types/commonTypes";
+
+export type TQuizQuestion = {
+  question: string;
+  correctAnswer: string;
+  wrongAnswer1: string;
+  wrongAnswer2: string;
+};
 
 export const QuestionActions = ({
   question,

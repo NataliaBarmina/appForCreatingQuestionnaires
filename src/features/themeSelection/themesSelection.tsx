@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ThemeList } from "./themeList";
-import { TCreationModeButton } from "@shared/types/commonTypes";
+import { TCreationModeButton } from "@entities/model/creation-mode-button";
 import { mainContainerStyles } from "./styles";
 import { PopoverBlock } from "./popoverBlock";
 import { TThemeSelection } from "./types";

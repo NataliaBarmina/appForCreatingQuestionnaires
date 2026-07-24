@@ -3,7 +3,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
-import { TCreationModeButton } from "@shared/types/commonTypes";
+import { TCreationModeButton } from "@entities/model/creation-mode-button";
 import { listItemStyles } from "./styles";
 import { TTheme, TThemeList } from "./types";
 

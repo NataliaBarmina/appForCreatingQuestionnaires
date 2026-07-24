@@ -2,7 +2,7 @@ import { RadioInput } from "./radio-input";
 import { useFormContext } from "react-hook-form";
 import { shuffleArray } from "@shared/utils/shuffleArray";
 import { useMemo } from "react";
-import { cn } from "@lib/utils";
+import { cn } from "@chadcnLib/utils";
 
 type TQuestionItem = {
   question: string;

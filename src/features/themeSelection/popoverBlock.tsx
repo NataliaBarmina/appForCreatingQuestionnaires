@@ -1,4 +1,4 @@
-import { Popover, PopoverContent, PopoverTrigger } from "@ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@chadcnUi/popover";
 import { FormForCreatingTheme } from "@features/creating-theme";
 import { popoverTriggerStyles } from "./styles";
 import { useTranslation } from "react-i18next";

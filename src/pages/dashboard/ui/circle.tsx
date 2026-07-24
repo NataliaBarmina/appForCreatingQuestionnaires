@@ -1,5 +1,5 @@
 import { smallCirclesStyles, circlesTextStyles } from "./styles";
-import { cn } from "@lib/utils";
+import { cn } from "@chadcnLib/utils";
 import { TCircleProps } from "./types";
 
 export const Circle = ({
