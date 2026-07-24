@@ -18,6 +18,8 @@ export type TEditQuestionForm = TEditQuestionDialog & {
   closeDialog: () => void;
 };
 
+export type TBlockedFieldWithAnswersAndQuestionsProps = Omit<TEditQuestionDialog, "questionID">;
+
 export type TFields = {
   questionForEditing: string;
   answerForEditing1: string;

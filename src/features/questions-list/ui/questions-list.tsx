@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
+import { Alert } from "@shared/ui";
 
-import { Alert, BlockedFieldWithAnswersAndQuestions } from "@shared/ui";
-
-import { EditQuestionDialog } from "@features/questions-list/ui/edit-question-dialog";
+import { EditQuestionDialog } from "./edit-question-dialog";
+import { BlockedFieldWithAnswersAndQuestions } from "./blockedFieldWithAnswersAndQuestions";
 import { TQuestionList } from "../model/types";
 import { greenContainerStyles } from "./styles";
 
@@ -14,6 +14,7 @@ export const QuestionsList = ({ data }: { data: TQuestionList[] }) => {
     console.log(id);
     alert("удалить вопрос");
   };
+
   return (
     <>
       {data.map((item, index) => (
@@ -42,8 +43,6 @@ export const QuestionsList = ({ data }: { data: TQuestionList[] }) => {
                 alertDialogAction={t("alert.continueEditing")}
                 alertDialogCancel={t("alert.deleteQuestion")}
                 buttonLabel={t("buttonLabel.delete")}
-                isFormValid={true}
-                isSubmitting={false}
                 size="middle"
                 onDelete={() => onDelete(item.id)}
               />

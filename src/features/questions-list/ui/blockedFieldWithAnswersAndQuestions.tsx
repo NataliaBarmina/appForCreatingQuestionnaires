@@ -1,14 +1,15 @@
-import { BlockedField } from "./blockedField";
-import { Label } from "@ui/label";
 import { useTranslation } from "react-i18next";
-import type { TQuizQuestion } from "../types/commonTypes";
+import { cn } from "@shared/chadcn/lib/utils";
+import { Label } from "@shared/chadcn/ui/label";
+
+import { TBlockedFieldWithAnswersAndQuestionsProps } from "../model/types";
 
 export const BlockedFieldWithAnswersAndQuestions = ({
   question,
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
-}: TQuizQuestion) => {
+}: TBlockedFieldWithAnswersAndQuestionsProps) => {
   const { t } = useTranslation();
 
   const answerFields = [
@@ -34,7 +35,7 @@ export const BlockedFieldWithAnswersAndQuestions = ({
 
   return (
     <div>
-      <BlockedField id="" value={question} styles="mb-6" />
+      <p className="textarea-styles mb-6">{question}</p>
 
       <div className="mx-auto w-[90%]">
         {answerFields.map(({ id, value, labelKey, styles }) => (
@@ -42,7 +43,10 @@ export const BlockedFieldWithAnswersAndQuestions = ({
             <Label className="text-white" htmlFor={id}>
               {labelKey}
             </Label>
-            <BlockedField id={id} value={value} styles={styles}></BlockedField>
+
+            <p id={id} className={cn("textarea-styles", styles)}>
+              {value}
+            </p>
           </div>
         ))}
       </div>
