@@ -2,7 +2,7 @@
 import { useTranslation } from "react-i18next";
 import { QuestionActions } from "./questionActions";
 import { HeadersBlock } from "@shared/ui";
-import { cn } from "@lib/utils";
+import { cn } from "@chadcnLib/utils";
 
 export type TQuestion = {
   courseName?: string;

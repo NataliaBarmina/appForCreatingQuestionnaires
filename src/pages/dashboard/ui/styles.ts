@@ -1,4 +1,4 @@
-import { cn } from "@lib/utils";
+import { cn } from "@chadcnLib/utils";
 
 export const containerStyles =
   "grid grid-cols-5 grid-rows-7 items-center justify-items-center py-14";

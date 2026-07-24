@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { UseFormRegister } from "react-hook-form";
-import { cn } from "@lib/utils";
+import { cn } from "@chadcnLib/utils";
 
 export const radioInputStyles = cn(
   "w-[100%] bg-blue-100",

@@ -1,4 +1,4 @@
-import { cn } from "@lib/utils";
+import { cn } from "@chadcnLib/utils";
 
 export const containerStyle = "md:h-[12vh] md:w-[100%]";
 

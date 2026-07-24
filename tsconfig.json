@@ -20,14 +20,8 @@
       "@shared/*": ["./src/shared/*"],
       "@widgets/*": ["./src/widgets/*"],
 
-      "@creating/*": ["./src/pages/creating/*"],
-      "@selecting/*": ["./src/widgets/selecting/*"],
-      "@questionnaire/*": ["./src/pages/questionnaire/*"],
-      "@lib/*": ["./src/shared/chadcn/lib/*"],
-      "@ui/*": ["./src/shared/chadcn/ui/*"],
-      "@store/*": ["./src/store/*"],
-      "@reducers/*": ["./src/store/reducers/*"],
-      "@utils/*": ["./src/shared/utils/*"]
+      "@chadcnLib/*": ["./src/shared/chadcn/lib/*"],
+      "@chadcnUi/*": ["./src/shared/chadcn/ui/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "firebase.js"],

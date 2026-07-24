@@ -67,15 +67,8 @@ module.exports = (env) => {
         "@pages": path.resolve(__dirname, "src/pages"),
         "@widgets": path.resolve(__dirname, "src/widgets"),
 
-        "@creating": path.resolve(__dirname, "src/features/creating"),
-        "@editing": path.resolve(__dirname, "src/features/editing/"),
-        "@selecting": path.resolve(__dirname, "src/features/selecting"),
-        "@questionnaire": path.resolve(__dirname, "src/features/questionnaire"),
-        "@lib": path.resolve(__dirname, "src/shared/chadcn/lib"),
-        "@ui": path.resolve(__dirname, "src/shared/chadcn/ui/"),
-        "@store": path.resolve(__dirname, "src/store/"),
-        "@reducers": path.resolve(__dirname, "src/store/reducers/"),
-        "@utils": path.resolve(__dirname, "src/utils/"),
+        "@chadcnLib": path.resolve(__dirname, "src/shared/chadcn/lib"),
+        "@chadcnUi": path.resolve(__dirname, "src/shared/chadcn/ui/"),
       },
       extensions: [".tsx", ".ts", ".js"], // файлы с исходным кодом
     },

@@ -8,7 +8,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@ui/alert-dialog";
+} from "@chadcnUi/alert-dialog";
 import { useState } from "react";
 
 export type TQuestion = {
