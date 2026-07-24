@@ -1,4 +1,4 @@
-import { TCreationModeButton } from "@shared/types/commonTypes";
+import { TCreationModeButton } from "@entities/model/creation-mode-button";
 
 export type TTheme = {
   id: string;
