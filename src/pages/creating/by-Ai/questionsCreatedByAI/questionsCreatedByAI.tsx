@@ -3,7 +3,17 @@ import { useTranslation } from "react-i18next";
 import { QuestionActions } from "./questionActions";
 import { HeadersBlock } from "@shared/ui";
 import { cn } from "@lib/utils";
-import { TQuestion } from "@shared/types/commonTypes";
+
+export type TQuestion = {
+  courseName?: string;
+  themeName?: string;
+  themeID?: string;
+  questionID?: string;
+  question?: string;
+  answer_1?: string;
+  answer_2?: string;
+  answer_3?: string;
+};
 
 //todo: потом удалить
 const questionsList: TQuestion[] = [

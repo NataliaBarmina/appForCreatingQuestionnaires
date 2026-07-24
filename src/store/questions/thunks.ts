@@ -4,7 +4,17 @@ import {
   //  listQuestionsByTheme,
   editQuestion,
 } from "./api";
-import { TQuestion } from "@shared/types/commonTypes";
+
+export type TQuestion = {
+  courseName?: string;
+  themeName?: string;
+  themeID?: string;
+  questionID?: string;
+  question?: string;
+  answer_1?: string;
+  answer_2?: string;
+  answer_3?: string;
+};
 
 // export const loadQuestionsAsync = createAsyncThunk(
 //   "questions/loadQuestions",

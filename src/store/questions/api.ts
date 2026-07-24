@@ -8,7 +8,17 @@ import {
   deleteDoc, // удалить документ
 } from "firebase/firestore";
 import { db } from "@appFirebase"; // доступ к базе данных Firestore
-import { TQuestion } from "@shared/types/commonTypes";
+
+export type TQuestion = {
+  courseName?: string;
+  themeName?: string;
+  themeID?: string;
+  questionID?: string;
+  question?: string;
+  answer_1?: string;
+  answer_2?: string;
+  answer_3?: string;
+};
 
 // // получаем вопросы по ID темы для редактирования
 // export async function listQuestionsByTheme(themeID: string) {

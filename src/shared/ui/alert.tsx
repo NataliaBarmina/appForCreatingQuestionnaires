@@ -10,7 +10,17 @@ import {
   AlertDialogTitle,
 } from "@ui/alert-dialog";
 import { useState } from "react";
-import { TQuestion } from "@shared/types/commonTypes";
+
+export type TQuestion = {
+  courseName?: string;
+  themeName?: string;
+  themeID?: string;
+  questionID?: string;
+  question?: string;
+  answer_1?: string;
+  answer_2?: string;
+  answer_3?: string;
+};
 
 type TAlertProps = {
   handleCreateManualQuestion?: () => void;
