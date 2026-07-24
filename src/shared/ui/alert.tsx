@@ -27,7 +27,7 @@ type TAlertProps = {
   item?: TQuestion;
   index?: number;
 };
-
+//todo - надо ли isFormValid && !isSubmitting - для редактирования вопросов точно не надо, а для остальных компонент?
 export const Alert = ({
   alertDialogTitle,
   alertDialogDescription,

@@ -4,7 +4,17 @@ import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
 import { QuestionItem } from "./questionItem";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { TQuestion } from "@shared/types/commonTypes";
+
+export type TQuestion = {
+  courseName: string;
+  themeName: string;
+  themeID: string;
+  questionID: string;
+  question: string;
+  answer_1: string;
+  answer_2: string;
+  answer_3: string;
+};
 
 export const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();
@@ -29,7 +39,7 @@ export const ResultsOfTheQuestionnaire = () => {
       <div className={grayContainerStyles}>
         <div className={wrongAnswersAnalysisHeader}>{t("header.wrongAnswersAnalysis")}</div>
 
-        {/* {questionsList.map((item: TQuestion, index: number) => {
+        {questionsList.map((item: TQuestion, index: number) => {
           const correctAnswer = item.answer_1;
           const userAnswer = answers[index];
 
@@ -47,7 +57,7 @@ export const ResultsOfTheQuestionnaire = () => {
               yourAnswer={t("formLabel.yourAnswer")}
             />
           );
-        })} */}
+        })}
       </div>
     </div>
   );

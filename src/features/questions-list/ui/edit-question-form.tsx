@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, FieldsError } from "@shared/ui";
-import { mainContainerStyles, headerStyles, buttonsContainerStyles, errorsStyles } from "./styles";
 
+import { mainContainerStyles, headerStyles, buttonsContainerStyles, errorsStyles } from "./styles";
 import { TEditQuestionForm, TFields } from "../model/types";
 import { createSchema } from "../model/validation-schema";
 
@@ -27,6 +27,7 @@ export const EditQuestionForm = ({
       wrongAnswer1: data.answerForEditing2,
       wrongAnswer2: data.answerForEditing3,
     };
+    //todo
     console.log(updatedQuestion, questionID);
     alert(questionID);
 
@@ -102,12 +103,3 @@ export const EditQuestionForm = ({
     </form>
   );
 };
-
-// const dispatch = useDispatch<TDispatch>();
-
-//   dispatch(
-//     editQuestionAsync({
-//       questionID,
-//       patch: updatedQuestion,
-//     })
-//   );

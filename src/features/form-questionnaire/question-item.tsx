@@ -1,4 +1,3 @@
-import { BlockedField } from "@shared/ui";
 import { RadioInput } from "./radio-input";
 import { useFormContext } from "react-hook-form";
 import { shuffleArray } from "@shared/utils/shuffleArray";
@@ -47,9 +46,8 @@ export const QuestionItem = ({
         {headerQuestionNumber} {index + 1}
       </div>
       <div className="mx-auto mb-8 w-[90%]">
-        <div className="mb-3">
-          <BlockedField styles="" value={question} id="" />
-        </div>
+        <p className="textarea-styles mb-4 rounded-md">{question}</p>
+
         <div className="mb-12 ml-[4%] w-[96%]">
           <RadioInput
             value={shuffledAnswers[0]}
