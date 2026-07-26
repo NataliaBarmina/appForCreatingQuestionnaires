@@ -44,15 +44,13 @@ const EditingQuestions = lazy(() =>
 );
 
 const DashboardPage = lazy(() =>
-  import("./pages/dashboard").then((m) => ({ default: m.DashboardPage }))
+  import("./pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
 const ThemesCreation = lazy(() =>
   import("./pages/themes-creation/themes-creation").then((m) => ({ default: m.ThemesCreation }))
 );
 
-const LoginPage = lazy(() =>
-  import("./pages/login-page/login-page").then((m) => ({ default: m.LoginPage }))
-);
+const LoginPage = lazy(() => import("./pages/login-page").then((m) => ({ default: m.LoginPage })));
 
 const CreationOptionsPage = lazy(() =>
   import("./pages/creation-menu/creation-options-page").then((m) => ({

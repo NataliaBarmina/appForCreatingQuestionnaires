@@ -1,8 +1,5 @@
 import { cn } from "@chadcnLib/utils";
 
-export const containerStyles =
-  "grid grid-cols-5 grid-rows-7 items-center justify-items-center py-14";
-
 export const bigCircleStyles = cn(
   "z-0 col-span-5 col-start-1 row-span-7 row-start-1 h-[70vw] w-[70vw]",
   "rounded-full border-8 border-dotted border-stone-700",
@@ -15,8 +12,10 @@ export const bigCircleStyles = cn(
 );
 const baseCircleClasses =
   "flex items-center justify-center rounded-full bg-stone-700 text-pink-100 shadow-md shadow-stone-950";
+
 const hoverCircleClasses =
   "hover:border-2 hover:border-solid hover:border-zinc-800 hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950";
+
 const responsiveCircleSizes = {
   default: "h-[30vw] w-[30vw]",
   mdLandscape: "md:landscape:h-[20vw] md:landscape:w-[20vw]",
@@ -38,6 +37,7 @@ export const smallCirclesStyles = cn(
   responsiveCircleSizes.xlLandscape,
   responsiveCircleSizes.xlPortrait
 );
+
 export const circlesTextStyles = cn(
   "text-[3.5vw]",
   "md:portrait:text-[2.5vh] md:landscape:text-[2.3vw]",

@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@appFirebase";
 
@@ -45,7 +45,7 @@ export const Login = () => {
     setError(null);
 
     try {
-      // Firebase пытается войти с помощью:заранее заданного email — SHARED_EMAIL и пароля, который ввёл пользователь.
+      // вход с помощью email (SHARED_EMAIL) и пароля, который ввёл пользователь
       await signInWithEmailAndPassword(auth, SHARED_EMAIL, password);
 
       reset();
