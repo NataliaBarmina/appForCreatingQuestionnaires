@@ -53,7 +53,7 @@ const ThemesCreation = lazy(() =>
 const LoginPage = lazy(() => import("./pages/login-page").then((m) => ({ default: m.LoginPage })));
 
 const CreationOptionsPage = lazy(() =>
-  import("./pages/creation-menu/creation-options-page").then((m) => ({
+  import("./pages/creation-options-page").then((m) => ({
     default: m.CreationOptionsPage,
   }))
 );
