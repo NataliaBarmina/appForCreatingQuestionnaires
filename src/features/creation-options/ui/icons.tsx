@@ -25,13 +25,3 @@ export const PencilIcon = () => (
     <path d="m39 18 8 8M12 45l8 8" />
   </svg>
 );
-
-// export const FolderIcon = () => (
-//   <svg
-//     viewBox="0 0 64 64"
-//     aria-hidden="true"
-//     className="stroke-linecap-round stroke-linejoin-round mb-3 h-10 w-10 fill-none stroke-emerald-200 stroke-[4] sm:h-14 sm:w-14"
-//   >
-//     <path d="M8 18a6 6 0 0 1 6-6h13l7 7h16a6 6 0 0 1 6 6v23a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6V18Z" />
-//   </svg>
-// );

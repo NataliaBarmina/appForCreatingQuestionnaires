@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { TCreationModeButton } from "@entities/model/creation-mode-button";
+import { TCreationModeButton } from "@entities/model";
 
 export type TCreationOption = {
   title: string;

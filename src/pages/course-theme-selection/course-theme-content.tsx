@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { type SyntheticEvent } from "react";
-import { ThemesSelection } from "@features/themeSelection";
+import { ThemesSelection } from "@features/theme-selection";
 import { CourseSelection } from "@features/coursesSelection/courseSelection";
 import { Preloader } from "@shared/ui";
 import { COURSES } from "./constants";
