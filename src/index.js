@@ -50,7 +50,9 @@ const ThemesCreation = lazy(() =>
   import("./pages/themes-creation/themes-creation").then((m) => ({ default: m.ThemesCreation }))
 );
 
-const Login = lazy(() => import("./pages/login/login").then((m) => ({ default: m.Login })));
+const LoginPage = lazy(() =>
+  import("./pages/login-page/login-page").then((m) => ({ default: m.LoginPage }))
+);
 
 const CreationOptionsPage = lazy(() =>
   import("./pages/creation-menu/creation-options-page").then((m) => ({
@@ -70,15 +72,15 @@ const router = createHashRouter(
           index: true,
           element: (
             <Suspense fallback={<Preloader />}>
-              <Login />
+              <LoginPage />
             </Suspense>
           ),
         },
         {
-          path: "/login",
+          path: "/loginPage",
           element: (
             <Suspense fallback={<Preloader />}>
-              <Login />
+              <LoginPage />
             </Suspense>
           ),
         },
