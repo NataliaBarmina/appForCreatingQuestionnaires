@@ -1,42 +1,62 @@
-import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@appFirebase";
 
 import { FieldsError } from "@shared/ui";
 
-import { useLogicSchema } from "./useLogicSchema";
-import { useLogicSubmit } from "./useLogicSubmit";
+import { createLoginSchema } from "../model/validation-schema";
 import {
   showPasswordButtonStyles,
   showPasswordContainerStyles,
   showPasswordInputStyles,
   errorStyles,
-  headerStyles,
   buttonStyles,
-  containerStyles,
 } from "./styles";
+
+export const SHARED_EMAIL = "myappforquestionnaires@gmail.com";
 
 export const Login = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const schema = createLoginSchema(t);
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useLogicSchema(t);
-
-  const { onSubmit } = useLogicSubmit({
-    reset,
-    setError,
+  } = useForm({
+    defaultValues: {
+      password: "",
+    },
+    mode: "onSubmit",
+    resolver: yupResolver(schema),
   });
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className={containerStyles}>
-      <h1 className={headerStyles}>{t("header.login")}</h1>
+  const onSubmit = async ({ password }: { password: string }) => {
+    setError(null);
 
+    try {
+      // Firebase пытается войти с помощью:заранее заданного email — SHARED_EMAIL и пароля, который ввёл пользователь.
+      await signInWithEmailAndPassword(auth, SHARED_EMAIL, password);
+
+      reset();
+      navigate("/dashboardPage");
+    } catch (error: unknown) {
+      setError(t("auth.errors.default"));
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className={showPasswordContainerStyles}>
         <input
           {...register("password")}
@@ -45,6 +65,7 @@ export const Login = () => {
           className={showPasswordInputStyles}
           autoFocus
         />
+
         <button
           type="button"
           className={showPasswordButtonStyles}
@@ -61,7 +82,6 @@ export const Login = () => {
       {errors.password?.message && (
         <FieldsError message={errors.password?.message} styles={errorStyles} />
       )}
-
       {error && <FieldsError message={error} styles={errorStyles} />}
     </form>
   );

@@ -25,7 +25,7 @@ export const Header = () => {
 
   async function logout() {
     await signOut(auth);
-    navigate("/login");
+    navigate("/loginPage");
   }
 
   async function changeLanguage(language: string) {
@@ -41,7 +41,11 @@ export const Header = () => {
               {t("auth.logout")}
             </button>
           ) : (
-            <button type="button" className={buttonAuthStyles} onClick={() => navigate("/login")}>
+            <button
+              type="button"
+              className={buttonAuthStyles}
+              onClick={() => navigate("/loginPage")}
+            >
               {t("auth.login")}
             </button>
           )}
