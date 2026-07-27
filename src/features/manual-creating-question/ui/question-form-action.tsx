@@ -34,7 +34,6 @@ export const QuestionFormActions = ({
       <Button
         buttonLabel={t("buttonLabel.reset")}
         size="middle"
-        disabled={false}
         type="reset"
         onClick={() => onFormReset()}
       />
