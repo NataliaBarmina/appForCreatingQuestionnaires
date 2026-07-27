@@ -1,27 +1,30 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { createHashRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 import { lazy, Suspense } from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider, createHashRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@shared/MUI/themeForMaterialUI";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "./index.css";
 import "./shared/ i18n/i18n";
-
-import { store } from "./store/store";
 import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
-import { ToastContainer } from "react-toastify";
 
 const FormForCreatingQuestionsByAI = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.FormForCreatingQuestionsByAI }))
+  import("./pages/by-Ai/formForCreatingQuestionsByAI").then((m) => ({
+    default: m.FormForCreatingQuestionsByAI,
+  }))
 );
 const ManualQuestionCreation = lazy(() =>
-  import("./pages/creating").then((m) => ({ default: m.ManualQuestionCreation }))
+  import("./pages/manual-question-creation").then((m) => ({ default: m.ManualQuestionCreation }))
 );
 
 const CourseThemesContainer = lazy(() =>
@@ -47,7 +50,7 @@ const DashboardPage = lazy(() =>
   import("./pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
 const ThemesCreation = lazy(() =>
-  import("./pages/themes-creation/themes-creation").then((m) => ({ default: m.ThemesCreation }))
+  import("./pages/themes-creation").then((m) => ({ default: m.ThemesCreation }))
 );
 
 const LoginPage = lazy(() => import("./pages/login-page").then((m) => ({ default: m.LoginPage })));
