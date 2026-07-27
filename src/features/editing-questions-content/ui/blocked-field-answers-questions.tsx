@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { cn } from "@shared/chadcn/lib/utils";
-import { Label } from "@shared/chadcn/ui/label";
+import { cn } from "@shared/chadcn";
+import { Label } from "@shared/chadcn";
 
 import { TBlockedFieldWithAnswersAndQuestionsProps } from "../model/types";
 

@@ -1,4 +1,3 @@
-import { FieldError } from "react-hook-form";
 export { Alert } from "./alert";
 export { Button } from "./buttons";
 export { HeadersBlock } from "./headersBlock";

@@ -1,5 +1,5 @@
 import { Alert } from "@shared/ui";
-import { EditQuestionDialog } from "@features/questions-list/ui/edit-question-dialog";
+// import { EditQuestionDialog } from "@features/questions-list/ui/edit-question-dialog";
 import { useTranslation } from "react-i18next";
 
 export type TQuizQuestion = {

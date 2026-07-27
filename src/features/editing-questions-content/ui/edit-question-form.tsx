@@ -51,7 +51,7 @@ export const EditQuestionForm = ({
 
   const { questionForEditing, answerForEditing1, answerForEditing2, answerForEditing3 } = errors;
 
-  const firstErrorMessage = Object.values(errors).find(Boolean)?.message;
+  const hasError = Object.keys(errors).length > 0;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={mainContainerStyles}>
@@ -83,7 +83,7 @@ export const EditQuestionForm = ({
           />
         </div>
 
-        {firstErrorMessage && <FieldsError message={t("validation.required")} />}
+        {hasError && <FieldsError message={t("validation.required")} />}
       </div>
 
       <div className={buttonsContainerStyles}>

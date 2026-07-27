@@ -41,7 +41,7 @@ const ResultsOfTheQuestionnaire = lazy(() =>
 );
 
 const EditingQuestions = lazy(() =>
-  import("./pages/editing-questions/editing-question").then((m) => ({
+  import("./pages/editing-question").then((m) => ({
     default: m.EditingQuestions,
   }))
 );
