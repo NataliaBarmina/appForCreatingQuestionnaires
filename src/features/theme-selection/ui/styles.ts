@@ -1,4 +1,4 @@
-import { cn } from "@chadcnLib/utils";
+import { cn } from "@shared/chadcn";
 
 export const headerClasses = cn(
   "p-4 text-[150%] font-bold",

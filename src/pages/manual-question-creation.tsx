@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { cn } from "@chadcnLib/utils";
+import { cn } from "@shared/chadcn";
 import { FormForCreatingQuestionsYourself } from "@features/manual-creating-question";
 
 export const headerStyles = "p-8 text-[150%] font-bold";

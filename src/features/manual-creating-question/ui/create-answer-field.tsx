@@ -1,4 +1,4 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@chadcnUi/form";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/chadcn";
 import { TField } from "../model/types";
 
 export type TCreateAnswerField = TField & {

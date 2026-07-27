@@ -1,4 +1,4 @@
-import { Form } from "@chadcnUi/form";
+import { Form } from "@shared/chadcn";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
