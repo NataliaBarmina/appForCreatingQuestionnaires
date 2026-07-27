@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button, FieldsError } from "@shared/ui";
 
-import { mainContainerStyles, headerStyles, buttonsContainerStyles, errorsStyles } from "./styles";
+import { mainContainerStyles, buttonsContainerStyles, errorsStyles } from "./styles";
 import { TEditQuestionForm, TFields } from "../model/types";
 import { createSchema } from "../model/validation-schema";
 
@@ -55,7 +55,7 @@ export const EditQuestionForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={mainContainerStyles}>
-      <div className={headerStyles}>{t("header.changingQuestion")}</div>
+      <h1 className="pb-4 pl-10">{t("header.changingQuestion")}</h1>
 
       <div className="mx-auto w-[90%]">
         <input

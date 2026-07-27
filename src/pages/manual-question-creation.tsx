@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@shared/chadcn";
 import { FormForCreatingQuestionsYourself } from "@features/manual-creating-question";
 
-export const headerStyles = "p-8 text-[150%] font-bold";
-
 export const formContainerStyles = cn(
   "mx-auto mb-5 w-[100vw] bg-green-800 px-6",
   "border-2 border-solid border-gray-600",
@@ -28,12 +26,12 @@ export const ManualQuestionCreation = () => {
 
   return (
     <>
-      <div className={headerStyles}>
+      <h1>
         {t("header.createQuestion")} {courseName}
-      </div>
-      <div className={headerStyles}>
+      </h1>
+      <h2>
         {t("formLabel.topic")} {themeName}
-      </div>
+      </h2>
 
       <div className={formContainerStyles}>
         <FormForCreatingQuestionsYourself

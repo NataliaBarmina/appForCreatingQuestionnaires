@@ -16,7 +16,7 @@ export const EditingQuestions = () => {
 
   return (
     <div>
-      <div className="pb-1">
+      <div>
         <h1>{t("header.editQuestion")}</h1>
 
         <h2>

@@ -27,7 +27,7 @@ export const CourseThemesContent = () => {
 
   const errorMessage = error instanceof Error ? error.message : t("error.loadThemesFailed");
 
-  const hasThemes = selectedTopics.length > 0 && !isError && !isLoading;
+  const hasThemes = selectedTopics.length > 0;
 
   return (
     <div className="w-full pb-11">
@@ -36,9 +36,9 @@ export const CourseThemesContent = () => {
       {isLoading && <Preloader />}
       {isError && <LoadingError message={errorMessage} />}
 
-      <h1 className="pb-10 pt-12 text-xl font-bold">
+      <h2 className="pt-10">
         {t("header.themeSelection")} {selectedCourseName}
-      </h1>
+      </h2>
 
       {hasThemes ? (
         <ThemesSelection

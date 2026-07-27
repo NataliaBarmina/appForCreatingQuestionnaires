@@ -7,9 +7,7 @@ export const CreationOptionsPage = () => {
 
   return (
     <div>
-      <h1 className="pt-16 text-center text-2xl font-bold text-slate-900">
-        {t("header.creatingQuestionsAndTopics")}
-      </h1>
+      <h1>{t("header.creatingQuestionsAndTopics")}</h1>
 
       <CreationOptions />
     </div>

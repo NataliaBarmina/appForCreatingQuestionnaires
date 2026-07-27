@@ -1,7 +1,6 @@
 // import { BlockedFieldWithAnswersAndQuestions } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { QuestionActions } from "./questionActions";
-import { HeadersBlock } from "@shared/ui";
 import { cn } from "@shared/chadcn";
 
 export type TQuestion = {
@@ -60,11 +59,10 @@ export const QuestionsCreatedByAI = () => {
   const { t } = useTranslation();
   return (
     <div className="pb-1">
-      <HeadersBlock
-        questionsGeneratedByAIHeader={t("header.questionsGeneratedByAI")}
-        courseHeader={t("header.course")}
-        themeHeader={t("header.theme")}
-      />
+      <h1>{t("header.questionsGeneratedByAI")}</h1>
+      <h2>
+        {t("header.course")} {t("header.theme")}
+      </h2>
 
       {/* {questionsList.map((item, index) => (
         <div key={index} className={greenContainerStyles}>
