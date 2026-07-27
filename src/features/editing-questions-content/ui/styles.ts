@@ -12,8 +12,6 @@ export const mainContainerStyles = cn(
 
 export const buttonsContainerStyles = "mx-auto mb-12 mt-6 flex w-[80%] justify-between px-[4vw] ";
 
-export const headerStyles = "p-6 text-center text-[150%] font-bold";
-
 export const greenContainerStyles = cn(
   "mx-auto mb-8 w-[100vw] bg-green-800 px-8",
   "s:w-[90vw] s:rounded-2xl",

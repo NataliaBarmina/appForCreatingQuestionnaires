@@ -6,7 +6,7 @@ export const Questionnaire = () => {
 
   return (
     <>
-      <div className="px-4 py-7 text-[150%] font-bold">{t("header.answerToQuestion")}</div>
+      <h1 className="pb-6">{t("header.answerToQuestion")}</h1>
       <QuestionnaireForm />
     </>
   );

@@ -30,7 +30,8 @@ export const EditQuestionContent = ({ themeID }: { themeID: string }) => {
       ) : (
         data.map((item, index) => (
           <div key={item.id} className={greenContainerStyles}>
-            <div className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</div>
+            <h3 className="py-6 text-lg font-bold text-blue-100">{`${t("header.questionNumber")} ${index + 1}`}</h3>
+
             <BlockedFieldWithAnswersAndQuestions
               question={item.question}
               correctAnswer={item.answer_1}
