@@ -1,4 +1,4 @@
-import { Button } from "./buttons";
+import { useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -8,8 +8,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@chadcnUi/alert-dialog";
-import { useState } from "react";
+} from "@shared/chadcn";
+
+import { Button } from "./buttons";
 
 export type TQuestion = {
   courseName?: string;

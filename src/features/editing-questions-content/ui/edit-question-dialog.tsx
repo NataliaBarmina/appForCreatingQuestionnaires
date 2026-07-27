@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@shared/chadcn/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@shared/chadcn";
 
 import { Button } from "@shared/ui";
 import { EditQuestionForm } from "./edit-question-form";
