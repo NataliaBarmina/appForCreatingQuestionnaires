@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { useNavigate } from "react-router-dom";
-import { TCreationModeButton } from "@entities/model/creation-mode-button";
+
+import { TCreationModeButton } from "@entities/model";
 import { listItemStyles } from "./styles";
-import { TTheme, TThemeList } from "./types";
+import { TTheme, TThemeList } from "../model/types";
 
 export const ThemeList = ({ selectedTopics, courseName, buttonID }: TThemeList) => {
   const navigate = useNavigate();

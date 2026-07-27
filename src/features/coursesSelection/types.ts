@@ -5,8 +5,8 @@ export type TTabPanelProps = {
 };
 export type THandleTabChange = (event: React.SyntheticEvent, newValue: number) => void;
 
-export type TTabsContainer = {
+export type TCourseSelection = {
   tabValue: number;
-  courseNames: string[];
+  courses: string[];
   handleChange: THandleTabChange;
 };

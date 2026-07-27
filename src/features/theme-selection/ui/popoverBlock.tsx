@@ -1,8 +1,10 @@
-import { Popover, PopoverContent, PopoverTrigger } from "@chadcnUi/popover";
-import { FormForCreatingTheme } from "@features/creating-theme";
-import { popoverTriggerStyles } from "./styles";
-import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { Popover, PopoverContent, PopoverTrigger } from "@shared/chadcn";
+
+import { FormForCreatingTheme } from "./form-for-creating-theme";
+import { popoverTriggerStyles } from "./styles";
 
 export const PopoverBlock = ({ courseName }: { courseName: string }) => {
   const { t } = useTranslation();
