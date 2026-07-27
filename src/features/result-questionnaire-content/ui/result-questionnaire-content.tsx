@@ -1,22 +1,16 @@
 import { useTranslation } from "react-i18next";
-import { HeadersBlock } from "./headersBlock";
-import { grayContainerStyles, wrongAnswersAnalysisHeader } from "./styles";
-import { QuestionItem } from "./questionItem";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export type TQuestion = {
-  courseName: string;
-  themeName: string;
-  themeID: string;
-  questionID: string;
-  question: string;
-  answer_1: string;
-  answer_2: string;
-  answer_3: string;
-};
+import { QuestionItem } from "./questionItem";
+import { TQuestion } from "../model/types";
+import {
+  grayContainerStyles,
+  wrongAnswersAnalysisHeader,
+  percentageOfCorrectAnswersStyles,
+} from "./styles";
 
-export const ResultsOfTheQuestionnaire = () => {
+export const ResultQuestionnaireContent = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -26,15 +20,21 @@ export const ResultsOfTheQuestionnaire = () => {
   const location = useLocation();
   const { questionsList = [], answers = [] } = location.state || [];
 
+  const questionsCount = questionsList.length;
+
   const wrongAnswersCount = questionsList.reduce((acc: number, item: TQuestion, index: number) => {
     return item.answer_1 !== answers[index] ? acc + 1 : acc;
   }, 0);
 
-  const questionsCount = questionsList.length;
+  const correctAnswersCount = questionsCount - wrongAnswersCount;
+  const percentageOfCorrectAnswers = Math.round((correctAnswersCount / questionsCount) * 100);
 
   return (
     <div>
-      <HeadersBlock wrongAnswersCount={wrongAnswersCount} questionsCount={questionsCount} />
+      <h3 className="pb-1 pt-6 text-lg font-bold">{t("header.correctPercentage")}</h3>
+      <p className={percentageOfCorrectAnswersStyles}>{percentageOfCorrectAnswers}%</p>
+      <h3 className="text-lg">{t("header.correctAnswers", { count: correctAnswersCount })}</h3>
+      <h3 className="mb-8 text-lg">{t("header.wrongAnswers", { count: wrongAnswersCount })}</h3>
 
       <div className={grayContainerStyles}>
         <div className={wrongAnswersAnalysisHeader}>{t("header.wrongAnswersAnalysis")}</div>

@@ -1,15 +1,6 @@
 import { Label } from "@shared/chadcn";
 import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
-
-type TQuestionItem = {
-  index: number;
-  question: string;
-  answer_1: string;
-  answer_2: string;
-  questionNumber: string;
-  correctAnswer: string;
-  yourAnswer: string;
-};
+import { TQuestionItem } from "../model/types";
 
 export const QuestionItem = ({
   index,
