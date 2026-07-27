@@ -13,3 +13,5 @@ export {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "./ui/alert-dialog";
+
+export { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";

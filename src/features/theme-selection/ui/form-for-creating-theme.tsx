@@ -1,12 +1,12 @@
-import { SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "@shared/ui";
-import { useAddTheme } from "../api/use-add-theme";
 import { toast } from "react-toastify";
+
+import { Button, FieldsError } from "@shared/ui";
+import { useAddTheme } from "../api/use-add-theme";
+
 import { createThemeSchema } from "../model/validation-schema";
-import { FieldsError } from "@shared/ui/fields-error";
 
 export type TCreateThemeForm = {
   topicName: string;

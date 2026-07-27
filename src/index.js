@@ -27,9 +27,9 @@ const ManualQuestionCreation = lazy(() =>
   import("./pages/manual-question-creation").then((m) => ({ default: m.ManualQuestionCreation }))
 );
 
-const CourseThemesContainer = lazy(() =>
-  import("./pages/course-theme-selection/course-theme-container").then((m) => ({
-    default: m.CourseThemesContainer,
+const CourseThemesPage = lazy(() =>
+  import("./pages/course-theme-page").then((m) => ({
+    default: m.CourseThemesPage,
   }))
 );
 
@@ -105,7 +105,7 @@ const router = createHashRouter(
           path: "/coursesThemesSelection",
           element: (
             <Suspense fallback={<Preloader />}>
-              <CourseThemesContainer />
+              <CourseThemesPage />
             </Suspense>
           ),
         },

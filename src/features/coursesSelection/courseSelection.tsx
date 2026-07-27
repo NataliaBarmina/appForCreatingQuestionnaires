@@ -1,13 +1,34 @@
-import { useTranslation } from "react-i18next";
-import { TabsContainer } from "./tabsContainer";
+import { Tabs, Tab } from "@mui/material";
 
-export const CourseSelection = ({ tabValue, courses, handleChange }: any) => {
-  const { t } = useTranslation();
+import { TCourseSelection } from "./types";
+import { tabStyle, tabsStyle } from "./styles";
+
+export const CourseSelection = ({ tabValue, courses, handleChange }: TCourseSelection) => {
   return (
-    <div className="bg-[#e3b6a6]/50 shadow-2xl shadow-stone-500">
-      <div className="py-10 text-xl font-bold">{t("header.courseSelection")}</div>
-
-      <TabsContainer tabValue={tabValue} courseNames={courses} handleChange={handleChange} />
+    <div className="shadow-2xl shadow-stone-500">
+      <div className="mx-auto flex w-full justify-center">
+        <div className="xs:w-[98vw] md:w-[68vw] lg:w-[55vw] xl:w-[40vw]">
+          <Tabs
+            value={tabValue}
+            onChange={handleChange}
+            textColor="secondary"
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="scrollable auto tabs example"
+            sx={{ tabsStyle }}
+          >
+            {courses.map((item: string, index: number) => (
+              <Tab
+                sx={tabStyle}
+                label={item} // перебор названий всех курсов
+                key={index}
+                id={`simple-tab-${index}`}
+                aria-controls={`simple-tabpanel-${index}`}
+              />
+            ))}
+          </Tabs>
+        </div>
+      </div>
     </div>
   );
 };
