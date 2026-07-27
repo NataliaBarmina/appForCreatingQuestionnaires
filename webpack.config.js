@@ -66,9 +66,6 @@ module.exports = (env) => {
         "@app": path.resolve(__dirname, "src/app"),
         "@pages": path.resolve(__dirname, "src/pages"),
         "@widgets": path.resolve(__dirname, "src/widgets"),
-
-        "@chadcnLib": path.resolve(__dirname, "src/shared/chadcn/lib"),
-        "@chadcnUi": path.resolve(__dirname, "src/shared/chadcn/ui/"),
       },
       extensions: [".tsx", ".ts", ".js"], // файлы с исходным кодом
     },

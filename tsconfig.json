@@ -18,10 +18,7 @@
       "@pages/*": ["./src/pages/*"],
       "@features/*": ["./src/features/*"],
       "@shared/*": ["./src/shared/*"],
-      "@widgets/*": ["./src/widgets/*"],
-
-      "@chadcnLib/*": ["./src/shared/chadcn/lib/*"],
-      "@chadcnUi/*": ["./src/shared/chadcn/ui/*"]
+      "@widgets/*": ["./src/widgets/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "firebase.js"],

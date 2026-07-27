@@ -1,4 +1,4 @@
-import { Label } from "@chadcnUi/label";
+import { Label } from "@shared/chadcn";
 import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
 
 type TQuestionItem = {

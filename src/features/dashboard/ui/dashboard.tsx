@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { cn } from "@chadcnLib/utils";
+import { cn } from "@shared/chadcn";
 
 import { circleConfig } from "../config/circleConfig";
 import { smallCirclesStyles, circlesTextStyles, bigCircleStyles } from "./styles";

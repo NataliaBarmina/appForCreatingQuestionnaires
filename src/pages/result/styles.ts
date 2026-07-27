@@ -1,4 +1,4 @@
-import { cn } from "@chadcnLib/utils";
+import { cn } from "@shared/chadcn";
 
 export const percentageOfCorrectAnswersStyles = cn(
   "mb-3 px-6 py-4",

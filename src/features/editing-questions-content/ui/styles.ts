@@ -1,4 +1,4 @@
-import { cn } from "@chadcnLib/utils";
+import { cn } from "@shared/chadcn";
 
 export const mainContainerStyles = cn(
   "mx-auto bg-red-50",

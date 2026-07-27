@@ -1,4 +1,4 @@
-import { cn } from "@chadcnLib/utils";
+import { cn } from "@shared/chadcn";
 
 export const classesForLinks = cn(
   "block  bg-black  w-[100%] ",
