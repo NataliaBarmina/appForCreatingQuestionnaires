@@ -1,67 +1,25 @@
-import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
-import { QuestionItem } from "../question-item";
-import { FormProvider, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import shuffle from "lodash-es/shuffle";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { FieldsError } from "@shared/ui/fields-error";
-import { createSchema } from "../model/questionnaire-schema";
-import { TQuestion, TFormValues } from "../model/types";
+import { Preloader, LoadingError } from "@shared/ui";
 
-const QUESTIONS_LIMIT = 10;
+import { useGetQuestions } from "../api/use-get-questions";
+import { QuestionnaireContent } from "./questionnaire-content";
 
-export const QuestionnaireForm = ({ questions }: { questions: TQuestion[] }) => {
+export const QuestionnaireForm = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
-  const [questionsList] = useState(() => shuffle(questions).slice(0, QUESTIONS_LIMIT)); // перемешиваем вопросы и берем первые 10
+  const { data, isLoading, isError, error } = useGetQuestions();
 
-  const schema = createSchema(questionsList.length); //создаём схему валидации для 10 ответов
-
-  const form = useForm<TFormValues>({
-    resolver: yupResolver(schema),
-  }); // чтобы не передавать через props register, control и пр.Вложенный компонент получает методы формы через useFormContext
-
-  const errors = form.formState.errors;
-
-  function onSubmit(formData: TFormValues) {
-    const answers = formData.radioInputFromSurvey;
-
-    navigate("/resultsOfTheQuestionnaire", {
-      state: {
-        answers,
-        questionsList,
-      },
-    });
+  if (isLoading) {
+    return <Preloader />;
   }
 
-  const answersErrors = errors.radioInputFromSurvey;
-  const generalErrorMessage = answersErrors?.root?.message;
+  if (isError) {
+    return <LoadingError message={error?.message || t("error.loadQuestionsFailed")} />;
+  }
 
-  return (
-    <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="pb-10">
-        <div className="px-4 py-7 text-[150%] font-bold">{t("header.answerToQuestion")}</div>
+  if (!data?.length) {
+    return <LoadingError message={t("error.loadQuestionsFailed")} />;
+  }
 
-        {questionsList.map((item, index: number) => (
-          <QuestionItem
-            key={item.id}
-            correctAnswer={item.answer_1}
-            wrongAnswer_1={item.answer_2}
-            wrongAnswer_2={item.answer_3}
-            index={index}
-            question={item.question}
-            headerQuestionNumber={t("header.questionNumber")}
-            errorMessage={answersErrors?.[index]?.message}
-          />
-        ))}
-
-        {generalErrorMessage && <FieldsError message={generalErrorMessage} />}
-
-        <Button type="submit" buttonLabel={t("buttonLabel.save")} size="middle" />
-      </form>
-    </FormProvider>
-  );
+  return <QuestionnaireContent questions={data} />;
 };
