@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Preloader, LoadingError, EmptyState } from "@shared/ui";
-
 import { CourseSelection, THandleTabChange } from "@features/coursesSelection";
 import { ThemesSelection } from "@features/theme-selection";
 import { useGetThemes } from "../api/use-course-theme";
@@ -40,14 +39,14 @@ export const CourseThemesContent = () => {
         {t("header.themeSelection")} {selectedCourseName}
       </h2>
 
-      {hasThemes ? (
+      {!isLoading && !isError && !hasThemes && <EmptyState message={t("emptyState.noThemes")} />}
+
+      {!isLoading && !isError && hasThemes && (
         <ThemesSelection
           courseName={selectedCourseName}
           selectedTopics={selectedTopics}
           buttonID={buttonID}
         />
-      ) : (
-        <EmptyState message={t("emptyState.noThemes")} />
       )}
     </div>
   );
