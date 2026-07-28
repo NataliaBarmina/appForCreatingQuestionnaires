@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
+import { Header } from "@widgets/headerBlock";
+import { NavPanel } from "@widgets/navPanel";
+
 import { classesForContainer, classesForOutlet } from "./styles";
-import { Header } from "../../widgets/headerBlock";
-import { NavPanel } from "../../widgets/navPanel";
 
 export const MainPage = () => {
   return (

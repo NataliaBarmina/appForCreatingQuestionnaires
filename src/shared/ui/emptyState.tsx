@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "./buttons";
 import { useTranslation } from "react-i18next";
+import { Button } from "./buttons";
 
 export const EmptyState = ({ message }: { message: string }) => {
   const { t } = useTranslation();

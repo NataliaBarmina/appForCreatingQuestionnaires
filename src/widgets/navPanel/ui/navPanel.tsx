@@ -1,6 +1,7 @@
-import { classesForLinks, classesForNavPanel, classesForFixingNavPanel } from "./styles";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+
+import { classesForLinks, classesForNavPanel, classesForFixingNavPanel } from "./styles";
 
 export const NavPanel = () => {
   const { t } = useTranslation();
