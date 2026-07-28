@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { CreationOptions } from "@features/creation-options";
+import { CreationOptions } from "@widgets/creation-options";
 
 export const CreationOptionsPage = () => {
   const { t } = useTranslation();

@@ -3,28 +3,26 @@ import { lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createHashRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-
 import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "@shared/MUI/themeForMaterialUI";
-
+import { theme } from "@shared/MUI/theme-material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-
-import "./index.css";
+import "./app/styles/index.css";
 import "./shared/ i18n/i18n";
 import { Preloader } from "./shared/ui";
-import { MainPage } from "./app/mainPage";
+import { App } from "./app/layouts";
 
 const AIQuestionCreation = lazy(() =>
-  import("./pages/AI-question-creation").then((m) => ({
+  import("./pages/ai-question-creation-page").then((m) => ({
     default: m.AIQuestionCreation,
   }))
 );
 const ManualQuestionCreation = lazy(() =>
-  import("./pages/manual-question-creation").then((m) => ({ default: m.ManualQuestionCreation }))
+  import("./pages/manual-question-creation-page").then((m) => ({
+    default: m.ManualQuestionCreation,
+  }))
 );
 
 const CourseThemesPage = lazy(() =>
@@ -32,16 +30,17 @@ const CourseThemesPage = lazy(() =>
     default: m.CourseThemesPage,
   }))
 );
-
 const Questionnaire = lazy(() =>
-  import("./pages/questionnaire").then((m) => ({ default: m.Questionnaire }))
+  import("./pages/questionnaire-page").then((m) => ({ default: m.Questionnaire }))
 );
 const ResultsOfTheQuestionnaire = lazy(() =>
-  import("./pages/result-questionnaire").then((m) => ({ default: m.ResultsOfTheQuestionnaire }))
+  import("./pages/result-questionnaire-page").then((m) => ({
+    default: m.ResultsOfTheQuestionnaire,
+  }))
 );
 
 const EditingQuestions = lazy(() =>
-  import("./pages/editing-question").then((m) => ({
+  import("./pages/question-editor-page").then((m) => ({
     default: m.EditingQuestions,
   }))
 );
@@ -50,7 +49,7 @@ const DashboardPage = lazy(() =>
   import("./pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
 const ThemesCreation = lazy(() =>
-  import("./pages/themes-creation").then((m) => ({ default: m.ThemesCreation }))
+  import("./pages/themes-creation-page").then((m) => ({ default: m.ThemesCreation }))
 );
 
 const LoginPage = lazy(() => import("./pages/login-page").then((m) => ({ default: m.LoginPage })));
@@ -61,7 +60,7 @@ const CreationOptionsPage = lazy(() =>
   }))
 );
 const QuestionsCreatedByAI = lazy(() =>
-  import("./pages/questionsCreatedByAI").then((m) => ({
+  import("./pages/ai-created-questions-page").then((m) => ({
     default: m.QuestionsCreatedByAI,
   }))
 );
@@ -71,7 +70,7 @@ const router = createHashRouter(
   [
     {
       path: "/",
-      element: <MainPage />,
+      element: <App />,
       children: [
         {
           index: true,

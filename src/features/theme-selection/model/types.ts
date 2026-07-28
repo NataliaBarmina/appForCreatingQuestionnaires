@@ -1,4 +1,4 @@
-import { TCreationModeButton } from "@entities/model";
+import { CreationMode } from "@entities/model";
 
 export type TTheme = {
   id: string;
@@ -9,11 +9,11 @@ export type TTheme = {
 export type TThemeList = {
   selectedTopics: TTheme[];
   courseName: string;
-  buttonID: TCreationModeButton;
+  buttonID: CreationMode;
 };
 
 export type TThemeSelection = {
   courseName: string;
-  buttonID: TCreationModeButton;
+  buttonID: CreationMode;
   selectedTopics: TTheme[];
 };

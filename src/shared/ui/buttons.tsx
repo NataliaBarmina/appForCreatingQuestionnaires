@@ -1,4 +1,4 @@
-import { cn } from "@shared/chadcn";
+import { cn } from "@shared/shadcn";
 import { forwardRef } from "react";
 
 type TButton = {

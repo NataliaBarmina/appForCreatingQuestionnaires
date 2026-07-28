@@ -1,4 +1,4 @@
-export enum TCreationModeButton {
+export enum CreationMode {
   AI_QUESTIONS = "AI_QUESTIONS",
   MANUAL_QUESTIONS = "MANUAL_QUESTIONS",
   AI_THEMES = "AI_THEMES",

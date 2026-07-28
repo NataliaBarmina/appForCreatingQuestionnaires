@@ -8,7 +8,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@shared/chadcn";
+} from "@shared/shadcn";
 
 import { Button } from "./buttons";
 

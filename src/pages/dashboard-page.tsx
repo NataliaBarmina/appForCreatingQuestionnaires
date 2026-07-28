@@ -1,4 +1,4 @@
-import { Dashboard } from "@features/dashboard";
+import { Dashboard } from "@widgets/dashboard";
 
 export const DashboardPage = () => {
   return (

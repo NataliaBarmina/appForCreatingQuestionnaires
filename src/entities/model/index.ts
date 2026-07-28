@@ -1,1 +1,1 @@
-export { TCreationModeButton } from "./creation-mode-button";
+export { CreationMode } from "./creation-mode-button";
