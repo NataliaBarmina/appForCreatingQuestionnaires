@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { cn } from "@shared/shadcn";
+import { cn } from "@shared/lib";
 
-import { circleConfig } from "../config/circleConfig";
+import { circleConfig } from "../config/circle-config";
 import { smallCirclesStyles, circlesTextStyles, bigCircleStyles } from "./styles";
 
 export const Dashboard = () => {

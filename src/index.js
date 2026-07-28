@@ -5,12 +5,13 @@ import { RouterProvider, createHashRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+
 import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "@shared/MUI/theme-material";
+import { theme } from "@app/providers/theme-material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./app/styles/index.css";
-import "./shared/ i18n/i18n";
+import "./app/providers/i18n/i18n";
 import { Preloader } from "./shared/ui";
 import { App } from "./app/layouts";
 

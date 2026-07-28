@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Preloader, LoadingError, EmptyState } from "@shared/ui";
-import { CourseSelection, THandleTabChange } from "@features/courses-selection";
-import { ThemesSelection } from "@features/theme-selection";
+import { CourseSelection, THandleTabChange } from "@features/select-course";
+import { ThemesSelection } from "@features/select-theme";
 import { useGetThemes } from "../api/use-course-theme";
 
 export const COURSES = ["JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее"];

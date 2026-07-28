@@ -1,4 +1,4 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/shadcn";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@shared/ui";
 import { TField } from "../model/types";
 
 export type TCreateQuestionField = TField & {

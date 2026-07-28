@@ -1,4 +1,4 @@
-import { cn } from "@shared/shadcn/lib/utils";
+import { cn } from "@shared/lib/utils";
 
 export const baseButtonStyles = `
     absolute

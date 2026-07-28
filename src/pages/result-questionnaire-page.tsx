@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { ResultQuestionnaireContent } from "@features/result-questionnaire";
+import { ResultQuestionnaireContent } from "@widgets/result-questionnaire";
 
 export const ResultsOfTheQuestionnaire = () => {
   const { t } = useTranslation();

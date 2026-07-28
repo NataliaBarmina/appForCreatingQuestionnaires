@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
-import { AIQuestionCreationContent } from "@features/ai-question-creation";
+import { AIQuestionCreationContent } from "@features/generate-questions-with-ai";
 
 export const AIQuestionCreation = () => {
   const { t } = useTranslation();

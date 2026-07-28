@@ -21,6 +21,6 @@
       "@widgets/*": ["./src/widgets/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "firebase.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "firebase.js", "src/index.js"],
   "exclude": ["node_modules", "dist"]
 }

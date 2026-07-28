@@ -1,4 +1,4 @@
-import { cn } from "@shared/shadcn";
+import { cn } from "@shared/lib";
 
 export const classesForContainer = cn(
   "mx-auto text-center",

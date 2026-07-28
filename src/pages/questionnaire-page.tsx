@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { QuestionnaireForm } from "@features/form-questionnaire";
+import { QuestionnaireForm } from "@features/take-questionnaire";
 
 export const Questionnaire = () => {
   const { t } = useTranslation();

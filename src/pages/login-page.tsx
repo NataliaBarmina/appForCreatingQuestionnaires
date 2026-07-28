@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Login } from "@features/login";
+import { Login } from "@features/login-user";
 
 export const LoginPage = () => {
   const { t } = useTranslation();

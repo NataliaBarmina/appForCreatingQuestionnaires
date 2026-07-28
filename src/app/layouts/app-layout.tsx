@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "@widgets/header";
+import { Header } from "@features/header";
 import { NavPanel } from "@widgets/nav-panel";
 
 import { classesForContainer, classesForOutlet } from "./styles";

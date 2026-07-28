@@ -1,4 +1,4 @@
-import { Form } from "@shared/shadcn";
+import { Form } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { QuestionFormActions } from "./question-form-action";
 import { CreateQuestionField } from "./create-question-field";
 import { CreateAnswerField } from "./create-answer-field";
-import { useCreateQuestion } from "../api/use-form-creating-questions-yourself";
+import { useCreateQuestion } from "../api/use-create-question";
 import { createQuestionSchema } from "../model/validation-schema";
 import { TQuestionFields } from "../model/types";
 

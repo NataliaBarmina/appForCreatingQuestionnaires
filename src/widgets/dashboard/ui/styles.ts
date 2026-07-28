@@ -1,4 +1,4 @@
-import { cn } from "@shared/shadcn";
+import { cn } from "@shared/lib";
 
 export const bigCircleStyles = cn(
   "z-0 col-span-5 col-start-1 row-span-7 row-start-1 h-[70vw] w-[70vw]",

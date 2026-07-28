@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { cn } from "@shared/shadcn";
+import { cn } from "@shared/lib";
 import { FormForCreatingQuestionsYourself } from "@features/create-question-manually";
 
 export const formContainerStyles = cn(
