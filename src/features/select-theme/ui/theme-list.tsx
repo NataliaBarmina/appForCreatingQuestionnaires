@@ -1,0 +1,50 @@
+import { useNavigate } from "react-router-dom";
+
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+
+import { CreationMode } from "@entities/model";
+import { listItemStyles } from "./styles";
+import { TTheme, TThemeList } from "../model/types";
+
+export const ThemeList = ({ selectedTopics, courseName, buttonID }: TThemeList) => {
+  const navigate = useNavigate();
+
+  const handleThemeClick = (theme: TTheme) => {
+    const { themeName, id } = theme;
+
+    const state = {
+      courseName,
+      themeName,
+      themeID: id,
+    };
+
+    if (buttonID === CreationMode.MANUAL_QUESTIONS) {
+      navigate("/manualCreatingPage", { state });
+      return;
+    }
+
+    if (buttonID === CreationMode.AI_QUESTIONS) {
+      navigate("/formForCreatingQuestionsByAI", { state });
+      return;
+    }
+
+    navigate("/editingQuestions", { state });
+  };
+
+  return (
+    <nav aria-label="Themes list">
+      <List>
+        {selectedTopics.map((theme) => (
+          <ListItem disablePadding key={theme.id} sx={listItemStyles}>
+            <ListItemButton onClick={() => handleThemeClick(theme)}>
+              <ListItemText primary={theme.themeName} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </nav>
+  );
+};
