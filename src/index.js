@@ -18,9 +18,9 @@ import "./shared/ i18n/i18n";
 import { Preloader } from "./shared/ui";
 import { MainPage } from "./app/mainPage";
 
-const FormForCreatingQuestionsByAI = lazy(() =>
-  import("./pages/by-Ai/formForCreatingQuestionsByAI").then((m) => ({
-    default: m.FormForCreatingQuestionsByAI,
+const AIQuestionCreation = lazy(() =>
+  import("./pages/AI-question-creation").then((m) => ({
+    default: m.AIQuestionCreation,
   }))
 );
 const ManualQuestionCreation = lazy(() =>
@@ -60,7 +60,11 @@ const CreationOptionsPage = lazy(() =>
     default: m.CreationOptionsPage,
   }))
 );
-
+const QuestionsCreatedByAI = lazy(() =>
+  import("./pages/questionsCreatedByAI").then((m) => ({
+    default: m.QuestionsCreatedByAI,
+  }))
+);
 const root = createRoot(document.getElementById("root"));
 
 const router = createHashRouter(
@@ -98,6 +102,14 @@ const router = createHashRouter(
           element: (
             <Suspense fallback={<Preloader />}>
               <ThemesCreation />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/questionsCreatedByAI",
+          element: (
+            <Suspense fallback={<Preloader />}>
+              <QuestionsCreatedByAI />
             </Suspense>
           ),
         },
@@ -145,7 +157,7 @@ const router = createHashRouter(
           path: "/formForCreatingQuestionsByAI",
           element: (
             <Suspense fallback={<Preloader />}>
-              <FormForCreatingQuestionsByAI />
+              <AIQuestionCreation />
             </Suspense>
           ),
         },
