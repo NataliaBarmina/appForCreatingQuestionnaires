@@ -3,20 +3,20 @@ import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 
-import { Button, FieldsError } from "@shared/ui";
+import { Button, FieldsError, CircleIcon } from "@shared/ui";
 import { useAddTheme } from "../api/use-add-theme";
-
 import { createThemeSchema } from "../model/validation-schema";
+import { formContainerStyles } from "./styles";
 
 export type TCreateThemeForm = {
   topicName: string;
 };
 
-export const FormForCreatingTheme = ({
-  closePopover,
+export const CreateThemeForm = ({
+  onSuccess,
   courseName,
 }: {
-  closePopover: () => void;
+  onSuccess?: () => void;
   courseName: string;
 }) => {
   const { t } = useTranslation();
@@ -48,7 +48,7 @@ export const FormForCreatingTheme = ({
       {
         onSuccess: () => {
           reset();
-          closePopover();
+          onSuccess?.();
         },
         onError: (error) => {
           const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
@@ -59,19 +59,29 @@ export const FormForCreatingTheme = ({
     );
   };
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mt-4">
-        <div className="mx-auto">
-          <textarea
-            className="textarea-styles"
-            placeholder={t("placeholder.topic")}
-            {...register("topicName")}
-          />
+  const errorMessage = errors?.topicName?.message;
 
-          {errors?.topicName?.message && <FieldsError message={errors?.topicName?.message} />}
-        </div>
+  //todo - поменять стиль "bg-green-500"
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={onSuccess ? formContainerStyles : "bg-green-500"}
+    >
+      <div className="mb-5 flex items-center gap-4">
+        <CircleIcon />
+
+        <h1 className="pt-0">{t("header.addTheme")}</h1>
       </div>
+
+      <div className="mb-6 text-center">
+        <textarea
+          className="textarea-styles w-[90%]"
+          placeholder={t("placeholder.topic")}
+          {...register("topicName")}
+        />
+      </div>
+
+      {errorMessage && <FieldsError message={errorMessage} />}
       <div>
         <Button buttonLabel={t("buttonLabel.send")} size="middle" />
       </div>

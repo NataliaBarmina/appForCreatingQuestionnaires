@@ -1,10 +1,8 @@
 {
   "link": {
     "createQuestion": "Создание вопросов",
-    "createTheme": "Создание тем",
     "questionnaire": "Анкетирование",
-    "editing": "Редактирование вопросов",
-    "auth": "Авторизация"
+    "editing": "Редактирование"
   },
   "buttonLabel": {
     "creating": "Создание",
@@ -24,11 +22,10 @@
     "addTheme": "добавить тему"
   },
   "header": {
-    "login": "Введите пароль",
-    "logout": "Выйти из аккаунта",
     "creatingQuestionsAndTopics": "Cоздание вопросов и тем",
     "formCreateByAI": "Форма для создания вопросов нейросетью",
     "createQuestion": " Создайте вопрос по курсу",
+    "addTheme": "Добавить тему",
     "questionsGeneratedByAI": "Вопросы созданные нейросетью",
     "editQuestion": "Измените необходимый вопрос",
     "answerToQuestion": "Ответьте на вопросы:",
@@ -36,7 +33,7 @@
     "courseSelection": "Выберите курс",
     "themeSelection": "Выберите тему из курса",
     "course": "Курс",
-    "theme": "Тема:",
+    "theme": "Тема",
     "questionNumber": "вопрос №",
     "congratulation": "Поздравляем!",
     "completedSurvey": "Вы завершили анкетирование.",
@@ -51,7 +48,6 @@
   },
   "placeholder": {
     "topic": "Введите название темы",
-    "sourceLink": "Введите ссылку на источник",
     "question": "введите вопрос",
     "wrongAnswer": "введите неправильный ответ",
     "correctAnswer": "введите правильный ответ",

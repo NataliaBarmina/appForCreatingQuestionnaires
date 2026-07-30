@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { Preloader, LoadingError, EmptyState } from "@shared/ui";
 import { CourseSelection, THandleTabChange } from "@features/select-course";
 import { ThemesSelection } from "@features/select-theme";
-import { useGetThemes } from "../api/use-course-theme";
+import { useGetThemes } from "@entities/theme";
+import { Preloader, LoadingError, EmptyState } from "@shared/ui";
 
 export const COURSES = ["JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее"];
 
@@ -22,11 +22,11 @@ export const CourseThemesContent = () => {
   const handleChange: THandleTabChange = (_, newValue) => {
     setTabValue(newValue);
   };
-  const { data: selectedTopics = [], isLoading, isError, error } = useGetThemes(selectedCourseName);
+  const { data: themes = [], isLoading, isError, error } = useGetThemes(selectedCourseName);
 
   const errorMessage = error instanceof Error ? error.message : t("error.loadThemesFailed");
 
-  const hasThemes = selectedTopics.length > 0;
+  const hasThemes = themes.length > 0;
 
   return (
     <div className="w-full pb-11">
@@ -44,7 +44,7 @@ export const CourseThemesContent = () => {
       {!isLoading && !isError && hasThemes && (
         <ThemesSelection
           courseName={selectedCourseName}
-          selectedTopics={selectedTopics}
+          selectedTopics={themes}
           buttonID={buttonID}
         />
       )}
