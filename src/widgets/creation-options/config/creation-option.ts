@@ -1,6 +1,6 @@
 import { TCreationOption } from "../model/types";
 import { AiIcon, PencilIcon } from "../ui/icons";
-import { CreationMode } from "@entities/model";
+import { CreationMode } from "@entities/theme/model/creation-mode-button";
 
 const translateRight = "hover:-translate-x-2 hover:-translate-y-2";
 const translateLeft = "hover:-translate-y-2 hover:translate-x-2";

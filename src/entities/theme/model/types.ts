@@ -1,4 +1,4 @@
-import { CreationMode } from "@entities/model";
+import { CreationMode } from "@entities/theme/model/creation-mode-button";
 
 export type TTheme = {
   id: string;
@@ -10,10 +10,5 @@ export type TThemeList = {
   selectedTopics: TTheme[];
   courseName: string;
   buttonID: CreationMode;
-};
-
-export type TThemeSelection = {
-  courseName: string;
-  buttonID: CreationMode;
-  selectedTopics: TTheme[];
+  handleThemeClick: (theme: TTheme) => void;
 };
