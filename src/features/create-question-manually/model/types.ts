@@ -1,5 +1,13 @@
 import { Control } from "react-hook-form";
 
+type TAnswerFieldName = "selfWrittenAnswer1" | "selfWrittenAnswer2" | "selfWrittenAnswer3";
+
+export type TAnswerField = {
+  name: TAnswerFieldName;
+  placeholder: string;
+  formLabel: string;
+};
+
 export type TQuestionFields = {
   selfWrittenQuestion: string;
   selfWrittenAnswer1: string;

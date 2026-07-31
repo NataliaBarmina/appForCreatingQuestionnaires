@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "types": ["node"],
+
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "module": "esnext", //? es6
+
+    "module": "esnext",
     "target": "ES2017",
     "lib": ["ES2017", "DOM"],
-    "jsx": "react-jsx", // jsx- чтобы не импортировать реакт в компоненты
+
+    "jsx": "react-jsx",
     "allowJs": true,
+
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+
     "paths": {
-      "@appFirebase": ["./firebase.js"],
+      "@appFirebase": ["./src/shared/api/firebase/firebase.ts"],
       "@app/*": ["./src/app/*"],
       "@entities/*": ["./src/entities/*"],
       "@pages/*": ["./src/pages/*"],
@@ -21,6 +29,7 @@
       "@widgets/*": ["./src/widgets/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "firebase.js", "src/index.js"],
+
+  "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

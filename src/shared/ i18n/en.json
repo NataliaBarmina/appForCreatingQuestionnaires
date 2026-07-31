@@ -22,6 +22,7 @@
     "addTheme": "add theme"
   },
   "header": {
+    "login": "Enter your password",
     "creatingQuestionsAndTopics": "Creating questions and topics",
     "formCreateByAI": "Form for creating questions by AI",
     "createQuestion": "Create a question for the course",

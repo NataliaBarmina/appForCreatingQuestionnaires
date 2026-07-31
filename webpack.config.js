@@ -59,7 +59,7 @@ module.exports = (env) => {
     },
     resolve: {
       alias: {
-        "@appFirebase": path.resolve(__dirname, "firebase.js"),
+        "@appFirebase": path.resolve(__dirname, "src/shared/api/firebase/firebase.ts"),
         "@features": path.resolve(__dirname, "src/features"),
         "@shared": path.resolve(__dirname, "src/shared"),
         "@entities": path.resolve(__dirname, "src/entities"),
@@ -71,10 +71,10 @@ module.exports = (env) => {
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env.FIREBASE_API_KEY": JSON.stringify(envFile.FIREBASE_API_KEY),
-        "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(envFile.FIREBASE_AUTH_DOMAIN),
-        "process.env.FIREBASE_PROJECT_ID": JSON.stringify(envFile.FIREBASE_PROJECT_ID),
-        "process.env.FIREBASE_APP_ID": JSON.stringify(envFile.FIREBASE_APP_ID),
+        "process.env.FIREBASE_API_KEY": JSON.stringify(process.env.FIREBASE_API_KEY),
+        "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+        "process.env.FIREBASE_PROJECT_ID": JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+        "process.env.FIREBASE_APP_ID": JSON.stringify(process.env.FIREBASE_APP_ID),
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "index.html"), //ссылка до нашего HTML файла, который ,будет исп-ся в кач шаблона, именно туда плагин будет подставлять путь до нашего бандла

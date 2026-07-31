@@ -22,6 +22,7 @@
     "addTheme": "добавить тему"
   },
   "header": {
+    "login": "Введите ваш пароль",
     "creatingQuestionsAndTopics": "Cоздание вопросов и тем",
     "formCreateByAI": "Форма для создания вопросов нейросетью",
     "createQuestion": " Создайте вопрос по курсу",

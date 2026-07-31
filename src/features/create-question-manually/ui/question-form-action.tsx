@@ -4,7 +4,7 @@ import { Button } from "@shared/ui";
 
 export type TQuestionFormActions = {
   onFormReset: () => void;
-  handleCreateManualQuestion?: () => void;
+  onConfirm?: () => void;
   isFormValid: boolean;
   isSubmitting: boolean;
 };
@@ -13,7 +13,7 @@ export const QuestionFormActions = ({
   isFormValid,
   isSubmitting,
   onFormReset,
-  handleCreateManualQuestion,
+  onConfirm,
 }: TQuestionFormActions) => {
   const { t } = useTranslation();
   return (
@@ -27,14 +27,14 @@ export const QuestionFormActions = ({
           buttonLabel={t("buttonLabel.save")}
           type="button"
           size="middle"
-          handleCreateManualQuestion={handleCreateManualQuestion}
+          onConfirm={onConfirm}
         />
       )}
 
       <Button
         buttonLabel={t("buttonLabel.reset")}
         size="middle"
-        type="reset"
+        type="button"
         onClick={() => onFormReset()}
       />
     </div>
