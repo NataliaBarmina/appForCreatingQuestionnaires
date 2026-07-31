@@ -10,32 +10,8 @@ import {
   AlertDialogTitle,
 } from "./alert-dialog";
 
-import { Button } from "../button/button";
-
-export type TQuestion = {
-  courseName?: string;
-  themeName?: string;
-  themeID?: string;
-  questionID?: string;
-  question?: string;
-  answer_1?: string;
-  answer_2?: string;
-  answer_3?: string;
-};
-
-type TConfirmActionDialog = {
-  handleCreateManualQuestion?: () => void;
-  onDelete?: () => void;
-  alertDialogTitle: string;
-  alertDialogDescription: string;
-  alertDialogAction: string;
-  alertDialogCancel: string;
-  buttonLabel: string;
-  type?: "submit" | "reset" | "button";
-  size: "middle" | "small" | "big";
-  item?: TQuestion;
-  index?: number;
-};
+import { Button } from "../../button/button";
+import { TConfirmActionDialog } from "../model/types";
 
 export const ConfirmActionDialog = ({
   alertDialogTitle,
@@ -45,8 +21,7 @@ export const ConfirmActionDialog = ({
   buttonLabel,
   type,
   size,
-  handleCreateManualQuestion,
-  onDelete,
+  onConfirm,
 }: TConfirmActionDialog) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,9 +41,7 @@ export const ConfirmActionDialog = ({
             <AlertDialogDescription>{alertDialogDescription}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={handleCreateManualQuestion || onDelete}>
-              {alertDialogCancel}
-            </AlertDialogCancel>
+            <AlertDialogCancel onClick={onConfirm}>{alertDialogCancel}</AlertDialogCancel>
             <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

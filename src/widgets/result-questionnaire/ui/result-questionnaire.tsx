@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { QuestionResultItem } from "./question-item";
+import { QuestionResultItem } from "./question-result-item";
 import { TQuestion } from "../model/types";
 import {
   grayContainerStyles,
@@ -18,7 +18,7 @@ export const ResultQuestionnaireContent = () => {
   }, []);
 
   const location = useLocation();
-  const { questionsList = [], answers = [] } = location.state || [];
+  const { questionsList = [], answers = [] } = location.state ?? {};
 
   const questionsCount = questionsList.length;
 

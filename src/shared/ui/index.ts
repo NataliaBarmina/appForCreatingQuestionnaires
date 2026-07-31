@@ -1,4 +1,4 @@
-export { ConfirmActionDialog } from "./confirm-action-dialog/confirm-action-dialog";
+export { ConfirmActionDialog } from "./confirm-action-dialog/ui/confirm-action-dialog";
 export { Button } from "./button/button";
 export { Preloader } from "./preloader/preloader";
 export { EmptyState } from "./errors/empty-state";

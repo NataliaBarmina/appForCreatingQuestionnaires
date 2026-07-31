@@ -1,1 +1,1 @@
-export { EditQuestionContent } from "./ui/question-editor";
+export { EditQuestionDialog } from "./ui/edit-question-dialog";

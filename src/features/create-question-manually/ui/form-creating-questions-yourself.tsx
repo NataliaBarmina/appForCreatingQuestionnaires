@@ -10,6 +10,7 @@ import { CreateAnswerField } from "./create-answer-field";
 import { useCreateQuestion } from "../api/use-create-question";
 import { createQuestionSchema } from "../model/validation-schema";
 import { TQuestionFields } from "../model/types";
+import { answerFields } from "../config/answer-fields";
 
 const defaultValues = {
   selfWrittenQuestion: "",
@@ -76,40 +77,29 @@ export const FormForCreatingQuestionsYourself = ({
       <form onSubmit={submitForm}>
         <CreateQuestionField
           control={control}
-          disabled={false}
+          disabled={isSubmitting}
           name="selfWrittenQuestion"
           formLabel={t("placeholder.question")}
           placeholder={t("placeholder.question")}
         />
         <div className="mx-auto w-[85%]">
-          <CreateAnswerField
-            control={control}
-            name="selfWrittenAnswer1"
-            placeholder={t("placeholder.correctAnswer")}
-            formLabel={t("formLabel.answers").toLowerCase()}
-            disabled={isSubmitting}
-          />
-          <CreateAnswerField
-            control={control}
-            name="selfWrittenAnswer2"
-            placeholder={t("placeholder.wrongAnswer")}
-            formLabel=""
-            disabled={isSubmitting}
-          />
-          <CreateAnswerField
-            control={control}
-            name="selfWrittenAnswer3"
-            placeholder={t("placeholder.wrongAnswer")}
-            formLabel=""
-            disabled={isSubmitting}
-          />
+          {answerFields.map((field) => (
+            <CreateAnswerField
+              key={field.name}
+              control={control}
+              name={field.name}
+              placeholder={t(field.placeholder)}
+              formLabel={t(field.formLabel)}
+              disabled={isSubmitting}
+            />
+          ))}
         </div>
 
         <QuestionFormActions
           isFormValid={isValid}
           isSubmitting={isSubmitting}
-          onFormReset={() => reset}
-          handleCreateManualQuestion={submitForm}
+          onFormReset={() => reset()}
+          onConfirm={submitForm}
         />
       </form>
     </Form>
