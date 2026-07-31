@@ -13,7 +13,7 @@ module.exports = (env) => {
 
   return {
     mode: env.mode ?? "development",
-    entry: { path: path.resolve(__dirname, "src", "index.js") },
+    entry: { path: path.resolve(__dirname, "src", "main.tsx") },
     output: {
       path: path.resolve(__dirname, "build"),
       filename: "[name].[contenthash].js",

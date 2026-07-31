@@ -1,77 +1,64 @@
-import React from "react";
 import { lazy, Suspense } from "react";
-import { createRoot } from "react-dom/client";
-import { RouterProvider, createHashRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
-
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "@app/providers/theme-material";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import "./app/styles/index.css";
-import "./app/providers/i18n/i18n";
-import { Preloader } from "./shared/ui";
-import { App } from "./app/layouts";
+import { createHashRouter } from "react-router-dom";
+import { Preloader } from "@shared/ui";
+import { AppLayout } from "@app/layouts";
 
 const AIQuestionCreation = lazy(() =>
-  import("./pages/ai-question-creation-page").then((m) => ({
+  import("@pages/ai-question-creation-page").then((m) => ({
     default: m.AIQuestionCreation,
   }))
 );
 const ManualQuestionCreation = lazy(() =>
-  import("./pages/manual-question-creation-page").then((m) => ({
+  import("@pages/manual-question-creation-page").then((m) => ({
     default: m.ManualQuestionCreation,
   }))
 );
 
 const CourseThemesPage = lazy(() =>
-  import("./pages/course-theme-page").then((m) => ({
+  import("@pages/course-theme-page").then((m) => ({
     default: m.CourseThemesPage,
   }))
 );
 const Questionnaire = lazy(() =>
-  import("./pages/questionnaire-page").then((m) => ({ default: m.Questionnaire }))
+  import("@pages/questionnaire-page").then((m) => ({ default: m.Questionnaire }))
 );
 const ResultsOfTheQuestionnaire = lazy(() =>
-  import("./pages/result-questionnaire-page").then((m) => ({
+  import("@pages/result-questionnaire-page").then((m) => ({
     default: m.ResultsOfTheQuestionnaire,
   }))
 );
 
 const EditingQuestions = lazy(() =>
-  import("./pages/question-editor-page").then((m) => ({
+  import("@pages/question-editor-page").then((m) => ({
     default: m.EditingQuestions,
   }))
 );
 
 const DashboardPage = lazy(() =>
-  import("./pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
+  import("@pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
 const ThemesCreation = lazy(() =>
-  import("./pages/themes-creation-page").then((m) => ({ default: m.ThemesCreation }))
+  import("@pages/themes-creation-page").then((m) => ({ default: m.ThemesCreation }))
 );
 
-const LoginPage = lazy(() => import("./pages/login-page").then((m) => ({ default: m.LoginPage })));
+const LoginPage = lazy(() => import("@pages/login-page").then((m) => ({ default: m.LoginPage })));
 
 const CreationOptionsPage = lazy(() =>
-  import("./pages/creation-options-page").then((m) => ({
+  import("@pages/creation-options-page").then((m) => ({
     default: m.CreationOptionsPage,
   }))
 );
 const QuestionsCreatedByAI = lazy(() =>
-  import("./pages/ai-created-questions-page").then((m) => ({
+  import("@pages/ai-created-questions-page").then((m) => ({
     default: m.QuestionsCreatedByAI,
   }))
 );
-const root = createRoot(document.getElementById("root"));
 
-const router = createHashRouter(
+export const router = createHashRouter(
   [
     {
       path: "/",
-      element: <App />,
+      element: <AppLayout />,
       children: [
         {
           index: true,
@@ -171,41 +158,14 @@ const router = createHashRouter(
         },
       ],
     },
-  ],
-  {
-    future: {
-      v7_relativeSplatPath: true, // Enables relative paths in nested routes
-      v7_fetcherPersist: true, // Retains fetcher state during navigation
-      v7_normalizeFormMethod: true, // Normalizes form methods (e.g., POST or GET)
-      v7_partialHydration: true, // Supports partial hydration for server-side rendering
-      v7_skipActionErrorRevalidation: true, // Prevents revalidation when action errors occur
-    },
-  }
-);
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: Infinity,
-      retry: 1,
-    },
-  },
-});
-
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-          <RouterProvider
-            router={router}
-            future={{
-              v7_startTransition: true,
-            }}
-          />
-          <ToastContainer position="top-right" autoClose={4000} />
-        </ThemeProvider>
-      </QueryClientProvider>
-    </Provider>
-  </React.StrictMode>
+  ]
+  // {
+  // future: {
+  // v7_relativeSplatPath: true, // Enables relative paths in nested routes
+  // v7_fetcherPersist: true, // Retains fetcher state during navigation
+  // v7_normalizeFormMethod: true, // Normalizes form methods (e.g., POST or GET)
+  // v7_partialHydration: true, // Supports partial hydration for server-side rendering
+  // v7_skipActionErrorRevalidation: true, // Prevents revalidation when action errors occur
+  // },
+  // }
 );
