@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { CircleIcon } from "@shared/ui/icons/circle-icon";
 import { cn } from "@shared/lib";
 
-export const classesForLinks = cn("hover:text-pink-900 focus:text-emerald-400");
+import { linkOptions } from "../config/link-options";
+
+export const classesForLinks = "hover:text-pink-900 focus:text-emerald-400 text-2xl text-white";
 
 export const classesForNavPanel = cn(
   "mx-auto block align-top",
@@ -13,7 +14,7 @@ export const classesForNavPanel = cn(
 );
 
 export const classesForFixingNavPanel = cn(
-  "text-xl text-white pl-4",
+  "pl-6",
   "shadow-[-10px_0_15px_-8px_rgba(36,21,21,0.8),10px_0_15px_-8px_rgba(36,21,21,0.8)]",
   "md:fixed md:left-0",
   "md:top-[25vh] md:w-[30%]",
@@ -28,26 +29,15 @@ export const NavPanel = () => {
   return (
     <div className={classesForNavPanel}>
       <div className={classesForFixingNavPanel}>
-        <div className="flex items-center gap-4">
-          <CircleIcon />
-          <Link to="/creationOptionsPage" className={classesForLinks}>
-            {t("buttonLabel.creating")}
-          </Link>
-        </div>
+        {linkOptions.map((option) => (
+          <div className="flex items-center gap-4">
+            <option.icon width={40} height={40} color="#FCA5A5" />
 
-        <div className="flex items-center gap-4">
-          <CircleIcon />
-          <Link to="/coursesThemesSelection" className={classesForLinks}>
-            {t("link.editing")}
-          </Link>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <CircleIcon />
-          <Link to="/questionnaire" className={classesForLinks}>
-            {t("link.questionnaire")}
-          </Link>
-        </div>
+            <Link to={option.path} className={classesForLinks}>
+              {t(option.buttonLabel)}
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

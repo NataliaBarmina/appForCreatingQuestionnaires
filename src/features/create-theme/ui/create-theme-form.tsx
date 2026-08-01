@@ -3,10 +3,11 @@ import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 
-import { Button, FieldsError, CircleIcon } from "@shared/ui";
+import { Button, FieldsError } from "@shared/ui";
 import { useAddTheme } from "../api/use-add-theme";
 import { createThemeSchema } from "../model/validation-schema";
 import { formContainerStyles } from "./styles";
+import { CircleIcon } from "./circle-icon";
 
 export type TCreateThemeForm = {
   topicName: string;
