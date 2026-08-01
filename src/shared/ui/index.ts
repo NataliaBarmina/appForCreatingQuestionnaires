@@ -4,7 +4,6 @@ export { Preloader } from "./preloader/preloader";
 export { EmptyState } from "./errors/empty-state";
 export { LoadingError } from "./errors/loading-error";
 export { FieldsError } from "./errors/fields-error";
-export { CircleIcon } from "./icons/circle-icon";
 
 export { Label } from "./label/label";
 
