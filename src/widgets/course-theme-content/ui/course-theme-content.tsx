@@ -5,9 +5,8 @@ import { useTranslation } from "react-i18next";
 import { CourseSelection, THandleTabChange } from "@features/select-course";
 import { ThemesSelection } from "@features/select-theme";
 import { useGetThemes } from "@entities/theme";
+import { COURSES } from "@entities/course";
 import { Preloader, LoadingError, EmptyState } from "@shared/ui";
-
-export const COURSES = ["JavaScript", "CSS", "TypeScript", "HTML", "Cmd", "Git", "React", "Прочее"];
 
 export const CourseThemesContent = () => {
   const { t } = useTranslation();

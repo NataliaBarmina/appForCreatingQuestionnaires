@@ -20,7 +20,7 @@ export const EmptyState = ({ message }: { message: string }) => {
       <Button
         buttonLabel={t("buttonLabel.goTo")}
         type="button"
-        onClick={() => navigate("/themesCreation")}
+        onClick={() => navigate("/courseWheel")}
       />
     </div>
   );

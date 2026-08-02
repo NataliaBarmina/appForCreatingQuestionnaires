@@ -37,8 +37,8 @@ const EditingQuestions = lazy(() =>
 const DashboardPage = lazy(() =>
   import("@pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
-const ThemesCreation = lazy(() =>
-  import("@pages/themes-creation-page").then((m) => ({ default: m.ThemesCreation }))
+const CourseWheel = lazy(() =>
+  import("@pages/course-wheel-page").then((m) => ({ default: m.CourseWheel }))
 );
 
 const LoginPage = lazy(() => import("@pages/login-page").then((m) => ({ default: m.LoginPage })));
@@ -53,119 +53,121 @@ const QuestionsCreatedByAI = lazy(() =>
     default: m.QuestionsCreatedByAI,
   }))
 );
-
-export const router = createHashRouter(
-  [
-    {
-      path: "/",
-      element: <AppLayout />,
-      children: [
-        {
-          index: true,
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <LoginPage />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/loginPage",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <LoginPage />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/creationOptionsPage",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <CreationOptionsPage />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/themesCreation",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <ThemesCreation />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/questionsCreatedByAI",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <QuestionsCreatedByAI />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/coursesThemesSelection",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <CourseThemesPage />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/editingQuestions",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <EditingQuestions />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/questionnaire",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <Questionnaire />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/resultsOfTheQuestionnaire",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <ResultsOfTheQuestionnaire />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/manualCreatingPage",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <ManualQuestionCreation />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/formForCreatingQuestionsByAI",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <AIQuestionCreation />
-            </Suspense>
-          ),
-        },
-        {
-          path: "/dashboardPage",
-          element: (
-            <Suspense fallback={<Preloader />}>
-              <DashboardPage />
-            </Suspense>
-          ),
-        },
-      ],
-    },
-  ]
-  // {
-  // future: {
-  // v7_relativeSplatPath: true, // Enables relative paths in nested routes
-  // v7_fetcherPersist: true, // Retains fetcher state during navigation
-  // v7_normalizeFormMethod: true, // Normalizes form methods (e.g., POST or GET)
-  // v7_partialHydration: true, // Supports partial hydration for server-side rendering
-  // v7_skipActionErrorRevalidation: true, // Prevents revalidation when action errors occur
-  // },
-  // }
+const CreateThemePage = lazy(() =>
+  import("@pages/create-theme-page").then((m) => ({
+    default: m.CreateThemePage,
+  }))
 );
+
+export const router = createHashRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <LoginPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/loginPage",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <LoginPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/createTheme",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <CreateThemePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/creationOptionsPage",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <CreationOptionsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/courseWheel",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <CourseWheel />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/questionsCreatedByAI",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <QuestionsCreatedByAI />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/coursesThemesSelection",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <CourseThemesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/editingQuestions",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <EditingQuestions />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/questionnaire",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <Questionnaire />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/resultsOfTheQuestionnaire",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <ResultsOfTheQuestionnaire />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/manualCreatingPage",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <ManualQuestionCreation />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/formForCreatingQuestionsByAI",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <AIQuestionCreation />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/dashboardPage",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <DashboardPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+]);
