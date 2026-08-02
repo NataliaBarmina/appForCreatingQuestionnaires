@@ -35,7 +35,7 @@ export const creationOptions: TCreationOption[] = [
   {
     title: "buttonLabel.themes",
     subtitle: "buttonLabel.byAI",
-    path: "/themesCreation",
+    path: "/courseWheel",
     buttonID: CreationMode.AI_THEMES,
     Icon: AiIcon,
     positionClasses: `${bottom} ${left} rounded-bl-[100%] ${roundedBR} ${roundedTL} ${translateRight}`,
@@ -43,7 +43,7 @@ export const creationOptions: TCreationOption[] = [
   {
     title: "buttonLabel.themes",
     subtitle: "buttonLabel.yourself",
-    path: "/themesCreation",
+    path: "/courseWheel",
     buttonID: CreationMode.MANUAL_THEMES,
     Icon: PencilIcon,
     positionClasses: `${bottom} ${right} ${roundedBL} rounded-br-[100%]  ${roundedTR} ${translateLeft}`,

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { CreateThemePopover } from "@features/create-theme";
+import { CreateThemePopover } from "@features/create-theme-manually";
 import { TTheme, CreationMode, ThemeList } from "@entities/theme";
 
 import { mainContainerStyles } from "../styles";

@@ -6,14 +6,8 @@ import { toast } from "react-toastify";
 import { Button, FieldsError } from "@shared/ui";
 import { useAddTheme } from "../api/use-add-theme";
 import { createThemeSchema } from "../model/validation-schema";
-import { formContainerStyles } from "./styles";
-import { CircleIcon } from "./circle-icon";
 
-export type TCreateThemeForm = {
-  topicName: string;
-};
-
-export const CreateThemeForm = ({
+export const CreateThemeManually = ({
   onSuccess,
   courseName,
 }: {
@@ -29,7 +23,7 @@ export const CreateThemeForm = ({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<TCreateThemeForm>({
+  } = useForm({
     mode: "onBlur",
 
     defaultValues: {
@@ -40,11 +34,13 @@ export const CreateThemeForm = ({
 
   const { mutate: createTheme } = useAddTheme();
 
-  const onSubmit: SubmitHandler<TCreateThemeForm> = (data) => {
+  const onSubmit = (data: { topicName: string }) => {
+    const { topicName } = data;
+
     createTheme(
       {
         courseName,
-        themeName: data.topicName,
+        themeName: topicName,
       },
       {
         onSuccess: () => {
@@ -61,19 +57,8 @@ export const CreateThemeForm = ({
   };
 
   const errorMessage = errors?.topicName?.message;
-
-  //todo - поменять стиль "bg-green-500"
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className={onSuccess ? formContainerStyles : "bg-green-500"}
-    >
-      <div className="mb-5 flex items-center gap-4">
-        <CircleIcon />
-
-        <h1 className="pt-0">{t("header.addTheme")}</h1>
-      </div>
-
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-6 text-center">
         <textarea
           className="textarea-styles w-[90%]"
@@ -81,7 +66,6 @@ export const CreateThemeForm = ({
           {...register("topicName")}
         />
       </div>
-
       {errorMessage && <FieldsError message={errorMessage} />}
       <div>
         <Button buttonLabel={t("buttonLabel.send")} size="middle" />

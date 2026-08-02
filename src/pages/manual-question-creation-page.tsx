@@ -27,7 +27,7 @@ export const ManualQuestionCreation = () => {
   return (
     <>
       <h1>
-        {t("header.createQuestion")} {courseName}
+        {t("header.createQuestion")} {t("header.byCourse")} {courseName}
       </h1>
       <h2>
         {t("formLabel.topic")} {themeName}

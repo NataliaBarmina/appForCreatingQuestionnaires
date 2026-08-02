@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@shared/ui";
 
-import { CreateThemeForm } from "./create-theme-form";
-import { popoverTriggerStyles } from "./styles";
+import { CreateThemeManually } from "./create-theme-manually";
+import { popoverTriggerStyles, formContainerStyles } from "./styles";
+import { CircleIcon } from "./circle-icon";
 
 export const CreateThemePopover = ({ courseName }: { courseName: string }) => {
   const { t } = useTranslation();
@@ -19,7 +20,13 @@ export const CreateThemePopover = ({ courseName }: { courseName: string }) => {
           width: "calc(var(--radix-popover-trigger-width) * 2.3)",
         }}
       >
-        <CreateThemeForm onSuccess={() => setOpen(false)} courseName={courseName} />
+        <div className={formContainerStyles}>
+          <div className="mb-5 flex items-center gap-4">
+            <CircleIcon />
+            <h1 className="pt-0">{t("header.addTheme")}</h1>
+          </div>
+          <CreateThemeManually onSuccess={() => setOpen(false)} courseName={courseName} />
+        </div>
       </PopoverContent>
     </Popover>
   );
