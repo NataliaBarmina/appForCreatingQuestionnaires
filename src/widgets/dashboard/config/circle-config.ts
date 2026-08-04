@@ -13,7 +13,7 @@ export const circleConfig = [
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
     labelKey: "buttonLabel.editing",
-    link: "/coursesThemesSelection",
+    link: "/editorPage",
   },
   {
     colSpan: "col-span-2",

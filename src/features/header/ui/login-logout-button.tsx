@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { signOut, type User } from "firebase/auth";
 import { auth } from "@appFirebase";
 
-export const buttonAuthStyles = "rounded-md bg-red-300 px-4 py-2";
+export const buttonAuthStyles = "rounded-md bg-[#fca5a5]/80 px-4 py-2";
 
 export const LoginLogoutButton = ({ user }: { user: User | null }) => {
   const { t } = useTranslation();

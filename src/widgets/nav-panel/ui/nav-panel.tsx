@@ -5,7 +5,7 @@ import { cn } from "@shared/lib";
 
 import { linkOptions } from "../config/link-options";
 
-export const classesForLinks = "hover:text-pink-900 focus:text-emerald-400 text-2xl text-white";
+export const classesForLinks = "hover:text-[#fca5a5] focus:text-[#88cdbe] text-2xl text-white";
 
 export const classesForNavPanel = cn(
   "mx-auto block align-top",
@@ -30,7 +30,7 @@ export const NavPanel = () => {
     <div className={classesForNavPanel}>
       <div className={classesForFixingNavPanel}>
         {linkOptions.map((option) => (
-          <div className="flex items-center gap-4">
+          <div key={option.buttonLabel} className="flex items-center gap-4">
             <option.icon width={40} height={40} color="#FCA5A5" />
 
             <Link to={option.path} className={classesForLinks}>

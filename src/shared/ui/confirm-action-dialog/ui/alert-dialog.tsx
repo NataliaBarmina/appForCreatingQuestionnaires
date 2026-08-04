@@ -35,7 +35,7 @@ const AlertDialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         "fixed z-50 grid gap-4",
-        "border-2 border-solid border-gray-500",
+        "border-2 border-solid border-gray-600",
         "bg-background p-10 shadow-md duration-200",
         "left-[50%] top-[50%] max-w-lg translate-x-[-50%] translate-y-[-50%]",
         "xs:w-[95%]",

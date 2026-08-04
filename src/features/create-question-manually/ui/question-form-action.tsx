@@ -18,18 +18,18 @@ export const QuestionFormActions = ({
   const { t } = useTranslation();
   return (
     <div className="mb-8 flex w-full justify-evenly pt-14">
-      {isFormValid && !isSubmitting && (
-        <ConfirmActionDialog
-          alertDialogTitle={t("alert.title")}
-          alertDialogDescription={t("alert.checkQuestions")}
-          alertDialogAction={t("alert.continueEditing")}
-          alertDialogCancel={t("alert.saveQuestion")}
-          buttonLabel={t("buttonLabel.save")}
-          type="button"
-          size="middle"
-          onConfirm={onConfirm}
-        />
-      )}
+      {/* {isFormValid && !isSubmitting && ( */}
+      <ConfirmActionDialog
+        alertDialogTitle={t("alert.title")}
+        alertDialogDescription={t("alert.checkQuestions")}
+        alertDialogAction={t("alert.continueEditing")}
+        alertDialogCancel={t("alert.saveQuestion")}
+        buttonLabel={t("buttonLabel.save")}
+        type="button"
+        size="middle"
+        onConfirm={onConfirm}
+      />
+      {/* )} */}
 
       <Button
         buttonLabel={t("buttonLabel.reset")}
