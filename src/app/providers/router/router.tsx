@@ -58,6 +58,11 @@ const CreateThemePage = lazy(() =>
     default: m.CreateThemePage,
   }))
 );
+const EditorPage = lazy(() =>
+  import("@pages/editor-page").then((m) => ({
+    default: m.EditorPage,
+  }))
+);
 
 export const router = createHashRouter([
   {
@@ -77,6 +82,14 @@ export const router = createHashRouter([
         element: (
           <Suspense fallback={<Preloader />}>
             <LoginPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/editorPage",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <EditorPage />
           </Suspense>
         ),
       },

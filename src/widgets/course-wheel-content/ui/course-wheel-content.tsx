@@ -1,23 +1,32 @@
-import { useState } from "react";
+import { type CSSProperties, type KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { COURSES } from "@entities/course";
+
 import {
   viewBoxStyles,
   textStyles,
-  pathActiveStyles,
-  pathNotActiveStyles,
-  biCircleStyles,
+  pathStyles,
+  bigCircleStyles,
   smallCircleStyles,
+  sectorContentStyles,
 } from "./styles";
 
 const CENTER = 300;
 const OUTER_RADIUS = 270;
 const INNER_RADIUS = 88;
 const LABEL_RADIUS = 190;
-const SECTOR_ANGLE = 360 / COURSES.length;
 const ACTIVE_OFFSET = 14;
 const OUTER_CORNER_RADIUS = 20;
+
+const SECTOR_ANGLE = 360 / COURSES.length;
+
+type Course = (typeof COURSES)[number];
+
+type SectorStyles = CSSProperties & {
+  "--sector-x": string;
+  "--sector-y": string;
+};
 
 function getPoint(radius: number, angle: number) {
   const angleInRadians = (angle * Math.PI) / 180;
@@ -25,6 +34,15 @@ function getPoint(radius: number, angle: number) {
   return {
     x: CENTER + radius * Math.cos(angleInRadians),
     y: CENTER + radius * Math.sin(angleInRadians),
+  };
+}
+
+function getOffset(angle: number) {
+  const angleInRadians = (angle * Math.PI) / 180;
+
+  return {
+    x: Math.cos(angleInRadians) * ACTIVE_OFFSET,
+    y: Math.sin(angleInRadians) * ACTIVE_OFFSET,
   };
 }
 
@@ -68,83 +86,77 @@ function createSectorPath(startAngle: number, endAngle: number) {
   ].join(" ");
 }
 
-function getSectorTranslate(angle: number, isActive: boolean) {
-  if (!isActive) {
-    return { x: 0, y: 0 };
-  }
+const COURSE_SECTORS = COURSES.map((course, index) => {
+  const startAngle = -135 + index * SECTOR_ANGLE;
+  const endAngle = startAngle + SECTOR_ANGLE;
+  const middleAngle = startAngle + SECTOR_ANGLE / 2;
 
-  const angleInRadians = (angle * Math.PI) / 180;
+  const labelPosition = getPoint(LABEL_RADIUS, middleAngle);
+  const offset = getOffset(middleAngle);
+
+  const style: SectorStyles = {
+    "--sector-x": `${offset.x}px`,
+    "--sector-y": `${offset.y}px`,
+  };
 
   return {
-    x: Math.cos(angleInRadians) * ACTIVE_OFFSET,
-    y: Math.sin(angleInRadians) * ACTIVE_OFFSET,
+    course,
+    path: createSectorPath(startAngle, endAngle),
+    labelPosition,
+    style,
   };
-}
+});
 
 export const CourseWheelContent = ({ buttonID }: { buttonID: string }) => {
   const navigate = useNavigate();
 
-  const [hoveredCourse, setHoveredCourse] = useState<string | null>(null);
+  function selectCourse(course: Course) {
+    navigate("/createTheme", {
+      state: {
+        course,
+        buttonID,
+      },
+    });
+  }
+
+  function handleKeyDown(event: KeyboardEvent<SVGGElement>, course: Course) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectCourse(course);
+    }
+  }
 
   return (
     <div className="flex w-full justify-center">
       <svg viewBox="0 0 600 600" role="group" aria-label="Выбор курса" className={viewBoxStyles}>
-        <circle cx={CENTER} cy={CENTER} r={OUTER_RADIUS + 5} className={biCircleStyles} />
+        <circle cx={CENTER} cy={CENTER} r={OUTER_RADIUS + 5} className={bigCircleStyles} />
 
-        {COURSES.map((course, index) => {
-          const startAngle = -135 + index * SECTOR_ANGLE;
-          const endAngle = startAngle + SECTOR_ANGLE;
-          const middleAngle = startAngle + SECTOR_ANGLE / 2;
+        {COURSE_SECTORS.map(({ course, path, labelPosition, style }) => (
+          <g
+            key={course}
+            role="button"
+            tabIndex={0}
+            aria-label={`Выбрать курс ${course}`}
+            className="group cursor-pointer outline-none"
+            style={style}
+            onClick={() => selectCourse(course)}
+            onKeyDown={(event) => handleKeyDown(event, course)}
+          >
+            <g className={sectorContentStyles}>
+              <path d={path} className={pathStyles} />
 
-          const labelPosition = getPoint(LABEL_RADIUS, middleAngle);
-          const isHovered = hoveredCourse === course;
-          const translate = getSectorTranslate(middleAngle, isHovered);
-
-          return (
-            //сектор с названием курса
-            <g
-              key={course}
-              role="button"
-              tabIndex={0}
-              aria-label={`Выбрать курс ${course}`}
-              className="group cursor-pointer outline-none"
-              onMouseEnter={() => setHoveredCourse(course)}
-              onMouseLeave={() => setHoveredCourse(null)}
-              onFocus={() => setHoveredCourse(course)}
-              onBlur={() => setHoveredCourse(null)}
-              onClick={() => navigate("/createTheme", { state: { course, buttonID } })}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                }
-              }}
-            >
-              <g
-                style={{
-                  transform: `translate(${translate.x}px, ${translate.y}px)`,
-                  transformBox: "fill-box",
-                  transformOrigin: "center",
-                  transition: "transform 220ms ease",
-                }}
+              <text
+                x={labelPosition.x}
+                y={labelPosition.y}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className={textStyles}
               >
-                <path
-                  d={createSectorPath(startAngle, endAngle)}
-                  className={isHovered ? pathActiveStyles : pathNotActiveStyles}
-                />
-
-                <text
-                  x={labelPosition.x}
-                  y={labelPosition.y}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  className={textStyles}
-                >
-                  {course}
-                </text>
-              </g>
+                {course}
+              </text>
             </g>
-          );
-        })}
+          </g>
+        ))}
 
         <circle cx={CENTER} cy={CENTER} r={INNER_RADIUS} className={smallCircleStyles} />
       </svg>

@@ -5,10 +5,10 @@ import { CreationMode } from "@entities/theme/model/creation-mode-button";
 const translateRight = "hover:-translate-x-2 hover:-translate-y-2";
 const translateLeft = "hover:-translate-y-2 hover:translate-x-2";
 
-const top = "top-[8px]";
-const left = "left-[8px]";
-const right = "right-[8px]";
-const bottom = "bottom-[8px]";
+const top = "top-[9px]";
+const left = "left-[9px]";
+const right = "right-[9px]";
+const bottom = "bottom-[9px]";
 
 const roundedBL = "rounded-bl-3xl";
 const roundedTR = "rounded-tr-3xl";
@@ -22,7 +22,7 @@ export const creationOptions: TCreationOption[] = [
     path: "/coursesThemesSelection",
     buttonID: CreationMode.AI_QUESTIONS,
     Icon: AiIcon,
-    positionClasses: `${left} ${top} ${roundedBL} rounded-tl-[100%] ${roundedTR} ${translateRight}`,
+    positionClasses: `${left} ${top} ${roundedBL} rounded-tl-[100%] ${roundedTR} ${translateRight} pl-8`,
   },
   {
     title: "buttonLabel.questions",
@@ -30,7 +30,7 @@ export const creationOptions: TCreationOption[] = [
     path: "/coursesThemesSelection",
     buttonID: CreationMode.MANUAL_QUESTIONS,
     Icon: PencilIcon,
-    positionClasses: `${right} ${top} ${roundedBR} ${roundedTL} rounded-tr-[100%] ${translateLeft}`,
+    positionClasses: `${right} ${top} ${roundedBR} ${roundedTL} rounded-tr-[100%] ${translateLeft} pr-8`,
   },
   {
     title: "buttonLabel.themes",
@@ -38,7 +38,7 @@ export const creationOptions: TCreationOption[] = [
     path: "/courseWheel",
     buttonID: CreationMode.AI_THEMES,
     Icon: AiIcon,
-    positionClasses: `${bottom} ${left} rounded-bl-[100%] ${roundedBR} ${roundedTL} ${translateRight}`,
+    positionClasses: `${bottom} ${left} rounded-bl-[100%] ${roundedBR} ${roundedTL} ${translateRight} pl-8 pb-8`,
   },
   {
     title: "buttonLabel.themes",
@@ -46,6 +46,6 @@ export const creationOptions: TCreationOption[] = [
     path: "/courseWheel",
     buttonID: CreationMode.MANUAL_THEMES,
     Icon: PencilIcon,
-    positionClasses: `${bottom} ${right} ${roundedBL} rounded-br-[100%]  ${roundedTR} ${translateLeft}`,
+    positionClasses: `${bottom} ${right} ${roundedBL} rounded-br-[100%]  ${roundedTR} ${translateLeft} pr-8 pb-8`,
   },
 ];

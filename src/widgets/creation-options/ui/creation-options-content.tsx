@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { baseButtonStyles, centralCircleStyles, buttonStyles } from "./styles";
-import { CreationOptionLabel } from "./creation-option-label";
+import { baseButtonStyles, centralCircleStyles, containerStyles } from "./styles";
 import { creationOptions } from "../config/creation-option";
 
 export const CreationOptions = () => {
@@ -11,7 +10,7 @@ export const CreationOptions = () => {
 
   return (
     <div className="flex justify-center pt-16">
-      <div className={buttonStyles}>
+      <div className={containerStyles}>
         {creationOptions.map((option) => (
           <button
             key={option.buttonID}
@@ -19,9 +18,11 @@ export const CreationOptions = () => {
             onClick={() => navigate(option.path, { state: { buttonID: option.buttonID } })}
             className={`${baseButtonStyles} ${option.positionClasses} `}
           >
-            <option.Icon />
-
-            <CreationOptionLabel title={t(option.title)} subtitle={t(option.subtitle)} />
+            <div className="flex flex-col items-center justify-evenly">
+              <option.Icon />
+              <p className="text-2xl font-medium">{t(option.title)}</p>
+              <p className="mt-1 text-lg">{t(option.subtitle)}</p>
+            </div>
           </button>
         ))}
 
