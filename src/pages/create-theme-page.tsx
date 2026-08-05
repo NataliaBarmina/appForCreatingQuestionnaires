@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { CreateThemeManually } from "@features/create-theme-manually";
-import { AIThemeCreation } from "@features/generate-theme-with-ai";
+import { AIThemesCreation } from "@features/generate-theme-with-ai";
 import { CreationMode } from "@entities/theme";
 
 export const CreateThemePage = () => {
@@ -10,6 +10,7 @@ export const CreateThemePage = () => {
   const { t } = useTranslation();
 
   const { course, buttonID } = location.state;
+  console.log(buttonID, course);
 
   return (
     <>
@@ -19,13 +20,9 @@ export const CreateThemePage = () => {
         {t("header.byCourse")} {course}
       </h2>
 
-      {buttonID === CreationMode.MANUAL_THEMES && (
-        <div className="mx-auto mt-10 w-[85%] rounded-lg bg-green-800 px-4 pb-10 pt-14">
-          <CreateThemeManually courseName={course} />
-        </div>
-      )}
+      {buttonID === CreationMode.MANUAL_THEMES && <CreateThemeManually courseName={course} />}
 
-      {buttonID === CreationMode.AI_THEMES && <AIThemeCreation />}
+      {buttonID === CreationMode.AI_THEMES && <AIThemesCreation courseName={course} />}
     </>
   );
 };

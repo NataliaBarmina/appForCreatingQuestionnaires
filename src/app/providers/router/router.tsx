@@ -59,6 +59,11 @@ const QuestionsCreatedByAI = lazy(() =>
     default: m.QuestionsCreatedByAI,
   }))
 );
+const AICreatedThemesPage = lazy(() =>
+  import("@pages/ai-created-themes-page").then((m) => ({
+    default: m.AICreatedThemesPage,
+  }))
+);
 const CreateThemePage = lazy(() =>
   import("@pages/create-theme-page").then((m) => ({
     default: m.CreateThemePage,
@@ -128,6 +133,14 @@ export const router = createHashRouter([
         element: (
           <Suspense fallback={<Preloader />}>
             <CourseWheel />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/AICreatedThemes",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <AICreatedThemesPage />
           </Suspense>
         ),
       },

@@ -13,7 +13,7 @@ export const CourseWheel = () => {
   return (
     <div>
       <h1>{t("header.selectCourseToCreateTheme")}</h1>
-      <CourseWheelContent buttonID={buttonID} />
+      <CourseWheelContent />
     </div>
   );
 };
