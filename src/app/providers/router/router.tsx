@@ -34,6 +34,12 @@ const EditingQuestions = lazy(() =>
   }))
 );
 
+const EditThemesPage = lazy(() =>
+  import("@pages/edit-themes-page").then((m) => ({
+    default: m.EditThemesPage,
+  }))
+);
+
 const DashboardPage = lazy(() =>
   import("@pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
@@ -90,6 +96,14 @@ export const router = createHashRouter([
         element: (
           <Suspense fallback={<Preloader />}>
             <EditorPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/editThemes",
+        element: (
+          <Suspense fallback={<Preloader />}>
+            <EditThemesPage />
           </Suspense>
         ),
       },

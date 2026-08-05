@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import { EditMOde } from "@entities/theme";
+
 import { ChevronRightIcon } from "./icons";
 import { editorOptions } from "../config/editor-options";
 import {
@@ -19,7 +21,7 @@ export const EditorContent = () => {
   return (
     <div className={containerStyles}>
       {editorOptions.map((option) => (
-        <div className={contentStyles}>
+        <div key={option.text} className={contentStyles}>
           <div className="mb-8 flex justify-center">
             <option.icon />
           </div>
@@ -38,7 +40,7 @@ export const EditorContent = () => {
           <div className="mr-4 flex justify-end">
             <button
               type="button"
-              onClick={() => navigate(option.path)}
+              onClick={() => navigate(option.path, { state: { buttonID: EditMOde.EDIT_THEMES } })}
               className={chevronButtonStyles}
             >
               <ChevronRightIcon />
