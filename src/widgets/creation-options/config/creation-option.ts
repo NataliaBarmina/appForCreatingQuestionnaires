@@ -1,6 +1,6 @@
-import { TCreationOption } from "../model/types";
 import { AiIcon, PencilIcon } from "../ui/icons";
-import { CreationMode } from "@entities/theme/model/creation-mode-button";
+import { ThemeCreationMode } from "@entities/theme";
+import { QuestionCreationMode } from "@entities/question";
 
 const translateRight = "hover:-translate-x-2 hover:-translate-y-2";
 const translateLeft = "hover:-translate-y-2 hover:translate-x-2";
@@ -15,12 +15,12 @@ const roundedTR = "rounded-tr-3xl";
 const roundedBR = "rounded-br-3xl";
 const roundedTL = "rounded-tl-3xl";
 
-export const creationOptions: TCreationOption[] = [
+export const creationOptions = [
   {
     title: "buttonLabel.questions",
     subtitle: "buttonLabel.byAI",
     path: "/coursesThemesSelection",
-    buttonID: CreationMode.AI_QUESTIONS,
+    buttonID: QuestionCreationMode.AI,
     Icon: AiIcon,
     positionClasses: `${left} ${top} ${roundedBL} rounded-tl-[100%] ${roundedTR} ${translateRight} pl-8`,
   },
@@ -28,7 +28,7 @@ export const creationOptions: TCreationOption[] = [
     title: "buttonLabel.questions",
     subtitle: "buttonLabel.yourself",
     path: "/coursesThemesSelection",
-    buttonID: CreationMode.MANUAL_QUESTIONS,
+    buttonID: QuestionCreationMode.MANUAL,
     Icon: PencilIcon,
     positionClasses: `${right} ${top} ${roundedBR} ${roundedTL} rounded-tr-[100%] ${translateLeft} pr-8`,
   },
@@ -36,7 +36,7 @@ export const creationOptions: TCreationOption[] = [
     title: "buttonLabel.themes",
     subtitle: "buttonLabel.byAI",
     path: "/courseWheel",
-    buttonID: CreationMode.AI_THEMES,
+    buttonID: ThemeCreationMode.AI,
     Icon: AiIcon,
     positionClasses: `${bottom} ${left} rounded-bl-[100%] ${roundedBR} ${roundedTL} ${translateRight} pl-8 pb-8`,
   },
@@ -44,7 +44,7 @@ export const creationOptions: TCreationOption[] = [
     title: "buttonLabel.themes",
     subtitle: "buttonLabel.yourself",
     path: "/courseWheel",
-    buttonID: CreationMode.MANUAL_THEMES,
+    buttonID: ThemeCreationMode.MANUAL,
     Icon: PencilIcon,
     positionClasses: `${bottom} ${right} ${roundedBL} rounded-br-[100%]  ${roundedTR} ${translateLeft} pr-8 pb-8`,
   },

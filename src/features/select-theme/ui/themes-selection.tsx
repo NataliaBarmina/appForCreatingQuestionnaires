@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
 import { CreateThemePopover } from "@features/create-theme-manually";
-import { TTheme, CreationMode, ThemeList } from "@entities/theme";
+import { TTheme, ThemeCreationMode, ThemeList } from "@entities/theme";
+import { QuestionCreationMode } from "@entities/question";
 
 import { mainContainerStyles } from "../styles";
 
@@ -11,7 +12,7 @@ export const ThemesSelection = ({
   selectedTopics,
 }: {
   courseName: string;
-  buttonID: CreationMode;
+  buttonID: QuestionCreationMode;
   selectedTopics: TTheme[];
 }) => {
   const navigate = useNavigate();
@@ -25,12 +26,12 @@ export const ThemesSelection = ({
       themeID: id,
     };
 
-    if (buttonID === CreationMode.MANUAL_QUESTIONS) {
+    if (buttonID === QuestionCreationMode.MANUAL) {
       navigate("/manualCreatingPage", { state });
       return;
     }
 
-    if (buttonID === CreationMode.AI_QUESTIONS) {
+    if (buttonID === QuestionCreationMode.AI) {
       navigate("/formForCreatingQuestionsByAI", { state });
       return;
     }
@@ -48,7 +49,7 @@ export const ThemesSelection = ({
           handleThemeClick={handleThemeClick}
         />
 
-        {(buttonID === CreationMode.AI_QUESTIONS || buttonID === CreationMode.MANUAL_QUESTIONS) && (
+        {(buttonID === QuestionCreationMode.AI || buttonID === QuestionCreationMode.MANUAL) && (
           <CreateThemePopover courseName={courseName} />
         )}
       </div>

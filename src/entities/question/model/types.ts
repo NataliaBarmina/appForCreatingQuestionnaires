@@ -7,3 +7,12 @@ export type TQuestionList = {
 };
 
 export type TQuestionDetail = Omit<TQuestionList, "questionID">;
+
+export enum QuestionCreationMode {
+  AI = "AI",
+  MANUAL = "MANUAL",
+}
+
+export enum QuestionEditMode {
+  EDIT = "EDIT",
+}
