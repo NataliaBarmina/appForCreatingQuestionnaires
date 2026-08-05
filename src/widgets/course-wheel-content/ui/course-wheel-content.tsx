@@ -11,6 +11,8 @@ import {
   smallCircleStyles,
   sectorContentStyles,
 } from "./styles";
+import { CreationMode } from "@entities/theme";
+import { EditMOde } from "@entities/theme";
 
 const CENTER = 300;
 const OUTER_RADIUS = 270;
@@ -111,12 +113,17 @@ export const CourseWheelContent = ({ buttonID }: { buttonID: string }) => {
   const navigate = useNavigate();
 
   function selectCourse(course: Course) {
-    navigate("/createTheme", {
-      state: {
-        course,
-        buttonID,
-      },
-    });
+    const state = { course, buttonID };
+
+    if (buttonID === CreationMode.MANUAL_THEMES) {
+      return navigate("/createTheme", {
+        state,
+      });
+    }
+
+    if (buttonID === EditMOde.EDIT_THEMES) {
+      return navigate("/editThemes", { state });
+    }
   }
 
   function handleKeyDown(event: KeyboardEvent<SVGGElement>, course: Course) {
