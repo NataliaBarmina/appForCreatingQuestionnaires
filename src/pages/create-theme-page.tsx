@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { CreateThemeManually } from "@features/create-theme-manually";
 import { AIThemesCreation } from "@features/generate-theme-with-ai";
-import { CreationMode } from "@entities/theme";
+import { ThemeCreationMode } from "@entities/theme";
 
 export const CreateThemePage = () => {
   const location = useLocation();
@@ -20,9 +20,9 @@ export const CreateThemePage = () => {
         {t("header.byCourse")} {course}
       </h2>
 
-      {buttonID === CreationMode.MANUAL_THEMES && <CreateThemeManually courseName={course} />}
+      {buttonID === ThemeCreationMode.MANUAL && <CreateThemeManually courseName={course} />}
 
-      {buttonID === CreationMode.AI_THEMES && <AIThemesCreation courseName={course} />}
+      {buttonID === ThemeCreationMode.AI && <AIThemesCreation courseName={course} />}
     </>
   );
 };

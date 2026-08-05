@@ -1,5 +1,6 @@
-import { EditMOde } from "@entities/theme";
 import { TopicsIcon, QuestionIcon } from "../ui/icons";
+import { ThemeEditMode } from "@entities/theme";
+import { QuestionEditMode } from "@entities/question";
 
 export const editorOptions = [
   {
@@ -7,13 +8,13 @@ export const editorOptions = [
     text: "header.questionSurvey",
     Icon: QuestionIcon,
     path: "/coursesThemesSelection",
-    buttonID: EditMOde.EDIT_QUESTIONS,
+    buttonID: QuestionEditMode.EDIT,
   },
   {
     header: "header.themes",
     text: "header.themesName",
     Icon: TopicsIcon,
     path: "/courseWheel",
-    buttonID: EditMOde.EDIT_THEMES,
+    buttonID: ThemeEditMode.EDIT,
   },
 ];
