@@ -1,5 +1,5 @@
 import { type CSSProperties, type KeyboardEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { COURSES } from "@entities/course";
 
@@ -109,13 +109,15 @@ const COURSE_SECTORS = COURSES.map((course, index) => {
   };
 });
 
-export const CourseWheelContent = ({ buttonID }: { buttonID: string }) => {
+export const CourseWheelContent = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { buttonID } = location.state;
 
   function selectCourse(course: Course) {
     const state = { course, buttonID };
 
-    if (buttonID === CreationMode.MANUAL_THEMES) {
+    if (buttonID === CreationMode.MANUAL_THEMES || buttonID === CreationMode.AI_THEMES) {
       return navigate("/createTheme", {
         state,
       });
