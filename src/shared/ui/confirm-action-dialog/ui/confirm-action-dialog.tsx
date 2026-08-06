@@ -19,6 +19,8 @@ export const ConfirmActionDialog = ({
   alertDialogAction,
   alertDialogCancel,
   buttonLabel,
+  isFormValid,
+  isSubmitting,
   type,
   size,
   onConfirm,
@@ -30,22 +32,24 @@ export const ConfirmActionDialog = ({
       <Button
         buttonLabel={buttonLabel}
         size={size}
-        disabled={false}
+        disabled={!isFormValid}
         type={type}
         onClick={() => setIsOpen(true)}
       />
-      <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
-            <AlertDialogDescription>{alertDialogDescription}</AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel onClick={onConfirm}>{alertDialogCancel}</AlertDialogCancel>
-            <AlertDialogAction>{alertDialogAction}</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      {isFormValid && !isSubmitting && (
+        <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>{alertDialogTitle}</AlertDialogTitle>
+              <AlertDialogDescription>{alertDialogDescription}</AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogAction onClick={onConfirm}>{alertDialogAction}</AlertDialogAction>
+              <AlertDialogCancel>{alertDialogCancel}</AlertDialogCancel>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      )}
     </>
   );
 };
