@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type ReactNode } from "react";
 import { createHashRouter } from "react-router-dom";
 import { Preloader } from "@shared/ui";
 import { AppLayout } from "@app/layouts";
+import { ProtectedRoute } from "./protected-route";
 
 const AIQuestionCreation = lazy(() =>
   import("@pages/ai-question-creation-page").then((m) => ({
@@ -75,6 +76,10 @@ const EditorPage = lazy(() =>
   }))
 );
 
+function withSuspense(element: ReactNode) {
+  return <Suspense fallback={<Preloader />}>{element}</Suspense>;
+}
+
 export const router = createHashRouter([
   {
     path: "/",
@@ -82,131 +87,74 @@ export const router = createHashRouter([
     children: [
       {
         index: true,
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <LoginPage />
-          </Suspense>
-        ),
+        element: withSuspense(<LoginPage />),
       },
       {
-        path: "/loginPage",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <LoginPage />
-          </Suspense>
-        ),
+        path: "loginPage",
+        element: withSuspense(<LoginPage />),
       },
+      // Защищённая группа маршрутов
       {
-        path: "/editorPage",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <EditorPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/editThemes",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <EditThemesPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/createTheme",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <CreateThemePage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/creationOptionsPage",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <CreationOptionsPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/courseWheel",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <CourseWheel />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/AICreatedThemes",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <AICreatedThemesPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/questionsCreatedByAI",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <QuestionsCreatedByAI />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/coursesThemesSelection",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <CourseThemesPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/editingQuestions",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <EditingQuestions />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/questionnaire",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <Questionnaire />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/resultsOfTheQuestionnaire",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <ResultsOfTheQuestionnaire />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/manualCreatingPage",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <ManualQuestionCreation />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/formForCreatingQuestionsByAI",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <AIQuestionCreation />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/dashboardPage",
-        element: (
-          <Suspense fallback={<Preloader />}>
-            <DashboardPage />
-          </Suspense>
-        ),
+        element: <ProtectedRoute />,
+
+        children: [
+          {
+            path: "editorPage",
+            element: withSuspense(<EditorPage />),
+          },
+          {
+            path: "editThemes",
+            element: withSuspense(<EditThemesPage />),
+          },
+          {
+            path: "createTheme",
+            element: withSuspense(<CreateThemePage />),
+          },
+          {
+            path: "creationOptionsPage",
+            element: withSuspense(<CreationOptionsPage />),
+          },
+          {
+            path: "courseWheel",
+            element: withSuspense(<CourseWheel />),
+          },
+          {
+            path: "AICreatedThemes",
+            element: withSuspense(<AICreatedThemesPage />),
+          },
+          {
+            path: "questionsCreatedByAI",
+            element: withSuspense(<QuestionsCreatedByAI />),
+          },
+          {
+            path: "coursesThemesSelection",
+            element: withSuspense(<CourseThemesPage />),
+          },
+          {
+            path: "editingQuestions",
+            element: withSuspense(<EditingQuestions />),
+          },
+          {
+            path: "questionnaire",
+            element: withSuspense(<Questionnaire />),
+          },
+          {
+            path: "resultsOfTheQuestionnaire",
+            element: withSuspense(<ResultsOfTheQuestionnaire />),
+          },
+          {
+            path: "manualCreatingPage",
+            element: withSuspense(<ManualQuestionCreation />),
+          },
+          {
+            path: "formForCreatingQuestionsByAI",
+            element: withSuspense(<AIQuestionCreation />),
+          },
+          {
+            path: "dashboardPage",
+            element: withSuspense(<DashboardPage />),
+          },
+        ],
       },
     ],
   },
