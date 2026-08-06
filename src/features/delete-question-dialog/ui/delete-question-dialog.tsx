@@ -10,7 +10,7 @@ export const DeleteQuestionDialog = ({ questionID }: { questionID: string }) => 
     console.log(id);
     alert("удалить вопрос");
   };
-
+  // todo isFormValid
   return (
     <div>
       <ConfirmActionDialog
@@ -21,6 +21,7 @@ export const DeleteQuestionDialog = ({ questionID }: { questionID: string }) => 
         buttonLabel={t("buttonLabel.delete")}
         size="middle"
         onConfirm={() => onDelete(questionID)}
+        isFormValid={false}
       />
     </div>
   );

@@ -1,8 +1,8 @@
 import { cn } from "@shared/lib";
 
 export const mainContainerStyles = cn(
-  "mx-auto bg-red-50",
-  "border-2 border-solid border-gray-600",
+  "mx-auto bg-[#ffa79c]",
+  "border-[3px] border-solid border-[#ff806d]",
   "s:rounded-2xl",
   "md:w-[90vw]",
   "lg:w-[75vw]",

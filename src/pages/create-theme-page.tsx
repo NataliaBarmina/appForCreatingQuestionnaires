@@ -20,7 +20,11 @@ export const CreateThemePage = () => {
         {t("header.byCourse")} {course}
       </h2>
 
-      {buttonID === ThemeCreationMode.MANUAL && <CreateThemeManually courseName={course} />}
+      {buttonID === ThemeCreationMode.MANUAL && (
+        <div className="mx-auto mt-10 w-[85%] rounded-lg bg-green-800 px-4 pb-10 pt-14">
+          <CreateThemeManually courseName={course} />{" "}
+        </div>
+      )}
 
       {buttonID === ThemeCreationMode.AI && <AIThemesCreation courseName={course} />}
     </>

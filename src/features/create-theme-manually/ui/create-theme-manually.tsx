@@ -58,10 +58,7 @@ export const CreateThemeManually = ({
 
   const errorMessage = errors?.topicName?.message;
   return (
-    <form
-      className="mx-auto mt-10 w-[85%] rounded-lg bg-green-800 px-4 pb-10 pt-14"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-6 text-center">
         <textarea
           className="textarea-styles w-[90%]"

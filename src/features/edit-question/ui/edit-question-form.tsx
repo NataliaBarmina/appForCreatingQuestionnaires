@@ -55,30 +55,30 @@ export const EditQuestionForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={mainContainerStyles}>
-      <h1 className="pb-4 pl-10">{t("header.changingQuestion")}</h1>
+      <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("header.changingQuestion")}</h1>
 
-      <div className="mx-auto w-[90%]">
+      <div className="mx-auto w-[90%] font-medium">
         <input
-          className={!questionForEditing ? "textarea-styles" : errorsStyles}
+          className={!questionForEditing ? "textarea-styles border-[#ff806d]" : errorsStyles}
           {...register("questionForEditing")}
         />
 
         <div className="s:ml-[2rem] s:w-[93%]">
           <p>{t("formLabel.correctAnswer").toLowerCase()}</p>
           <input
-            className={!answerForEditing1 ? "textarea-styles" : errorsStyles}
+            className={!answerForEditing1 ? "textarea-styles border-[#ff806d]" : errorsStyles}
             {...register("answerForEditing1")}
           />
 
           <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
           <input
-            className={!answerForEditing2 ? "textarea-styles" : errorsStyles}
+            className={!answerForEditing2 ? "textarea-styles border-[#ff806d]" : errorsStyles}
             {...register("answerForEditing2")}
           />
 
           <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
           <input
-            className={!answerForEditing3 ? "textarea-styles" : errorsStyles}
+            className={!answerForEditing3 ? "textarea-styles border-[#ff806d]" : errorsStyles}
             {...register("answerForEditing3")}
           />
         </div>
