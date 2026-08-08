@@ -1,5 +1,5 @@
 import { lazy, Suspense, type ReactNode } from "react";
-import { createHashRouter } from "react-router-dom";
+import { createHashRouter, Navigate } from "react-router-dom";
 import { Preloader } from "@shared/ui";
 import { AppLayout } from "@app/layouts";
 import { ProtectedRoute } from "./protected-route";
@@ -84,11 +84,8 @@ export const router = createHashRouter([
   {
     path: "/",
     element: <AppLayout />,
+
     children: [
-      {
-        index: true,
-        element: withSuspense(<LoginPage />),
-      },
       {
         path: "loginPage",
         element: withSuspense(<LoginPage />),
@@ -98,6 +95,10 @@ export const router = createHashRouter([
         element: <ProtectedRoute />,
 
         children: [
+          {
+            index: true,
+            element: <Navigate to="/dashboardPage" replace />,
+          },
           {
             path: "editorPage",
             element: withSuspense(<EditorPage />),

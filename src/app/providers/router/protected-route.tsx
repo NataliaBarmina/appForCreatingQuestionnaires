@@ -1,11 +1,9 @@
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 import { useSession } from "@entities/session";
 import { Preloader } from "@shared/ui";
 
 export const ProtectedRoute = () => {
-  const location = useLocation();
-
   const { isAuthenticated, isAuthReady } = useSession();
 
   if (!isAuthReady) {
@@ -13,7 +11,7 @@ export const ProtectedRoute = () => {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/loginPage" replace state={{ from: location }} />;
+    return <Navigate to="/loginPage" replace />;
   }
 
   return <Outlet />;
