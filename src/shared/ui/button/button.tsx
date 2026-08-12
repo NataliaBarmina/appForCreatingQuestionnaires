@@ -7,6 +7,7 @@ type TButton = {
   disabled?: boolean;
   type?: "submit" | "reset" | "button";
   size?: "big" | "middle" | "small";
+  style?: string;
 };
 
 const commonStylesForButtons = cn(
@@ -53,7 +54,7 @@ const sizeClasses: Record<string, string> = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, TButton>((props, ref) => {
-  const { size = "middle", onClick, buttonLabel, disabled, type } = props;
+  const { size = "middle", onClick, buttonLabel, disabled, type, style } = props;
   return (
     <button
       ref={ref}
@@ -62,7 +63,8 @@ export const Button = forwardRef<HTMLButtonElement, TButton>((props, ref) => {
       onClick={onClick}
       className={cn(
         commonStylesForButtons,
-        sizeClasses[size] // Применяем классы в зависимости от размера
+        sizeClasses[size], // Применяем классы в зависимости от размера
+        style
       )}
     >
       {buttonLabel}
