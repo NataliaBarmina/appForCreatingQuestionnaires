@@ -1,10 +1,8 @@
-import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 import { AIQuestionCreationContent } from "@features/generate-questions-with-ai";
 
 export const AIQuestionCreation = () => {
-  const { t } = useTranslation();
   const location = useLocation();
 
   const { courseName, themeName, themeID } = location.state || {};
@@ -17,7 +15,7 @@ export const AIQuestionCreation = () => {
 
       <h2>{`Тема ${themeName}`}</h2>
 
-      <AIQuestionCreationContent themeID={themeID} />
+      <AIQuestionCreationContent themeID={themeID} courseName={courseName} themeName={themeName} />
     </>
   );
 };

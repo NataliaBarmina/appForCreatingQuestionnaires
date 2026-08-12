@@ -1,15 +1,18 @@
-export type TEditQuestionForm = {
+export type TFields = {
   question: string;
   correctAnswer: string;
   wrongAnswer1: string;
   wrongAnswer2: string;
-  questionID: string;
-  closeDialog: () => void;
 };
 
-export type TFields = {
-  questionForEditing: string;
-  answerForEditing1: string;
-  answerForEditing2: string;
-  answerForEditing3: string;
+export type TEditQuestionForm = TFields & {
+  questionID: string;
+  mode: "generated" | "default";
+  onClose?: () => void;
+  onDelete?: () => void;
+};
+
+export type TAnswerField = {
+  name: Exclude<keyof TFields, "question">;
+  label: string;
 };

@@ -6,9 +6,16 @@ import { Button } from "@shared/ui";
 import { greenContainerStyles } from "./styles";
 
 //todo - оформить и добавить выбор сколько вопросов - shadcn
-// todo - переход на страницу выбора курсов и тем вместо questionsCreatedByAI
 
-export const AIQuestionCreationContent = ({ themeID }: { themeID: string }) => {
+export const AIQuestionCreationContent = ({
+  themeID,
+  courseName,
+  themeName,
+}: {
+  themeID: string;
+  courseName: string;
+  themeName: string;
+}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -24,7 +31,9 @@ export const AIQuestionCreationContent = ({ themeID }: { themeID: string }) => {
       <Button
         buttonLabel={t("buttonLabel.send")}
         size="middle"
-        onClick={() => navigate("/questionsCreatedByAI", { state: { themeID } })}
+        onClick={() =>
+          navigate("/questionsCreatedByAI", { state: { themeID, courseName, themeName } })
+        }
       />
       {/* </form> */}
     </div>

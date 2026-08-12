@@ -2,19 +2,32 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { cn } from "@shared/lib";
 import { Button, FieldsError } from "@shared/ui";
-
-import { mainContainerStyles, buttonsContainerStyles, errorsStyles } from "./styles";
-import { TEditQuestionForm, TFields } from "../model/types";
+import {
+  buttonsContainerStyles,
+  errorsStyles,
+  pinkContainerStyles,
+  greenContainerStyles,
+} from "./styles";
+import { TEditQuestionForm, TFields, TAnswerField } from "../model/types";
 import { createSchema } from "../model/validation-schema";
 
+const answerFields: TAnswerField[] = [
+  { name: "correctAnswer", label: "formLabel.correctAnswer" },
+  { name: "wrongAnswer1", label: "formLabel.wrongAnswer" },
+  { name: "wrongAnswer2", label: "formLabel.wrongAnswer" },
+];
+
 export const EditQuestionForm = ({
-  closeDialog,
+  onClose,
+  onDelete,
   question,
   correctAnswer,
   wrongAnswer1,
   wrongAnswer2,
   questionID,
+  mode,
 }: TEditQuestionForm) => {
   const { t } = useTranslation();
 
@@ -22,84 +35,83 @@ export const EditQuestionForm = ({
 
   const onSubmit: SubmitHandler<TFields> = (data) => {
     const updatedQuestion = {
-      questionForEditing: data.questionForEditing,
-      correctAnswer: data.answerForEditing1,
-      wrongAnswer1: data.answerForEditing2,
-      wrongAnswer2: data.answerForEditing3,
+      question: data.question,
+      correctAnswer: data.correctAnswer,
+      wrongAnswer1: data.wrongAnswer1,
+      wrongAnswer2: data.wrongAnswer2,
     };
     //todo
     console.log(updatedQuestion, questionID);
     alert(questionID);
-
-    closeDialog();
+    onClose?.();
   };
 
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm({
+  } = useForm<TFields>({
     mode: "onChange",
     resolver: yupResolver(schema),
     defaultValues: {
-      questionForEditing: question,
-      answerForEditing1: correctAnswer,
-      answerForEditing2: wrongAnswer1,
-      answerForEditing3: wrongAnswer2,
+      question,
+      correctAnswer,
+      wrongAnswer1,
+      wrongAnswer2,
     },
   });
 
-  const { questionForEditing, answerForEditing1, answerForEditing2, answerForEditing3 } = errors;
-
   const hasError = Object.keys(errors).length > 0;
 
+  const isDefaultMode = mode === "default";
+
+  const fieldStyles = isDefaultMode ? cn("textarea-styles", "border-[#ff806d]") : "textarea-styles";
+
+  const containerStyles = isDefaultMode ? pinkContainerStyles : greenContainerStyles;
+
+  const labelStyles = isDefaultMode ? "text-black" : "text-white";
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={mainContainerStyles}>
-      <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("header.changingQuestion")}</h1>
+    <div className={containerStyles}>
+      {isDefaultMode && (
+        <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("header.changingQuestion")}</h1>
+      )}
 
-      <div className="mx-auto w-[90%] font-medium">
-        <input
-          className={!questionForEditing ? "textarea-styles border-[#ff806d]" : errorsStyles}
-          {...register("questionForEditing")}
-        />
-
-        <div className="s:ml-[2rem] s:w-[93%]">
-          <p>{t("formLabel.correctAnswer").toLowerCase()}</p>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mx-auto w-[90%] font-medium">
           <input
-            className={!answerForEditing1 ? "textarea-styles border-[#ff806d]" : errorsStyles}
-            {...register("answerForEditing1")}
+            className={!errors.question ? fieldStyles : errorsStyles}
+            {...register("question")}
           />
 
-          <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
-          <input
-            className={!answerForEditing2 ? "textarea-styles border-[#ff806d]" : errorsStyles}
-            {...register("answerForEditing2")}
-          />
+          <div className="s:ml-[2rem] s:w-[93%]">
+            {answerFields.map(({ name, label }) => (
+              <div key={name}>
+                <p className={labelStyles}>{t(label).toLowerCase()}</p>
 
-          <div>{t("formLabel.wrongAnswer").toLowerCase()}</div>
-          <input
-            className={!answerForEditing3 ? "textarea-styles border-[#ff806d]" : errorsStyles}
-            {...register("answerForEditing3")}
-          />
+                <input className={errors[name] ? errorsStyles : fieldStyles} {...register(name)} />
+              </div>
+            ))}
+          </div>
+          {hasError && <FieldsError message={t("validation.required")} />}
         </div>
 
-        {hasError && <FieldsError message={t("validation.required")} />}
-      </div>
+        <div className={buttonsContainerStyles}>
+          <Button
+            buttonLabel={t("buttonLabel.save")}
+            size="middle"
+            disabled={!isValid}
+            type="submit"
+          />
 
-      <div className={buttonsContainerStyles}>
-        <Button
-          buttonLabel={t("buttonLabel.save")}
-          size="middle"
-          disabled={!isValid}
-          type="submit"
-        />
-        <Button
-          buttonLabel={t("buttonLabel.closeForm")}
-          size="middle"
-          onClick={() => closeDialog()}
-          type="button"
-        />
-      </div>
-    </form>
+          <Button
+            buttonLabel={t(isDefaultMode ? "buttonLabel.closeForm" : "buttonLabel.delete")}
+            size="middle"
+            onClick={isDefaultMode ? onClose : onDelete}
+            type="button"
+          />
+        </div>
+      </form>
+    </div>
   );
 };

@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@shared/ui";
 
-import { Button } from "@shared/ui";
-import { EditQuestionForm } from "./edit-question-form";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, Button } from "@shared/ui";
 import { TQuestionList } from "@entities/question";
+import { EditQuestionForm } from "./edit-question-form";
 
 export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionList }) => {
   const { t } = useTranslation();
@@ -28,16 +27,20 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
             onClick={() => {}}
           ></Button>
         </DialogTrigger>
+
         {/* Портал для рендеринга диалога в указанном контейнере */}
+
         <DialogContent>
           <DialogTitle className="sr-only">Редактирование вопроса</DialogTitle>
+
           <EditQuestionForm
-            closeDialog={closeDialog}
+            onClose={closeDialog}
             question={question}
             correctAnswer={answer_1}
             wrongAnswer1={answer_2}
             wrongAnswer2={answer_3}
             questionID={id}
+            mode="default"
           />
         </DialogContent>
       </Dialog>
