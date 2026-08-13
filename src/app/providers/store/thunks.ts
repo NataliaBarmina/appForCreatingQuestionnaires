@@ -8,7 +8,7 @@ import {
 export type TQuestion = {
   courseName?: string;
   themeName?: string;
-  themeID?: string;
+  themeId?: string;
   questionID?: string;
   question?: string;
   answer_1?: string;
@@ -18,8 +18,8 @@ export type TQuestion = {
 
 // export const loadQuestionsAsync = createAsyncThunk(
 //   "questions/loadQuestions",
-//   async (themeID: string) => {
-//     return await listQuestionsByTheme(themeID);
+//   async (themeId: string) => {
+//     return await listQuestionsByTheme(themeId);
 //   }
 // );
 

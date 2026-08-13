@@ -12,7 +12,7 @@ import { db } from "@appFirebase"; // доступ к базе данных Fire
 export type TQuestion = {
   courseName?: string;
   themeName?: string;
-  themeID?: string;
+  themeId?: string;
   questionID?: string;
   question?: string;
   answer_1?: string;
@@ -21,10 +21,10 @@ export type TQuestion = {
 };
 
 // // получаем вопросы по ID темы для редактирования
-// export async function listQuestionsByTheme(themeID: string) {
+// export async function listQuestionsByTheme(themeId: string) {
 //   const q = query(
 //     collection(db, "questions"),
-//     where("themeID", "==", themeID) //только те вопросы, у которых themeID равен выбранной теме
+//     where("themeId", "==", themeId) //только те вопросы, у которых themeId равен выбранной теме
 //   );
 //   const questionsSnapshot = await getDocs(q);
 

@@ -58,6 +58,35 @@
     "wrongAnswers_one": "{{count}} incorrect answer",
     "wrongAnswers_other": "{{count}} incorrect answers"
   },
+  "generateQuestions": {
+    "title": "Generate AI questions for the {{courseName}} course",
+    "theme": "Topic: {{themeName}}",
+
+    "questionsCount": {
+      "title": "Number of questions"
+    },
+
+    "difficulty": {
+      "title": "Difficulty",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+
+    "questionType": {
+      "title": "Question type",
+      "theory": "Theory",
+      "code": "Code",
+      "mixed": "Mixed"
+    },
+
+    "preferences": {
+      "title": "Additional preferences",
+      "placeholder": "For example: focus on practical tasks, exclude questions about closures, etc."
+    },
+
+    "generate": "Generate questions"
+  },
   "placeholder": {
     "topic": "Enter the topic name",
     "question": "enter the question",

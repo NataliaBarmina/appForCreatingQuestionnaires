@@ -1,21 +1,21 @@
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import { AIQuestionCreationContent } from "@features/generate-questions-with-ai";
+import { GenerateQuestionsForm } from "@features/generate-questions-with-ai";
 
 export const AIQuestionCreation = () => {
-  const location = useLocation();
+  const { t } = useTranslation();
 
-  const { courseName, themeName, themeID } = location.state || {};
+  const location = useLocation();
+  const { courseName, themeName, themeId } = location.state || {};
 
   return (
     <>
-      <h1>
-        Сгенерируйте вопрос с помощью ИИ <br /> {` по курсу ${courseName}`}
-      </h1>
+      <h1>{t("generateQuestions.title", { courseName })}</h1>
 
-      <h2>{`Тема ${themeName}`}</h2>
+      <h2>{t("generateQuestions.theme", { themeName })}</h2>
 
-      <AIQuestionCreationContent themeID={themeID} courseName={courseName} themeName={themeName} />
+      <GenerateQuestionsForm themeId={themeId} courseName={courseName} themeName={themeName} />
     </>
   );
 };

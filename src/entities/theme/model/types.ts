@@ -1,16 +1,16 @@
 import { QuestionCreationMode } from "@entities/question";
 
-export type TTheme = {
-  id: string;
+export type TSelectedTheme = {
+  themeId: string;
   courseName: string;
   themeName: string;
 };
 
 export type TThemeList = {
-  selectedTopics: TTheme[];
+  selectedTopics: TSelectedTheme[];
   courseName: string;
   buttonID: QuestionCreationMode;
-  handleThemeClick: (theme: TTheme) => void;
+  handleThemeClick: (theme: TSelectedTheme) => void;
 };
 export enum ThemeCreationMode {
   AI = "AI THEMES",

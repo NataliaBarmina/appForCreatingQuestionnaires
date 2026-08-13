@@ -1,7 +1,7 @@
 export type TQuestion = {
   courseName?: string;
   themeName?: string;
-  themeID?: string;
+  themeId?: string;
   questionID?: string;
   question?: string;
   answer_1?: string;

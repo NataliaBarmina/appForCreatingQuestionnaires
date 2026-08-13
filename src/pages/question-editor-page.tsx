@@ -10,13 +10,9 @@ export const EditingQuestions = () => {
 
   const location = useLocation();
 
-  const {
-    courseName,
-    themeName,
-    themeID,
-  }: { courseName: string; themeName: string; themeID: string } = location.state || {};
+  const { courseName, themeName }: { courseName: string; themeName: string } = location.state || {};
 
-  const { data = [], isLoading, isError, error } = useGetQuestionsByTheme(themeID);
+  const { data = [], isLoading, isError, error } = useGetQuestionsByTheme(themeName);
 
   if (isLoading) return <Preloader />;
   if (isError) return <LoadingError message={error.message} />;
