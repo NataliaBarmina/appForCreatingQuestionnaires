@@ -4,13 +4,13 @@ import { useLocation } from "react-router-dom";
 import { EditQuestionForm } from "@features/edit-question/ui/edit-question-form";
 import { TQuestionList } from "@entities/question";
 
-// todo - покидать эту страницу только после предупраждения, что вопросы надо сохранить, иначе они будут потеряны
+// todo - покидать эту страницу только после предупрtждения, что вопросы надо сохранить, иначе они будут потеряны
 
 export const QuestionsCreatedByAI = () => {
   const { t } = useTranslation();
   const location = useLocation();
 
-  const { themeID, courseName, themeName } = location.state || {};
+  const { themeId, courseName, themeName } = location.state || {};
 
   const data: TQuestionList[] = [
     {

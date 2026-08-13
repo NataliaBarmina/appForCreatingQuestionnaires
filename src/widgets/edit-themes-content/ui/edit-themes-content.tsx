@@ -24,12 +24,12 @@ export const EditThemesContent = ({ course }: { course: string }) => {
   return (
     <div className="mx-auto mt-8 w-[90%] rounded-xl bg-green-800 px-12 pt-10">
       {themes.map((theme) => (
-        <div key={theme.id} className="textarea-styles mb-4 rounded-lg font-medium">
+        <div key={theme.themeId} className="textarea-styles mb-4 rounded-lg font-medium">
           <div className="flex flex-row items-center justify-between pr-6">
             <p>{theme.themeName}</p>
             <div className="flex items-center gap-3">
-              <EditTheme themeId={theme.id} />
-              <DeleteTheme themeId={theme.id} />
+              <EditTheme themeId={theme.themeId} />
+              <DeleteTheme themeId={theme.themeId} />
             </div>
           </div>
         </div>

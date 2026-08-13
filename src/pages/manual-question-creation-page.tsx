@@ -21,8 +21,8 @@ export const ManualQuestionCreation = () => {
   const {
     courseName,
     themeName,
-    themeID,
-  }: { courseName: string; themeName: string; themeID: string } = location.state || {};
+    themeId,
+  }: { courseName: string; themeName: string; themeId: string } = location.state || {};
 
   return (
     <>
@@ -37,7 +37,7 @@ export const ManualQuestionCreation = () => {
         <FormForCreatingQuestionsYourself
           courseName={courseName}
           themeName={themeName}
-          themeID={themeID}
+          themeId={themeId}
         />
       </div>
     </>

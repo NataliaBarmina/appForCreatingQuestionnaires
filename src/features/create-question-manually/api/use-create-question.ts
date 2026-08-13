@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type TCreateQuestion = {
   courseName: string;
-  themeID: string;
+  themeId: string;
   themeName: string;
   question: string;
   answer_1: string;

@@ -60,6 +60,36 @@
     "wrongAnswers_few": "{{count}} неправильных ответа",
     "wrongAnswers_many": "{{count}} неправильных ответов"
   },
+  "generateQuestions": {
+    "title": "Сгенерируйте вопросы с помощью ИИ по курсу {{courseName}}",
+    "theme": "Тема {{themeName}}",
+
+    "questionsCount": {
+      "title": "Количество вопросов"
+    },
+
+    "difficulty": {
+      "title": "Сложность",
+      "easy": "Лёгкая",
+      "medium": "Средняя",
+      "hard": "Сложная"
+    },
+
+    "questionType": {
+      "title": "Тип вопросов",
+      "theory": "Теория",
+      "code": "Код",
+      "mixed": "Смешанные"
+    },
+
+    "preferences": {
+      "title": "Дополнительные пожелания",
+      "placeholder": "Например: сделать акцент на практические задачи, исключить вопросы по замыканиям и т.д."
+    },
+
+    "generate": "Сгенерировать вопросы"
+  },
+
   "placeholder": {
     "topic": "Введите название темы",
     "question": "введите вопрос",

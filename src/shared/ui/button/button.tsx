@@ -13,8 +13,7 @@ type TButton = {
 const commonStylesForButtons = cn(
   "mx-auto bg-stone-900  text-pink-100 font-bold shadow-lg shadow-stone-800",
   "rounded-lg py-2",
-  "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
-  "hover:border hover:border-solid hover:border-zinc-950"
+  "shadow-[0_10px_22px_rgba(0,0,0,0.3)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#211919] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)] active:translate-y-0"
 );
 const bigButtonClasses = cn(
   "block w-[45vw]",

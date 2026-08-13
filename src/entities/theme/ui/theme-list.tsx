@@ -22,7 +22,7 @@ export const ThemeList = ({ selectedTopics, handleThemeClick }: TThemeList) => {
     <nav aria-label="Themes list">
       <List>
         {selectedTopics.map((theme) => (
-          <ListItem disablePadding key={theme.id} sx={listItemStyles}>
+          <ListItem disablePadding key={theme.themeId} sx={listItemStyles}>
             <ListItemButton onClick={() => handleThemeClick(theme)}>
               <ListItemText primary={theme.themeName} />
             </ListItemButton>

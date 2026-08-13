@@ -2,8 +2,8 @@ import { collection, getDocs, where, query } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useQuery } from "@tanstack/react-query";
 
-export async function getQuestionsByTheme(themeID: string) {
-  const questionsQuery = query(collection(db, "questions"), where("themeID", "==", themeID));
+export async function getQuestionsByTheme(themeName: string) {
+  const questionsQuery = query(collection(db, "questions"), where("themeName", "==", themeName));
 
   const snapshot = await getDocs(questionsQuery);
 
@@ -20,9 +20,9 @@ export async function getQuestionsByTheme(themeID: string) {
   });
 }
 
-export const useGetQuestionsByTheme = (themeID: string) => {
+export const useGetQuestionsByTheme = (themeName: string) => {
   return useQuery({
-    queryKey: ["questions", themeID],
-    queryFn: () => getQuestionsByTheme(themeID),
+    queryKey: ["questions", themeName],
+    queryFn: () => getQuestionsByTheme(themeName),
   });
 };

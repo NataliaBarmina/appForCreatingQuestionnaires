@@ -22,9 +22,9 @@ const defaultValues = {
 export const FormForCreatingQuestionsYourself = ({
   courseName,
   themeName,
-  themeID,
+  themeId,
 }: {
-  themeID: string;
+  themeId: string;
   themeName: string;
   courseName: string;
 }) => {
@@ -53,7 +53,7 @@ export const FormForCreatingQuestionsYourself = ({
   const onSubmit: SubmitHandler<TQuestionFields> = async (values) => {
     const questionData = {
       courseName,
-      themeID,
+      themeId,
       themeName,
       question: values.selfWrittenQuestion,
       answer_1: values.selfWrittenAnswer1,

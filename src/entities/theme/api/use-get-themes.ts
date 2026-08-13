@@ -11,7 +11,7 @@ export async function getThemesByCourse(courseName: string) {
     const data = document.data();
 
     return {
-      id: document.id,
+      themeId: document.id,
       courseName: data.courseName,
       themeName: data.themeName,
     };

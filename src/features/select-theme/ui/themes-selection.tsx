@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import { CreateThemePopover } from "@features/create-theme-manually";
-import { TTheme, ThemeCreationMode, ThemeList } from "@entities/theme";
+import { TSelectedTheme, ThemeList } from "@entities/theme";
 import { QuestionCreationMode } from "@entities/question";
 
 import { mainContainerStyles } from "../styles";
@@ -13,17 +13,17 @@ export const ThemesSelection = ({
 }: {
   courseName: string;
   buttonID: QuestionCreationMode;
-  selectedTopics: TTheme[];
+  selectedTopics: TSelectedTheme[];
 }) => {
   const navigate = useNavigate();
 
-  const handleThemeClick = (theme: TTheme) => {
-    const { themeName, id } = theme;
+  const handleThemeClick = (theme: TSelectedTheme) => {
+    const { themeName, themeId } = theme;
 
     const state = {
       courseName,
       themeName,
-      themeID: id,
+      themeId: themeId,
     };
 
     if (buttonID === QuestionCreationMode.MANUAL) {
