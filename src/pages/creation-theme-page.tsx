@@ -5,7 +5,7 @@ import { CreateThemeManually } from "@features/create-theme-manually";
 import { AIThemesCreation } from "@features/generate-theme-with-ai";
 import { ThemeCreationMode } from "@entities/theme";
 
-export const CreateThemePage = () => {
+export const CreationThemePage = () => {
   const location = useLocation();
   const { t } = useTranslation();
 

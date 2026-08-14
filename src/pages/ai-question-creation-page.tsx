@@ -13,7 +13,7 @@ export const AIQuestionCreation = () => {
     <>
       <h1>{t("generateQuestions.title", { courseName })}</h1>
 
-      <h2>{t("generateQuestions.theme", { themeName })}</h2>
+      <h2>{t("header.theme", { themeName })}</h2>
 
       <GenerateQuestionsForm themeId={themeId} courseName={courseName} themeName={themeName} />
     </>
