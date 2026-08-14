@@ -7,7 +7,7 @@ export const ResultsOfTheQuestionnaire = () => {
   return (
     <div>
       <h1>
-        {t("header.congratulation")} <br /> {t("header.completedSurvey")}
+        {t("survey.congratulation")} <br /> {t("survey.completedSurvey")}
       </h1>
       <ResultQuestionnaireContent />
     </div>

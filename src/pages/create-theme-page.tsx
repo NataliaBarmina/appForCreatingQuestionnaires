@@ -14,11 +14,9 @@ export const CreateThemePage = () => {
 
   return (
     <>
-      <h1>{t("header.createTheme")}</h1>
+      <h1>{t("createTheme.title")}</h1>
 
-      <h2>
-        {t("header.byCourse")} {course}
-      </h2>
+      <h2>{t("createTheme.forCourse", { course })}</h2>
 
       {buttonID === ThemeCreationMode.MANUAL && (
         <div className="mx-auto mt-10 w-[85%] rounded-lg bg-green-800 px-4 pb-10 pt-14">

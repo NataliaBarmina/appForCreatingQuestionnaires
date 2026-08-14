@@ -62,7 +62,7 @@ export const CreateThemeManually = ({
       <div className="mb-6 text-center">
         <textarea
           className="textarea-styles w-[90%]"
-          placeholder={t("placeholder.topic")}
+          placeholder={t("createTheme.placeholder")}
           {...register("topicName")}
         />
       </div>

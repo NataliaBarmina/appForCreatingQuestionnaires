@@ -31,13 +31,13 @@ export const ResultQuestionnaireContent = () => {
 
   return (
     <div>
-      <h3 className="pb-1 pt-6 text-lg font-bold">{t("header.correctPercentage")}</h3>
+      <h3 className="pb-1 pt-6 text-lg font-bold">{t("survey.correctPercentage")}</h3>
       <p className={percentageOfCorrectAnswersStyles}>{percentageOfCorrectAnswers}%</p>
-      <h3 className="text-lg">{t("header.correctAnswers", { count: correctAnswersCount })}</h3>
-      <h3 className="mb-8 text-lg">{t("header.wrongAnswers", { count: wrongAnswersCount })}</h3>
+      <h3 className="text-lg">{t("survey.correctAnswers", { count: correctAnswersCount })}</h3>
+      <h3 className="mb-8 text-lg">{t("survey.wrongAnswers", { count: wrongAnswersCount })}</h3>
 
       <div className={grayContainerStyles}>
-        <div className={wrongAnswersAnalysisHeader}>{t("header.wrongAnswersAnalysis")}</div>
+        <div className={wrongAnswersAnalysisHeader}>{t("survey.wrongAnswersAnalysis")}</div>
 
         {questionsList.map((item: TQuestion, index: number) => {
           const correctAnswer = item.answer_1;
@@ -52,7 +52,6 @@ export const ResultQuestionnaireContent = () => {
               question={item.question}
               answer_1={correctAnswer}
               answer_2={userAnswer}
-              questionNumber={t("header.questionNumber")}
               correctAnswer={t("formLabel.correctAnswer")}
               yourAnswer={t("formLabel.yourAnswer")}
             />

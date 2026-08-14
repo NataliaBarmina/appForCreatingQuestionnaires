@@ -6,7 +6,7 @@ export const EditorPage = () => {
 
   return (
     <div>
-      <h1>{t("header.editQuestionsAndThemes")}</h1>
+      <h1>{t("header.editingQuestionsAndTopics")}</h1>
       <EditorContent />
     </div>
   );

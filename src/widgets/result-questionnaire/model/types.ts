@@ -14,7 +14,6 @@ export type TQuestionItem = {
   question: string;
   answer_1: string;
   answer_2: string;
-  questionNumber: string;
   correctAnswer: string;
   yourAnswer: string;
 };

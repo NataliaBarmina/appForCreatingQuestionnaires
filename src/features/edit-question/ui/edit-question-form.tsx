@@ -74,7 +74,7 @@ export const EditQuestionForm = ({
   return (
     <div className={containerStyles}>
       {isDefaultMode && (
-        <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("header.changingQuestion")}</h1>
+        <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("editQuestions.changingQuestion")}</h1>
       )}
 
       <form onSubmit={handleSubmit(onSubmit)}>

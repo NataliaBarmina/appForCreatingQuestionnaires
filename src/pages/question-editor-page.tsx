@@ -20,15 +20,9 @@ export const EditingQuestions = () => {
   return (
     <div>
       <div>
-        <h1>{t("header.editQuestion")}</h1>
+        <h1>{t("editQuestions.title", { courseName })}</h1>
 
-        <h2>
-          {t("header.course")} {courseName}
-        </h2>
-
-        <h2>
-          {t("header.theme")} {themeName}
-        </h2>
+        <h2>{t("header.theme", { themeName })}</h2>
 
         {data.length === 0 ? (
           <EmptyState message={t("emptyState.noQuestions")} />

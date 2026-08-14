@@ -49,7 +49,6 @@ export const QuestionnaireContent = ({ questions }: { questions: TQuestion[] }) 
             wrongAnswer_2={item.answer_3}
             index={index}
             question={item.question}
-            headerQuestionNumber={t("header.questionNumber")}
             errorMessage={answersErrors?.[index]?.message}
           />
         ))}

@@ -13,7 +13,9 @@ export const CreateThemePopover = ({ courseName }: { courseName: string }) => {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className={popoverTriggerStyles}>{t("buttonLabel.addTheme")}</PopoverTrigger>
+      <PopoverTrigger className={popoverTriggerStyles}>
+        {t("createTheme.buttonLabel")}
+      </PopoverTrigger>
       <PopoverContent
         className="border-none bg-green-800"
         style={{

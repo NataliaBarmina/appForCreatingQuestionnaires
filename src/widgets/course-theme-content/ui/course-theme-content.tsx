@@ -34,9 +34,7 @@ export const CourseThemesContent = () => {
       {isLoading && <Preloader />}
       {isError && <LoadingError message={errorMessage} />}
 
-      <h2 className="pt-10">
-        {t("header.themeSelection")} {selectedCourseName}
-      </h2>
+      <h2 className="pt-10">{t("courseThemeSelection.themeSelection", { selectedCourseName })}</h2>
 
       {!isLoading && !isError && !hasThemes && <EmptyState message={t("emptyState.noThemes")} />}
 

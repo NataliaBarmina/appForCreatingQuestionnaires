@@ -26,7 +26,7 @@ export const EditorContent = () => {
               <Icon />
             </div>
             <p className={headerStyle}>
-              {t("buttonLabel.editing")}
+              {t("navigation.editing")}
               <br />
               {t(header)}
             </p>
@@ -34,7 +34,7 @@ export const EditorContent = () => {
             <div className={lineStyles} />
 
             <p className={textStyles}>
-              {t("header.edit")} <br /> {t("header.delete")} <br /> {t(text)}
+              {t("editTheme.edit")} <br /> {t("editTheme.delete")} <br /> {t(text)}
             </p>
 
             <div className="mr-4 flex justify-end">

@@ -15,7 +15,6 @@ export type TQuestionItem = {
   correctAnswer: string;
   wrongAnswer_1: string;
   wrongAnswer_2: string;
-  headerQuestionNumber: string;
   index: number;
   errorMessage?: string;
 };

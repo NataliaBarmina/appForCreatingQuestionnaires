@@ -4,7 +4,7 @@ export const circleConfig = [
     colStart: "col-start-2",
     rowSpan: "row-span-2",
     rowStart: "row-start-1",
-    labelKey: "buttonLabel.creating",
+    labelKey: "navigation.creating",
     link: "/creationOptionsPage",
   },
   {
@@ -12,7 +12,7 @@ export const circleConfig = [
     colStart: "col-start-1",
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
-    labelKey: "buttonLabel.editing",
+    labelKey: "navigation.editing",
     link: "/editorPage",
   },
   {
@@ -20,7 +20,7 @@ export const circleConfig = [
     colStart: "col-start-4",
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
-    labelKey: "buttonLabel.questionnaire",
+    labelKey: "navigation.questionnaire",
     link: "/questionnaire",
   },
 ];
