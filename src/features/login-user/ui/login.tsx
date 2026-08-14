@@ -60,7 +60,7 @@ export const Login = () => {
       <div className={showPasswordContainerStyles}>
         <input
           {...register("password")}
-          placeholder={t("placeholder.auth")}
+          placeholder={t("auth.placeholder")}
           type={showPassword ? "text" : "password"}
           className={showPasswordInputStyles}
           autoFocus

@@ -10,10 +10,7 @@ export const EditThemesPage = () => {
 
   return (
     <div>
-      <h1>
-        {t("header.editTopic")} {t("header.byCourse")}
-      </h1>
-      <h1>{course}</h1>
+      <h1>{t("editTheme.title", { course })}</h1>
       <EditThemesContent course={course} />
     </div>
   );

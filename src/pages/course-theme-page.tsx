@@ -6,7 +6,7 @@ export const CourseThemesPage = () => {
 
   return (
     <div>
-      <h1 className="pb-10">{t("header.courseSelection")}</h1>
+      <h1 className="pb-10">{t("courseThemeSelection.courseSelection")}</h1>
       <CourseThemesContent />
     </div>
   );

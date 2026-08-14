@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Label } from "@shared/ui";
 import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
 import { TQuestionItem } from "../model/types";
@@ -7,15 +8,15 @@ export const QuestionResultItem = ({
   question,
   answer_1,
   answer_2,
-  questionNumber,
   correctAnswer,
   yourAnswer,
 }: TQuestionItem) => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className={greenContainerStyles}>
         <p className={questionNumberHeader}>
-          {questionNumber}
+          {t("header.questionNumber")}
           {index + 1}
         </p>
 

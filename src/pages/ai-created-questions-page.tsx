@@ -31,12 +31,14 @@ export const QuestionsCreatedByAI = () => {
 
   return (
     <div className="mb-10">
-      <h1>{t("header.editQuestions")} </h1>
+      <h1>{t("editQuestions.titleAI")} </h1>
       <h2 className="pb-8 pt-[4px] text-lg">
-        {t("header.questionsGeneratedByAI")} <br /> {t("header.byCourse")} {courseName} <br />
-        {t("header.theme").toLowerCase()} {themeName}
+        {t("header.course", { courseName })} <br />
+        {t("header.theme", { themeName })}
       </h2>
-      <h4 className="pb-8 text-xl font-medium text-[#A6543E]">{t("header.unsavedWarning")}</h4>
+      <h4 className="pb-8 text-xl font-medium text-[#A6543E]">
+        {t("editQuestions.unsavedWarning")}
+      </h4>
 
       {data.map((item) => (
         <div key={item.id}>

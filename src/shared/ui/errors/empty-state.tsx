@@ -14,7 +14,7 @@ export const EmptyState = ({ message }: { message: string }) => {
           <p className="mb-4 font-bold">{message}</p>
           <p>{t("emptyState.reloadPage")}</p>
           <p>{t("emptyState.orGoToPage")}</p>
-          <p>{t("emptyState.creatingQuestionsAndTopics")}</p>
+          <p>{t("emptyState.creatingPage")}</p>
         </div>
       </div>
       <Button

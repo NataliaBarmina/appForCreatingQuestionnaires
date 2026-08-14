@@ -79,8 +79,8 @@ export const FormForCreatingQuestionsYourself = ({
           control={control}
           disabled={isSubmitting}
           name="selfWrittenQuestion"
-          formLabel={t("placeholder.question")}
-          placeholder={t("placeholder.question")}
+          formLabel={t("formLabel.question")}
+          placeholder={t("createQuestion.placeholder.question")}
         />
         <div className="mx-auto w-[85%]">
           {answerFields.map((field) => (

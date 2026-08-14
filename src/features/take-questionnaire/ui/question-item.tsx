@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import shuffle from "lodash-es/shuffle";
+import { useTranslation } from "react-i18next";
 
 import { FieldsError } from "@shared/ui";
 
@@ -13,9 +14,10 @@ export const QuestionItem = ({
   wrongAnswer_2,
   index,
   question,
-  headerQuestionNumber,
   errorMessage,
 }: TQuestionItem) => {
+  const { t } = useTranslation();
+
   const { register } = useFormContext();
 
   const [shuffledAnswers] = useState(() => shuffle([correctAnswer, wrongAnswer_1, wrongAnswer_2]));
@@ -23,7 +25,8 @@ export const QuestionItem = ({
   return (
     <div className={greenContainerStyles}>
       <div className="mb-2 p-4 text-lg font-bold text-blue-100">
-        {headerQuestionNumber} {index + 1}
+        {t("header.questionNumber")}
+        {index + 1}
       </div>
       <div className="mx-auto mb-8 w-[90%]">
         <p className="textarea-styles mb-4 rounded-md">{question}</p>

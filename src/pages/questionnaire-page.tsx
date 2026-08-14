@@ -6,7 +6,7 @@ export const Questionnaire = () => {
 
   return (
     <>
-      <h1 className="pb-6">{t("header.answerToQuestion")}</h1>
+      <h1 className="pb-6">{t("survey.title")}</h1>
       <QuestionnaireForm />
     </>
   );

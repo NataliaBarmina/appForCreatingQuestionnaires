@@ -4,15 +4,15 @@ import { QuestionEditMode } from "@entities/question";
 
 export const editorOptions = [
   {
-    header: "header.questions",
-    text: "header.questionSurvey",
+    header: "editQuestions.questions",
+    text: "editQuestions.questionSurvey",
     Icon: QuestionIcon,
     path: "/coursesThemesSelection",
     buttonID: QuestionEditMode.EDIT,
   },
   {
-    header: "header.themes",
-    text: "header.themesName",
+    header: "editTheme.themes",
+    text: "editTheme.themesName",
     Icon: TopicsIcon,
     path: "/courseWheel",
     buttonID: ThemeEditMode.EDIT,

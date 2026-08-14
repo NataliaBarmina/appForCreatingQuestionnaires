@@ -26,12 +26,8 @@ export const ManualQuestionCreation = () => {
 
   return (
     <>
-      <h1>
-        {t("header.createQuestion")} {t("header.byCourse")} {courseName}
-      </h1>
-      <h2>
-        {t("formLabel.topic")} {themeName}
-      </h2>
+      <h1>{t("createQuestion.title", { courseName })}</h1>
+      <h2>{t("header.theme", { themeName })}</h2>
 
       <div className={formContainerStyles}>
         <FormForCreatingQuestionsYourself

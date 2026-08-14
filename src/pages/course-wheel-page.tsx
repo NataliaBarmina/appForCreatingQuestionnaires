@@ -12,7 +12,7 @@ export const CourseWheel = () => {
 
   return (
     <div>
-      <h1>{t("header.selectCourseToCreateTheme")}</h1>
+      <h1>{t("courseThemeSelection.courseSelection")}</h1>
       <CourseWheelContent />
     </div>
   );
