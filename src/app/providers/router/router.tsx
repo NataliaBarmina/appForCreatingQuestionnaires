@@ -65,9 +65,9 @@ const AICreatedThemesPage = lazy(() =>
     default: m.AICreatedThemesPage,
   }))
 );
-const CreateThemePage = lazy(() =>
-  import("@pages/create-theme-page").then((m) => ({
-    default: m.CreateThemePage,
+const CreationThemePage = lazy(() =>
+  import("@pages/creation-theme-page").then((m) => ({
+    default: m.CreationThemePage,
   }))
 );
 const EditorPage = lazy(() =>
@@ -100,6 +100,37 @@ export const router = createHashRouter([
             element: <Navigate to="/dashboardPage" replace />,
           },
           {
+            path: "dashboardPage",
+            element: withSuspense(<DashboardPage />),
+          },
+
+          {
+            path: "creationOptionsPage",
+            element: withSuspense(<CreationOptionsPage />),
+          },
+          {
+            path: "createTheme",
+            element: withSuspense(<CreationThemePage />), //!для создания тем - переход на создание вручную и ИИ
+          },
+          {
+            path: "manualCreatingPage",
+            element: withSuspense(<ManualQuestionCreation />), //!для создания вопросов вручную
+          },
+          {
+            path: "formForCreatingQuestionsByAI",
+            element: withSuspense(<AIQuestionCreation />), //!для создания вопросов  ИИ
+          },
+
+          {
+            path: "AICreatedThemes",
+            element: withSuspense(<AICreatedThemesPage />), //! сгенерированные темы
+          },
+          {
+            path: "questionsCreatedByAI",
+            element: withSuspense(<QuestionsCreatedByAI />), //! сгенерированные вопросы
+          },
+
+          {
             path: "editorPage",
             element: withSuspense(<EditorPage />),
           },
@@ -108,33 +139,20 @@ export const router = createHashRouter([
             element: withSuspense(<EditThemesPage />),
           },
           {
-            path: "createTheme",
-            element: withSuspense(<CreateThemePage />),
+            path: "editingQuestions",
+            element: withSuspense(<EditingQuestions />),
           },
-          {
-            path: "creationOptionsPage",
-            element: withSuspense(<CreationOptionsPage />),
-          },
+
           {
             path: "courseWheel",
             element: withSuspense(<CourseWheel />),
           },
-          {
-            path: "AICreatedThemes",
-            element: withSuspense(<AICreatedThemesPage />),
-          },
-          {
-            path: "questionsCreatedByAI",
-            element: withSuspense(<QuestionsCreatedByAI />),
-          },
+
           {
             path: "coursesThemesSelection",
             element: withSuspense(<CourseThemesPage />),
           },
-          {
-            path: "editingQuestions",
-            element: withSuspense(<EditingQuestions />),
-          },
+
           {
             path: "questionnaire",
             element: withSuspense(<Questionnaire />),
@@ -142,18 +160,6 @@ export const router = createHashRouter([
           {
             path: "resultsOfTheQuestionnaire",
             element: withSuspense(<ResultsOfTheQuestionnaire />),
-          },
-          {
-            path: "manualCreatingPage",
-            element: withSuspense(<ManualQuestionCreation />),
-          },
-          {
-            path: "formForCreatingQuestionsByAI",
-            element: withSuspense(<AIQuestionCreation />),
-          },
-          {
-            path: "dashboardPage",
-            element: withSuspense(<DashboardPage />),
           },
         ],
       },

@@ -27,7 +27,9 @@
   },
   "generateTheme": {
     "withAI": "с помощью искусственного интеллекта",
-    "generate": "Сгенерировать тему"
+    "generate": "Сгенерировать тему",
+    "questionsCountTitle": "Количество тем",
+    "preferencesPlaceholder": "Например: больше практических тем, меньше теории, исключить сложные разделы и т.д"
   },
   "createQuestion": {
     "title": "Создайте вопрос по курсу {{courseName}}",
@@ -39,31 +41,9 @@
   },
   "generateQuestions": {
     "title": "Сгенерируйте вопросы с помощью ИИ по курсу {{courseName}}",
-    "theme": "Тема {{themeName}}",
-
-    "questionsCount": {
-      "title": "Количество вопросов"
-    },
-
-    "difficulty": {
-      "title": "Сложность",
-      "easy": "Лёгкая",
-      "medium": "Средняя",
-      "hard": "Сложная"
-    },
-
-    "questionType": {
-      "title": "Тип вопросов",
-      "theory": "Теория",
-      "code": "Код",
-      "mixed": "Смешанные"
-    },
-
-    "preferences": {
-      "title": "Дополнительные пожелания",
-      "placeholder": "Например: сделать акцент на практические задачи, исключить вопросы по замыканиям и т.д."
-    },
-
+    "questionsCountTitle": "Количество вопросов",
+    "preferencesPlaceholder": "Например: сделать акцент на практические задачи, исключить вопросы по замыканиям и т.д.",
+    "preferencesTitle": "Дополнительные пожелания",
     "generate": "Сгенерировать вопросы"
   },
   "courseThemeSelection": {

@@ -27,7 +27,9 @@
   },
   "generateTheme": {
     "withAI": "with AI",
-    "generate": "Generate topic"
+    "generate": "Generate topic",
+    "questionsCountTitle": "Number of topics",
+    "preferencesPlaceholder": "For example: focus on practical topics, add beginner-friendly topics, exclude overly complex sections, etc."
   },
   "createQuestion": {
     "title": "Create a question for the course {{courseName}}",
@@ -39,31 +41,9 @@
   },
   "generateQuestions": {
     "title": "Generate AI questions for the {{courseName}} course",
-    "theme": "Topic: {{themeName}}",
-
-    "questionsCount": {
-      "title": "Number of questions"
-    },
-
-    "difficulty": {
-      "title": "Difficulty",
-      "easy": "Easy",
-      "medium": "Medium",
-      "hard": "Hard"
-    },
-
-    "questionType": {
-      "title": "Question type",
-      "theory": "Theory",
-      "code": "Code",
-      "mixed": "Mixed"
-    },
-
-    "preferences": {
-      "title": "Additional preferences",
-      "placeholder": "For example: focus on practical tasks, exclude questions about closures, etc."
-    },
-
+    "questionsCountTitle": "Number of questions",
+    "preferencesTitle": "Additional preferences",
+    "preferencesPlaceholder": "For example: focus on practical tasks, exclude questions about closures, etc.",
     "generate": "Generate questions"
   },
   "courseThemeSelection": {
@@ -91,7 +71,7 @@
     "editingQuestionsAndTopics": "Editing questions and topics",
     "addTheme": "Add theme",
     "course": "Course {{courseName}}",
-    "theme": "Theme {{themeName}}",
+    "theme": "Topic {{themeName}}",
     "questionNumber": "question №"
   },
 
