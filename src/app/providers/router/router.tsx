@@ -4,75 +4,75 @@ import { Preloader } from "@shared/ui";
 import { AppLayout } from "@app/layouts";
 import { ProtectedRoute } from "./protected-route";
 
-const AIQuestionCreation = lazy(() =>
-  import("@pages/ai-question-creation-page").then((m) => ({
-    default: m.AIQuestionCreation,
+const AIQuestionsGenerationPage = lazy(() =>
+  import("@pages/ai-question-generation-page").then((m) => ({
+    default: m.AIQuestionsGenerationPage,
   }))
 );
-const ManualQuestionCreation = lazy(() =>
+const ManualQuestionCreationPage = lazy(() =>
   import("@pages/manual-question-creation-page").then((m) => ({
-    default: m.ManualQuestionCreation,
+    default: m.ManualQuestionCreationPage,
   }))
 );
 
-const CourseThemesPage = lazy(() =>
-  import("@pages/course-theme-page").then((m) => ({
-    default: m.CourseThemesPage,
+const CourseThemeSelectionPage = lazy(() =>
+  import("@pages/course-theme-selection-page").then((m) => ({
+    default: m.CourseThemeSelectionPage,
   }))
 );
-const Questionnaire = lazy(() =>
-  import("@pages/questionnaire-page").then((m) => ({ default: m.Questionnaire }))
+const QuestionnairePage = lazy(() =>
+  import("@pages/questionnaire-page").then((m) => ({ default: m.QuestionnairePage }))
 );
-const ResultsOfTheQuestionnaire = lazy(() =>
-  import("@pages/result-questionnaire-page").then((m) => ({
-    default: m.ResultsOfTheQuestionnaire,
+const QuestionnaireResultPage = lazy(() =>
+  import("@pages/questionnaire-result-page").then((m) => ({
+    default: m.QuestionnaireResultPage,
   }))
 );
 
-const EditingQuestions = lazy(() =>
+const QuestionEditorPage = lazy(() =>
   import("@pages/question-editor-page").then((m) => ({
-    default: m.EditingQuestions,
+    default: m.QuestionEditorPage,
   }))
 );
 
-const EditThemesPage = lazy(() =>
-  import("@pages/edit-themes-page").then((m) => ({
-    default: m.EditThemesPage,
+const ThemeEditorPage = lazy(() =>
+  import("@pages/theme-editor-page").then((m) => ({
+    default: m.ThemeEditorPage,
   }))
 );
 
 const DashboardPage = lazy(() =>
   import("@pages/dashboard-page").then((m) => ({ default: m.DashboardPage }))
 );
-const CourseWheel = lazy(() =>
-  import("@pages/course-wheel-page").then((m) => ({ default: m.CourseWheel }))
+const CourseSelectionPage = lazy(() =>
+  import("@pages/course-selection-page").then((m) => ({ default: m.CourseSelectionPage }))
 );
 
 const LoginPage = lazy(() => import("@pages/login-page").then((m) => ({ default: m.LoginPage })));
 
-const CreationOptionsPage = lazy(() =>
-  import("@pages/creation-options-page").then((m) => ({
-    default: m.CreationOptionsPage,
+const ContentCreationOptionPage = lazy(() =>
+  import("@pages/content-creation-options-page").then((m) => ({
+    default: m.ContentCreationOptionPage,
   }))
 );
-const QuestionsCreatedByAI = lazy(() =>
-  import("@pages/ai-created-questions-page").then((m) => ({
-    default: m.QuestionsCreatedByAI,
+const AIGeneratedQuestionsPage = lazy(() =>
+  import("@pages/ai-generated-questions-page").then((m) => ({
+    default: m.AIGeneratedQuestionsPage,
   }))
 );
-const AICreatedThemesPage = lazy(() =>
-  import("@pages/ai-created-themes-page").then((m) => ({
-    default: m.AICreatedThemesPage,
+const AIGeneratedThemesPage = lazy(() =>
+  import("@pages/ai-generated-themes-page").then((m) => ({
+    default: m.AIGeneratedThemesPage,
   }))
 );
-const CreationThemePage = lazy(() =>
-  import("@pages/creation-theme-page").then((m) => ({
-    default: m.CreationThemePage,
+const ThemeCreationPage = lazy(() =>
+  import("@pages/theme-creation-page").then((m) => ({
+    default: m.ThemeCreationPage,
   }))
 );
-const EditorPage = lazy(() =>
-  import("@pages/editor-page").then((m) => ({
-    default: m.EditorPage,
+const ContentEditingOptionsPage = lazy(() =>
+  import("@pages/content-editing-options-page").then((m) => ({
+    default: m.ContentEditingOptionsPage,
   }))
 );
 
@@ -87,7 +87,7 @@ export const router = createHashRouter([
 
     children: [
       {
-        path: "loginPage",
+        path: "login",
         element: withSuspense(<LoginPage />),
       },
       // Защищённая группа маршрутов
@@ -97,69 +97,69 @@ export const router = createHashRouter([
         children: [
           {
             index: true,
-            element: <Navigate to="/dashboardPage" replace />,
+            element: <Navigate to="/dashboard" replace />,
           },
           {
-            path: "dashboardPage",
+            path: "dashboard",
             element: withSuspense(<DashboardPage />),
           },
 
           {
-            path: "creationOptionsPage",
-            element: withSuspense(<CreationOptionsPage />),
+            path: "create",
+            element: withSuspense(<ContentCreationOptionPage />),
           },
           {
-            path: "createTheme",
-            element: withSuspense(<CreationThemePage />), //!для создания тем - переход на создание вручную и ИИ
+            path: "create/theme",
+            element: withSuspense(<ThemeCreationPage />), // вручную и ИИ
           },
           {
-            path: "manualCreatingPage",
-            element: withSuspense(<ManualQuestionCreation />), //!для создания вопросов вручную
+            path: "create/questions/manual",
+            element: withSuspense(<ManualQuestionCreationPage />),
           },
           {
-            path: "formForCreatingQuestionsByAI",
-            element: withSuspense(<AIQuestionCreation />), //!для создания вопросов  ИИ
-          },
-
-          {
-            path: "AICreatedThemes",
-            element: withSuspense(<AICreatedThemesPage />), //! сгенерированные темы
-          },
-          {
-            path: "questionsCreatedByAI",
-            element: withSuspense(<QuestionsCreatedByAI />), //! сгенерированные вопросы
+            path: "create/questions/ai",
+            element: withSuspense(<AIQuestionsGenerationPage />),
           },
 
           {
-            path: "editorPage",
-            element: withSuspense(<EditorPage />),
+            path: "create/themes/ai-result",
+            element: withSuspense(<AIGeneratedThemesPage />), // сгенерированные темы
           },
           {
-            path: "editThemes",
-            element: withSuspense(<EditThemesPage />),
-          },
-          {
-            path: "editingQuestions",
-            element: withSuspense(<EditingQuestions />),
+            path: "create/questions/ai-result",
+            element: withSuspense(<AIGeneratedQuestionsPage />), // сгенерированные вопросы
           },
 
           {
-            path: "courseWheel",
-            element: withSuspense(<CourseWheel />),
+            path: "edit",
+            element: withSuspense(<ContentEditingOptionsPage />),
+          },
+          {
+            path: "edit/themes",
+            element: withSuspense(<ThemeEditorPage />),
+          },
+          {
+            path: "edit/questions",
+            element: withSuspense(<QuestionEditorPage />),
           },
 
           {
-            path: "coursesThemesSelection",
-            element: withSuspense(<CourseThemesPage />),
+            path: "select/course",
+            element: withSuspense(<CourseSelectionPage />),
+          },
+
+          {
+            path: "select/course-theme",
+            element: withSuspense(<CourseThemeSelectionPage />),
           },
 
           {
             path: "questionnaire",
-            element: withSuspense(<Questionnaire />),
+            element: withSuspense(<QuestionnairePage />),
           },
           {
-            path: "resultsOfTheQuestionnaire",
-            element: withSuspense(<ResultsOfTheQuestionnaire />),
+            path: "questionnaire/results",
+            element: withSuspense(<QuestionnaireResultPage />),
           },
         ],
       },

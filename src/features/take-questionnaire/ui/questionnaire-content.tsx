@@ -30,7 +30,7 @@ export const QuestionnaireContent = ({ questions }: { questions: TQuestion[] }) 
   const generalErrorMessage = answersErrors?.root?.message;
 
   function onSubmit(formData: TFormValues) {
-    navigate("/resultsOfTheQuestionnaire", {
+    navigate("/questionnaire/results", {
       state: {
         answers: formData.radioInputFromSurvey,
         questionsList,

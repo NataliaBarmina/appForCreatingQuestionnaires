@@ -11,7 +11,7 @@ export const ProtectedRoute = () => {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/loginPage" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return <Outlet />;

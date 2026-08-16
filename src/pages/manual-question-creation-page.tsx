@@ -13,7 +13,7 @@ export const formContainerStyles = cn(
   "2xl:w-[45vw]"
 );
 
-export const ManualQuestionCreation = () => {
+export const ManualQuestionCreationPage = () => {
   const { t } = useTranslation();
 
   const location = useLocation();

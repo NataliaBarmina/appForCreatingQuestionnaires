@@ -5,7 +5,7 @@ export const circleConfig = [
     rowSpan: "row-span-2",
     rowStart: "row-start-1",
     labelKey: "navigation.creating",
-    link: "/creationOptionsPage",
+    link: "/create",
   },
   {
     colSpan: "col-span-2",
@@ -13,7 +13,7 @@ export const circleConfig = [
     rowSpan: "row-span-3",
     rowStart: "row-start-4",
     labelKey: "navigation.editing",
-    link: "/editorPage",
+    link: "/edit",
   },
   {
     colSpan: "col-span-2",

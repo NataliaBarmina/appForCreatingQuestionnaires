@@ -30,7 +30,7 @@ export const GenerateQuestionsForm = ({ themeId, courseName, themeName }: TSelec
 
     // TODO: запрос на генерацию вопросов
 
-    navigate("/questionsCreatedByAI", { state: { themeId, courseName, themeName } });
+    navigate("/create/questions/ai-result", { state: { themeId, courseName, themeName } });
   };
 
   return (

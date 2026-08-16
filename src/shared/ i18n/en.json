@@ -1,7 +1,7 @@
 {
   "navigation": {
     "creating": "Creating",
-    "questionnaire": "Questionnaire",
+    "questionnaire": "QuestionnairePage",
     "editing": "Editing"
   },
   "creationOptions": {

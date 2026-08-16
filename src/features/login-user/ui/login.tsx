@@ -49,7 +49,7 @@ export const Login = () => {
       await signInWithEmailAndPassword(auth, SHARED_EMAIL, password);
 
       reset();
-      navigate("/dashboardPage");
+      navigate("/dashboard");
     } catch (error: unknown) {
       setError(t("auth.errors.default"));
     }

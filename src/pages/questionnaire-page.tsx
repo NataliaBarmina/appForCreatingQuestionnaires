@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { QuestionnaireForm } from "@features/take-questionnaire";
 
-export const Questionnaire = () => {
+export const QuestionnairePage = () => {
   const { t } = useTranslation();
 
   return (
