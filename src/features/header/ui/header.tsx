@@ -19,7 +19,7 @@ export const Header = () => {
   async function handleLogout() {
     await logout();
 
-    navigate("/loginPage", {
+    navigate("/login", {
       replace: true,
     });
   }

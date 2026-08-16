@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
-import { EditQuestionContent } from "@widgets/edit-question-content";
+import { QuestionEditor } from "@widgets/question-editor";
 import { useGetQuestionsByTheme } from "@entities/question";
 import { LoadingError, Preloader, EmptyState } from "@shared/ui";
 
-export const EditingQuestions = () => {
+export const QuestionEditorPage = () => {
   const { t } = useTranslation();
 
   const location = useLocation();
@@ -27,7 +27,7 @@ export const EditingQuestions = () => {
         {data.length === 0 ? (
           <EmptyState message={t("emptyState.noQuestions")} />
         ) : (
-          <EditQuestionContent data={data} />
+          <QuestionEditor data={data} />
         )}
       </div>
     </div>

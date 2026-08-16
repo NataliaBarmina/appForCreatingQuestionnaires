@@ -30,7 +30,7 @@ export const AIThemesCreation = ({ courseName }: { courseName: string }) => {
 
     // TODO: запрос на генерацию
 
-    navigate("/AICreatedThemes", { state: { courseName } });
+    navigate("/create/themes/ai-result", { state: { courseName } });
   };
 
   return (
