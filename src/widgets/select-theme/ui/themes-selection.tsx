@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 
 import { CreateThemePopover } from "@features/create-theme-manually";
-import { TSelectedTheme, ThemeList } from "@entities/theme";
+import { TSelectedTheme } from "@entities/theme";
 import { QuestionCreationMode } from "@entities/question";
 
-import { mainContainerStyles } from "../styles";
+import { mainContainerStyles, listItemStyles } from "./styles";
 
 export const ThemesSelection = ({
   courseName,
@@ -42,12 +46,17 @@ export const ThemesSelection = ({
   return (
     <div className="mx-auto w-full">
       <div className={mainContainerStyles}>
-        <ThemeList
-          selectedTopics={selectedTopics}
-          courseName={courseName}
-          buttonID={buttonID}
-          handleThemeClick={handleThemeClick}
-        />
+        <nav aria-label="Themes list">
+          <List>
+            {selectedTopics.map((theme) => (
+              <ListItem disablePadding key={theme.themeId} sx={listItemStyles}>
+                <ListItemButton onClick={() => handleThemeClick(theme)}>
+                  <ListItemText primary={theme.themeName} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </nav>
 
         {(buttonID === QuestionCreationMode.AI || buttonID === QuestionCreationMode.MANUAL) && (
           <CreateThemePopover courseName={courseName} />
