@@ -4,10 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 
 import { Button, FieldsError } from "@shared/ui";
-import { useAddTheme } from "../api/use-add-theme";
+import { useCreateTheme } from "../api/use-create-theme";
 import { createThemeSchema } from "../model/validation-schema";
 
-export const CreateThemeManually = ({
+export const CreateThemeForm = ({
   onSuccess,
   courseName,
 }: {
@@ -32,7 +32,7 @@ export const CreateThemeManually = ({
     resolver: yupResolver(schema),
   });
 
-  const { mutate: createTheme } = useAddTheme();
+  const { mutate: createTheme } = useCreateTheme();
 
   const onSubmit = (data: { topicName: string }) => {
     const { topicName } = data;

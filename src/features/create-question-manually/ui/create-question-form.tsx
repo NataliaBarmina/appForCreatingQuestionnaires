@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 
-import { QuestionFormActions } from "./question-form-action";
+import { QuestionFormActions } from "./question-form-actions";
 import { CreateQuestionField } from "./create-question-field";
 import { CreateAnswerField } from "./create-answer-field";
 import { useCreateQuestion } from "../api/use-create-question";
@@ -19,7 +19,7 @@ const defaultValues = {
   selfWrittenAnswer3: "",
 };
 
-export const FormForCreatingQuestionsYourself = ({
+export const CreateQuestionForm = ({
   courseName,
   themeName,
   themeId,

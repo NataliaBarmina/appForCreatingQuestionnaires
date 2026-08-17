@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { cn } from "@shared/lib";
-import { FormForCreatingQuestionsYourself } from "@features/create-question-manually";
+import { CreateQuestionForm } from "@features/create-question-manually";
 
 export const formContainerStyles = cn(
   "mx-auto mb-5 w-[100vw] bg-green-800 px-6",
@@ -30,11 +30,7 @@ export const ManualQuestionCreationPage = () => {
       <h2>{t("header.theme", { themeName })}</h2>
 
       <div className={formContainerStyles}>
-        <FormForCreatingQuestionsYourself
-          courseName={courseName}
-          themeName={themeName}
-          themeId={themeId}
-        />
+        <CreateQuestionForm courseName={courseName} themeName={themeName} themeId={themeId} />
       </div>
     </>
   );

@@ -1,9 +1,9 @@
-import { DeleteIcon } from "./icon";
+import { DeleteThemeIcon } from "./delete-theme-icon";
 
 export const buttonStyle =
   "flex h-11 w-11 items-center justify-center rounded-xl border border-[#dc9297] text-[#dc9297] transition hover:bg-[#dc9297] hover:text-white";
 
-export const DeleteTheme = ({ themeId }: { themeId: string }) => {
+export const DeleteThemeButton = ({ themeId }: { themeId: string }) => {
   return (
     <>
       <button
@@ -13,7 +13,7 @@ export const DeleteTheme = ({ themeId }: { themeId: string }) => {
         onClick={() => alert(themeId)}
         className={buttonStyle}
       >
-        <DeleteIcon />
+        <DeleteThemeIcon />
       </button>
     </>
   );

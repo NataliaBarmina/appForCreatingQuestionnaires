@@ -1,2 +1,2 @@
 export { CreateThemePopover } from "./ui/create-theme-popover";
-export { CreateThemeManually } from "./ui/create-theme-manually";
+export { CreateThemeForm } from "./ui/create-theme-form";

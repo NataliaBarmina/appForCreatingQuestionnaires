@@ -16,6 +16,8 @@ export const sectionStyles =
 
 export const sectionTitleStyles = "pb-6 text-xl font-semibold";
 
+//! используется при генерации вопросов/тем. Выбор количества вопросов и дополнительные пожелания.
+
 export const GenerationSettings = ({
   generationCount,
   count,

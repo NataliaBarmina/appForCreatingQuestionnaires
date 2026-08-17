@@ -3,7 +3,7 @@ import { Tabs, Tab } from "@mui/material";
 import { TCourseSelection } from "../model/types";
 import { tabStyle, tabsStyle } from "./styles";
 
-export const CourseSelection = ({ tabValue, courses, handleChange }: TCourseSelection) => {
+export const CourseSelector = ({ tabValue, courses, handleChange }: TCourseSelection) => {
   return (
     <div className="shadow-2xl shadow-stone-500">
       <div className="mx-auto flex w-full justify-center">

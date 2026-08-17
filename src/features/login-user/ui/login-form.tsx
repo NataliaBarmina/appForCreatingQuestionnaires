@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@appFirebase";
 
 import { FieldsError } from "@shared/ui";
 
@@ -16,10 +14,9 @@ import {
   errorStyles,
   buttonStyles,
 } from "./styles";
+import { useSession } from "@entities/session";
 
-export const SHARED_EMAIL = "myappforquestionnaires@gmail.com";
-
-export const Login = () => {
+export const LoginForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -41,12 +38,13 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
+  const { login } = useSession();
+
   const onSubmit = async ({ password }: { password: string }) => {
     setError(null);
 
     try {
-      // вход с помощью email (SHARED_EMAIL) и пароля, который ввёл пользователь
-      await signInWithEmailAndPassword(auth, SHARED_EMAIL, password);
+      await login(password);
 
       reset();
       navigate("/dashboard");

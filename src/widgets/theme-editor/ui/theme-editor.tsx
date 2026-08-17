@@ -1,5 +1,5 @@
-import { EditTheme } from "@features/edit-theme";
-import { DeleteTheme } from "@features/delete-theme";
+import { EditThemeButton } from "@features/edit-theme";
+import { DeleteThemeButton } from "@features/delete-theme";
 import { TSelectedTheme } from "@entities/theme";
 
 type TThemeEditor = { themes: TSelectedTheme[]; buttonID: string };
@@ -17,8 +17,8 @@ export const ThemeEditor = ({ themes, buttonID }: TThemeEditor) => {
             <p>{theme.themeName}</p>
 
             <div className="flex items-center gap-3">
-              <EditTheme themeId={theme.themeId} />
-              <DeleteTheme themeId={theme.themeId} />
+              <EditThemeButton themeId={theme.themeId} />
+              <DeleteThemeButton themeId={theme.themeId} />
             </div>
           </div>
         </div>

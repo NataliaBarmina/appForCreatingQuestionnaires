@@ -1,1 +1,1 @@
-export { EditTheme } from "./ui/edit-theme";
+export { EditThemeButton } from "./ui/edit-theme-button";
