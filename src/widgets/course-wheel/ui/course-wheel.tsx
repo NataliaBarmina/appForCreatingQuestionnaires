@@ -20,8 +20,13 @@ export const CourseWheel = () => {
       buttonID,
     };
 
-    if (buttonID === ThemeCreationMode.MANUAL || buttonID === ThemeCreationMode.AI) {
+    if (buttonID === ThemeCreationMode.MANUAL) {
       navigate("/create/theme", { state });
+      return;
+    }
+
+    if (buttonID === ThemeCreationMode.AI) {
+      navigate("/create/themes/ai", { state });
       return;
     }
 

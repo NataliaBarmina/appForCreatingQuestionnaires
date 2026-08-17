@@ -7,7 +7,6 @@ export const DeleteQuestionDialog = ({ questionID }: { questionID: string }) => 
 
   // todo
   const onDelete = (id: string) => {
-    console.log(id);
     alert("удалить вопрос");
   };
   // todo isFormValid
