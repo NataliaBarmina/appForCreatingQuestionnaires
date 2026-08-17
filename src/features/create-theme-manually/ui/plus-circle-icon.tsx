@@ -1,4 +1,4 @@
-export const CircleIcon = () => {
+export const PlusCircleIcon = () => {
   return (
     <div className="flex size-12 items-center justify-center rounded-full bg-[#ff806d]">
       <span className="relative block size-5">

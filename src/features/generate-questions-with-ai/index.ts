@@ -1,1 +1,1 @@
-export { GenerateQuestionsForm } from "./ui/form-generate-questions";
+export { GenerateQuestionsForm } from "./ui/generate-questions-form";

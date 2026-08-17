@@ -1,3 +1,6 @@
+import { LanguageSwitcher } from "@features/change-language";
+import { LogoutButton } from "@features/logout-user";
+
 import { cn } from "@shared/lib";
 
 export const headerStyle = cn(
@@ -10,7 +13,13 @@ export const headerStyle = cn(
   "2xl:left-[14.9vw] 2xl:w-[70%]"
 );
 
-export const buttonAuthStyles = "rounded-md bg-[#fca5a5]/80 px-4 py-2";
-
-export const containerSwitcherStyles = "flex h-[12vh] flex-col items-end justify-evenly";
-export const buttonLanguageStyles = "mr-4 w-[5rem] rounded-md bg-red-100 p-1 text-[0.8rem]";
+export const Header = () => {
+  return (
+    <div className="h-[12vh] w-full">
+      <div className={headerStyle}>
+        <LogoutButton />
+        <LanguageSwitcher />
+      </div>
+    </div>
+  );
+};

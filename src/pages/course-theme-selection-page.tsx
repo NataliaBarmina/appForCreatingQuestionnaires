@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { CourseSelection, THandleTabChange } from "@features/select-course";
+import { CourseSelector, THandleTabChange } from "@features/select-course";
 import { ThemeSelection } from "@widgets/theme-selection";
 import { useGetThemes } from "@entities/theme";
 import { COURSES } from "@entities/course";
@@ -31,7 +31,7 @@ export const CourseThemeSelectionPage = () => {
     <div>
       <h1 className="pb-10">{t("courseThemeSelection.courseSelection")}</h1>
       <div className="w-full pb-11">
-        <CourseSelection tabValue={tabValue} courses={COURSES} handleChange={handleChange} />
+        <CourseSelector tabValue={tabValue} courses={COURSES} handleChange={handleChange} />
 
         {isLoading && <Preloader />}
         {isError && <LoadingError message={errorMessage} />}

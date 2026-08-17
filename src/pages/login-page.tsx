@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Login } from "@features/login-user";
+import { LoginForm } from "@features/login-user";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
@@ -8,7 +8,7 @@ export const LoginPage = () => {
     <div className="mx-auto mt-32 w-[70%] rounded-2xl border-2 border-solid border-gray-600 bg-green-800 py-14">
       <h1 className="pb-10 text-[150%] text-pink-50">{t("auth.title")}</h1>
 
-      <Login />
+      <LoginForm />
     </div>
   );
 };

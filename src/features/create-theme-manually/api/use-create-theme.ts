@@ -2,7 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-export const addTheme = async ({
+export const createTheme = async ({
   themeName,
   courseName,
 }: {
@@ -12,11 +12,11 @@ export const addTheme = async ({
   return addDoc(collection(db, "themes"), { themeName, courseName });
 };
 
-export const useAddTheme = () => {
+export const useCreateTheme = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: addTheme,
+    mutationFn: createTheme,
 
     onSuccess: () =>
       queryClient.invalidateQueries({

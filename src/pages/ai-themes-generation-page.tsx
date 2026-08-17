@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { AIThemesCreation } from "@features/generate-theme-with-ai";
+import { GenerateThemesForm } from "@features/generate-themes-with-ai";
 
 export const AIThemesGenerationPage = () => {
   const location = useLocation();
@@ -15,7 +15,7 @@ export const AIThemesGenerationPage = () => {
 
       <h2>{t("createTheme.forCourse", { course })}</h2>
 
-      <AIThemesCreation courseName={course} buttonID={buttonID} />
+      <GenerateThemesForm courseName={course} buttonID={buttonID} />
     </>
   );
 };

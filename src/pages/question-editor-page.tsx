@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 
 import { QuestionEditor } from "@widgets/question-editor";
-import { useGetQuestionsByTheme } from "@entities/question";
+import { useGetQuestions } from "@widgets/question-editor";
 import { LoadingError, Preloader, EmptyState } from "@shared/ui";
 
 export const QuestionEditorPage = () => {
@@ -12,7 +12,7 @@ export const QuestionEditorPage = () => {
 
   const { courseName, themeName }: { courseName: string; themeName: string } = location.state || {};
 
-  const { data = [], isLoading, isError, error } = useGetQuestionsByTheme(themeName);
+  const { data = [], isLoading, isError, error } = useGetQuestions(themeName);
 
   if (isLoading) return <Preloader />;
   if (isError) return <LoadingError message={error.message} />;

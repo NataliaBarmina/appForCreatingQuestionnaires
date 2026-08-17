@@ -10,7 +10,7 @@ import { GenerationSettings } from "@entities/generation-settings";
 
 const TOPICS_COUNT = [5, 10, 15, 20];
 
-export const AIThemesCreation = ({
+export const GenerateThemesForm = ({
   courseName,
   buttonID,
 }: {

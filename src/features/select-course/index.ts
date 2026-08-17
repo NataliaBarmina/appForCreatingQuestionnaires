@@ -1,2 +1,2 @@
 export type { THandleTabChange } from "./model/types";
-export { CourseSelection } from "./ui/courses-selection";
+export { CourseSelector } from "./ui/courses-selector";

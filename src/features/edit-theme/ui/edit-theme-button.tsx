@@ -1,9 +1,9 @@
-import { EditIcon } from "./icon";
+import { EditThemeIcon } from "./edit-theme-icon";
 
 export const buttonStyle =
   "flex h-11 w-11 items-center justify-center rounded-xl border border-[#dc9297] text-[#dc9297] transition hover:bg-[#dc9297] hover:text-white";
 
-export const EditTheme = ({ themeId }: { themeId: string }) => {
+export const EditThemeButton = ({ themeId }: { themeId: string }) => {
   return (
     <button
       type="button"
@@ -12,7 +12,7 @@ export const EditTheme = ({ themeId }: { themeId: string }) => {
       onClick={() => alert(themeId)}
       className={buttonStyle}
     >
-      <EditIcon />
+      <EditThemeIcon />
     </button>
   );
 };
