@@ -5,7 +5,7 @@ import { AppLayout } from "@app/layouts";
 import { ProtectedRoute } from "./protected-route";
 
 const AIQuestionsGenerationPage = lazy(() =>
-  import("@pages/ai-question-generation-page").then((m) => ({
+  import("@pages/ai-questions-generation-page").then((m) => ({
     default: m.AIQuestionsGenerationPage,
   }))
 );
@@ -65,9 +65,14 @@ const AIGeneratedThemesPage = lazy(() =>
     default: m.AIGeneratedThemesPage,
   }))
 );
-const ThemeCreationPage = lazy(() =>
-  import("@pages/theme-creation-page").then((m) => ({
-    default: m.ThemeCreationPage,
+const ManualThemeCreationPage = lazy(() =>
+  import("@pages/manual-theme-creation-page").then((m) => ({
+    default: m.ManualThemeCreationPage,
+  }))
+);
+const AIThemesGenerationPage = lazy(() =>
+  import("@pages/ai-themes-generation-page").then((m) => ({
+    default: m.AIThemesGenerationPage,
   }))
 );
 const ContentEditingOptionsPage = lazy(() =>
@@ -110,7 +115,7 @@ export const router = createHashRouter([
           },
           {
             path: "create/theme",
-            element: withSuspense(<ThemeCreationPage />), // вручную и ИИ
+            element: withSuspense(<ManualThemeCreationPage />), // вручную и ИИ
           },
           {
             path: "create/questions/manual",
@@ -119,6 +124,10 @@ export const router = createHashRouter([
           {
             path: "create/questions/ai",
             element: withSuspense(<AIQuestionsGenerationPage />),
+          },
+          {
+            path: "create/themes/ai",
+            element: withSuspense(<AIThemesGenerationPage />),
           },
 
           {

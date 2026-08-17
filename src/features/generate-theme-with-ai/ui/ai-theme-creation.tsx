@@ -10,7 +10,13 @@ import { GenerationSettings } from "@entities/generation-settings";
 
 const TOPICS_COUNT = [5, 10, 15, 20];
 
-export const AIThemesCreation = ({ courseName }: { courseName: string }) => {
+export const AIThemesCreation = ({
+  courseName,
+  buttonID,
+}: {
+  courseName: string;
+  buttonID: string;
+}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -30,7 +36,7 @@ export const AIThemesCreation = ({ courseName }: { courseName: string }) => {
 
     // TODO: запрос на генерацию
 
-    navigate("/create/themes/ai-result", { state: { courseName } });
+    navigate("/create/themes/ai-result", { state: { courseName, buttonID } });
   };
 
   return (

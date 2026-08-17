@@ -41,7 +41,6 @@ export const EditQuestionForm = ({
       wrongAnswer2: data.wrongAnswer2,
     };
     //todo
-    console.log(updatedQuestion, questionID);
     alert(questionID);
     onClose?.();
   };
