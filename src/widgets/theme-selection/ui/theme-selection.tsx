@@ -46,6 +46,9 @@ export const ThemeSelection = ({
   return (
     <div className="mx-auto w-full">
       <div className={mainContainerStyles}>
+        {(buttonID === QuestionCreationMode.AI || buttonID === QuestionCreationMode.MANUAL) && (
+          <CreateThemePopover courseName={courseName} />
+        )}
         <nav aria-label="Themes list">
           <List>
             {selectedTopics.map((theme) => (
@@ -57,10 +60,6 @@ export const ThemeSelection = ({
             ))}
           </List>
         </nav>
-
-        {(buttonID === QuestionCreationMode.AI || buttonID === QuestionCreationMode.MANUAL) && (
-          <CreateThemePopover courseName={courseName} />
-        )}
       </div>
     </div>
   );

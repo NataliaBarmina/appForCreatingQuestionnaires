@@ -17,13 +17,13 @@ export const CreateThemePopover = ({ courseName }: { courseName: string }) => {
         {t("createTheme.buttonLabel")}
       </PopoverTrigger>
       <PopoverContent
-        className="border-none bg-green-800"
-        style={{
-          width: "calc(var(--radix-popover-trigger-width) * 2.3)",
-        }}
+        className="w-[45rem] rounded-2xl border-none bg-green-800 p-0"
+        side="bottom"
+        align="center"
+        sideOffset={-37}
       >
         <div className={formContainerStyles}>
-          <div className="mb-5 flex items-center gap-4">
+          <div className="flex items-center gap-4 pb-6 pt-4">
             <PlusCircleIcon />
             <h1 className="pt-0">{t("header.addTheme")}</h1>
           </div>
