@@ -61,6 +61,7 @@
   "editTheme": {
     "titleAI": "Edit AI-generated topics",
     "title": "Edit a topic for the course {{course}}",
+    "editTitle": "Edit topic",
     "edit": "edit",
     "delete": "and delete",
     "themesName": "topic titles",

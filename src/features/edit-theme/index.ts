@@ -1,1 +1,1 @@
-export { EditThemeButton } from "./ui/edit-theme-button";
+export { EditThemePopover } from "./ui/edit-theme-popover";

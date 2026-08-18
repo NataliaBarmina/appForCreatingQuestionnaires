@@ -1,14 +1,10 @@
-import { EditThemeButton } from "@features/edit-theme";
+import { EditThemePopover } from "@features/edit-theme";
 import { DeleteThemeButton } from "@features/delete-theme";
 import { TSelectedTheme } from "@entities/theme";
 
 type TThemeEditor = { themes: TSelectedTheme[]; buttonID: string };
 
-// todo - в зависимости от значения buttonID делать разные действия - работать с файрбэйз или локал сторадж
-
 export const ThemeEditor = ({ themes, buttonID }: TThemeEditor) => {
-  console.log(buttonID);
-
   return (
     <div className="mx-auto mt-8 w-[90%] rounded-xl bg-green-800 px-12 py-10">
       {themes.map((theme) => (
@@ -17,8 +13,9 @@ export const ThemeEditor = ({ themes, buttonID }: TThemeEditor) => {
             <p>{theme.themeName}</p>
 
             <div className="flex items-center gap-3">
-              <EditThemeButton themeId={theme.themeId} />
-              <DeleteThemeButton themeId={theme.themeId} />
+              {" "}
+              <EditThemePopover theme={theme} buttonID={buttonID} />
+              <DeleteThemeButton themeId={theme.themeId} buttonID={buttonID} />
             </div>
           </div>
         </div>

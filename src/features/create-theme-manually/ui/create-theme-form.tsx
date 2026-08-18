@@ -59,17 +59,15 @@ export const CreateThemeForm = ({
   const errorMessage = errors?.topicName?.message;
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-6 text-center">
+      <div className="text-center">
         <textarea
-          className="textarea-styles w-[90%]"
+          className="textarea-styles mb-10 w-[90%]"
           placeholder={t("createTheme.placeholder")}
           {...register("topicName")}
         />
       </div>
       {errorMessage && <FieldsError message={errorMessage} />}
-      <div>
-        <Button buttonLabel={t("buttonLabel.send")} size="middle" />
-      </div>
+      <Button buttonLabel={t("buttonLabel.send")} size="middle" />
     </form>
   );
 };

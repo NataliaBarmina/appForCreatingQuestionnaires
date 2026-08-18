@@ -2,12 +2,12 @@ import { cn } from "@shared/lib";
 
 export const popoverTriggerStyles = cn(
   "block mx-auto rounded-lg",
-  "py-3 mb-8",
+  "py-2 px-4 mb-4",
   "bg-stone-500  text-pink-100 font-bold",
   "shadow-lg shadow-stone-800 ",
   "hover:cursor-pointer hover:shadow-xl hover:shadow-zinc-950",
   "hover:border hover:border-solid hover:border-zinc-950",
-  "xs:text-[3vw] w-[40%]",
+  "xs:text-[3vw] ",
   "s:text-[2.5vw]",
   "sm:text-[2.1vw]",
   "md:landscape:text-[1.5vw]",
