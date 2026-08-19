@@ -42,15 +42,7 @@ export const AIGeneratedQuestionsPage = () => {
 
       {data.map((item) => (
         <div key={item.id}>
-          <EditQuestionForm
-            onDelete={() => alert(item)}
-            question={item.question}
-            correctAnswer={item.answer_1}
-            wrongAnswer1={item.answer_2}
-            wrongAnswer2={item.answer_3}
-            questionID={item.id}
-            mode="generated"
-          />
+          <EditQuestionForm onDelete={() => alert(item)} questionItem={item} mode="generated" />
         </div>
       ))}
     </div>

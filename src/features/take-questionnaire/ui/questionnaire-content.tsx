@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FormProvider, useForm } from "react-hook-form";
@@ -17,9 +17,9 @@ export const QuestionnaireContent = ({ questions }: { questions: TQuestion[] }) 
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [questionsList] = useState(() => shuffle(questions).slice(0, QUESTIONS_LIMIT));
+  const questionsList = useMemo(() => shuffle(questions).slice(0, QUESTIONS_LIMIT), [questions]);
 
-  const [schema] = useState(() => createSchema(questionsList.length));
+  const schema = useMemo(() => createSchema(questionsList.length), [questionsList.length]);
 
   const form = useForm<TFormValues>({
     resolver: yupResolver(schema),

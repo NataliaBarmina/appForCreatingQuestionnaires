@@ -5,8 +5,16 @@ export type TFields = {
   wrongAnswer2: string;
 };
 
-export type TEditQuestionForm = TFields & {
-  questionID: string;
+export type TQuestionItem = {
+  id: string;
+  question: string;
+  answer_1: string;
+  answer_2: string;
+  answer_3: string;
+};
+
+export type TEditQuestionForm = {
+  questionItem: TQuestionItem;
   mode: "generated" | "default";
   onClose?: () => void;
   onDelete?: () => void;

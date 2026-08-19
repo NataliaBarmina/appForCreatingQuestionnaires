@@ -7,7 +7,6 @@ import { EditQuestionForm } from "./edit-question-form";
 
 export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionList }) => {
   const { t } = useTranslation();
-  const { question, answer_1, answer_2, answer_3, id } = questionItem;
 
   const [open, setOpen] = useState(false); // управление открытием/закрытием диалога
 
@@ -33,15 +32,7 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
         <DialogContent>
           <DialogTitle className="sr-only">Редактирование вопроса</DialogTitle>
 
-          <EditQuestionForm
-            onClose={closeDialog}
-            question={question}
-            correctAnswer={answer_1}
-            wrongAnswer1={answer_2}
-            wrongAnswer2={answer_3}
-            questionID={id}
-            mode="default"
-          />
+          <EditQuestionForm onClose={closeDialog} questionItem={questionItem} mode="default" />
         </DialogContent>
       </Dialog>
     </div>
