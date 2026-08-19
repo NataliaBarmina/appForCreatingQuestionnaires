@@ -22,8 +22,8 @@ export const useCreateQuestion = () => {
   return useMutation({
     mutationFn: createQuestion,
 
-    onSuccess: () =>
-      queryClient.invalidateQueries({
+    onSuccess: async () =>
+      await queryClient.invalidateQueries({
         queryKey: ["questions"],
       }),
   });

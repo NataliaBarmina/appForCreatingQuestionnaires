@@ -16,7 +16,7 @@ export type TConfirmActionDialog = {
   alertDialogAction: string;
   alertDialogCancel: string;
   buttonLabel: string;
-  isFormValid: boolean;
+  isFormValid?: boolean;
   isSubmitting?: boolean;
   type?: "submit" | "reset" | "button";
   size: "middle" | "small" | "big";

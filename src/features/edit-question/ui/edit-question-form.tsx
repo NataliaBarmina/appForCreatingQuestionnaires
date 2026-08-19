@@ -19,17 +19,9 @@ const answerFields: TAnswerField[] = [
   { name: "wrongAnswer2", label: "formLabel.wrongAnswer" },
 ];
 
-export const EditQuestionForm = ({
-  onClose,
-  onDelete,
-  question,
-  correctAnswer,
-  wrongAnswer1,
-  wrongAnswer2,
-  questionID,
-  mode,
-}: TEditQuestionForm) => {
+export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEditQuestionForm) => {
   const { t } = useTranslation();
+  const { question, answer_1, answer_2, answer_3, id } = questionItem;
 
   const schema = createSchema(t("validation.required"));
 
@@ -41,7 +33,7 @@ export const EditQuestionForm = ({
       wrongAnswer2: data.wrongAnswer2,
     };
     //todo
-    alert(questionID);
+    alert(id);
     onClose?.();
   };
 
@@ -54,9 +46,9 @@ export const EditQuestionForm = ({
     resolver: yupResolver(schema),
     defaultValues: {
       question,
-      correctAnswer,
-      wrongAnswer1,
-      wrongAnswer2,
+      correctAnswer: answer_1,
+      wrongAnswer1: answer_2,
+      wrongAnswer2: answer_3,
     },
   });
 
