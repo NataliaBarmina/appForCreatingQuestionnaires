@@ -12,6 +12,10 @@ import {
 } from "./styles";
 import { TEditQuestionForm, TFields, TAnswerField } from "../model/types";
 import { createSchema } from "../model/validation-schema";
+import { useEditQuestion } from "../api/use-edit-question";
+import { toast } from "react-toastify";
+
+//!компонента работает с реадктированием вопросов полученных из Firebase("DEFAULT") и редактированием вопросов сгенерированных ИИ и хранящихся в local storage
 
 const answerFields: TAnswerField[] = [
   { name: "correctAnswer", label: "formLabel.correctAnswer" },
@@ -21,20 +25,42 @@ const answerFields: TAnswerField[] = [
 
 export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEditQuestionForm) => {
   const { t } = useTranslation();
-  const { question, answer_1, answer_2, answer_3, id } = questionItem;
+
+  const isDefaultMode = mode === "default";
+  const fieldStyles = isDefaultMode ? cn("textarea-styles", "border-[#ff806d]") : "textarea-styles";
+  const containerStyles = isDefaultMode ? pinkContainerStyles : greenContainerStyles;
+  const labelStyles = isDefaultMode ? "text-black" : "text-white";
 
   const schema = createSchema(t("validation.required"));
 
-  const onSubmit: SubmitHandler<TFields> = (data) => {
+  const { mutateAsync, isPending } = useEditQuestion();
+
+  const onSubmit: SubmitHandler<TFields> = async (data) => {
+    const { id } = questionItem;
+    const { question, correctAnswer, wrongAnswer1, wrongAnswer2 } = data;
+
     const updatedQuestion = {
-      question: data.question,
-      correctAnswer: data.correctAnswer,
-      wrongAnswer1: data.wrongAnswer1,
-      wrongAnswer2: data.wrongAnswer2,
+      question,
+      answer_1: correctAnswer,
+      answer_2: wrongAnswer1,
+      answer_3: wrongAnswer2,
     };
-    //todo
-    alert(id);
-    onClose?.();
+
+    try {
+      if (isDefaultMode) {
+        await mutateAsync({
+          id,
+          data: updatedQuestion,
+        });
+      } else {
+        alert("здесь будет функция работающая с localStorage");
+      }
+
+      onClose?.();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
+      toast.error(message);
+    }
   };
 
   const {
@@ -45,22 +71,14 @@ export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEdi
     mode: "onChange",
     resolver: yupResolver(schema),
     defaultValues: {
-      question,
-      correctAnswer: answer_1,
-      wrongAnswer1: answer_2,
-      wrongAnswer2: answer_3,
+      question: questionItem.question,
+      correctAnswer: questionItem.answer_1,
+      wrongAnswer1: questionItem.answer_2,
+      wrongAnswer2: questionItem.answer_3,
     },
   });
 
   const hasError = Object.keys(errors).length > 0;
-
-  const isDefaultMode = mode === "default";
-
-  const fieldStyles = isDefaultMode ? cn("textarea-styles", "border-[#ff806d]") : "textarea-styles";
-
-  const containerStyles = isDefaultMode ? pinkContainerStyles : greenContainerStyles;
-
-  const labelStyles = isDefaultMode ? "text-black" : "text-white";
 
   return (
     <div className={containerStyles}>
@@ -91,7 +109,7 @@ export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEdi
           <Button
             buttonLabel={t("buttonLabel.save")}
             size="middle"
-            disabled={!isValid}
+            disabled={!isValid || isPending}
             type="submit"
           />
 

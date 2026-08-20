@@ -13,6 +13,8 @@ export type TQuestionItem = {
   answer_3: string;
 };
 
+export type TQuestionUpdate = Omit<TQuestionItem, "id">;
+
 export type TEditQuestionForm = {
   questionItem: TQuestionItem;
   mode: "generated" | "default";

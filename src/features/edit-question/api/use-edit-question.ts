@@ -1,18 +1,22 @@
 import { db } from "@appFirebase";
-import { FirebaseError } from "firebase/app";
-import { doc, deleteDoc } from "firebase/firestore";
-
+import { doc, updateDoc } from "firebase/firestore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { TQuestionUpdate } from "../model/types";
+import { FirebaseError } from "firebase/app";
 
-export const deleteQuestion = async (questionId: string) => {
-  const questionRef = doc(db, "questions", questionId);
-  await deleteDoc(questionRef);
+type TEditQuestion = {
+  id: string;
+  data: TQuestionUpdate;
+};
+const editQuestion = async ({ id, data }: TEditQuestion) => {
+  await updateDoc(doc(db, "questions", id), data);
 };
 
-export const useDeleteQuestion = () => {
+export const useEditQuestion = () => {
   const queryClient = useQueryClient();
+
   return useMutation({
-    mutationFn: deleteQuestion,
+    mutationFn: editQuestion,
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["questions"] });
     },

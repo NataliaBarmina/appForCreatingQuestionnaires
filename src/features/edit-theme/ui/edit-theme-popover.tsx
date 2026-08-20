@@ -12,7 +12,7 @@ export const EditThemePopover = ({
   buttonID,
 }: {
   theme: TSelectedTheme;
-  buttonID: string;
+  buttonID: "EDIT" | "AI THEMES";
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -44,7 +44,7 @@ export const EditThemePopover = ({
         alignOffset={-100}
         sideOffset={-70}
       >
-        <EditThemeForm onSuccess={() => setOpen(false)} theme={theme} buttonID={buttonID} />
+        <EditThemeForm onClose={() => setOpen(false)} theme={theme} buttonID={buttonID} />
       </PopoverContent>
     </Popover>
   );

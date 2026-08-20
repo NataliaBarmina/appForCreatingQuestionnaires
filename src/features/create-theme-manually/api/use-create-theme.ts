@@ -1,4 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
+import { FirebaseError } from "firebase/app";
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -22,5 +23,12 @@ export const useCreateTheme = () => {
       queryClient.invalidateQueries({
         queryKey: ["themes"],
       }),
+    onError: (error) => {
+      if (error instanceof FirebaseError) {
+        console.error(error.code, error.message);
+        return;
+      }
+      console.error(error);
+    },
   });
 };

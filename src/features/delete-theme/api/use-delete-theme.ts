@@ -14,9 +14,10 @@ export const useDeleteTheme = () => {
     onSuccess: async () => await queryClient.invalidateQueries({ queryKey: ["themes"] }),
     onError: (error) => {
       if (error instanceof FirebaseError) {
-        console.error(error.code);
-        console.error(error.message);
+        console.error(error.code, error.message);
+        return;
       }
+      console.error(error);
     },
   });
 };

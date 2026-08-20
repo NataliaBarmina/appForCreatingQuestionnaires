@@ -20,7 +20,7 @@ export async function getQuestionsByTheme(themeName: string) {
   });
 }
 
-export const useGetQuestions = (themeName: string) => {
+export const useGetQuestionsByTheme = (themeName: string) => {
   return useQuery({
     queryKey: ["questions", themeName],
     queryFn: () => getQuestionsByTheme(themeName),
