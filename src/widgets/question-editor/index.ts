@@ -1,2 +1,2 @@
 export { QuestionEditor } from "./ui/question-editor";
-export { useGetQuestions } from "./api/use-get-questions";
+export { useGetQuestionsByTheme } from "./api/use-get-questions-by-theme";

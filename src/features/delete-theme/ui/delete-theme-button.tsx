@@ -11,31 +11,34 @@ export const DeleteThemeButton = ({
   buttonID,
 }: {
   themeId: string;
-  buttonID: "EDIT" | "THEMES_AI";
+  buttonID: "EDIT" | "AI THEMES";
 }) => {
   const { t } = useTranslation();
 
-  const { mutateAsync: deleteTheme } = useDeleteTheme();
+  const { mutateAsync, isPending } = useDeleteTheme();
 
-  const onDeleteFirebase = async () => {
+  const onDeleteTheme = async () => {
     try {
-      await deleteTheme(themeId);
+      if (buttonID === "EDIT") {
+        await mutateAsync(themeId);
+      } else {
+        alert("здесь будет функция для работы с локал сторадж");
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
       toast.error(message);
     }
   };
 
-  const onDeleteLocalStorage = () => {
-    // todo
-    alert(buttonID);
-  };
-
-  const onDeleteTheme = buttonID === "EDIT" ? onDeleteFirebase : onDeleteLocalStorage;
-
   return (
     <>
-      <button type="button" title="yдалить" onClick={onDeleteTheme} className={buttonStyle}>
+      <button
+        type="button"
+        title="yдалить"
+        onClick={onDeleteTheme}
+        className={buttonStyle}
+        disabled={isPending}
+      >
         <DeleteThemeIcon />
       </button>
     </>

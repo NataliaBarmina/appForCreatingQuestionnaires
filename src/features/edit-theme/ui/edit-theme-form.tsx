@@ -2,27 +2,29 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import * as yup from "yup";
 
 import { Button, FieldsError } from "@shared/ui";
 import { TSelectedTheme } from "@entities/theme";
-// import { useCreateTheme } from "../api/use-create-theme";
-// import { createThemeSchema } from "../model/validation-schema";
 import { EditThemeIcon } from "./edit-theme-icon";
+import { useEditTheme } from "../api/use-edit-theme";
 
-// todo - в зависимости от значения buttonID делать разные действия - работать с файрбэйз или локал сторадж
+// todo - в зависимости от значения buttonID делать разные действия - работать с файрбэйз или локал сторадж EDIT / AI THEMES
 
 export const EditThemeForm = ({
-  onSuccess,
+  onClose,
   theme,
   buttonID,
 }: {
-  onSuccess: () => void;
+  onClose: () => void;
   theme: TSelectedTheme;
-  buttonID: string;
+  buttonID: "EDIT" | "AI THEMES";
 }) => {
   const { t } = useTranslation();
 
-  // const schema = createThemeSchema(t("validation.required"));
+  const schema = yup.object({
+    editTopicName: yup.string().trim().required(t("validation.required")),
+  });
 
   const {
     register,
@@ -32,37 +34,33 @@ export const EditThemeForm = ({
     mode: "onBlur",
 
     defaultValues: {
-      topicName: theme.themeName,
+      editTopicName: theme.themeName,
     },
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
   });
 
-  // const { mutate: createTheme } = useCreateTheme();
+  const { mutateAsync, isPending } = useEditTheme();
 
-  const onSubmit = (data: { topicName: string }) => {
-    const { topicName } = data;
+  const onSubmit = async (data: { editTopicName: string }) => {
+    const { themeId } = theme;
 
-    // createTheme(
-    //   {
-    //     courseName,
-    //     themeName: topicName,
-    //   },
-    //   {
-    //     onSuccess: () => {
-    //       reset();
-    //       onSuccess?.();
-    //     },
-    //     onError: (error) => {
-    //       const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
+    const updateTheme = { themeName: data.editTopicName };
 
-    //       toast.error(message);
-    //     },
-    //   }
-    // );
-    onSuccess();
+    try {
+      if (buttonID === "EDIT") {
+        await mutateAsync({ themeId, data: updateTheme });
+      } else {
+        alert("здесь будет функция для работы с localStorage");
+      }
+
+      onClose();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
+      toast.error(message);
+    }
   };
 
-  const errorMessage = errors?.topicName?.message;
+  const errorMessage = errors?.editTopicName?.message;
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -74,11 +72,16 @@ export const EditThemeForm = ({
       </div>
 
       <div className="mb-6 text-center">
-        <textarea className="textarea-styles w-[90%]" {...register("topicName")} />
+        <textarea className="textarea-styles w-[90%]" {...register("editTopicName")} />
       </div>
       {errorMessage && <FieldsError message={errorMessage} />}
       <div>
-        <Button buttonLabel={t("buttonLabel.send")} size="middle" />
+        <Button
+          buttonLabel={t("buttonLabel.send")}
+          size="middle"
+          type="submit"
+          disabled={isPending}
+        />
       </div>
     </form>
   );

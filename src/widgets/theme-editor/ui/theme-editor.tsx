@@ -2,7 +2,7 @@ import { EditThemePopover } from "@features/edit-theme";
 import { DeleteThemeButton } from "@features/delete-theme";
 import { TSelectedTheme } from "@entities/theme";
 
-type TThemeEditor = { themes: TSelectedTheme[]; buttonID: "EDIT" | "THEMES_AI" };
+type TThemeEditor = { themes: TSelectedTheme[]; buttonID: "EDIT" | "AI THEMES" };
 
 export const ThemeEditor = ({ themes, buttonID }: TThemeEditor) => {
   return (

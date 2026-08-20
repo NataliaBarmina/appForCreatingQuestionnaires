@@ -48,7 +48,7 @@ export const CreateQuestionForm = ({
     formState: { isValid, isSubmitting }, // Проверка на валидность формы и Чтобы избежать повторной отправки
   } = form;
 
-  const { mutateAsync: createQuestion } = useCreateQuestion();
+  const { mutateAsync } = useCreateQuestion();
 
   const onSubmit: SubmitHandler<TQuestionFields> = async (values) => {
     const questionData = {
@@ -61,7 +61,7 @@ export const CreateQuestionForm = ({
       answer_3: values.selfWrittenAnswer3,
     };
     try {
-      await createQuestion(questionData);
+      await mutateAsync(questionData);
 
       reset();
     } catch (error) {

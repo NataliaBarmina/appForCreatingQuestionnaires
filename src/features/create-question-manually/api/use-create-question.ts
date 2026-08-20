@@ -1,6 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { FirebaseError } from "firebase/app";
 
 type TCreateQuestion = {
   courseName: string;
@@ -26,5 +27,12 @@ export const useCreateQuestion = () => {
       await queryClient.invalidateQueries({
         queryKey: ["questions"],
       }),
+    onError: (error) => {
+      if (error instanceof FirebaseError) {
+        console.error(error.code, error.message);
+        return;
+      }
+      console.error(error);
+    },
   });
 };

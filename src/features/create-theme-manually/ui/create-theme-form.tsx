@@ -32,12 +32,12 @@ export const CreateThemeForm = ({
     resolver: yupResolver(schema),
   });
 
-  const { mutate: createTheme } = useCreateTheme();
+  const { mutate, isPending } = useCreateTheme();
 
   const onSubmit = (data: { topicName: string }) => {
     const { topicName } = data;
 
-    createTheme(
+    mutate(
       {
         courseName,
         themeName: topicName,
@@ -67,7 +67,7 @@ export const CreateThemeForm = ({
         />
       </div>
       {errorMessage && <FieldsError message={errorMessage} />}
-      <Button buttonLabel={t("buttonLabel.send")} size="middle" />
+      <Button buttonLabel={t("buttonLabel.send")} size="middle" disabled={isPending} />
     </form>
   );
 };

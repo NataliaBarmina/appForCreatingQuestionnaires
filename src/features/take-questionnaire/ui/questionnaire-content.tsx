@@ -19,7 +19,7 @@ export const QuestionnaireContent = ({ questions }: { questions: TQuestion[] }) 
 
   const questionsList = useMemo(() => shuffle(questions).slice(0, QUESTIONS_LIMIT), [questions]);
 
-  const schema = useMemo(() => createSchema(questionsList.length), [questionsList.length]);
+  const schema = createSchema();
 
   const form = useForm<TFormValues>({
     resolver: yupResolver(schema),
