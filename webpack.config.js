@@ -71,19 +71,25 @@ module.exports = (env) => {
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env.FIREBASE_API_KEY": JSON.stringify(process.env.FIREBASE_API_KEY),
-        "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
-        "process.env.FIREBASE_PROJECT_ID": JSON.stringify(process.env.FIREBASE_PROJECT_ID),
-        "process.env.FIREBASE_APP_ID": JSON.stringify(process.env.FIREBASE_APP_ID),
+        "process.env.FIREBASE_API_KEY": JSON.stringify(envFile.FIREBASE_API_KEY),
+        "process.env.FIREBASE_AUTH_DOMAIN": JSON.stringify(envFile.FIREBASE_AUTH_DOMAIN),
+        "process.env.FIREBASE_PROJECT_ID": JSON.stringify(envFile.FIREBASE_PROJECT_ID),
+        "process.env.FIREBASE_APP_ID": JSON.stringify(envFile.FIREBASE_APP_ID),
+        "process.env.FIREBASE_RECAPTCHA_SITE_KEY": JSON.stringify(
+          envFile.FIREBASE_RECAPTCHA_SITE_KEY
+        ),
       }),
+
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src", "index.html"), //ссылка до нашего HTML файла, который ,будет исп-ся в кач шаблона, именно туда плагин будет подставлять путь до нашего бандла
       }),
+
       isProd &&
         new MiniCssExtractPlugin({
           filename: "css/[name].[contenthash:8].css",
           chunkFilename: "css/[name].[contenthash:8].css",
         }),
+
       isDev &&
         new ForkTsCheckerWebpackPlugin({
           async: false, // Синхронная проверка (надежнее)
