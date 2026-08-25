@@ -12,3 +12,5 @@ export { Dialog, DialogContent, DialogTrigger, DialogTitle } from "./dialog/dial
 export { Popover, PopoverContent, PopoverTrigger } from "./popover/popover";
 
 export { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./form/form";
+
+export { LoadingModal } from "./loading-modal/loading-modal";

@@ -1,42 +1,49 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { FormEvent, useState } from "react";
-import { cn } from "@shared/lib";
 
 import { GenerationSettings } from "@entities/generation-settings";
+import { useGetThemes } from "@entities/theme";
+import { cn } from "@shared/lib";
+import { LoadingError } from "@shared/ui";
+import { generateThemes } from "../api/generate-themes";
+import { LoadingModal } from "@shared/ui";
 
-// todo - должны отправляться существующие темы,  ИИ должен создавать айди тем
-// todo - в запросе указать, чтобы искал в интернете наиболее часто всречающиеся темы на собеседованиях
+const TOPICS_COUNT = [2, 5, 10, 15, 20];
 
-const TOPICS_COUNT = [5, 10, 15, 20];
-
-export const GenerateThemesForm = ({
-  courseName,
-  buttonID,
-}: {
-  courseName: string;
-  buttonID: string;
-}) => {
+export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [count, onCountChange] = useState(10);
-
   const [instructions, onInstructionsChange] = useState("");
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const { data } = useGetThemes(courseName);
+
+  const existingThemes = data?.map((theme) => theme.themeName);
+
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const data = {
-      count,
-      instructions,
-    };
+    setIsLoading(true);
+    setError("");
 
-    console.log(data);
+    try {
+      const result = await generateThemes({ courseName, count, instructions, existingThemes });
 
-    // TODO: запрос на генерацию
+      sessionStorage.setItem("generatedThemes", result);
 
-    navigate("/create/themes/ai-result", { state: { courseName, buttonID } });
+      navigate("/create/themes/ai-result", { state: { courseName } });
+    } catch (error) {
+      console.error(error);
+
+      setError(t("generateTheme.error"));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -52,19 +59,29 @@ export const GenerateThemesForm = ({
         countTitle={t("generateTheme.questionsCountTitle")}
         instructionPlaceholder={t("generateTheme.preferencesPlaceholder")}
       />
+
+      {isLoading && <LoadingModal message={t("generateTheme.generatingThemes")} />}
+
       <button
         type="submit"
+        disabled={isLoading}
         className={cn(
           "transition duration-200 hover:-translate-y-0.5",
           "mx-auto block min-w-[340px]",
           "rounded-xl px-8 py-4",
           "text-lg font-semibold text-white",
           "bg-[#181313] shadow-[0_10px_22px_rgba(0,0,0,0.3)]",
-          "hover:bg-[#372d2d] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)] active:translate-y-0"
+
+          !isLoading &&
+            "hover:-translate-y-0.5 hover:bg-[#372d2d] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)]",
+
+          isLoading && "cursor-not-allowed opacity-60"
         )}
       >
-        {t("generateTheme.generate")}
+        {isLoading ? t("generateTheme.generatingThemes") : t("generateTheme.generate")}
       </button>
+
+      {error && <LoadingError message={error} />}
     </form>
   );
 };

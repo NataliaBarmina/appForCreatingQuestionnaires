@@ -27,8 +27,10 @@
   },
   "generateTheme": {
     "withAI": "with AI",
-    "generate": "Generate topic",
+    "generate": "Generate topics",
     "questionsCountTitle": "Number of topics",
+    "generatingThemes": "Generating topics...",
+    "mayTakeAFewSeconds": "This may take a few seconds",
     "preferencesPlaceholder": "For example: focus on practical topics, add beginner-friendly topics, exclude overly complex sections, etc."
   },
   "createQuestion": {
