@@ -9,7 +9,7 @@ export const AIThemesGenerationPage = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const { course, buttonID } = location.state;
+  const { course } = location.state;
 
   return (
     <>
