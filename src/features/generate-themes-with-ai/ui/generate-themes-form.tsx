@@ -5,9 +5,8 @@ import { FormEvent, useState } from "react";
 import { GenerationSettings } from "@entities/generation-settings";
 import { useGetThemes } from "@entities/theme";
 import { cn } from "@shared/lib";
-import { LoadingError } from "@shared/ui";
-import { generateThemes } from "../api/generate-themes";
-import { LoadingModal } from "@shared/ui";
+import { LoadingError, LoadingModal } from "@shared/ui";
+import { useGenerateThemes } from "../api/generate-themes";
 
 const TOPICS_COUNT = [2, 5, 10, 15, 20];
 
@@ -18,31 +17,24 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
   const [count, onCountChange] = useState(10);
   const [instructions, onInstructionsChange] = useState("");
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const { data: themes = [] } = useGetThemes(courseName);
 
-  const { data } = useGetThemes(courseName);
+  const existingThemes = themes?.map((theme) => theme.themeName);
 
-  const existingThemes = data?.map((theme) => theme.themeName);
+  const { isFetching, refetch, isError, error } = useGenerateThemes({
+    courseName,
+    count,
+    instructions,
+    existingThemes,
+  });
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault(); // Не даём браузеру стандартно отправить форму
 
-    setIsLoading(true);
-    setError("");
+    const result = await refetch(); // Вручную запускаем query и ждём результат
 
-    try {
-      const result = await generateThemes({ courseName, count, instructions, existingThemes });
-
-      sessionStorage.setItem("generatedThemes", result);
-
-      navigate("/create/themes/ai-result", { state: { courseName } });
-    } catch (error) {
-      console.error(error);
-
-      setError(t("generateTheme.error"));
-    } finally {
-      setIsLoading(false);
+    if (result.isSuccess) {
+      return navigate("/create/themes/ai-result", { state: { courseName } });
     }
   };
 
@@ -60,11 +52,11 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
         instructionPlaceholder={t("generateTheme.preferencesPlaceholder")}
       />
 
-      {isLoading && <LoadingModal message={t("generateTheme.generatingThemes")} />}
+      {isFetching && <LoadingModal message={t("generateTheme.generatingThemes")} />}
 
       <button
         type="submit"
-        disabled={isLoading}
+        disabled={isFetching}
         className={cn(
           "transition duration-200 hover:-translate-y-0.5",
           "mx-auto block min-w-[340px]",
@@ -72,16 +64,16 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
           "text-lg font-semibold text-white",
           "bg-[#181313] shadow-[0_10px_22px_rgba(0,0,0,0.3)]",
 
-          !isLoading &&
+          !isFetching &&
             "hover:-translate-y-0.5 hover:bg-[#372d2d] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)]",
 
-          isLoading && "cursor-not-allowed opacity-60"
+          isFetching && "cursor-not-allowed opacity-60"
         )}
       >
-        {isLoading ? t("generateTheme.generatingThemes") : t("generateTheme.generate")}
+        {isFetching ? t("generateTheme.generatingThemes") : t("generateTheme.generate")}
       </button>
 
-      {error && <LoadingError message={error} />}
+      {isError && <LoadingError message={error.message} />}
     </form>
   );
 };

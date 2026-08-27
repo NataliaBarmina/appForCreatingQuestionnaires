@@ -1,5 +1,6 @@
 import { geminiModel } from "@appFirebase";
 import { createThemesPrompt } from "../model/create-themes-prompt";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export async function generateThemes({
   courseName,
@@ -21,5 +22,23 @@ export async function generateThemes({
 
   const result = await geminiModel.generateContent(prompt);
 
-  return result.response.text();
+  return JSON.parse(result.response.text());
 }
+
+export const useGenerateThemes = ({
+  courseName,
+  count,
+  instructions,
+  existingThemes,
+}: {
+  courseName: string;
+  count: number;
+  instructions: string;
+  existingThemes?: string[];
+}) => {
+  return useQuery({
+    queryKey: ["generatedThemes", courseName],
+    queryFn: () => generateThemes({ courseName, count, instructions, existingThemes }),
+    enabled: false, // queryFn не запускается автоматически- для связки с refetch
+  });
+};
