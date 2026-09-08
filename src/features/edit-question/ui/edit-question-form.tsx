@@ -1,21 +1,13 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
 
-import { cn } from "@shared/lib";
 import { Button, FieldsError } from "@shared/ui";
-import {
-  buttonsContainerStyles,
-  errorsStyles,
-  pinkContainerStyles,
-  greenContainerStyles,
-} from "./styles";
+import { buttonsContainerStyles, errorsStyles, pinkContainerStyles, fieldStyles } from "./styles";
 import { TEditQuestionForm, TFields, TAnswerField } from "../model/types";
 import { createSchema } from "../model/validation-schema";
 import { useEditQuestion } from "../api/use-edit-question";
-import { toast } from "react-toastify";
-
-//!компонента работает с реадктированием вопросов полученных из Firebase("DEFAULT") и редактированием вопросов сгенерированных ИИ и хранящихся в local storage
 
 const answerFields: TAnswerField[] = [
   { name: "correctAnswer", label: "formLabel.correctAnswer" },
@@ -23,13 +15,8 @@ const answerFields: TAnswerField[] = [
   { name: "wrongAnswer2", label: "formLabel.wrongAnswer" },
 ];
 
-export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEditQuestionForm) => {
+export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) => {
   const { t } = useTranslation();
-
-  const isDefaultMode = mode === "default";
-  const fieldStyles = isDefaultMode ? cn("textarea-styles", "border-[#ff806d]") : "textarea-styles";
-  const containerStyles = isDefaultMode ? pinkContainerStyles : greenContainerStyles;
-  const labelStyles = isDefaultMode ? "text-black" : "text-white";
 
   const schema = createSchema(t("validation.required"));
 
@@ -47,14 +34,10 @@ export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEdi
     };
 
     try {
-      if (isDefaultMode) {
-        await mutateAsync({
-          id,
-          data: updatedQuestion,
-        });
-      } else {
-        alert("здесь будет функция работающая с localStorage");
-      }
+      await mutateAsync({
+        id,
+        data: updatedQuestion,
+      });
 
       onClose?.();
     } catch (error) {
@@ -81,10 +64,8 @@ export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEdi
   const hasError = Object.keys(errors).length > 0;
 
   return (
-    <div className={containerStyles}>
-      {isDefaultMode && (
-        <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("editQuestions.changingQuestion")}</h1>
-      )}
+    <div className={pinkContainerStyles}>
+      <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("editQuestions.changingQuestion")}</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto w-[90%] font-medium">
@@ -96,7 +77,7 @@ export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEdi
           <div className="s:ml-[2rem] s:w-[93%]">
             {answerFields.map(({ name, label }) => (
               <div key={name}>
-                <p className={labelStyles}>{t(label).toLowerCase()}</p>
+                <p className="text-black">{t(label).toLowerCase()}</p>
 
                 <input className={errors[name] ? errorsStyles : fieldStyles} {...register(name)} />
               </div>
@@ -114,9 +95,9 @@ export const EditQuestionForm = ({ onClose, onDelete, questionItem, mode }: TEdi
           />
 
           <Button
-            buttonLabel={t(isDefaultMode ? "buttonLabel.closeForm" : "buttonLabel.delete")}
+            buttonLabel={t("buttonLabel.closeForm")}
             size="middle"
-            onClick={isDefaultMode ? onClose : onDelete}
+            onClick={onClose}
             type="button"
           />
         </div>

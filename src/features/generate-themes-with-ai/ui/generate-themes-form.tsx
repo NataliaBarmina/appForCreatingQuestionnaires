@@ -52,7 +52,7 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
         instructionPlaceholder={t("generateTheme.preferencesPlaceholder")}
       />
 
-      {isFetching && <LoadingModal message={t("generateTheme.generatingThemes")} />}
+      {isFetching && <LoadingModal message={t("generateTheme.generatingTitle")} />}
 
       <button
         type="submit"
@@ -70,7 +70,7 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
           isFetching && "cursor-not-allowed opacity-60"
         )}
       >
-        {isFetching ? t("generateTheme.generatingThemes") : t("generateTheme.generate")}
+        {isFetching ? t("generateTheme.generatingTitle") : t("generateTheme.generate")}
       </button>
 
       {isError && <LoadingError message={error.message} />}

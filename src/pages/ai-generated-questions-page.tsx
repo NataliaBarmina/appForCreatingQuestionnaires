@@ -1,33 +1,42 @@
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
-import { EditQuestionForm } from "@features/edit-question/ui/edit-question-form";
-import { TQuestionList } from "@entities/question";
+import { EditAIGeneratedQuestions } from "@features/edit-questions-generated-with-ai";
 
-// todo - покидать эту страницу только после предупрtждения, что вопросы надо сохранить, иначе они будут потеряны
+export type TGeneratedQuestion = {
+  answer_1: string;
+  answer_2: string;
+  answer_3: string;
+  question: string;
+};
 
 export const AIGeneratedQuestionsPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const queryClient = useQueryClient();
+
   const location = useLocation();
+  const { courseName, themeName, themeId } = location.state || {};
 
-  const { themeId, courseName, themeName } = location.state || {};
+  const { data: questions = [] } = useQuery<TGeneratedQuestion[]>({
+    queryKey: ["generatedQuestions", themeName],
+    queryFn: async () => [],
+    enabled: false,
+  });
 
-  const data: TQuestionList[] = [
-    {
-      answer_1: "string",
-      answer_2: "string",
-      answer_3: "string",
-      id: "string",
-      question: "string",
-    },
-    {
-      answer_1: "s",
-      answer_2: "s",
-      answer_3: "s",
-      id: "s",
-      question: "s",
-    },
-  ]; //todo
+  function deleteQuestion(questionName: string) {
+    queryClient.setQueryData<TGeneratedQuestion[]>(
+      ["generatedQuestions", themeName],
+      (prevQuestions = []) => prevQuestions.filter((question) => question.question !== questionName)
+    );
+  }
+
+  useEffect(() => {
+    if (!questions.length) navigate("/dashboard");
+  }, [questions.length, navigate]);
 
   return (
     <div className="mb-10">
@@ -40,11 +49,19 @@ export const AIGeneratedQuestionsPage = () => {
         {t("editQuestions.unsavedWarning")}
       </h4>
 
-      {data.map((item) => (
-        <div key={item.id}>
-          <EditQuestionForm onDelete={() => alert(item)} questionItem={item} mode="generated" />
-        </div>
-      ))}
+      {questions?.map((item) => {
+        return (
+          <div key={item.question}>
+            <EditAIGeneratedQuestions
+              questionItem={item}
+              deleteQuestion={deleteQuestion}
+              courseName={courseName}
+              themeName={themeName}
+              themeId={themeId}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

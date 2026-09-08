@@ -19,7 +19,6 @@ export type TEditQuestionForm = {
   questionItem: TQuestionItem;
   mode: "generated" | "default";
   onClose?: () => void;
-  onDelete?: () => void;
 };
 
 export type TAnswerField = {
