@@ -29,7 +29,7 @@
     "withAI": "with AI",
     "generate": "Generate topics",
     "questionsCountTitle": "Number of topics",
-    "generatingThemes": "Generating topics...",
+    "generatingTitle": "Generating topics...",
     "mayTakeAFewSeconds": "This may take a few seconds",
     "preferencesPlaceholder": "For example: focus on practical topics, add beginner-friendly topics, exclude overly complex sections, etc."
   },
@@ -43,6 +43,7 @@
   },
   "generateQuestions": {
     "title": "Generate AI questions for the {{courseName}} course",
+    "generatingTitle": "Generating questions...",
     "questionsCountTitle": "Number of questions",
     "preferencesTitle": "Additional preferences",
     "preferencesPlaceholder": "For example: focus on practical tasks, exclude questions about closures, etc.",

@@ -15,7 +15,7 @@ export const AIQuestionsGenerationPage = () => {
 
       <h2>{t("header.theme", { themeName })}</h2>
 
-      <GenerateQuestionsForm themeId={themeId} courseName={courseName} themeName={themeName} />
+      <GenerateQuestionsForm courseName={courseName} themeName={themeName} themeId={themeId} />
     </>
   );
 };

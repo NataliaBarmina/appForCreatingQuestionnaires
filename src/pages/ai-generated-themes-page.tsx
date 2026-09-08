@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 
-import { EditAIGeneratedTheme } from "@features/edit-theme-generated-with-ai";
+import { EditAIGeneratedTheme } from "@features/edit-themes-generated-with-ai";
 
 export const AIGeneratedThemesPage = () => {
   const { t } = useTranslation();

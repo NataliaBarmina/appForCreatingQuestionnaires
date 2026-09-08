@@ -8,6 +8,7 @@ type TEditQuestion = {
   id: string;
   data: TQuestionUpdate;
 };
+
 const editQuestion = async ({ id, data }: TEditQuestion) => {
   await updateDoc(doc(db, "questions", id), data);
 };

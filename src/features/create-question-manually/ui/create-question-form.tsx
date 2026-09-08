@@ -4,10 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 
+import { useCreateQuestion } from "@entities/question";
 import { QuestionFormActions } from "./question-form-actions";
 import { CreateQuestionField } from "./create-question-field";
 import { CreateAnswerField } from "./create-answer-field";
-import { useCreateQuestion } from "../api/use-create-question";
 import { createQuestionSchema } from "../model/validation-schema";
 import { TQuestionFields } from "../model/types";
 import { answerFields } from "../config/answer-fields";
