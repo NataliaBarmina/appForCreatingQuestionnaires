@@ -9,7 +9,7 @@ export const ThemeEditorPage = () => {
   const { t } = useTranslation();
 
   const location = useLocation();
-  const { course, buttonID } = location.state;
+  const { course } = location.state;
 
   const { data: themes = [], isLoading, isError, error } = useGetThemes(course);
 
@@ -28,7 +28,7 @@ export const ThemeEditorPage = () => {
   return (
     <div>
       <h1>{t("editTheme.title", { course })}</h1>
-      <ThemeEditor themes={themes} buttonID={buttonID} />;
+      <ThemeEditor themes={themes} />;
     </div>
   );
 };

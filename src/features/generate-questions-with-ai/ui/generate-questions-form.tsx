@@ -62,7 +62,7 @@ export const GenerateQuestionsForm = ({
       <button
         type="submit"
         className={cn(
-          "transition duration-200 hover:-translate-y-0.5",
+          "mb-6 transition duration-200 hover:-translate-y-0.5",
           "mx-auto block min-w-[340px]",
           "rounded-xl px-8 py-4",
           "text-lg font-semibold text-white",

@@ -7,13 +7,7 @@ import { EditThemeForm } from "./edit-theme-form";
 export const buttonStyle =
   "flex h-11 w-11 items-center justify-center rounded-xl border border-[#dc9297] text-[#dc9297] transition hover:bg-[#dc9297] hover:text-white";
 
-export const EditThemePopover = ({
-  theme,
-  buttonID,
-}: {
-  theme: TSelectedTheme;
-  buttonID: "EDIT" | "AI THEMES";
-}) => {
+export const EditThemePopover = ({ theme }: { theme: TSelectedTheme }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -44,7 +38,7 @@ export const EditThemePopover = ({
         alignOffset={-100}
         sideOffset={-70}
       >
-        <EditThemeForm onClose={() => setOpen(false)} theme={theme} buttonID={buttonID} />
+        <EditThemeForm onClose={() => setOpen(false)} theme={theme} />
       </PopoverContent>
     </Popover>
   );

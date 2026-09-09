@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-import { EditQuestionDialog } from "@features/edit-question";
-import { DeleteQuestionDialog } from "@features/delete-question";
+import { EditQuestionDialog } from "@features/edit-question-manually";
+import { DeleteQuestionDialog } from "@features/delete-question-manually";
 import { TQuestionList } from "@entities/question";
 import { Label } from "@shared/ui";
 import { cn } from "@shared/lib";

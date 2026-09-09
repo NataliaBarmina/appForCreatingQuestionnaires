@@ -5,38 +5,32 @@ import { toast } from "react-toastify";
 
 import { Button, FieldsError } from "@shared/ui";
 import { buttonsContainerStyles, errorsStyles, pinkContainerStyles, fieldStyles } from "./styles";
-import { TEditQuestionForm, TFields, TAnswerField } from "../model/types";
+import { TEditQuestionForm, TQuestionItem } from "../model/types";
 import { createSchema } from "../model/validation-schema";
 import { useEditQuestion } from "../api/use-edit-question";
-
-const answerFields: TAnswerField[] = [
-  { name: "correctAnswer", label: "formLabel.correctAnswer" },
-  { name: "wrongAnswer1", label: "formLabel.wrongAnswer" },
-  { name: "wrongAnswer2", label: "formLabel.wrongAnswer" },
-];
+import { answerFields } from "../config/answers-field";
 
 export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) => {
   const { t } = useTranslation();
+
+  const { id, question, answer_1, answer_2, answer_3 } = questionItem;
 
   const schema = createSchema(t("validation.required"));
 
   const { mutateAsync, isPending } = useEditQuestion();
 
-  const onSubmit: SubmitHandler<TFields> = async (data) => {
-    const { id } = questionItem;
-    const { question, correctAnswer, wrongAnswer1, wrongAnswer2 } = data;
-
-    const updatedQuestion = {
-      question,
-      answer_1: correctAnswer,
-      answer_2: wrongAnswer1,
-      answer_3: wrongAnswer2,
-    };
+  const onSubmit: SubmitHandler<TQuestionItem> = async (data) => {
+    const { question, answer_1, answer_2, answer_3 } = data;
 
     try {
       await mutateAsync({
         id,
-        data: updatedQuestion,
+        data: {
+          question,
+          answer_1,
+          answer_2,
+          answer_3,
+        },
       });
 
       onClose?.();
@@ -50,14 +44,14 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<TFields>({
+  } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
     defaultValues: {
-      question: questionItem.question,
-      correctAnswer: questionItem.answer_1,
-      wrongAnswer1: questionItem.answer_2,
-      wrongAnswer2: questionItem.answer_3,
+      question,
+      answer_1,
+      answer_2,
+      answer_3,
     },
   });
 

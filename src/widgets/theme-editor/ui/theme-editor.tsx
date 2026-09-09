@@ -1,10 +1,8 @@
-import { EditThemePopover } from "@features/edit-theme";
-import { DeleteThemeButton } from "@features/delete-theme";
+import { EditThemePopover } from "@features/edit-theme-manually";
+import { DeleteThemeButton } from "@features/delete-theme-manually";
 import { TSelectedTheme } from "@entities/theme";
 
-type TThemeEditor = { themes: TSelectedTheme[]; buttonID: "EDIT" | "AI THEMES" };
-
-export const ThemeEditor = ({ themes, buttonID }: TThemeEditor) => {
+export const ThemeEditor = ({ themes }: { themes: TSelectedTheme[] }) => {
   return (
     <div className="mx-auto mt-8 w-[90%] rounded-xl bg-green-800 px-12 py-10">
       {themes.map((theme) => (
@@ -14,8 +12,8 @@ export const ThemeEditor = ({ themes, buttonID }: TThemeEditor) => {
 
             <div className="flex items-center gap-3">
               {" "}
-              <EditThemePopover theme={theme} buttonID={buttonID} />
-              <DeleteThemeButton themeId={theme.themeId} buttonID={buttonID} />
+              <EditThemePopover theme={theme} />
+              <DeleteThemeButton themeId={theme.themeId} />
             </div>
           </div>
         </div>

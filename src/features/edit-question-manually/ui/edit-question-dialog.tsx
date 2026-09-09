@@ -32,7 +32,7 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
         <DialogContent>
           <DialogTitle className="sr-only">Редактирование вопроса</DialogTitle>
 
-          <EditQuestionForm onClose={closeDialog} questionItem={questionItem} mode="default" />
+          <EditQuestionForm onClose={closeDialog} questionItem={questionItem} />
         </DialogContent>
       </Dialog>
     </div>
