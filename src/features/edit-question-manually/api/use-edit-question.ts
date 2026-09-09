@@ -1,12 +1,12 @@
 import { db } from "@appFirebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { TQuestionUpdate } from "../model/types";
+import { TQuestionItem } from "../model/types";
 import { FirebaseError } from "firebase/app";
 
 type TEditQuestion = {
   id: string;
-  data: TQuestionUpdate;
+  data: TQuestionItem;
 };
 
 const editQuestion = async ({ id, data }: TEditQuestion) => {

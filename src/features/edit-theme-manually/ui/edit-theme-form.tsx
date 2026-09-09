@@ -9,16 +9,12 @@ import { TSelectedTheme } from "@entities/theme";
 import { EditThemeIcon } from "./edit-theme-icon";
 import { useEditTheme } from "../api/use-edit-theme";
 
-// todo - в зависимости от значения buttonID делать разные действия - работать с файрбэйз или локал сторадж EDIT / AI THEMES
-
 export const EditThemeForm = ({
   onClose,
   theme,
-  buttonID,
 }: {
   onClose: () => void;
   theme: TSelectedTheme;
-  buttonID: "EDIT" | "AI THEMES";
 }) => {
   const { t } = useTranslation();
 
@@ -47,11 +43,7 @@ export const EditThemeForm = ({
     const updateTheme = { themeName: data.editTopicName };
 
     try {
-      if (buttonID === "EDIT") {
-        await mutateAsync({ themeId, data: updateTheme });
-      } else {
-        alert("здесь будет функция для работы с localStorage");
-      }
+      await mutateAsync({ themeId, data: updateTheme });
 
       onClose();
     } catch (error) {
