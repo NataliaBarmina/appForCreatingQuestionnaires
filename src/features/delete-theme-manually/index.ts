@@ -1,1 +1,1 @@
-export { DeleteThemeButton } from "./ui/delete-theme-button";
+export { DeleteTheme } from "./ui/delete-theme";

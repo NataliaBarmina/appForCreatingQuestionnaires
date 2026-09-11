@@ -19,7 +19,7 @@ export const QuestionFormActions = ({
   return (
     <div className="mb-8 flex w-full justify-evenly pt-14">
       <ConfirmActionDialog
-        alertDialogTitle={t("alert.title")}
+        alertDialogTitle={t("alert.validationTitle")}
         alertDialogDescription={t("alert.checkQuestions")}
         alertDialogAction={t("alert.saveQuestion")}
         alertDialogCancel={t("alert.continueEditing")}

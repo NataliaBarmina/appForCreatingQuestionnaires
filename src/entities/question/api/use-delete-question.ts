@@ -11,6 +11,7 @@ export const deleteQuestion = async (questionId: string) => {
 
 export const useDeleteQuestion = () => {
   const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: deleteQuestion,
     onSuccess: async () => {
