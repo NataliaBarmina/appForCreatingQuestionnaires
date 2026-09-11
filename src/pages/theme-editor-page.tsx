@@ -28,7 +28,7 @@ export const ThemeEditorPage = () => {
   return (
     <div>
       <h1>{t("editTheme.title", { course })}</h1>
-      <ThemeEditor themes={themes} />;
+      <ThemeEditor themes={themes} />
     </div>
   );
 };

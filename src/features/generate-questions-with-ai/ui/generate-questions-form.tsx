@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@shared/lib";
 
 import { GenerationSettings } from "@entities/generation-settings";
-import { useGetQuestionsByTheme } from "@widgets/question-editor";
+import { useGetQuestionsByTheme } from "@entities/question";
 import { useGenerateQuestions } from "../api/use-generate-questions";
 import { LoadingError, LoadingModal } from "@shared/ui";
 
@@ -25,7 +25,7 @@ export const GenerateQuestionsForm = ({
   const [count, onCountChange] = useState(10);
   const [instructions, onInstructionsChange] = useState("");
 
-  const { data } = useGetQuestionsByTheme(themeName);
+  const { data } = useGetQuestionsByTheme(themeId);
 
   const existingQuestions = data?.map((question) => question.question);
 

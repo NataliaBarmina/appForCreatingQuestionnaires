@@ -1,4 +1,14 @@
 export { ConfirmActionDialog } from "./confirm-action-dialog/ui/confirm-action-dialog";
+export {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./confirm-action-dialog/ui/alert-dialog";
 export { Button } from "./button/button";
 export { Preloader } from "./preloader/preloader";
 export { EmptyState } from "./errors/empty-state";

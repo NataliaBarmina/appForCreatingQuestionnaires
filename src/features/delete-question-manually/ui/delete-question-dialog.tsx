@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
 import { ConfirmActionDialog } from "@shared/ui";
-import { useDeleteQuestion } from "../api/use-delete-question";
+import { useDeleteQuestion } from "@entities/question";
 
 export const DeleteQuestionDialog = ({ questionID }: { questionID: string }) => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ export const DeleteQuestionDialog = ({ questionID }: { questionID: string }) => 
   return (
     <div>
       <ConfirmActionDialog
-        alertDialogTitle={t("alert.title")}
+        alertDialogTitle={t("alert.confirmTitle")}
         alertDialogDescription={t("alert.deleteWarning")}
         alertDialogAction={t("alert.deleteQuestion")}
         alertDialogCancel={t("alert.continueEditing")}

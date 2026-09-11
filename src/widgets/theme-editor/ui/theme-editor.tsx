@@ -1,5 +1,5 @@
 import { EditThemePopover } from "@features/edit-theme-manually";
-import { DeleteThemeButton } from "@features/delete-theme-manually";
+import { DeleteTheme } from "@features/delete-theme-manually";
 import { TSelectedTheme } from "@entities/theme";
 
 export const ThemeEditor = ({ themes }: { themes: TSelectedTheme[] }) => {
@@ -11,9 +11,8 @@ export const ThemeEditor = ({ themes }: { themes: TSelectedTheme[] }) => {
             <p>{theme.themeName}</p>
 
             <div className="flex items-center gap-3">
-              {" "}
               <EditThemePopover theme={theme} />
-              <DeleteThemeButton themeId={theme.themeId} />
+              <DeleteTheme themeId={theme.themeId} />
             </div>
           </div>
         </div>
