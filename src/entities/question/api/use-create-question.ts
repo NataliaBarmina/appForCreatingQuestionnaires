@@ -4,9 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FirebaseError } from "firebase/app";
 
 type TCreateQuestion = {
-  courseName: string;
   themeId: string;
-  themeName: string;
   question: string;
   answer_1: string;
   answer_2: string;

@@ -12,8 +12,6 @@ import { answerFieldsConfig } from "../config/answers-fields-config";
 
 export const EditAIGeneratedQuestions = ({
   questionItem,
-  courseName,
-  themeName,
   themeId,
   deleteQuestion,
 }: TEditAIGeneratedQuestions) => {
@@ -27,9 +25,7 @@ export const EditAIGeneratedQuestions = ({
 
   const onSubmit: SubmitHandler<TFields> = async (values) => {
     const questionData = {
-      courseName,
       themeId,
-      themeName,
       question: values.question,
       answer_1: values.answer_1,
       answer_2: values.answer_2,

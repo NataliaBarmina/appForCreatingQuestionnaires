@@ -19,15 +19,7 @@ const defaultValues = {
   selfWrittenAnswer3: "",
 };
 
-export const CreateQuestionForm = ({
-  courseName,
-  themeName,
-  themeId,
-}: {
-  themeId: string;
-  themeName: string;
-  courseName: string;
-}) => {
+export const CreateQuestionForm = ({ themeId }: { themeId: string }) => {
   const { t } = useTranslation();
 
   const schema = createQuestionSchema(
@@ -52,9 +44,7 @@ export const CreateQuestionForm = ({
 
   const onSubmit: SubmitHandler<TQuestionFields> = async (values) => {
     const questionData = {
-      courseName,
       themeId,
-      themeName,
       question: values.selfWrittenQuestion,
       answer_1: values.selfWrittenAnswer1,
       answer_2: values.selfWrittenAnswer2,

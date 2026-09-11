@@ -55,8 +55,6 @@ export const AIGeneratedQuestionsPage = () => {
             <EditAIGeneratedQuestions
               questionItem={item}
               deleteQuestion={deleteQuestion}
-              courseName={courseName}
-              themeName={themeName}
               themeId={themeId}
             />
           </div>

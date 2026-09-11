@@ -30,7 +30,7 @@ export const ManualQuestionCreationPage = () => {
       <h2>{t("header.theme", { themeName })}</h2>
 
       <div className={formContainerStyles}>
-        <CreateQuestionForm courseName={courseName} themeName={themeName} themeId={themeId} />
+        <CreateQuestionForm themeId={themeId} />
       </div>
     </>
   );
