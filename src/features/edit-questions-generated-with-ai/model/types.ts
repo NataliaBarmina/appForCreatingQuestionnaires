@@ -7,8 +7,8 @@ export type TFields = {
 
 export type TEditAIGeneratedQuestions = {
   questionItem: TFields;
-  courseName: string;
-  themeName: string;
+  // courseName: string;
+  // themeName: string;
   themeId: string;
   deleteQuestion: (questionName: string) => void;
 };
