@@ -1,4 +1,3 @@
-export { ConfirmActionDialog } from "./confirm-action-dialog/ui/confirm-action-dialog";
 export {
   AlertDialog,
   AlertDialogAction,
@@ -9,6 +8,15 @@ export {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "./confirm-action-dialog/ui/alert-dialog";
+
+export {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+  DialogDescription,
+} from "./dialog/dialog";
+
 export { Button } from "./button/button";
 export { Preloader } from "./preloader/preloader";
 export { EmptyState } from "./errors/empty-state";
@@ -17,7 +25,7 @@ export { FieldsError } from "./errors/fields-error";
 
 export { Label } from "./label/label";
 
-export { Dialog, DialogContent, DialogTrigger, DialogTitle } from "./dialog/dialog";
+export { ConfirmActionDialog } from "./confirm-action-dialog/ui/confirm-action-dialog";
 
 export { Popover, PopoverContent, PopoverTrigger } from "./popover/popover";
 

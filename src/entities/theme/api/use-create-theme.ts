@@ -19,9 +19,9 @@ export const useCreateTheme = () => {
   return useMutation({
     mutationFn: createTheme,
 
-    onSuccess: () =>
+    onSuccess: (_, variables) =>
       queryClient.invalidateQueries({
-        queryKey: ["themes"],
+        queryKey: ["themes", variables.courseName],
       }),
     onError: (error) => {
       if (error instanceof FirebaseError) {

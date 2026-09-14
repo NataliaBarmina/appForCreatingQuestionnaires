@@ -19,7 +19,7 @@ export const useEditQuestion = () => {
   return useMutation({
     mutationFn: editQuestion,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ["questions"] });
+      await queryClient.invalidateQueries({ queryKey: ["questions"], refetchType: "all" });
     },
     onError: (error) => {
       if (error instanceof FirebaseError) {

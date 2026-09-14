@@ -16,9 +16,10 @@ export const QuestionEditorPage = () => {
     themeId,
   }: { courseName: string; themeName: string; themeId: string } = location.state || {};
 
-  const { data = [], isLoading, isError, error } = useGetQuestionsByTheme(themeId);
+  const { data, isLoading, isFetching, isError, error } = useGetQuestionsByTheme(themeId);
 
-  if (isLoading) return <Preloader />;
+  if (isLoading || isFetching || data === undefined) return <Preloader />; // чтобы не было мигания EmptyState, если data по умолчанию = []
+
   if (isError) return <LoadingError message={error.message} />;
 
   return (

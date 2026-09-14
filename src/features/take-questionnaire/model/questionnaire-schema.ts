@@ -1,9 +1,10 @@
 import * as yup from "yup";
 
-export const createSchema = () =>
+export const createSchema = (questionsCount: number) =>
   yup.object({
     radioInputFromSurvey: yup
       .array()
       .of(yup.string().required("Выберите вариант ответа"))
-      .required(),
+      .required()
+      .length(questionsCount, "Ответьте на все вопросы"),
   });
