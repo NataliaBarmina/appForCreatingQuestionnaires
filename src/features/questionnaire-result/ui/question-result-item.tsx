@@ -1,17 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { Label } from "@shared/ui";
 import { greenContainerStyles, questionNumberHeader, centeredContentStyles } from "./styles";
-import { TQuestionItem } from "../model/types";
 
 export const QuestionResultItem = ({
   index,
   question,
   answer_1,
   answer_2,
-  correctAnswer,
-  yourAnswer,
-}: TQuestionItem) => {
+}: {
+  index: number;
+  question: string;
+  answer_1: string;
+  answer_2: string;
+}) => {
   const { t } = useTranslation();
+
   return (
     <div>
       <div className={greenContainerStyles}>
@@ -25,14 +28,14 @@ export const QuestionResultItem = ({
 
           <div className={centeredContentStyles}>
             <Label className="text-white" htmlFor="correctAnswer">
-              {correctAnswer}
+              {t("formLabel.correctAnswer")}
             </Label>
             <p id={"correctAnswer"} className="textarea-styles mb-6">
               {answer_1}
             </p>
 
             <Label className="text-white" htmlFor="yourAnswer">
-              {yourAnswer}
+              yourAnswer={t("formLabel.yourAnswer")}
             </Label>
             <p id={"yourAnswer"} className="textarea-styles mb-6">
               {answer_2}

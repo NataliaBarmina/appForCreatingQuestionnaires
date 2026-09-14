@@ -21,9 +21,9 @@ export const useCreateQuestion = () => {
   return useMutation({
     mutationFn: createQuestion,
 
-    onSuccess: async () =>
+    onSuccess: async (_, variables) =>
       await queryClient.invalidateQueries({
-        queryKey: ["questions"],
+        queryKey: ["questions", variables.themeId],
       }),
     onError: (error) => {
       if (error instanceof FirebaseError) {

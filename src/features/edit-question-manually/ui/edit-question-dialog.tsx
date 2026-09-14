@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Dialog, DialogContent, DialogTrigger, DialogTitle, Button } from "@shared/ui";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+  Button,
+  DialogDescription,
+} from "@shared/ui";
 import { TQuestionList } from "@entities/question";
 import { EditQuestionForm } from "./edit-question-form";
 
@@ -31,6 +38,9 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
 
         <DialogContent>
           <DialogTitle className="sr-only">Редактирование вопроса</DialogTitle>
+          <DialogDescription className="sr-only">
+            Форма для редактирования вопроса и вариантов ответа
+          </DialogDescription>
 
           <EditQuestionForm onClose={closeDialog} questionItem={questionItem} />
         </DialogContent>

@@ -11,10 +11,7 @@ export type TQuestion = {
 };
 
 export type TQuestionItem = {
-  question: string;
-  correctAnswer: string;
-  wrongAnswer_1: string;
-  wrongAnswer_2: string;
+  questionItem: TQuestion;
   index: number;
   errorMessage?: string;
 };

@@ -1,11 +1,5 @@
 import { cn } from "@shared/lib";
 
-export const percentageOfCorrectAnswersStyles = cn(
-  "mb-3 px-6 py-4",
-  "bg-beige  inline-block rounded-full",
-  "border border-solid border-pink-900",
-  "shadow-lg shadow-pink-900"
-);
 export const greenContainerStyles = cn(
   "mx-auto mb-8 w-[95%] bg-green-800",
   "rounded-2xl",

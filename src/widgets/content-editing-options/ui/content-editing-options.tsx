@@ -34,7 +34,11 @@ export const ContentEditingOptions = () => {
             <div className={lineStyles} />
 
             <p className={textStyles}>
-              {t("editTheme.edit")} <br /> {t("editTheme.delete")} <br /> {t(text)}
+              {t("editTheme.edit")}
+              <br />
+              {t("editTheme.delete")}
+              <br />
+              {t(text)}
             </p>
 
             <div className="mr-4 flex justify-end">

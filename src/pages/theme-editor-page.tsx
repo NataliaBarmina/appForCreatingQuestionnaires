@@ -11,17 +11,15 @@ export const ThemeEditorPage = () => {
   const location = useLocation();
   const { course } = location.state;
 
-  const { data: themes = [], isLoading, isError, error } = useGetThemes(course);
+  const { data: themes, isLoading, isFetching, isError, error } = useGetThemes(course);
 
-  const isThemes = themes.length > 0;
-
-  if (isLoading) {
+  if (isLoading || isFetching || themes === undefined) {
     return <Preloader />;
   }
   if (isError) {
     return <LoadingError message={error.message} />;
   }
-  if (!isThemes) {
+  if (themes.length === 0) {
     return <EmptyState message={t("emptyState.noThemes")} />;
   }
 
