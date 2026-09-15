@@ -2,6 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { queryKeys } from "@shared/query-keys-factory";
 
 export const createTheme = async ({
   themeName,
@@ -21,7 +22,7 @@ export const useCreateTheme = () => {
 
     onSuccess: (_, variables) =>
       queryClient.invalidateQueries({
-        queryKey: ["themes", variables.courseName],
+        queryKey: queryKeys.themesByCourse(variables.courseName),
       }),
     onError: (error) => {
       if (error instanceof FirebaseError) {

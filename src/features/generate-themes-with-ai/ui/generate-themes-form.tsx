@@ -6,7 +6,7 @@ import { GenerationSettings } from "@entities/generation-settings";
 import { useGetThemes } from "@entities/theme";
 import { cn } from "@shared/lib";
 import { LoadingError, LoadingModal } from "@shared/ui";
-import { useGenerateThemes } from "../api/generate-themes";
+import { useGenerateThemes } from "../api/use-generate-themes";
 
 const TOPICS_COUNT = [2, 5, 10, 15, 20];
 

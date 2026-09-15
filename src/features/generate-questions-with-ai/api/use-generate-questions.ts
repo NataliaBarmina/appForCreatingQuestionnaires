@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { createQuestionsPrompt } from "../model/create-questions-prompt";
 import { TGenerateQuestions } from "../model/types";
+import { queryKeys } from "@shared/query-keys-factory";
 
 export async function generateQuestions({
   courseName,
@@ -32,7 +33,7 @@ export const useGenerateQuestions = ({
   existingQuestions,
 }: TGenerateQuestions) => {
   return useQuery({
-    queryKey: ["generatedQuestions", themeName],
+    queryKey: queryKeys.generatedQuestionsByTheme(themeName),
     queryFn: () =>
       generateQuestions({ themeName, count, instructions, existingQuestions, courseName }),
     enabled: false, // queryFn не запускается автоматически- для связки с refetch
