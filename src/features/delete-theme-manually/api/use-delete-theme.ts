@@ -5,6 +5,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 
 import { getQuestionsByTheme } from "@entities/question";
 import { deleteQuestion } from "@entities/question";
+import { queryKeys } from "@shared/query-keys-factory";
 
 export const deleteTheme = async (themeId: string) => {
   const questions = await getQuestionsByTheme(themeId);
@@ -20,8 +21,8 @@ export const useDeleteTheme = () => {
     mutationFn: deleteTheme,
     onSuccess: async (_, themeId) =>
       await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ["themes"] }),
-        queryClient.invalidateQueries({ queryKey: ["questions", themeId] }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.themes }),
+        queryClient.invalidateQueries({ queryKey: queryKeys.questions }),
       ]),
     onError: (error) => {
       if (error instanceof FirebaseError) {

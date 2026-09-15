@@ -21,7 +21,7 @@ export const CourseThemeSelectionPage = () => {
   const handleChange: THandleTabChange = (_, newValue) => {
     setTabValue(newValue);
   };
-  const { data: themes = [], isLoading, isError, error } = useGetThemes(selectedCourseName);
+  const { data: themes = [], isFetching, isError, error } = useGetThemes(selectedCourseName);
 
   const errorMessage = error instanceof Error ? error.message : t("error.loadThemesFailed");
 
@@ -33,16 +33,16 @@ export const CourseThemeSelectionPage = () => {
       <div className="w-full pb-11">
         <CourseSelector tabValue={tabValue} courses={COURSES} handleChange={handleChange} />
 
-        {isLoading && <Preloader />}
+        {isFetching && <Preloader />}
         {isError && <LoadingError message={errorMessage} />}
 
         <h2 className="pt-10">
           {t("courseThemeSelection.themeSelection", { selectedCourseName })}
         </h2>
 
-        {!isLoading && !isError && !hasThemes && <EmptyState message={t("emptyState.noThemes")} />}
+        {!isFetching && !isError && !hasThemes && <EmptyState message={t("emptyState.noThemes")} />}
 
-        {!isLoading && !isError && hasThemes && (
+        {!isFetching && !isError && hasThemes && (
           <ThemeSelection
             courseName={selectedCourseName}
             selectedTopics={themes}

@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 
 import { Button, FieldsError } from "@shared/ui";
-import { useCreateTheme } from "../../../entities/theme/api/use-create-theme";
+import { useCreateTheme } from "@entities/theme";
 import { createThemeSchema } from "../model/validation-schema";
 
 export const CreateThemeForm = ({

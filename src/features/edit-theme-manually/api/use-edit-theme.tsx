@@ -3,6 +3,7 @@ import { doc } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FirebaseError } from "firebase/app";
+import { queryKeys } from "@shared/query-keys-factory";
 
 type TEditThemeData = {
   themeName: string;
@@ -17,7 +18,7 @@ export const useEditTheme = () => {
   return useMutation({
     mutationFn: editTheme,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ["themes"] });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.themes });
     },
     onError: (error) => {
       if (error instanceof FirebaseError) {

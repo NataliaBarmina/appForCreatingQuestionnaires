@@ -3,6 +3,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { TQuestionItem } from "../model/types";
 import { FirebaseError } from "firebase/app";
+import { queryKeys } from "@shared/query-keys-factory";
 
 type TEditQuestion = {
   id: string;
@@ -19,7 +20,7 @@ export const useEditQuestion = () => {
   return useMutation({
     mutationFn: editQuestion,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ["questions"], refetchType: "all" });
+      await queryClient.invalidateQueries({ queryKey: queryKeys.questions, refetchType: "all" });
     },
     onError: (error) => {
       if (error instanceof FirebaseError) {

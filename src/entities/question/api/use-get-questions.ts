@@ -1,6 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@appFirebase";
 import { useQuery } from "@tanstack/react-query";
+import { queryKeys } from "@shared/query-keys-factory";
 
 export async function getQuestions() {
   const snapshot = await getDocs(collection(db, "questions"));
@@ -20,7 +21,7 @@ export async function getQuestions() {
 
 export const useGetQuestions = () => {
   return useQuery({
-    queryKey: ["questions"],
+    queryKey: queryKeys.questions,
     queryFn: () => getQuestions(),
   });
 };

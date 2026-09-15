@@ -1,6 +1,7 @@
 import { geminiModel } from "@appFirebase";
 import { useQuery } from "@tanstack/react-query";
 import { createThemesPrompt } from "../model/create-themes-prompt";
+import { queryKeys } from "@shared/query-keys-factory";
 
 export type TGenerateThemes = {
   courseName: string;
@@ -34,7 +35,7 @@ export const useGenerateThemes = ({
   existingThemes,
 }: TGenerateThemes) => {
   return useQuery({
-    queryKey: ["generatedThemes", courseName],
+    queryKey: queryKeys.generatedThemesByCourse(courseName),
     queryFn: () => generateThemes({ courseName, count, instructions, existingThemes }),
     enabled: false, // queryFn не запускается автоматически- для связки с refetch
   });
