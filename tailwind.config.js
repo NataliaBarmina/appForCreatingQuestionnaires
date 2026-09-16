@@ -1,48 +1,37 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors");
-const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
-  darkMode: ["class"],
   theme: {
-    screens: {
-      xs: "320px",
-      s: "540px",
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-    },
     extend: {
+      screens: {
+        xs: "320px",
+        s: "540px",
+        "3xl": "1920px",
+      },
       colors: {
-        black: "hsl(var(--black))",
-        white: "hsl(var(--white))",
         gray: {
-          200: "hsl(var(--gray_200))",
-          400: "hsl(var(--gray_400))",
-          600: "hsl(var(--gray_600))",
+          200: "hsl(var(--gray_200) / <alpha-value>)",
+          600: "hsl(var(--gray_600) / <alpha-value>)",
+          950: "hsl(var(--gray_950) / <alpha-value>)",
         },
         pink: {
-          600: "hsl(var(--pink_600))",
-          900: "hsl(var(--pink_900))",
+          900: "hsl(var(--pink_900) / <alpha-value>)",
         },
         purple: {
-          700: "hsl(var(--purple_700))",
-          900: "hsl(var(--purple_900))",
+          900: "hsl(var(--purple_900) / <alpha-value>)",
         },
         blue: {
-          100: "hsl(var(--blue_100))",
-          200: "hsl(var(--blue_200))",
+          100: "hsl(var(--blue_100) / <alpha-value>)",
+          200: "hsl(var(--blue_200) / <alpha-value>)",
         },
-        beige: "hsl(var(--beige))",
-        salmon: "hsl(var(--salmon))",
+        beige: "hsl(var(--beige) / <alpha-value>)",
         green: {
-          800: "hsl(var(--green))",
+          800: "hsl(var(--green) / <alpha-value>)",
         },
+        // для библиотеки shadcn
         border: "hsl(var(--border))",
-        input: "hsl(var(--input))", // настроила для текстареи
+        input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -70,12 +59,8 @@ module.exports = {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), plugin],
+  plugins: [require("tailwindcss-animate")],
 };
