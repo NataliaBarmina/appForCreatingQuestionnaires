@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSession } from "@entities/session";
 
-export const buttonAuthStyles = "rounded-md bg-[#fca5a5]/80 px-4 py-2";
+export const buttonAuthStyles =
+  "rounded-md hover:bg-[#fca5a5] px-4 py-1 border border-white/30 text-white/70 text-sm md:py-2 lg:text-md";
 
 export const LogoutButton = () => {
   const { t } = useTranslation();
