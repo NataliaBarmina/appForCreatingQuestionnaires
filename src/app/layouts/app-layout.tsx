@@ -14,11 +14,12 @@ export const containerStyle = cn(
 );
 
 export const outletStyle = cn(
+  "flex flex-col",
   "bg-[#D3D6D6] text-center",
   "shadow-lg shadow-[#241515]",
-  "min-h-[calc(100dvh-9rem)] pb-16",
+  "min-h-[calc(100dvh-9rem)]",
 
-  "md:min-h-[calc(100dvh-11rem)] md:pb-20",
+  "md:min-h-[calc(100dvh-11rem)]",
   "lg:min-h-[88vh] lg:w-[70%] lg:pb-0"
 );
 
@@ -33,20 +34,11 @@ export const AppLayout = () => {
         </div>
 
         <main className={outletStyle}>
-          <Outlet />
+          <div className="flex flex-1 flex-col">
+            <Outlet />
+          </div>
         </main>
-        <ScreenInfo />
       </div>
-    </div>
-  );
-};
-
-export const ScreenInfo = () => {
-  return (
-    <div className="fixed left-0 top-0 z-[9999] bg-black p-2 text-white">
-      {window.innerWidth} × {window.innerHeight}
-      <br />
-      DPR: {window.devicePixelRatio}
     </div>
   );
 };

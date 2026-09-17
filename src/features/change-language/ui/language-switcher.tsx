@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
-
+import { cn } from "@shared/lib";
 import { languages } from "../config/languages";
-import { containerStyles, getLanguageButtonStyles } from "./styles";
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -13,7 +12,7 @@ export const LanguageSwitcher = () => {
   };
 
   return (
-    <div className={containerStyles}>
+    <div className="mr-4 flex rounded-md border border-white/30 text-xs md:text-sm">
       {languages.map(({ code, label }) => {
         const isActive = currentLanguage === code;
 
@@ -23,7 +22,13 @@ export const LanguageSwitcher = () => {
             type="button"
             onClick={() => changeLanguage(code)}
             aria-pressed={isActive}
-            className={getLanguageButtonStyles(isActive)}
+            className={cn(
+              "flex justify-center",
+              "min-w-12 rounded-md p-1 md:py-2",
+              "transition-colors duration-200",
+              "hover:bg-[#FCA5A5]/20 focus:bg-[#FCA5A5]/80",
+              isActive ? "bg-[#FCA5A5] text-[#172626]" : "text-white/70"
+            )}
           >
             {label}
           </button>

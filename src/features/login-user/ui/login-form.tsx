@@ -5,14 +5,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { FieldsError } from "@shared/ui";
-
 import { createLoginSchema } from "../model/validation-schema";
 import {
   showPasswordButtonStyles,
-  showPasswordContainerStyles,
-  showPasswordInputStyles,
+  containerButtonStyles,
+  inputStyles,
   errorStyles,
-  buttonStyles,
+  submitButtonStyles,
 } from "./styles";
 import { useSession } from "@entities/session";
 
@@ -55,14 +54,18 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={showPasswordContainerStyles}>
-        <input
-          {...register("password")}
-          placeholder={t("auth.placeholder")}
-          type={showPassword ? "text" : "password"}
-          className={showPasswordInputStyles}
-          autoFocus
-        />
+      <input
+        {...register("password")}
+        placeholder={t("auth.placeholder")}
+        type={showPassword ? "text" : "password"}
+        className={inputStyles}
+        autoFocus
+      />
+
+      <div className={containerButtonStyles}>
+        <button className={submitButtonStyles} type="submit" disabled={isSubmitting}>
+          {t("auth.login")}
+        </button>
 
         <button
           type="button"
@@ -72,10 +75,6 @@ export const LoginForm = () => {
           {showPassword ? t("auth.hidePassword") : t("auth.showPassword")}
         </button>
       </div>
-
-      <button className={`${buttonStyles} mb-6`} type="submit" disabled={isSubmitting}>
-        {t("auth.login")}
-      </button>
 
       {errors.password?.message && (
         <FieldsError message={errors.password?.message} styles={errorStyles} />

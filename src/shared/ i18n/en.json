@@ -110,8 +110,8 @@
     "deleteTopic": "delete topic"
   },
   "auth": {
-    "title": "Enter your password",
-    "login": "LOGIN",
+    "title": "Enter password",
+    "login": "login",
     "logout": "LOGOUT",
     "hidePassword": "hide",
     "showPassword": "show",

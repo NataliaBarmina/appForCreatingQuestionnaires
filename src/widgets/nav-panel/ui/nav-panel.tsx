@@ -28,7 +28,7 @@ export const navLinkStyles = cn(
 
   "md:flex-row md:gap-3 md:text-xl",
 
-  "lg:my-2 lg:h-auto lg:py-2 lg:pl-4 lg:text-2xl",
+  "lg:my-2 lg:h-auto lg:py-2 lg:pl-4 lg:text-2xl lg:focus:bg-inherit",
   "lg:justify-start lg:gap-2",
   "xl:gap-4 xl:pl-6"
 );
