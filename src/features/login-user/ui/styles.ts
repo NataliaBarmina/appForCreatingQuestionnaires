@@ -1,9 +1,21 @@
-export const buttonStyles = "rounded-md bg-[#fca5a5]/80 px-4 py-2 border";
+import { cn } from "@shared/lib";
 
-export const showPasswordInputStyles = "w-full rounded-md border bg-slate-50 px-4 py-4";
+export const inputStyles =
+  "rounded-md border bg-slate-50 px-4 py-4 border-2 border-[#8FB5B2] w-[80%] mb-20";
 
-export const showPasswordContainerStyles = "mx-auto mb-10 flex w-[70%] items-center gap-3 ";
+export const containerButtonStyles = "flex w-full justify-evenly gap-4";
 
-export const showPasswordButtonStyles = "rounded-md border bg-[#88cdbe]/80  px-2 py-2";
+export const buttonStyles =
+  "rounded-md py-2 border-2 border-[#8FB5B2]/50 transition-colors text-sm";
+
+export const showPasswordButtonStyles = cn(
+  buttonStyles,
+  "bg-[#416866]/30 text-[#243B3B]/80 hover:bg-[#416866] px-4"
+);
+
+export const submitButtonStyles = cn(
+  buttonStyles,
+  "bg-[#FCA5A5] hover:bg-[#F0A8AB]/80 px-8 text-[#243B3B]"
+);
 
 export const errorStyles = "bg-red-100 rounded-md";

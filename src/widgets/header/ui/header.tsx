@@ -7,15 +7,14 @@ export const containerStyles = "hidden h-[12vh] w-full lg:block"; //  резер
 export const headerStyle = cn(
   "fixed left-1/2 z-50 -translate-x-1/2",
   "flex w-full flex-row items-center justify-between",
-  "bg-green-800",
-  "bottom-0 h-16 px-4",
-  "shadow-[0_-4px_12px_rgba(0,0,0,0.25)]",
+  "bg-green-800 shadow-[0_-4px_12px_rgba(0,0,0,0.25)]",
+  "bottom-0 h-16",
 
-  "md:h-20 md:px-8",
+  "sm:px-10 md:h-20 md:px-14",
 
   // 1024+ возвращаем Header наверх
   "lg:top-0 lg:bottom-auto",
-  "lg:h-[12vh] lg:w-[85%] lg:px-0",
+  "lg:h-[12vh] lg:w-[85%] lg:px-6",
   "lg:shadow-lg lg:shadow-stone-900",
 
   "xl:w-[80%]",

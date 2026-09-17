@@ -112,8 +112,8 @@
     "deleteTopic": "удалить тему"
   },
   "auth": {
-    "title": "Введите ваш пароль",
-    "login": "ВОЙТИ",
+    "title": "Введите пароль",
+    "login": "войти",
     "logout": "ВЫЙТИ",
     "hidePassword": "спрятать",
     "showPassword": "показать",
