@@ -1,29 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { cn } from "@shared/lib";
-
-import { circleConfig } from "../config/circle-config";
-import { smallCirclesStyles, circlesTextStyles, bigCircleStyles } from "./styles";
+import { MobileDashboard } from "./mobile";
+import { DesktopDashboard } from "./desktop";
 
 export const Dashboard = () => {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-
   return (
-    <>
-      {circleConfig.map((circle) => {
-        const { colSpan, colStart, rowSpan, rowStart, link, labelKey } = circle;
+    <div className="w-full">
+      <div className="min-[540px]:hidden">
+        <MobileDashboard />
+      </div>
 
-        return (
-          <div key={link} className={cn("z-50", colSpan, colStart, rowSpan, rowStart)}>
-            <div className={smallCirclesStyles} onClick={() => navigate(link)}>
-              <p className={circlesTextStyles}>{t(labelKey)}</p>
-            </div>
-          </div>
-        );
-      })}
-
-      <div className={bigCircleStyles}></div>
-    </>
+      <div className="hidden min-[540px]:block">
+        <DesktopDashboard />
+      </div>
+    </div>
   );
 };

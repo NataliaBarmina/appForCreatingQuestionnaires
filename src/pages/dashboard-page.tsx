@@ -2,7 +2,7 @@ import { Dashboard } from "@widgets/dashboard";
 
 export const DashboardPage = () => {
   return (
-    <div className="grid grid-cols-5 grid-rows-7 items-center justify-items-center py-14">
+    <div className="flex w-full flex-1 items-center justify-center s:p-4 lg:p-6">
       <Dashboard />
     </div>
   );

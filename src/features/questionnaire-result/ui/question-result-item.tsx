@@ -35,7 +35,7 @@ export const QuestionResultItem = ({
             </p>
 
             <Label className="text-white" htmlFor="yourAnswer">
-              yourAnswer={t("formLabel.yourAnswer")}
+              {t("formLabel.yourAnswer")}
             </Label>
             <p id={"yourAnswer"} className="textarea-styles mb-6">
               {answer_2}
