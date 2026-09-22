@@ -9,7 +9,7 @@ export const ContentCreationOptions = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex justify-center pt-16">
+    <div className="flex w-full justify-center">
       <div className={containerStyles}>
         {creationOptions.map((option) => (
           <button
@@ -18,11 +18,11 @@ export const ContentCreationOptions = () => {
             onClick={() => navigate(option.path, { state: { buttonID: option.buttonID } })}
             className={`${baseButtonStyles} ${option.positionClasses} `}
           >
-            <div className="flex flex-col items-center justify-evenly">
+            <div className="flex justify-center">
               <option.Icon />
-              <p className="text-2xl font-medium">{t(option.title)}</p>
-              <p className="mt-1 text-lg">{t(option.subtitle)}</p>
             </div>
+            <p className="mx-auto text-[3vh] font-medium leading-none">{t(option.title)}</p>
+            <p className="mt-1 text-[1.7vh] leading-none">{t(option.subtitle)}</p>
           </button>
         ))}
 
