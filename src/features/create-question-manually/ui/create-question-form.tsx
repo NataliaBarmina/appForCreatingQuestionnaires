@@ -72,7 +72,7 @@ export const CreateQuestionForm = ({ themeId }: { themeId: string }) => {
           formLabel={t("formLabel.question")}
           placeholder={t("createQuestion.placeholder.question")}
         />
-        <div className="mx-auto w-[85%]">
+        <div className="mx-auto w-full min-w-0 sm:w-[85%]">
           {answerFields.map((field) => (
             <CreateAnswerField
               key={field.name}

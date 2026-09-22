@@ -17,7 +17,7 @@ export const CreateQuestionField = ({
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem className="pt-8">
+        <FormItem className="pt-4">
           <FormLabel className="text-lg text-yellow-50">{formLabel}</FormLabel>
           <FormControl>
             <input

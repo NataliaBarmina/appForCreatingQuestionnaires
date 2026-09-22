@@ -14,7 +14,7 @@ export const containerStyle = cn(
 );
 
 export const outletStyle = cn(
-  "flex flex-col",
+  "flex flex-col min-w-0 ",
   "bg-[#D3D6D6] text-center",
   "shadow-lg shadow-[#241515]",
   "min-h-[calc(100dvh-9rem)]",
@@ -34,7 +34,7 @@ export const AppLayout = () => {
         </div>
 
         <main className={outletStyle}>
-          <div className="flex flex-1 flex-col">
+          <div className="flex min-w-0 flex-1 flex-col">
             <Outlet />
           </div>
         </main>

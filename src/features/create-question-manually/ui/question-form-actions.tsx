@@ -17,7 +17,7 @@ export const QuestionFormActions = ({
 }: TQuestionFormActions) => {
   const { t } = useTranslation();
   return (
-    <div className="mb-8 flex w-full justify-evenly pt-14">
+    <div className="my-6 flex w-full justify-evenly lg:my-10">
       <ConfirmActionDialog
         alertDialogTitle={t("alert.validationTitle")}
         alertDialogDescription={t("alert.checkQuestions")}
