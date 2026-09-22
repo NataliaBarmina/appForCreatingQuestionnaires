@@ -61,7 +61,7 @@
   .textarea-styles {
     @apply w-full bg-blue-100 text-left;
     @apply border-4 border-solid border-blue-200;
-    @apply mb-2 py-4 pl-4;
+    @apply mb-2 py-2 pl-2;
 
     font-size: 120%;
     field-sizing: content;

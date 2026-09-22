@@ -53,7 +53,7 @@ export const ThemeSelection = ({
           <List>
             {selectedTopics.map((theme) => (
               <ListItem disablePadding key={theme.themeId} sx={listItemStyles}>
-                <ListItemButton onClick={() => handleThemeClick(theme)}>
+                <ListItemButton onClick={() => handleThemeClick(theme)} sx={{ padding: "1px 2px" }}>
                   <ListItemText primary={theme.themeName} />
                 </ListItemButton>
               </ListItem>
