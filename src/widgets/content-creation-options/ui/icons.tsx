@@ -2,7 +2,9 @@ export const AiIcon = () => (
   <svg
     viewBox="0 0 64 64"
     aria-hidden="true"
-    className="stroke-linecap-round stroke-linejoin-round mb-3 h-12 w-12 fill-none stroke-[#9df1cf]/70 stroke-[4]"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="mb-3 h-[3vh] w-[3vh] fill-none stroke-[#9df1cf]/70 stroke-[4]"
   >
     <circle cx="12" cy="16" r="4" />
     <circle cx="32" cy="8" r="4" />
@@ -19,7 +21,9 @@ export const PencilIcon = () => (
   <svg
     viewBox="0 0 64 64"
     aria-hidden="true"
-    className="stroke-linecap-round stroke-linejoin-round mb-3 h-12 w-12 fill-none stroke-[#9df1cf]/70 stroke-[4]"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="mb-3 h-[3vh] w-[3vh] fill-none stroke-[#9df1cf]/70 stroke-[4]"
   >
     <path d="M12 45 44 13l8 8-32 32-12 3 4-11Z" />
     <path d="m39 18 8 8M12 45l8 8" />
