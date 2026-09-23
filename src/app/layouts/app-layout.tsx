@@ -34,7 +34,7 @@ export const AppLayout = () => {
         </div>
 
         <main className={outletStyle}>
-          <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col pb-16 lg:pb-0">
             <Outlet />
           </div>
         </main>

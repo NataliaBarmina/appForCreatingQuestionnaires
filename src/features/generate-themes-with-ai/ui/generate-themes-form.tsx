@@ -4,8 +4,7 @@ import { FormEvent, useState } from "react";
 
 import { GenerationSettings } from "@entities/generation-settings";
 import { useGetThemes } from "@entities/theme";
-import { cn } from "@shared/lib";
-import { LoadingError, LoadingModal } from "@shared/ui";
+import { LoadingError } from "@shared/ui";
 import { useGenerateThemes } from "../api/use-generate-themes";
 
 const TOPICS_COUNT = [2, 5, 10, 15, 20];
@@ -40,8 +39,6 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="pt-0">{t("generateTheme.withAI")}</h2>
-
       <GenerationSettings
         generationCount={TOPICS_COUNT}
         count={count}
@@ -50,28 +47,9 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
         instructions={instructions}
         countTitle={t("generateTheme.questionsCountTitle")}
         instructionPlaceholder={t("generateTheme.preferencesPlaceholder")}
+        isFetching={isFetching}
+        loadingModalMessage={t("generateTheme.generatingTitle")}
       />
-
-      {isFetching && <LoadingModal message={t("generateTheme.generatingTitle")} />}
-
-      <button
-        type="submit"
-        disabled={isFetching}
-        className={cn(
-          "transition duration-200 hover:-translate-y-0.5",
-          "mx-auto block min-w-[340px]",
-          "rounded-xl px-8 py-4",
-          "text-lg font-semibold text-white",
-          "bg-[#181313] shadow-[0_10px_22px_rgba(0,0,0,0.3)]",
-
-          !isFetching &&
-            "hover:-translate-y-0.5 hover:bg-[#372d2d] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)]",
-
-          isFetching && "cursor-not-allowed opacity-60"
-        )}
-      >
-        {isFetching ? t("generateTheme.generatingTitle") : t("generateTheme.generate")}
-      </button>
 
       {isError && <LoadingError message={error.message} />}
     </form>

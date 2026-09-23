@@ -11,9 +11,11 @@ export const AIQuestionsGenerationPage = () => {
 
   return (
     <>
-      <h1>{t("generateQuestions.title", { courseName })}</h1>
+      <h1 className="px-2 text-[1.2rem]">{t("generateQuestions.title", { courseName })}</h1>
 
-      <h2>{t("header.theme", { themeName })}</h2>
+      <h2 className="px-2 text-[1.1rem]">
+        {t("header.theme", { themeName: themeName?.toLowerCase() })}
+      </h2>
 
       <GenerateQuestionsForm courseName={courseName} themeName={themeName} themeId={themeId} />
     </>

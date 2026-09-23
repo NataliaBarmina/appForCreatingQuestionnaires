@@ -1,12 +1,14 @@
-export const containerStyles = "mx-auto mb-6 w-[85%] text-lg font-medium text-white";
+import { cn } from "@shared/lib";
+
+export const containerStyles = "mx-auto w-[85%] text-lg font-medium text-white";
 
 export const sectionStyles =
-  "mb-8 rounded-2xl bg-green-800 px-8 pt-8 pb-10 shadow-[0_12px_30px_rgba(0,0,0,0.2)]";
+  "mb-8 rounded-2xl bg-green-800 px-8 pt-8 pb-10 shadow-[0_12px_30px_rgba(0,0,0,0.2)] 2xl:mb-12 2xl:pt-10 2xl:pb-12";
 
 export const titleStyles = "pb-6 text-xl font-semibold";
 
 export const countContainerStyles =
-  "flex justify-evenly rounded-2xl border-2 border-white/20 bg-[#0000001A] py-8";
+  "flex justify-evenly rounded-2xl border-2 border-white/20 bg-[#0000001A] py-8 2xl:py-10";
 
 export const countButtonStyles =
   "h-12 w-24 rounded-full border-2 transition duration-200 hover:-translate-y-0.5";
@@ -18,3 +20,17 @@ export const countButtonDefaultStyles =
 
 export const instructionsStyles =
   "mt-6 min-h-[130px] w-full resize-y rounded-2xl border-2 border-white/20 bg-[#0000001A] px-5 py-4 text-base leading-7 text-white outline-none transition placeholder:text-white/40 focus:border-[#e3a0a7]";
+
+export const generateButtonStyle = (isFetching: boolean) =>
+  cn(
+    "transition duration-200",
+    "mx-auto block",
+    "rounded-xl px-4 py-2 mb-8",
+    "text-[1rem] font-semibold text-white",
+    "bg-[#181313]/80 shadow-[0_10px_22px_rgba(0,0,0,0.3)]",
+
+    !isFetching &&
+      "hover:-translate-y-0.5 hover:bg-[#372d2d] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)]",
+
+    isFetching && "cursor-not-allowed opacity-60"
+  );

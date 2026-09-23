@@ -26,8 +26,8 @@
     "placeholder": "Enter the topic name"
   },
   "generateTheme": {
-    "withAI": "with AI",
-    "generate": "Generate topics",
+    "title": "Generate AI topics for the {{courseName}} course",
+    "generate": "Generate",
     "questionsCountTitle": "Number of topics",
     "generatingTitle": "Generating topics...",
     "mayTakeAFewSeconds": "This may take a few seconds",
@@ -46,8 +46,7 @@
     "generatingTitle": "Generating questions...",
     "questionsCountTitle": "Number of questions",
     "preferencesTitle": "Additional preferences",
-    "preferencesPlaceholder": "For example: focus on practical tasks, exclude questions about closures, etc.",
-    "generate": "Generate questions"
+    "preferencesPlaceholder": "For example: focus on practical tasks, exclude questions about closures, etc."
   },
   "courseThemeSelection": {
     "courseSelection": "Select a course",
