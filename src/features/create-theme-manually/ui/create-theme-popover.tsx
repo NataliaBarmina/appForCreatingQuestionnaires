@@ -17,15 +17,16 @@ export const CreateThemePopover = ({ courseName }: { courseName: string }) => {
         {t("createTheme.buttonLabel")}
       </PopoverTrigger>
       <PopoverContent
-        className="w-[45rem] rounded-2xl border-none bg-green-800 p-0"
+        className="max-h-[calc(100dvh-2rem)] w-[calc(100vw-2rem)] overflow-y-auto rounded-2xl border-none bg-green-800 p-0 sm:w-[min(32rem,calc(100vw-2rem))] lg:w-[min(38rem,calc(100vw-2rem))] xl:w-[min(45rem,calc(100vw-2rem))]"
         side="bottom"
         align="center"
-        sideOffset={-37}
+        sideOffset={8}
+        collisionPadding={16}
       >
         <div className={formContainerStyles}>
-          <div className="flex items-center gap-4 pb-6 pt-4">
+          <div className="flex items-center gap-2 pb-4 pt-4 sm:gap-4 sm:pb-6">
             <PlusCircleIcon />
-            <h1 className="pt-0">{t("header.addTheme")}</h1>
+            <h1 className="min-w-0 text-lg sm:text-xl">{t("header.addTheme")}</h1>
           </div>
           <CreateThemeForm onSuccess={() => setOpen(false)} courseName={courseName} />
         </div>

@@ -9,15 +9,13 @@ export const AIThemesGenerationPage = () => {
   const location = useLocation();
   const { t } = useTranslation();
 
-  const { course } = location.state;
+  const { course: courseName } = location.state;
 
   return (
     <>
-      <h1>{t("createTheme.title")}</h1>
+      <h1 className="px-2 pb-6 pt-10 text-[1.2rem]">{t("generateTheme.title", { courseName })}</h1>
 
-      <h2>{t("createTheme.forCourse", { course })}</h2>
-
-      <GenerateThemesForm courseName={course} />
+      <GenerateThemesForm courseName={courseName} />
     </>
   );
 };

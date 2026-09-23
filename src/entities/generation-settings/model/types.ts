@@ -6,4 +6,6 @@ export type TGenerationSettings = {
   onInstructionsChange: (instructions: string) => void;
   countTitle: string;
   instructionPlaceholder: string;
+  isFetching: boolean;
+  loadingModalMessage: string;
 };
