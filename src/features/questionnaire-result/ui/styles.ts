@@ -1,15 +1,12 @@
 import { cn } from "@shared/lib";
 
+export const grayContainerStyles = "mx-auto w-full bg-gray-200/80 pb-1";
+
+export const wrongAnswersAnalysisHeader = "py-6 text-[1.1rem] font-bold text-black";
+
 export const greenContainerStyles = cn(
-  "mx-auto mb-8 w-[95%] bg-green-800",
-  "rounded-2xl",
-  "border-2 border-solid border-gray-600",
-  "md:w-[85%]"
+  "mx-auto mb-6 w-full bg-green-800 pt-4 pb-2",
+  "sm:mb-8 sm:w-[90%] sm:rounded-md"
 );
-export const grayContainerStyles = "mx-auto w-full bg-gray-200 pb-1";
-
-export const wrongAnswersAnalysisHeader = "mb-2 py-8 text-xl font-bold text-black";
-
-export const questionNumberHeader = "mb-2 p-4 text-lg font-bold text-blue-100";
 
 export const centeredContentStyles = "mx-auto w-[90%]";

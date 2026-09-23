@@ -23,13 +23,16 @@ export const QuestionItem = ({ index, questionItem, errorMessage }: TQuestionIte
       </div>
 
       <div className="mx-auto mb-8 w-[90%]">
-        <p className="textarea-styles mb-4 rounded-md">{question}</p>
+        <p lang="ru" className="textarea-styles mb-4 hyphens-auto rounded-md text-[0.9rem]">
+          {question}
+        </p>
 
         <div className="mb-12 ml-[4%] w-[96%]">
           {shuffledAnswers.map((answer, answerIndex) => (
             <div key={answer + answerIndex}>
               <label className="mb-4 flex">
                 <input
+                  lang="ru"
                   className="mt-2 h-8 w-8"
                   type="radio"
                   value={answer}

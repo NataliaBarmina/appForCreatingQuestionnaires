@@ -92,12 +92,11 @@
     "wrongAnswers_many": "{{count}} неправильных ответов"
   },
   "formLabel": {
-    "question": "Вопрос:",
-    "topic": "Тема:",
-    "answers": " Ответы:",
-    "correctAnswer": "ПРАВИЛЬНЫЙ ОТВЕТ",
-    "yourAnswer": " ВАШ ОТВЕТ",
-    "wrongAnswer": "НЕПРАВИЛЬНЫЙ ОТВЕТ"
+    "question": "Вопрос",
+    "answers": " Ответы",
+    "correctAnswer": "Правильный ответ",
+    "yourAnswer": " Ваш ответ",
+    "wrongAnswer": "Неправильный ответ"
   },
   "alert": {
     "confirmTitle": "Вы уверены?",

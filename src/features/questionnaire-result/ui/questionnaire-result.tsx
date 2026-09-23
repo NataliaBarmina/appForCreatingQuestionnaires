@@ -32,7 +32,6 @@ export const QuestionnaireResult = ({
             return (
               <QuestionResultItem
                 key={index}
-                index={index}
                 question={item.question}
                 answer_1={correctAnswer}
                 answer_2={userAnswer}
