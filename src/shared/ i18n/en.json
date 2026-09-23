@@ -90,12 +90,11 @@
     "wrongAnswers_other": "{{count}} incorrect answers"
   },
   "formLabel": {
-    "topic": "Topic:",
-    "question": "Question:",
-    "answers": "Answers:",
-    "correctAnswer": "CORRECT ANSWER",
-    "yourAnswer": "YOUR ANSWER",
-    "wrongAnswer": "INCORRECT ANSWER"
+    "question": "Question",
+    "answers": "Answers",
+    "correctAnswer": "Correct answer",
+    "yourAnswer": "Your answer",
+    "wrongAnswer": "Incorrect answer"
   },
   "alert": {
     "confirmTitle": "Are you sure?",
