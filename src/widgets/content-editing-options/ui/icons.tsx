@@ -1,6 +1,6 @@
 import { cn } from "@shared/lib";
 
-const iconStyles = "size-24 fill-none stroke-[#9df1cf]/70 stroke-[2]";
+const iconStyles = "size-12 s:size-24 fill-none stroke-[#9df1cf]/70 stroke-[2]";
 
 export const QuestionIcon = () => (
   <svg viewBox="14.5 5.5 43 43" aria-hidden="true" className={cn(iconStyles, "stroke-[1.3]")}>

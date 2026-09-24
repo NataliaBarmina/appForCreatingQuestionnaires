@@ -20,11 +20,13 @@ export const ContentEditingOptions = () => {
     <div className={containerStyles}>
       {editorOptions.map((option) => {
         const { path, text, Icon, header, buttonID } = option;
+
         return (
           <div key={text} className={contentStyles}>
-            <div className="mb-8 flex justify-center">
+            <div className="mb-4 flex justify-center s:mb-8">
               <Icon />
             </div>
+
             <p className={headerStyle}>
               {t("navigation.editing")}
               <br />

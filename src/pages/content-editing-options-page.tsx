@@ -5,9 +5,13 @@ export const ContentEditingOptionsPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <h1>{t("header.editingQuestionsAndTopics")}</h1>
-      <ContentEditingOptions />
+    <div className="flex flex-1 flex-col [container-type:inline-size]">
+      <h1 className="h-[12cqh] text-[1.3rem] lg:h-[15cqh]">
+        {t("header.editingQuestionsAndTopics")}
+      </h1>
+      <div className="h-[67cqh] md:h-[63cqh] lg:h-[70cqh]">
+        <ContentEditingOptions />
+      </div>
     </div>
   );
 };
