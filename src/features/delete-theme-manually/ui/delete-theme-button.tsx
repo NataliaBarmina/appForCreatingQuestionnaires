@@ -12,12 +12,11 @@ export const DeleteThemeButton = ({
         title="удалить"
         onClick={() => onOpenChange(true)}
         disabled={open}
-        className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#dc9297] text-[#dc9297] transition hover:bg-[#dc9297] hover:text-white"
+        className="flex h-6 w-6 items-center justify-center rounded-xl border border-[#dc9297] text-[#dc9297] transition hover:bg-[#dc9297] hover:text-white s:h-8 s:w-8"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          className="h-4 w-4 s:h-5 s:w-5"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
