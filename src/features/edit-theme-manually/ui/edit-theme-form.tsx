@@ -6,7 +6,7 @@ import * as yup from "yup";
 
 import { Button, FieldsError } from "@shared/ui";
 import { TSelectedTheme } from "@entities/theme";
-import { EditThemeIcon } from "./edit-theme-icon";
+import { EditThemeIcon } from "./icons";
 import { useEditTheme } from "../api/use-edit-theme";
 
 export const EditThemeForm = ({
