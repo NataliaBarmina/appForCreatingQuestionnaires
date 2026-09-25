@@ -5,7 +5,6 @@ type TButton = {
   buttonLabel?: string;
   disabled?: boolean;
   type?: "submit" | "reset" | "button";
-  size?: "big" | "middle" | "small";
   className?: string;
 };
 

@@ -59,12 +59,12 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
 
   return (
     <div className={pinkContainerStyles}>
-      <h1 className="px-4 py-5 text-[1.5rem] font-semibold">
+      <h1 className="px-4 py-4 text-[1.1rem] font-semibold s:py-5 s:text-[1.5rem]">
         {t("editQuestions.changingQuestion")}
       </h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto px-2 xl:px-6">
+        <div className="mx-auto s:px-2 xl:px-6">
           <textarea
             className={!errors.question ? fieldStyles : errorsStyles}
             {...register("question")}
@@ -73,7 +73,9 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
           <div>
             {answerFields.map(({ name, label }) => (
               <div key={name}>
-                <p className="text-center text-[0.9rem] text-black">{t(label).toLowerCase()}</p>
+                <p className="text-center text-[0.7rem] text-black s:text-[0.9rem]">
+                  {t(label).toLowerCase()}
+                </p>
 
                 <textarea
                   className={errors[name] ? errorsStyles : fieldStyles}

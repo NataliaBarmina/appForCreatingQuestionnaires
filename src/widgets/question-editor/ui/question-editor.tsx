@@ -18,16 +18,16 @@ export const QuestionEditor = ({ data }: { data: TQuestionList[] }) => {
 
         return (
           <div key={id} className={greenContainerStyles}>
-            <h3 className="py-6 text-lg font-bold text-blue-100">
+            <h3 className="py-4 text-lg font-bold text-blue-100">
               {`${t("header.questionNumber")} ${index + 1}`}
             </h3>
 
             <div>
               <p className={fieldStyles}>{question}</p>
 
-              <div className="mx-auto w-[90%]">
+              <div className="mx-auto w-[95%]">
                 {answerFields.map(({ id, value, labelKey }) => (
-                  <div key={id} className="mb-6 last:mb-0">
+                  <div key={id}>
                     <Label className="text-white" htmlFor={id}>
                       {t(labelKey)}
                     </Label>
@@ -40,7 +40,7 @@ export const QuestionEditor = ({ data }: { data: TQuestionList[] }) => {
               </div>
             </div>
 
-            <div className="mb-8 flex w-full justify-evenly py-10">
+            <div className="mb-4 flex w-full justify-evenly pb-4">
               <EditQuestionDialog questionItem={item} />
 
               <DeleteQuestionDialog questionID={id} />
