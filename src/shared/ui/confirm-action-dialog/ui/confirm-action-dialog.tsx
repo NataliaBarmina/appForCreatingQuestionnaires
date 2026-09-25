@@ -22,7 +22,6 @@ export const ConfirmActionDialog = ({
   isFormValid,
   isSubmitting,
   type,
-  size,
   onConfirm,
 }: TConfirmActionDialog) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +30,6 @@ export const ConfirmActionDialog = ({
     <>
       <Button
         buttonLabel={buttonLabel}
-        size={size}
         disabled={!isFormValid}
         type={type}
         onClick={() => setIsOpen(true)}

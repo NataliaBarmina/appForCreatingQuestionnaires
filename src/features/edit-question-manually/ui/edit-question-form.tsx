@@ -59,21 +59,26 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
 
   return (
     <div className={pinkContainerStyles}>
-      <h1 className="pb-6 pl-10 text-3xl font-semibold">{t("editQuestions.changingQuestion")}</h1>
+      <h1 className="px-4 py-5 text-[1.5rem] font-semibold">
+        {t("editQuestions.changingQuestion")}
+      </h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto w-[90%] font-medium">
-          <input
+        <div className="mx-auto px-2 xl:px-6">
+          <textarea
             className={!errors.question ? fieldStyles : errorsStyles}
             {...register("question")}
           />
 
-          <div className="s:ml-[2rem] s:w-[93%]">
+          <div>
             {answerFields.map(({ name, label }) => (
               <div key={name}>
-                <p className="text-black">{t(label).toLowerCase()}</p>
+                <p className="text-center text-[0.9rem] text-black">{t(label).toLowerCase()}</p>
 
-                <input className={errors[name] ? errorsStyles : fieldStyles} {...register(name)} />
+                <textarea
+                  className={errors[name] ? errorsStyles : fieldStyles}
+                  {...register(name)}
+                />
               </div>
             ))}
           </div>
@@ -83,17 +88,11 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
         <div className={buttonsContainerStyles}>
           <Button
             buttonLabel={t("buttonLabel.save")}
-            size="middle"
             disabled={!isValid || isPending}
             type="submit"
           />
 
-          <Button
-            buttonLabel={t("buttonLabel.closeForm")}
-            size="middle"
-            onClick={onClose}
-            type="button"
-          />
+          <Button buttonLabel={t("buttonLabel.closeForm")} onClick={onClose} type="button" />
         </div>
       </form>
     </div>

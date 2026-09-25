@@ -68,12 +68,7 @@ export const EditThemeForm = ({
       </div>
       {errorMessage && <FieldsError message={errorMessage} />}
       <div>
-        <Button
-          buttonLabel={t("buttonLabel.send")}
-          size="middle"
-          type="submit"
-          disabled={isPending}
-        />
+        <Button buttonLabel={t("buttonLabel.send")} type="submit" disabled={isPending} />
       </div>
     </form>
   );

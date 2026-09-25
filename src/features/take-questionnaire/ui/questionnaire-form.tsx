@@ -44,7 +44,7 @@ export const QuestionnaireForm = ({ questions }: { questions: TQuestion[] }) => 
 
         {generalErrorMessage && <FieldsError message={generalErrorMessage} />}
 
-        <Button type="submit" buttonLabel={t("buttonLabel.save")} size="middle" />
+        <Button type="submit" buttonLabel={t("buttonLabel.save")} />
       </form>
     </FormProvider>
   );

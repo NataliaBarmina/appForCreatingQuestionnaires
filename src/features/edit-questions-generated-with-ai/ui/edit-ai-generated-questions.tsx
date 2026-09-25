@@ -86,14 +86,12 @@ export const EditAIGeneratedQuestions = ({
         <div className={buttonsContainerStyles}>
           <Button
             buttonLabel={t("buttonLabel.save")}
-            size="middle"
             disabled={!isValid || isPending}
             type="submit"
           />
 
           <Button
             buttonLabel={t("buttonLabel.delete")}
-            size="middle"
             onClick={() => deleteQuestion(question)}
             type="button"
           />
