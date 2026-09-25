@@ -38,7 +38,7 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
 
         <DialogContent
           className={cn(
-            "left-[50%] w-full md:w-[90%] lg:left-[55%] lg:w-[70%] 2xl:w-[60%] 3xl:w-[50%]"
+            "left-[50%] top-[30%] w-full s:top-[35%] md:w-[90%] lg:left-[55%] lg:w-[70%] 2xl:w-[60%] 3xl:w-[50%]"
           )}
         >
           <DialogTitle className="sr-only">Редактирование вопроса</DialogTitle>

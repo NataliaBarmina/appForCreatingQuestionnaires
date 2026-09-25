@@ -11,9 +11,9 @@ export const bigCircleStyles = cn(
 );
 
 export const smallCirclesStyles = cn(
-  "aspect-square rounded-full bg-[#BCC8BE] lg:bg-stone-600",
+  "aspect-square rounded-full bg-stone-600",
   "shadow-md shadow-stone-950",
-  "text-center leading-tight text-black/70 lg:text-pink-100",
+  "text-center leading-tight text-pink-100",
   "text-[clamp(0.8rem,4cqw,1.2rem)]",
   "s:text-[clamp(0.875rem,3.2cqw,1.3rem)]",
   "transition-all duration-200 cursor-pointer",

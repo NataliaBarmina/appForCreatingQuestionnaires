@@ -57,6 +57,7 @@ export const CreateThemeForm = ({
   };
 
   const errorMessage = errors?.topicName?.message;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="text-center">
@@ -67,7 +68,7 @@ export const CreateThemeForm = ({
         />
       </div>
       {errorMessage && <FieldsError message={errorMessage} />}
-      <Button buttonLabel={t("buttonLabel.send")} disabled={isPending} />
+      <Button buttonLabel={t("buttonLabel.send")} type="submit" disabled={isPending} />
     </form>
   );
 };

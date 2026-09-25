@@ -15,8 +15,8 @@ export const ConnectingLines = () => {
               C 250 87, 320 147, 306 208
               C 300 240, 268 270, 244 280
   "
-        stroke="#758C88"
-        strokeWidth="2.5"
+        stroke="rgb(138, 185, 175)"
+        strokeWidth="3.5"
         strokeLinecap="round"
         strokeDasharray="1 10"
       />
@@ -29,8 +29,8 @@ export const ConnectingLines = () => {
     C -5 445, 55 495, 110 510
     C 135 517, 165 516, 190 516
   "
-        stroke="#758C88"
-        strokeWidth="2.5"
+        stroke="rgb(138, 185, 175)"
+        strokeWidth="3.5"
         strokeLinecap="round"
         strokeDasharray="1 10"
       />
