@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { cn } from "@shared/lib";
 
 import {
   Dialog,
@@ -27,7 +28,6 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
         <DialogTrigger asChild>
           <Button
             buttonLabel={t("buttonLabel.edit")}
-            size="middle"
             disabled={false}
             type="button"
             onClick={() => {}}
@@ -36,7 +36,11 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
 
         {/* Портал для рендеринга диалога в указанном контейнере */}
 
-        <DialogContent>
+        <DialogContent
+          className={cn(
+            "left-[50%] w-full md:w-[90%] lg:left-[55%] lg:w-[70%] 2xl:w-[60%] 3xl:w-[50%]"
+          )}
+        >
           <DialogTitle className="sr-only">Редактирование вопроса</DialogTitle>
           <DialogDescription className="sr-only">
             Форма для редактирования вопроса и вариантов ответа

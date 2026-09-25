@@ -1,17 +1,18 @@
 import { cn } from "@shared/lib";
 
 export const pinkContainerStyles = cn(
-  "mx-auto bg-[#ffa79c] pb-10",
+  "w-full bg-[#ffa79c]",
   "border-[3px] border-solid border-[#ff806d]",
-  "s:rounded-2xl",
-  "md:w-[90vw]",
-  "lg:w-[75vw]",
-  "xl:w-[70vw]",
-  "2xl:w-[50vw]"
+  "rounded-xl pb-6"
 );
 
-export const buttonsContainerStyles = "mx-auto mt-6 flex w-[80%] justify-between px-[4vw]";
+export const buttonsContainerStyles = cn(
+  "mx-auto mt-6 flex w-full flex-row justify-between gap-4",
+  "sm:w-[90%]",
+  "md:w-[80%]",
+  "lg:w-[60%]"
+);
 
-export const errorsStyles = cn("textarea-styles", "border-pink-900");
+export const errorsStyles = "textarea-styles px-1 border-pink-900";
 
-export const fieldStyles = cn("textarea-styles", "border-[#ff806d]");
+export const fieldStyles = "textarea-styles border-[#ff806d] text-[0.9rem] rounded-md";

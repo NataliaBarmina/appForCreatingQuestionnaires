@@ -19,7 +19,6 @@ export type TConfirmActionDialog = {
   isFormValid?: boolean;
   isSubmitting?: boolean;
   type?: "submit" | "reset" | "button";
-  size: "middle" | "small" | "big";
   item?: TQuestion;
   index?: number;
 };

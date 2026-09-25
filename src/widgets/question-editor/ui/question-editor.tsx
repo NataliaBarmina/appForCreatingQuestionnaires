@@ -4,9 +4,8 @@ import { EditQuestionDialog } from "@features/edit-question-manually";
 import { DeleteQuestionDialog } from "@features/delete-question-manually";
 import { TQuestionList } from "@entities/question";
 import { Label } from "@shared/ui";
-import { cn } from "@shared/lib";
 
-import { greenContainerStyles } from "./styles";
+import { greenContainerStyles, fieldStyles } from "./styles";
 import { answerFields } from "../config/get-answer-fields";
 
 export const QuestionEditor = ({ data }: { data: TQuestionList[] }) => {
@@ -24,16 +23,16 @@ export const QuestionEditor = ({ data }: { data: TQuestionList[] }) => {
             </h3>
 
             <div>
-              <p className="textarea-styles mb-6">{question}</p>
+              <p className={fieldStyles}>{question}</p>
 
               <div className="mx-auto w-[90%]">
-                {answerFields.map(({ id, value, labelKey, styles }) => (
-                  <div key={id}>
+                {answerFields.map(({ id, value, labelKey }) => (
+                  <div key={id} className="mb-6 last:mb-0">
                     <Label className="text-white" htmlFor={id}>
                       {t(labelKey)}
                     </Label>
 
-                    <p id={id} className={cn("textarea-styles", styles)}>
+                    <p id={id} className={fieldStyles}>
                       {item[value]}
                     </p>
                   </div>

@@ -25,18 +25,12 @@ export const QuestionFormActions = ({
         alertDialogCancel={t("alert.continueEditing")}
         buttonLabel={t("buttonLabel.save")}
         type="button"
-        size="middle"
         onConfirm={onConfirm}
         isFormValid={isFormValid}
         isSubmitting={isSubmitting}
       />
 
-      <Button
-        buttonLabel={t("buttonLabel.reset")}
-        size="middle"
-        type="button"
-        onClick={() => onFormReset()}
-      />
+      <Button buttonLabel={t("buttonLabel.reset")} type="button" onClick={() => onFormReset()} />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import { cn } from "@shared/lib";
-import { forwardRef } from "react";
 
 type TButton = {
   onClick?: () => void;
@@ -7,66 +6,35 @@ type TButton = {
   disabled?: boolean;
   type?: "submit" | "reset" | "button";
   size?: "big" | "middle" | "small";
-  style?: string;
+  className?: string;
 };
 
 const commonStylesForButtons = cn(
-  "mx-auto bg-stone-900  text-pink-100 font-bold shadow-lg shadow-stone-800",
-  "rounded-lg py-2",
-  "shadow-[0_10px_22px_rgba(0,0,0,0.3)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#211919] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)] active:translate-y-0"
-);
-const bigButtonClasses = cn(
-  "block w-[45vw]",
-  "xs:text-[5vw]",
-  "s:w-[35vw] s:py-4 s:text-[3.5vw]",
-  "md:landscape:w-[30vw] md:landscape:text-[3vw]",
-  "lg:landscape:w-[25vw] lg:landscape:text-[2.5vw]",
-  "xl:landscape:w-[20vw] xl:landscape:text-[2vw]",
-  "2xl:landscape:w-[14vw] 2xl:landscape:text-[1.3vw]"
+  "mx-auto block rounded-lg px-4 py-2",
+  "font-semibold text-white/80 text-[0.8rem]",
+  "bg-stone-900 shadow-[0_10px_22px_rgba(0,0,0,0.3)]",
+
+  "transition duration-200",
+  "hover:-translate-y-0.5 hover:bg-[#211919] hover:shadow-[0_14px_26px_rgba(0,0,0,0.35)]",
+  "active:translate-y-0",
+  "disabled:pointer-events-none disabled:opacity-50"
 );
 
-const middleButtonClasses = cn(
-  "block py-3 px-2",
-  "xs:text-[3vw] xs:w-[30vw] ",
-  "s:w-[24vw] s:text-[2.5vw] ",
-  "sm:w-[20vw] sm:text-[2.1vw]",
-  "md:landscape:w-[15vw] md:landscape:text-[1.5vw] ",
-  "lg:landscape:w-[13vw] lg:landscape:text-[1.3vw]",
-  "xl:landscape:w-[11vw] xl:landscape:text-[1.1vw]",
-  "2xl:landscape:w-[8vw] 2xl:landscape:text-[0.8vw]"
-);
-
-const smallButtonClasses = cn(
-  "block ",
-  "xs:text-[3.5vw] xs:w-[30vw] ",
-  "s:w-[24vw] s:py-2 s:text-[2.5vw] s:px-1",
-  "md:landscape:w-[17vw] md:landscape:text-[2vw] md:px-2",
-  "lg:landscape:w-[13vw] lg:landscape:text-[1.5vw]",
-  "xl:landscape:w-[10vw] xl:landscape:text-[1.2vw]",
-  "2xl:landscape:w-[9vw] 2xl:landscape:text-[1vw]"
-);
-
-const sizeClasses: Record<string, string> = {
-  big: bigButtonClasses,
-  middle: middleButtonClasses,
-  small: smallButtonClasses,
-};
-
-export const Button = forwardRef<HTMLButtonElement, TButton>((props, ref) => {
-  const { size = "middle", onClick, buttonLabel, disabled, type, style } = props;
+export const Button = ({
+  onClick,
+  buttonLabel,
+  disabled = false,
+  type = "button",
+  className,
+}: TButton) => {
   return (
     <button
-      ref={ref}
       disabled={disabled}
       type={type}
       onClick={onClick}
-      className={cn(
-        commonStylesForButtons,
-        sizeClasses[size], // Применяем классы в зависимости от размера
-        style
-      )}
+      className={cn(commonStylesForButtons, className)}
     >
       {buttonLabel}
     </button>
   );
-});
+};

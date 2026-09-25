@@ -23,7 +23,7 @@ export const ManualQuestionCreationPage = () => {
 
       <div
         className={cn(
-          "mx-auto w-full bg-green-800/50 px-2 s:bg-green-800/80 sm:px-6",
+          "mx-auto w-full bg-green-800 px-2 s:bg-green-800 sm:px-6",
           "s:border-2 s:border-solid s:border-gray-500",
           "s:w-[90cqw] s:rounded-2xl",
           "md:w-[80cqw]",

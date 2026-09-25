@@ -25,7 +25,6 @@ export const DeleteQuestionDialog = ({ questionID }: { questionID: string }) => 
         alertDialogAction={t("alert.deleteQuestion")}
         alertDialogCancel={t("alert.continueEditing")}
         buttonLabel={t("buttonLabel.delete")}
-        size="middle"
         onConfirm={() => onDelete(questionID)}
         isFormValid={!isPending}
       />

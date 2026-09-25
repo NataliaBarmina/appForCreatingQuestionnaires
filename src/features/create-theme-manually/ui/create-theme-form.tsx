@@ -67,7 +67,7 @@ export const CreateThemeForm = ({
         />
       </div>
       {errorMessage && <FieldsError message={errorMessage} />}
-      <Button buttonLabel={t("buttonLabel.send")} size="middle" disabled={isPending} />
+      <Button buttonLabel={t("buttonLabel.send")} disabled={isPending} />
     </form>
   );
 };
