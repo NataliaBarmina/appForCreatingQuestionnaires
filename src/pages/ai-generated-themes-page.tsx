@@ -33,7 +33,7 @@ export const AIGeneratedThemesPage = () => {
     <>
       <h1>{t("editTheme.titleAI")}</h1>
       <h2>{t("header.course", { courseName })} </h2>
-      <div className="mx-auto mt-8 w-[90%] rounded-xl bg-green-800 px-12 py-10">
+      <div className="mx-auto w-full bg-green-800 px-4 py-10 s:mt-8 md:w-[90%] md:rounded-xl md:px-12">
         {themes?.map((theme: string) => (
           <div key={theme}>
             <EditAIGeneratedTheme

@@ -36,7 +36,7 @@ export const CourseWheel = () => {
   }
 
   return (
-    <div className="flex h-full min-h-0 w-full min-w-0 items-center justify-center">
+    <div className="flex h-full w-full items-start justify-center">
       <svg viewBox="0 0 600 600" role="group" aria-label="Выбор курса" className={viewBoxStyles}>
         <circle cx={CENTER} cy={CENTER} r={OUTER_RADIUS + 5} className={bigCircleStyles} />
 

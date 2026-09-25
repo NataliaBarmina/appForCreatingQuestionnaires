@@ -32,9 +32,11 @@ export const GenerationSettings = ({
   return (
     <div className={containerStyles}>
       <div className={sectionStyles}>
-        <h3 className={titleStyles}>{countTitle}</h3>
+        <label htmlFor="countTitle" className={titleStyles}>
+          {countTitle}
+        </label>
 
-        <div className={countContainerStyles}>
+        <div id="countTitle" className={countContainerStyles}>
           {generationCount.map((item) => {
             const isSelected = count === item;
 
@@ -55,6 +57,7 @@ export const GenerationSettings = ({
           })}
         </div>
       </div>
+
       <div className={sectionStyles}>
         <label htmlFor="additionalPrompt" className={titleStyles}>
           {t("generateQuestions.preferencesTitle")}
