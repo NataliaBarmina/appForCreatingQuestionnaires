@@ -29,7 +29,7 @@
     "title": "Generate AI topics for the {{courseName}} course",
     "generate": "Generate",
     "questionsCountTitle": "Number of topics",
-    "generatingTitle": "Generating topics...",
+    "generatingTitle": "Generating...",
     "mayTakeAFewSeconds": "This may take a few seconds",
     "preferencesPlaceholder": "For example: focus on practical topics, add beginner-friendly topics, exclude overly complex sections, etc."
   },

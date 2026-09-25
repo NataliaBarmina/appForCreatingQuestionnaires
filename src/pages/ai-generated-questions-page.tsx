@@ -45,7 +45,7 @@ export const AIGeneratedQuestionsPage = () => {
         {t("header.course", { courseName })} <br />
         {t("header.theme", { themeName })}
       </h2>
-      <h4 className="pb-8 text-xl font-medium text-[#A6543E]">
+      <h4 className="px-2 pb-8 text-xl font-medium text-[#A6543E]">
         {t("editQuestions.unsavedWarning")}
       </h4>
 
