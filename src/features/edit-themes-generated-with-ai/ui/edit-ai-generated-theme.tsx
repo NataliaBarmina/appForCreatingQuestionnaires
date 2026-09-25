@@ -50,27 +50,28 @@ export const EditAIGeneratedTheme = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="textarea-styles mb-6 flex w-full flex-row items-center justify-between gap-4 rounded-2xl px-0 py-0"
+      className="mb-6 flex w-full flex-row items-center justify-between gap-1 rounded-md border-4 border-solid border-blue-200 bg-blue-100 px-1 pt-1 text-left"
     >
       <textarea
-        className="textarea-styles m-0 border-none focus:outline-none focus:ring-0"
+        className="textarea-styles border-none p-0 text-[0.8rem] md:text-[0.9rem]"
         {...register("themeName")}
       />
 
       <button
-        className="rounded-xl bg-[#88cdbe]/30 p-2 text-[#fca5a5] hover:bg-[#88cdbe]/60"
+        className="rounded-xl bg-[#88cdbe]/30 p-1 text-[#fca5a5] hover:bg-[#88cdbe]/60"
         title="сохранить тему"
         type="submit"
       >
-        <Save size={40} />
+        <Save className="size-5 md:size-6" />
       </button>
+
       <button
-        className="rounded-xl bg-red-200/30 p-2 text-[#fca5a5] hover:bg-red-200"
+        className="rounded-xl bg-red-200/30 p-1 text-[#fca5a5] hover:bg-red-200"
         type="button"
         title="Удалить тему"
         onClick={() => deleteTheme(themeName)}
       >
-        <Trash2 size={40} />
+        <Trash2 className="size-5 md:size-6" />
       </button>
     </form>
   );

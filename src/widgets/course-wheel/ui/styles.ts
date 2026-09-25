@@ -1,10 +1,7 @@
 import { cn } from "@shared/lib";
 
 export const viewBoxStyles = cn(
-  "block h-full w-full",
-  "max-h-full max-w-full",
-  "max-w-[680px]",
-  "overflow-visible",
+  "block h-auto w-full max-w-[600px] s:p-6 sm:p-10 md:pt-4 lg:p-12",
   "[filter:drop-shadow(0_18px_20px_rgba(0,0,0,0.22))]"
 );
 
@@ -31,7 +28,7 @@ export const pathStyles = cn(
 );
 
 export const textStyles =
-  "pointer-events-none select-none fill-[#fca5a5]/80 text-[1.3rem] font-medium";
+  "pointer-events-none select-none fill-[#fca5a5]/80 text-[1.5rem] font-medium";
 
 export const smallCircleStyles = cn(
   "pointer-events-none fill-[#5f8181] stroke-[#456c6b] ",
