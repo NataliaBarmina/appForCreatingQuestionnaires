@@ -21,8 +21,10 @@ export const ContentCreationOptions = () => {
             <div className="flex justify-center">
               <option.Icon />
             </div>
-            <p className="mx-auto text-[3vh] font-medium leading-none">{t(option.title)}</p>
-            <p className="mt-1 text-[1.7vh] leading-none">{t(option.subtitle)}</p>
+            <p className="mx-auto text-[1.2rem] font-medium leading-none s:text-[1.4rem] s:leading-normal">
+              {t(option.title)}
+            </p>
+            <p className="mt-1 text-[0.9rem] s:text-[1rem]">{t(option.subtitle)}</p>
           </button>
         ))}
 

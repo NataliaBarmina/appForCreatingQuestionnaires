@@ -31,7 +31,7 @@ const ai = getAI(app, {
 });
 
 export const geminiModel = getGenerativeModel(ai, {
-  model: "gemini-3.6-flash",
+  model: "gemini-3.7-flash",
 });
 
 // export const geminiSearchModel = getGenerativeModel(ai, { // платная модель с поиском гугл
