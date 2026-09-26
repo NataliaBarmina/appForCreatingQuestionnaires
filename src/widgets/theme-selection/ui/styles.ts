@@ -9,6 +9,7 @@ export const mainContainerStyles = cn(
 export const listItemStyles = {
   border: "4px solid rgb(180, 209, 210)",
   bgcolor: "rgb(240,248,255)",
+  borderRadius: "6px",
   width: "90%",
   margin: "0 auto",
   marginBottom: "20px",

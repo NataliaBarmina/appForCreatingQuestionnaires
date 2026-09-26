@@ -5,7 +5,14 @@ import { useTranslation } from "react-i18next";
 
 import { FieldsError } from "@shared/ui";
 import { TQuestionItem } from "../model/types";
-import { greenContainerStyles, radioInputStyles } from "./styles";
+import { cn } from "@shared/lib";
+
+export const greenContainerStyles = cn(
+  "mx-auto mb-4 pb-4 w-full bg-green-800",
+  "md:border-2 md:border-solid md:border-gray-600",
+  "md:w-[90%] md:rounded-2xl"
+);
+export const fieldStyles = "textarea-styles py-[2px] mb-0";
 
 export const QuestionItem = ({ index, questionItem, errorMessage }: TQuestionItem) => {
   const { t } = useTranslation();
@@ -17,29 +24,26 @@ export const QuestionItem = ({ index, questionItem, errorMessage }: TQuestionIte
 
   return (
     <div className={greenContainerStyles}>
-      <div className="mb-2 p-4 text-lg font-bold text-blue-100">
+      <div className="p-2 text-lg font-bold text-blue-100">
         {t("header.questionNumber")}
         {index + 1}
       </div>
 
-      <div className="mx-auto mb-8 w-[90%]">
-        <p lang="ru" className="textarea-styles mb-4 hyphens-auto rounded-md text-[0.9rem]">
-          {question}
-        </p>
+      <div className="mx-auto w-[95%] sm:w-[90%]">
+        <p className={cn(fieldStyles, "mb-4")}>{question}</p>
 
-        <div className="mb-12 ml-[4%] w-[96%]">
+        <div>
           {shuffledAnswers.map((answer, answerIndex) => (
             <div key={answer + answerIndex}>
-              <label className="mb-4 flex">
+              <label className="mb-4 flex items-center justify-center gap-2">
                 <input
-                  lang="ru"
-                  className="mt-2 h-8 w-8"
+                  className="h-7 w-7"
                   type="radio"
                   value={answer}
                   {...register(`radioInputFromSurvey.${index}`)}
                 />
 
-                <span className={radioInputStyles}>{answer}</span>
+                <p className={fieldStyles}>{answer}</p>
               </label>
             </div>
           ))}
