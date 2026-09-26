@@ -32,7 +32,7 @@ export const QuestionnaireForm = ({ questions }: { questions: TQuestion[] }) => 
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="pb-10">
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         {questions.map((questionItem, index) => (
           <QuestionItem
             key={questionItem.id}
@@ -44,7 +44,7 @@ export const QuestionnaireForm = ({ questions }: { questions: TQuestion[] }) => 
 
         {generalErrorMessage && <FieldsError message={generalErrorMessage} />}
 
-        <Button type="submit" buttonLabel={t("buttonLabel.save")} />
+        <Button type="submit" buttonLabel={t("buttonLabel.save")} className="mb-6" />
       </form>
     </FormProvider>
   );

@@ -4,7 +4,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
 
 import { Button, FieldsError } from "@shared/ui";
-import { buttonsContainerStyles, errorsStyles, pinkContainerStyles, fieldStyles } from "./styles";
+import {
+  buttonsContainerStyles,
+  errorsStyles,
+  pinkContainerStyles,
+  fieldStyles,
+  buttonStyles,
+} from "./styles";
 import { TEditQuestionForm, TQuestionItem } from "../model/types";
 import { createSchema } from "../model/validation-schema";
 import { useEditQuestion } from "../api/use-edit-question";
@@ -59,12 +65,12 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
 
   return (
     <div className={pinkContainerStyles}>
-      <h1 className="px-4 py-4 text-[1.1rem] font-semibold s:py-5 s:text-[1.5rem]">
+      <h1 className="hidden px-4 pt-4 text-[1.1rem] font-semibold s:pt-5 s:text-[1.5rem] sm:block">
         {t("editQuestions.changingQuestion")}
       </h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto s:px-2 xl:px-6">
+        <div className="mx-auto pt-2 s:px-2 s:pt-4 xl:px-6">
           <textarea
             className={!errors.question ? fieldStyles : errorsStyles}
             {...register("question")}
@@ -73,7 +79,7 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
           <div>
             {answerFields.map(({ name, label }) => (
               <div key={name}>
-                <p className="text-center text-[0.7rem] text-black s:text-[0.9rem]">
+                <p className="text-center text-[0.7rem] leading-4 text-white s:text-[0.9rem] sm:text-black">
                   {t(label).toLowerCase()}
                 </p>
 
@@ -92,9 +98,15 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
             buttonLabel={t("buttonLabel.save")}
             disabled={!isValid || isPending}
             type="submit"
+            className={buttonStyles}
           />
 
-          <Button buttonLabel={t("buttonLabel.closeForm")} onClick={onClose} type="button" />
+          <Button
+            buttonLabel={t("buttonLabel.closeForm")}
+            onClick={onClose}
+            type="button"
+            className={buttonStyles}
+          />
         </div>
       </form>
     </div>

@@ -6,6 +6,16 @@ export const pinkContainerStyles = cn(
   "rounded-xl"
 );
 
+export const fieldStyles = cn(
+  "textarea-styles border-none rounded-md",
+  "text-[0.8rem] py-[1px] mb-0",
+
+  "s:py-2  s:text-[0.9rem]",
+  "sm:border-solid sm:border-[#ff806d]"
+);
+
+export const errorsStyles = "textarea-styles px-1 border-pink-900";
+
 export const buttonsContainerStyles = cn(
   "mx-auto my-2 flex w-full flex-row justify-between gap-4",
   "sm:w-[90%] sm:my-4",
@@ -13,12 +23,4 @@ export const buttonsContainerStyles = cn(
   "lg:w-[60%]"
 );
 
-export const errorsStyles = "textarea-styles px-1 border-pink-900";
-
-export const fieldStyles = cn(
-  "textarea-styles border-none rounded-md",
-  "text-[0.8rem] py-1 mb-0",
-
-  "s:py-2  s:text-[0.9rem]",
-  "sm:border-solid sm:border-[#ff806d]"
-);
+export const buttonStyles = "py-[2px] text-[0.7rem] s:py-1 s:text-[0.8rem]";
