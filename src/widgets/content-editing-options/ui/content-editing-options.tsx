@@ -23,14 +23,20 @@ export const ContentEditingOptions = () => {
 
         return (
           <div key={text} className={contentStyles}>
-            <div className="mb-4 flex justify-center s:mb-8">
+            <div className="mb-2 flex justify-center s:mb-8">
               <Icon />
             </div>
 
             <p className={headerStyle}>
-              {t("navigation.editing")}
-              <br />
-              {t(header)}
+              <span className="s:hidden">
+                {t("navigation.editing")} {t(header)}
+              </span>
+              {/*  */}
+              <span className="hidden s:block">
+                {t("navigation.editing")}
+                <br />
+                {t(header)}
+              </span>
             </p>
 
             <div className={lineStyles} />

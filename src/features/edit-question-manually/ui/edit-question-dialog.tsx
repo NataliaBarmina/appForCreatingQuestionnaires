@@ -26,12 +26,7 @@ export const EditQuestionDialog = ({ questionItem }: { questionItem: TQuestionLi
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button
-            buttonLabel={t("buttonLabel.edit")}
-            disabled={false}
-            type="button"
-            onClick={() => {}}
-          ></Button>
+          <Button buttonLabel={t("buttonLabel.edit")} disabled={false} type="button" />
         </DialogTrigger>
 
         {/* Портал для рендеринга диалога в указанном контейнере */}
