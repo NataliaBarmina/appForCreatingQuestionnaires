@@ -70,7 +70,7 @@ export const EditQuestionForm = ({ onClose, questionItem }: TEditQuestionForm) =
       </h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto pt-2 s:px-2 s:pt-4 xl:px-6">
+        <div className="mx-auto pt-4 s:px-2 s:pt-4 xl:px-6">
           <textarea
             className={!errors.question ? fieldStyles : errorsStyles}
             {...register("question")}

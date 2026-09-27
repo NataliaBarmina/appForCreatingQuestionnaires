@@ -1,11 +1,8 @@
+import { forwardRef } from "react";
 import { cn } from "@shared/lib";
 
-type TButton = {
-  onClick?: () => void;
+type TButton = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   buttonLabel?: string;
-  disabled?: boolean;
-  type?: "submit" | "reset" | "button";
-  className?: string;
 };
 
 const commonStylesForButtons = cn(
@@ -19,21 +16,20 @@ const commonStylesForButtons = cn(
   "disabled:pointer-events-none disabled:opacity-50"
 );
 
-export const Button = ({
-  onClick,
-  buttonLabel,
-  disabled = false,
-  type = "button",
-  className,
-}: TButton) => {
-  return (
-    <button
-      disabled={disabled}
-      type={type}
-      onClick={onClick}
-      className={cn(commonStylesForButtons, className)}
-    >
-      {buttonLabel}
-    </button>
-  );
-};
+export const Button = forwardRef<HTMLButtonElement, TButton>(
+  ({ buttonLabel, disabled = false, type = "button", className, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        disabled={disabled}
+        type={type}
+        className={cn(commonStylesForButtons, className)}
+        {...props}
+      >
+        {buttonLabel}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";

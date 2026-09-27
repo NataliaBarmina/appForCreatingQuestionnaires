@@ -23,4 +23,4 @@ export const buttonsContainerStyles = cn(
   "lg:w-[60%]"
 );
 
-export const buttonStyles = "py-[2px] text-[0.7rem] s:py-1 s:text-[0.8rem]";
+export const buttonStyles = "py-[4px] text-[0.7rem] s:py-1 s:text-[0.8rem]";
