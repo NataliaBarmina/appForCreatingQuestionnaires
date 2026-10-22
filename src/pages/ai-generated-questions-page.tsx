@@ -25,6 +25,7 @@ export const AIGeneratedQuestionsPage = () => {
     queryKey: ["generatedQuestions", themeName],
     queryFn: async () => [],
     enabled: false,
+    throwOnError: true,
   });
 
   function deleteQuestion(questionName: string) {

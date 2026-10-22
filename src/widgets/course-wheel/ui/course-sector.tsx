@@ -43,7 +43,15 @@ export const CourseSector = ({ course, path, labelPosition, style, onSelect }: P
           dominantBaseline="middle"
           className={textStyles}
         >
-          {course}
+          {course.split(" ").map((word, index, words) => (
+            <tspan
+              key={index}
+              x={labelPosition.x}
+              dy={index === 0 ? `${-(words.length - 1) * 0.6}em` : "1.2em"}
+            >
+              {word}
+            </tspan>
+          ))}
         </text>
       </g>
     </g>

@@ -38,5 +38,6 @@ export const useGenerateThemes = ({
     queryKey: queryKeys.generatedThemesByCourse(courseName),
     queryFn: () => generateThemes({ courseName, count, instructions, existingThemes }),
     enabled: false, // queryFn не запускается автоматически- для связки с refetch
+    throwOnError: true,
   });
 };
