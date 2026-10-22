@@ -1,11 +1,11 @@
 import { cn } from "@shared/lib";
 
 export const viewBoxStyles = cn(
-  "block h-auto w-full max-w-[600px] s:p-6 sm:p-10 md:pt-4 lg:p-12",
+  "h-auto w-full s:w-[95%] sm:w-[80%] md:w-[60%] lg:w-[85%] xl:w-[80%] 2xl:w-[70%]",
   "[filter:drop-shadow(0_18px_20px_rgba(0,0,0,0.22))]"
 );
 
-export const bigCircleStyles = "fill-green-800 stroke-green-800 [stroke-width:5px]";
+export const bigCircleStyles = "fill-[#fca5a5]/80";
 
 export const sectorContentStyles = cn(
   "transition-transform duration-200 ease-out ",
@@ -17,7 +17,7 @@ export const sectorContentStyles = cn(
 
 export const pathStyles = cn(
   "fill-[radial-gradient(circle_at_top,_#0f2d2a,_#071716)] ",
-  "stroke-[#587b7b] ",
+  "stroke-[#fca5a5]/50",
   "[stroke-linejoin:round] ",
   "[stroke-width:3px] ",
   "transition-colors duration-200 ",
@@ -28,7 +28,7 @@ export const pathStyles = cn(
 );
 
 export const textStyles =
-  "pointer-events-none select-none fill-[#fca5a5]/80 text-[1.5rem] font-medium";
+  "pointer-events-none select-none fill-[#fca5a5] text-[1.2rem] font-medium";
 
 export const smallCircleStyles = cn(
   "pointer-events-none fill-[#5f8181] stroke-[#456c6b] ",

@@ -3,6 +3,9 @@ import { Outlet } from "react-router-dom";
 import { Header } from "@widgets/header";
 import { NavPanel } from "@widgets/nav-panel";
 import { cn } from "@shared/lib";
+import { ErrorFallbackBoundary } from "@shared/ui/errors/error-fallback-boundary";
+
+// ErrorFallbackBoundary отобразит запасной интерфейс, если в любой странице внутри Outlet произойдёт необработанная ошибка рендеринга
 
 export const containerStyle = cn(
   "mx-auto text-center",
@@ -34,9 +37,11 @@ export const AppLayout = () => {
         </div>
 
         <main className={outletStyle}>
-          <div className="flex min-h-0 min-w-0 flex-1 flex-col pb-16 lg:pb-0">
-            <Outlet />
-          </div>
+          <ErrorFallbackBoundary>
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col pb-16 lg:pb-0">
+              <Outlet />
+            </div>
+          </ErrorFallbackBoundary>
         </main>
       </div>
     </div>

@@ -17,6 +17,7 @@ export const AIGeneratedThemesPage = () => {
     queryKey: ["generatedThemes", courseName],
     queryFn: async () => [],
     enabled: false, // queryFn не запускается автоматически — запускаем вручную через refetch()
+    throwOnError: true,
   });
 
   function deleteTheme(themeName: string) {

@@ -22,6 +22,7 @@ export async function getQuestions() {
 export const useGetQuestions = () => {
   return useQuery({
     queryKey: queryKeys.questions,
-    queryFn: () => getQuestions(),
+    queryFn: getQuestions,
+    throwOnError: true,
   });
 };

@@ -19,7 +19,7 @@ export const useDeleteTheme = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: deleteTheme,
-    onSuccess: async (_, themeId) =>
+    onSuccess: async () =>
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: queryKeys.themes }),
         queryClient.invalidateQueries({ queryKey: queryKeys.questions }),
