@@ -11,15 +11,15 @@ const QUESTIONS_LIMIT = 10;
 export const QuestionnairePage = () => {
   const { t } = useTranslation();
 
-  const { data, isFetching, isError, error } = useGetQuestions();
+  const { data, isPending, isError, error } = useGetQuestions();
 
-  const questions = useMemo(() => shuffle(data).slice(0, QUESTIONS_LIMIT), [data]);
+  const questions = useMemo(() => shuffle(data ?? []).slice(0, QUESTIONS_LIMIT), [data]);
 
-  if (isFetching) {
+  if (isPending) {
     return <Preloader />;
   }
 
-  if (isError) {
+  if (isError && !data) {
     return <LoadingError message={error?.message || t("error.loadQuestionsFailed")} />;
   }
 

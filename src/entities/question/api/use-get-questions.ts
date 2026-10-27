@@ -23,6 +23,7 @@ export const useGetQuestions = () => {
   return useQuery({
     queryKey: queryKeys.questions,
     queryFn: getQuestions,
-    throwOnError: true,
+    refetchOnWindowFocus: false, // оключает обновление при переключении между вкладками
+    refetchOnReconnect: false, // отключает обновление при восстановлении соединения
   });
 };

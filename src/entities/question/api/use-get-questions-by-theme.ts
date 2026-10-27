@@ -25,6 +25,6 @@ export const useGetQuestionsByTheme = (themeId: string) => {
   return useQuery({
     queryKey: queryKeys.questionsByTheme(themeId),
     queryFn: () => getQuestionsByTheme(themeId),
-    throwOnError: true,
+    enabled: Boolean(themeId),
   });
 };

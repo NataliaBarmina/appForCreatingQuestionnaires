@@ -1,8 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
+import { useQueryClient, useQuery, skipToken } from "@tanstack/react-query";
 
+import { queryKeys } from "@shared/query-keys-factory";
 import { EditAIGeneratedTheme } from "@features/edit-themes-generated-with-ai";
 
 export const AIGeneratedThemesPage = () => {
@@ -14,17 +15,16 @@ export const AIGeneratedThemesPage = () => {
   const { courseName } = location.state;
 
   const { data: themes = [] } = useQuery<string[]>({
-    queryKey: ["generatedThemes", courseName],
-    queryFn: async () => [],
-    enabled: false, // queryFn не запускается автоматически — запускаем вручную через refetch()
-    throwOnError: true,
+    queryKey: queryKeys.generatedThemesByCourse(courseName),
+    queryFn: skipToken,
   });
 
-  function deleteTheme(themeName: string) {
-    queryClient.setQueryData<string[]>(["generatedThemes", courseName], (prevThemes = []) =>
-      prevThemes.filter((theme) => theme !== themeName)
+  const deleteTheme = (themeName: string) => {
+    queryClient.setQueryData<string[]>(
+      queryKeys.generatedThemesByCourse(courseName),
+      (prevThemes = []) => prevThemes.filter((theme) => theme !== themeName)
     );
-  }
+  };
 
   useEffect(() => {
     if (!themes.length) navigate("/dashboard");

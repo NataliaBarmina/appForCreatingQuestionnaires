@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 
 import { GenerationSettings } from "@entities/generation-settings";
 import { useGetThemes } from "@entities/theme";
-import { LoadingError } from "@shared/ui";
+import { LoadingError, Preloader } from "@shared/ui";
 import { useGenerateThemes } from "../api/use-generate-themes";
 
 const TOPICS_COUNT = [2, 5, 10, 15, 20];
@@ -16,11 +16,16 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
   const [count, onCountChange] = useState(10);
   const [instructions, onInstructionsChange] = useState("");
 
-  const { data: themes = [] } = useGetThemes(courseName);
+  const {
+    data: themes = [],
+    isPending: isThemesPending,
+    isError: isThemesError,
+    error: themesError,
+  } = useGetThemes(courseName);
 
-  const existingThemes = themes?.map((theme) => theme.themeName);
+  const existingThemes = themes.map((theme) => theme.themeName);
 
-  const { isFetching, refetch, isError, error } = useGenerateThemes({
+  const { isFetching, refetch } = useGenerateThemes({
     courseName,
     count,
     instructions,
@@ -28,7 +33,7 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
   });
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Не даём браузеру стандартно отправить форму
+    event.preventDefault();
 
     const result = await refetch(); // Вручную запускаем query и ждём результат
 
@@ -36,6 +41,10 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
       return navigate("/create/themes/ai-result", { state: { courseName } });
     }
   };
+
+  if (isThemesPending) return <Preloader />;
+
+  if (isThemesError) return <LoadingError message={themesError.message} />;
 
   return (
     <form onSubmit={onSubmit}>
@@ -50,8 +59,6 @@ export const GenerateThemesForm = ({ courseName }: { courseName: string }) => {
         isFetching={isFetching}
         loadingModalMessage={t("generateTheme.generatingTitle")}
       />
-
-      {isError && <LoadingError message={error.message} />}
     </form>
   );
 };
