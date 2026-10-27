@@ -38,5 +38,6 @@ export const useGenerateQuestions = ({
       generateQuestions({ themeName, count, instructions, existingQuestions, courseName }),
     enabled: false, // queryFn не запускается автоматически- для связки с refetch
     throwOnError: true,
+    retry: false,
   });
 };

@@ -24,6 +24,5 @@ export const useGetThemes = (selectedCourseName: string) => {
     queryKey: queryKeys.themesByCourse(selectedCourseName),
     queryFn: () => getThemes(selectedCourseName),
     enabled: Boolean(selectedCourseName),
-    throwOnError: true,
   });
 };

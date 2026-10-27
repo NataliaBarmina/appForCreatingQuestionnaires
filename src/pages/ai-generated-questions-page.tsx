@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient, skipToken } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 import { EditAIGeneratedQuestions } from "@features/edit-questions-generated-with-ai";
+import { queryKeys } from "@shared/query-keys-factory";
 
 export type TGeneratedQuestion = {
   answer_1: string;
@@ -22,15 +23,13 @@ export const AIGeneratedQuestionsPage = () => {
   const { courseName, themeName, themeId } = location.state || {};
 
   const { data: questions = [] } = useQuery<TGeneratedQuestion[]>({
-    queryKey: ["generatedQuestions", themeName],
-    queryFn: async () => [],
-    enabled: false,
-    throwOnError: true,
+    queryKey: queryKeys.generatedQuestionsByTheme(themeName),
+    queryFn: skipToken,
   });
 
   function deleteQuestion(questionName: string) {
     queryClient.setQueryData<TGeneratedQuestion[]>(
-      ["generatedQuestions", themeName],
+      queryKeys.generatedQuestionsByTheme(themeName),
       (prevQuestions = []) => prevQuestions.filter((question) => question.question !== questionName)
     );
   }

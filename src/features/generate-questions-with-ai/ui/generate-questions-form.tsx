@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { GenerationSettings } from "@entities/generation-settings";
 import { useGetQuestionsByTheme } from "@entities/question";
 import { useGenerateQuestions } from "../api/use-generate-questions";
-import { LoadingError } from "@shared/ui";
+import { LoadingError, Preloader } from "@shared/ui";
 
 const QUESTIONS_COUNT = [2, 5, 10, 15, 20];
 
@@ -24,11 +24,11 @@ export const GenerateQuestionsForm = ({
   const [count, onCountChange] = useState(10);
   const [instructions, onInstructionsChange] = useState("");
 
-  const { data } = useGetQuestionsByTheme(themeId);
+  const { data, isPending, isError, error } = useGetQuestionsByTheme(themeId);
 
   const existingQuestions = data?.map((question) => question.question);
 
-  const { refetch, isError, error, isFetching } = useGenerateQuestions({
+  const { refetch, isFetching } = useGenerateQuestions({
     courseName,
     themeName,
     count,
@@ -39,12 +39,22 @@ export const GenerateQuestionsForm = ({
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (!data || isFetching) return;
+
     const result = await refetch();
 
     if (result.isSuccess) {
       return navigate("/create/questions/ai-result", { state: { courseName, themeName, themeId } });
     }
   };
+
+  if (isPending) {
+    return <Preloader />;
+  }
+
+  if (isError && !data) {
+    return <LoadingError message={error.message} />;
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -59,8 +69,6 @@ export const GenerateQuestionsForm = ({
         isFetching={isFetching}
         loadingModalMessage={t("generateQuestions.generatingTitle")}
       />
-
-      {isError && <LoadingError message={error.message} />}
     </form>
   );
 };
