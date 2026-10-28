@@ -55,8 +55,7 @@ export const CreateQuestionForm = ({ themeId }: { themeId: string }) => {
 
       reset();
     } catch (error) {
-      const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
-      toast.error(message);
+      toast.error(t("error.somethingWentWrong"));
     }
   };
 

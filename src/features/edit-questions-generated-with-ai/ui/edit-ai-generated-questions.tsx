@@ -36,8 +36,7 @@ export const EditAIGeneratedQuestions = ({
       await mutateAsync(questionData);
       deleteQuestion(question);
     } catch (error) {
-      const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
-      toast.error(message);
+      toast.error(t("error.somethingWentWrong"));
     }
   };
 
@@ -64,6 +63,7 @@ export const EditAIGeneratedQuestions = ({
         <div className="mx-auto w-[90%] font-medium">
           <textarea
             className={!errors.question ? "textarea-styles" : errorsStyles}
+            disabled={isPending}
             {...register("question")}
           />
 
@@ -74,6 +74,7 @@ export const EditAIGeneratedQuestions = ({
 
                 <textarea
                   className={errors[name] ? errorsStyles : "textarea-styles"}
+                  disabled={isPending}
                   {...register(name)}
                 />
               </div>
@@ -92,6 +93,7 @@ export const EditAIGeneratedQuestions = ({
 
           <Button
             buttonLabel={t("buttonLabel.delete")}
+            disabled={isPending}
             onClick={() => deleteQuestion(question)}
             type="button"
           />
