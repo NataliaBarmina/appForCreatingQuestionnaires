@@ -1,6 +1,5 @@
 import { db } from "@appFirebase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { FirebaseError } from "firebase/app";
 import { deleteDoc, doc } from "firebase/firestore";
 
 import { getQuestionsByTheme } from "@entities/question";
@@ -24,12 +23,5 @@ export const useDeleteTheme = () => {
         queryClient.invalidateQueries({ queryKey: queryKeys.themes }),
         queryClient.invalidateQueries({ queryKey: queryKeys.questions }),
       ]),
-    onError: (error) => {
-      if (error instanceof FirebaseError) {
-        console.error(error.code, error.message);
-        return;
-      }
-      console.error(error);
-    },
   });
 };

@@ -47,10 +47,8 @@ export const CreateThemeForm = ({
           reset();
           onSuccess?.();
         },
-        onError: (error) => {
-          const message = error instanceof Error ? error.message : t("error.somethingWentWrong");
-
-          toast.error(message);
+        onError: () => {
+          toast.error(t("error.somethingWentWrong"));
         },
       }
     );
